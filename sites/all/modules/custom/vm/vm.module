@@ -1,0 +1,38 @@
+<?php
+
+
+/***
+ * Converts uploaded TEI to HTML using Versioning Machine's XSLT
+ ***/
+function vm_convert($xml_filename, $xsl_filename, $outfile) {
+  $xml = new DOMDocument;
+  $xml->load($xml_filename);
+
+  $xsl = new DOMDocument;
+  $xsl->load($xsl_filename);
+
+  // Configure the transformer
+  $proc = new XSLTProcessor;
+  $proc->importStyleSheet($xsl); // attach the xsl rules
+
+  $proc->transformToURI($xml, 'file://' . $outfile);
+
+}
+
+/***
+ * Check the uploaded TEI, convert it, extract data, and populate fields
+ ***/
+function vm_tei_submit($node, $form, &$form_state) {
+
+}
+
+// TODO:
+/*
+Create a form for uploading TEI files
+Extract metadata
+Convert the XML into HTML, add to versioning machine
+Add link to versioning machine copy of file to the text node
+Save the text node
+create a "text" node if none matching
+If matching, update the original with any new data
+*/

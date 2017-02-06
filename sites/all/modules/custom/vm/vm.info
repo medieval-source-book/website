@@ -1,0 +1,6 @@
+name = Versioning Machine
+description = Provides a connection to Versioning Machine
+package = Versioning Machine
+core = 7.x
+
+dependencies[] = gms_text
