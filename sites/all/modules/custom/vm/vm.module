@@ -1,5 +1,6 @@
 <?php
 
+define("VM_NODE_TYPE", 'text');
 
 function vm_menu() {
     $items['vm/upload-tei'] = array(
@@ -39,7 +40,7 @@ function vm_permission() {
  * Returns an array of fields for the vm text node
  */
 function vm_get_node_fields() {
-    return field_info_instances('node', 'text');
+    return field_info_instances('node', VM_NODE_TYPE);
 }
 
 function vm_admin_form() {
@@ -51,7 +52,6 @@ function vm_admin_form() {
         '#default_value' => variable_get('vm_xpath_title', '//teiHeader/fileDesc/titleStmt/title'),
         '#size' => 50,
     );
-    array_push($variables, 'title');
     foreach (vm_get_node_fields() as $name => $attributes) {
         $form[$name] = array(
             '#type' => 'textfield',
@@ -59,9 +59,7 @@ function vm_admin_form() {
             '#default_value' => variable_get('vm_xpath_' . $name, ''),
             '#size' => 50,
         );
-        array_push($variables, $name);
     }
-    variable_set('vm_xpath_items', $variables);
     return system_settings_form($form);
 }
 
@@ -86,46 +84,71 @@ function vm_form_upload_tei_form($form, &$form_state) {
     return $form;
 }
 
+/***
+ * @param $form
+ * @param $form_state
+ *
+ * Parse the TEI to extract field data; create a node with this data
+ */
 function vm_form_upload_tei_form_submit($form, &$form_state) {
+    global $user;
     $file = file_load($form_state['values']['tei_file']);
     $filename = drupal_realpath($file->uri);
-    dpm($filename);
     $xml = new DOMDocument;
     $xml->load($filename);
     $xpath = new DOMXPath($xml);
 
     // Get xpath queries from the admin form settings
     $items = variable_get('vm_xpath_items');
+    $values = array();
     foreach ($items as $item) {
         $query = variable_get($item);
         if (strlen($query)) {
             $result = $xpath->query($query);
-            $value = $result[0]->nodeValue;
+            $values[$item] = $result[0]->nodeValue;
         }
     }
 
-    if (strlen($title) > 0) {
+    if (strlen($values['title']) > 0) {
         $file->status = FILE_STATUS_PERMANENT;
         file_save($file);
+        $node = entity_create('node', array(
+            'type' => VM_NODE_TYPE,
+            'uid' => $user->uid,
+            'status' => 1,
+            'comment' => 0,
+            'promote' => 0
+        ));
+        $wrapper = entity_metadata_wrapper('node', $node);
+        foreach ($values as $key => $val) {
+            $wrapper->{$key}->set($val);
+        }
+        $wrapper->tei_file->file->set($file); // Save the filename
+
+        // Now run the XSLT and save the location
+        $vm_file = $vm_convert($filename);
+        $wrapper->vm_link->set($vm_file);
+        $wrapper->save();
     }
 }
 
 /***
  * Converts uploaded TEI to HTML using Versioning Machine's XSLT
  ***/
-function vm_convert($xml_filename, $xsl_filename, $outfile) {
-  $xml = new DOMDocument;
-  $xml->load($xml_filename);
+function vm_convert($xml_filename) {
+    $xml = new DOMDocument;
+    $xml->load($xml_filename);
 
-  $xsl = new DOMDocument;
-  $xsl->load($xsl_filename);
+    $xsl = new DOMDocument;
+    $xsl->load($xsl_filename);
 
-  // Configure the transformer
-  $proc = new XSLTProcessor;
-  $proc->importStyleSheet($xsl); // attach the xsl rules
+    // Configure the transformer
+    $proc = new XSLTProcessor;
+    $proc->importStyleSheet($xsl); // attach the xsl rules
+    $outfile = '';
 
-  $proc->transformToURI($xml, 'file://' . $outfile);
-
+    $proc->transformToURI($xml, 'file://' . $outfile);
+    return $outfile;
 }
 
 /***
