@@ -1,6 +1,115 @@
 <?php
 
 
+function vm_menu() {
+    $items['vm/upload-tei'] = array(
+        'title' => 'Upload TEI file',
+        'description' => 'Upload TEI-encoded texts for use with Versioning Machine',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('vm_form_upload_tei_form'),
+        'access arguments' => array('upload tei'),
+        'type' => MENU_CALLBACK,
+    );
+    $items['admin/config/content/vm'] = array(
+        'title' => 'Versioning Machine settings',
+        'description' => 'Set the XPath queries for TEI upload to Versioning Machine',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('vm_admin_form'),
+        'access arguments' => array('administer vm'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    return $items;
+
+}
+
+function vm_permission() {
+    return array(
+        'upload tei' => array(
+          'title' => t('Upload TEI files'),
+          'description' => t('Allow users to upload TEI for use in Versioning Machine'),
+        ),
+        'administer vm' => array(
+            'title' => t('Administer Versioning Machine'),
+            'description' => t('Allow users to adminster Versioning Machine settings')
+        )
+    );
+}
+
+/***
+ * Returns an array of fields for the vm text node
+ */
+function vm_get_node_fields() {
+    return field_info_instances('node', 'text');
+}
+
+function vm_admin_form() {
+    $form = array();
+    $variables = array();
+    $form['title'] = array(
+        '#type' => 'textfield',
+        '#title' => t('XPath query for Title'),
+        '#default_value' => variable_get('vm_xpath_title', '//teiHeader/fileDesc/titleStmt/title'),
+        '#size' => 50,
+    );
+    array_push($variables, 'title');
+    foreach (vm_get_node_fields() as $name => $attributes) {
+        $form[$name] = array(
+            '#type' => 'textfield',
+            '#title' => t('XPath query for ' . $attributes['label']),
+            '#default_value' => variable_get('vm_xpath_' . $name, ''),
+            '#size' => 50,
+        );
+        array_push($variables, $name);
+    }
+    variable_set('vm_xpath_items', $variables);
+    return system_settings_form($form);
+}
+
+function vm_form_upload_tei_form($form, &$form_state) {
+    $form['tei_file'] = array(
+        '#type' => 'managed_file',
+        '#title' => t('Upload TEI file'),
+        '#description' => t("Upload a TEI-encoded XML file for use in Versioning Machine"),
+        '#upload_validators' => array(
+            'file_validate_extensions' => array('xml'),
+            'file_validate_size' => array(10 * 1024 * 1024),
+        ),
+        '#upload_location' => "public://vm_tei",
+        '#required' => TRUE,
+    );
+
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Submit'
+    );
+
+    return $form;
+}
+
+function vm_form_upload_tei_form_submit($form, &$form_state) {
+    $file = file_load($form_state['values']['tei_file']);
+    $filename = drupal_realpath($file->uri);
+    dpm($filename);
+    $xml = new DOMDocument;
+    $xml->load($filename);
+    $xpath = new DOMXPath($xml);
+
+    // Get xpath queries from the admin form settings
+    $items = variable_get('vm_xpath_items');
+    foreach ($items as $item) {
+        $query = variable_get($item);
+        if (strlen($query)) {
+            $result = $xpath->query($query);
+            $value = $result[0]->nodeValue;
+        }
+    }
+
+    if (strlen($title) > 0) {
+        $file->status = FILE_STATUS_PERMANENT;
+        file_save($file);
+    }
+}
+
 /***
  * Converts uploaded TEI to HTML using Versioning Machine's XSLT
  ***/
