@@ -45,7 +45,7 @@ function vm_get_node_fields() {
 
 function vm_admin_form() {
     $form = array();
-    $variables = array();
+    $variables = array('title');
     $form['title'] = array(
         '#type' => 'textfield',
         '#title' => t('XPath query for Title'),
@@ -59,7 +59,9 @@ function vm_admin_form() {
             '#default_value' => variable_get('vm_xpath_' . $name, ''),
             '#size' => 50,
         );
+        array_push($variables, $name);
     }
+    variable_set('vm_xpath_items', $variables);
     return system_settings_form($form);
 }
 
@@ -100,6 +102,7 @@ function vm_form_upload_tei_form_submit($form, &$form_state) {
 
     // Get xpath queries from the admin form settings
     $items = variable_get('vm_xpath_items');
+    dpm($items);
     $values = array();
     foreach ($items as $item) {
         $query = variable_get($item);
@@ -108,8 +111,10 @@ function vm_form_upload_tei_form_submit($form, &$form_state) {
             $values[$item] = $result[0]->nodeValue;
         }
     }
+    dpm($values);
 
-    if (strlen($values['title']) > 0) {
+    // We need a title for our nodes
+    if (array_key_exists('title', $values)) {
         $file->status = FILE_STATUS_PERMANENT;
         file_save($file);
         $node = entity_create('node', array(
@@ -123,11 +128,11 @@ function vm_form_upload_tei_form_submit($form, &$form_state) {
         foreach ($values as $key => $val) {
             $wrapper->{$key}->set($val);
         }
-        $wrapper->tei_file->file->set($file); // Save the filename
+        $wrapper->field_tei_file->file->set($file); // Save the filename
 
         // Now run the XSLT and save the location
-        $vm_file = $vm_convert($filename);
-        $wrapper->vm_link->set($vm_file);
+        $vm_file = vm_convert($filename);
+        $wrapper->field_vm_link->set(array('url' => $vm_file));
         $wrapper->save();
     }
 }
@@ -140,14 +145,20 @@ function vm_convert($xml_filename) {
     $xml->load($xml_filename);
 
     $xsl = new DOMDocument;
-    $xsl->load($xsl_filename);
+    // Note: fragile; requires VersioningMachine to be in the right place
+    // TODO: Fix so it's not all hard-coded like this
+    $vm_path = drupal_get_path('module', 'vm') . '/VersioningMachine';
+    $xsl->load($vm_path . '/src/vmachine.xsl');
 
     // Configure the transformer
     $proc = new XSLTProcessor;
     $proc->importStyleSheet($xsl); // attach the xsl rules
-    $outfile = '';
-
-    $proc->transformToURI($xml, 'file://' . $outfile);
+    $basename = basename($xml_filename, '.xml');
+    // More hard-coding. Yuck, but I'm in a hurry. Sorry.
+    $outfile = $vm_path . '/texts/' . $basename . '.html';
+    // TODO: filter out special characters
+    $output = $proc->transformToXML($xml);
+    file_unmanaged_save_data($output, $outfile);
     return $outfile;
 }
 
