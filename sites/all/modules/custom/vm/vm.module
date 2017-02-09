@@ -46,22 +46,28 @@ function vm_get_node_fields() {
 function vm_admin_form() {
     $form = array();
     $variables = array('title');
-    $form['title'] = array(
+
+    $form['vm_xsltproc'] = array(
         '#type' => 'textfield',
-        '#title' => t('XPath query for Title'),
-        '#default_value' => variable_get('vm_xpath_title', '//teiHeader/fileDesc/titleStmt/title'),
-        '#size' => 50,
+        '#title' => t('Location of system xsltproc'),
+        '#default_value' => variable_get('vm_xsltproc', '/usr/bin/xsltproc'),
     );
-    foreach (vm_get_node_fields() as $name => $attributes) {
-        $form[$name] = array(
-            '#type' => 'textfield',
-            '#title' => t('XPath query for ' . $attributes['label']),
-            '#default_value' => variable_get('vm_xpath_' . $name, ''),
-            '#size' => 50,
-        );
-        array_push($variables, $name);
-    }
-    variable_set('vm_xpath_items', $variables);
+//    $form['title'] = array(
+//        '#type' => 'textfield',
+//        '#title' => t('XPath query for Title'),
+//        '#default_value' => variable_get('vm_xpath_title', '//teiHeader/fileDesc/titleStmt/title'),
+//        '#size' => 50,
+//    );
+//    foreach (vm_get_node_fields() as $name => $attributes) {
+//        $form[$name] = array(
+//            '#type' => 'textfield',
+//            '#title' => t('XPath query for ' . $attributes['label']),
+//            '#default_value' => variable_get('vm_xpath_' . $name, ''),
+//            '#size' => 50,
+//        );
+//        array_push($variables, $name);
+//    }
+//    variable_set('vm_xpath_items', $variables);
     return system_settings_form($form);
 }
 
@@ -91,30 +97,25 @@ function vm_form_upload_tei_form($form, &$form_state) {
  * @param $form_state
  *
  * Parse the TEI to extract field data; create a node with this data
+ * Warning: this whole process is insecure. Be careful who has access.
  */
 function vm_form_upload_tei_form_submit($form, &$form_state) {
     global $user;
+    // Convert the file to HTML via VersioningMachine
+    // Really ugly, but PHP doesn't support XSLT 2.0, which is required
+    // by VersioningMachine, so this is how we're gonna do it
     $file = file_load($form_state['values']['tei_file']);
     $filename = drupal_realpath($file->uri);
-    $xml = new DOMDocument;
-    $xml->load($filename);
-    $xpath = new DOMXPath($xml);
+    $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
+    $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl " . $filename;
+    $output = array();
+    $return = -1;
+    exec($cmd, $output, $return);
+    if ($return == 0) { // Success!
+        $basename = basename($filename, '.xml');
+        $vm_filename = $vm_path . '/texts/' . $basename . '.html';
+        file_unmanaged_save_data($output, $vm_filename);
 
-    // Get xpath queries from the admin form settings
-    $items = variable_get('vm_xpath_items');
-    dpm($items);
-    $values = array();
-    foreach ($items as $item) {
-        $query = variable_get($item);
-        if (strlen($query)) {
-            $result = $xpath->query($query);
-            $values[$item] = $result[0]->nodeValue;
-        }
-    }
-    dpm($values);
-
-    // We need a title for our nodes
-    if (array_key_exists('title', $values)) {
         $file->status = FILE_STATUS_PERMANENT;
         file_save($file);
         $node = entity_create('node', array(
@@ -125,57 +126,22 @@ function vm_form_upload_tei_form_submit($form, &$form_state) {
             'promote' => 0
         ));
         $wrapper = entity_metadata_wrapper('node', $node);
-        foreach ($values as $key => $val) {
-            $wrapper->{$key}->set($val);
-        }
         $wrapper->field_tei_file->file->set($file); // Save the filename
-
-        // Now run the XSLT and save the location
-        $vm_file = vm_convert($filename);
-        $wrapper->field_vm_link->set(array('url' => $vm_file));
+        $wrapper->field_vm_link->set(array(
+            'title' => 'Read in Versioning Machine',
+            'url' => $vm_filename)
+        );
         $wrapper->save();
+        drupal_goto('/node/' . $node->nid . '/edit');
+    } else {
+        drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again'), 'error');
     }
 }
 
-/***
- * Converts uploaded TEI to HTML using Versioning Machine's XSLT
- ***/
-function vm_convert($xml_filename) {
-    $xml = new DOMDocument;
-    $xml->load($xml_filename);
 
-    $xsl = new DOMDocument;
-    // Note: fragile; requires VersioningMachine to be in the right place
-    // TODO: Fix so it's not all hard-coded like this
-    $vm_path = drupal_get_path('module', 'vm') . '/VersioningMachine';
-    $xsl->load($vm_path . '/src/vmachine.xsl');
-
-    // Configure the transformer
-    $proc = new XSLTProcessor;
-    $proc->importStyleSheet($xsl); // attach the xsl rules
-    $basename = basename($xml_filename, '.xml');
-    // More hard-coding. Yuck, but I'm in a hurry. Sorry.
-    $outfile = $vm_path . '/texts/' . $basename . '.html';
-    // TODO: filter out special characters
-    $output = $proc->transformToXML($xml);
-    file_unmanaged_save_data($output, $outfile);
-    return $outfile;
+function vm_form_text_alter($form, $form_state, $form_id) {
+    $form['field_tei_file']['#access'] = FALSE;
+    $form['field_vm_link']['#access'] = FALSE;
 }
 
-/***
- * Check the uploaded TEI, convert it, extract data, and populate fields
- ***/
-function vm_tei_submit($node, $form, &$form_state) {
 
-}
-
-// TODO:
-/*
-Create a form for uploading TEI files
-Extract metadata
-Convert the XML into HTML, add to versioning machine
-Add link to versioning machine copy of file to the text node
-Save the text node
-create a "text" node if none matching
-If matching, update the original with any new data
-*/
