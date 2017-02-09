@@ -1,16 +1,6 @@
 <?php
 
-define("VM_NODE_TYPE", 'text');
-
 function vm_menu() {
-    $items['vm/upload-tei'] = array(
-        'title' => 'Upload TEI file',
-        'description' => 'Upload TEI-encoded texts for use with Versioning Machine',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('vm_form_upload_tei_form'),
-        'access arguments' => array('upload tei'),
-        'type' => MENU_CALLBACK,
-    );
     $items['admin/config/content/vm'] = array(
         'title' => 'Versioning Machine settings',
         'description' => 'Set the XPath queries for TEI upload to Versioning Machine',
@@ -20,7 +10,6 @@ function vm_menu() {
         'type' => MENU_NORMAL_ITEM,
     );
     return $items;
-
 }
 
 function vm_permission() {
@@ -36,112 +25,70 @@ function vm_permission() {
     );
 }
 
-/***
- * Returns an array of fields for the vm text node
- */
-function vm_get_node_fields() {
-    return field_info_instances('node', VM_NODE_TYPE);
-}
-
 function vm_admin_form() {
     $form = array();
-    $variables = array('title');
-
     $form['vm_xsltproc'] = array(
         '#type' => 'textfield',
         '#title' => t('Location of system xsltproc'),
         '#default_value' => variable_get('vm_xsltproc', '/usr/bin/xsltproc'),
     );
-//    $form['title'] = array(
-//        '#type' => 'textfield',
-//        '#title' => t('XPath query for Title'),
-//        '#default_value' => variable_get('vm_xpath_title', '//teiHeader/fileDesc/titleStmt/title'),
-//        '#size' => 50,
-//    );
-//    foreach (vm_get_node_fields() as $name => $attributes) {
-//        $form[$name] = array(
-//            '#type' => 'textfield',
-//            '#title' => t('XPath query for ' . $attributes['label']),
-//            '#default_value' => variable_get('vm_xpath_' . $name, ''),
-//            '#size' => 50,
-//        );
-//        array_push($variables, $name);
-//    }
-//    variable_set('vm_xpath_items', $variables);
+    $form['vm_subdomain'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Domain name for the versioning machine'),
+        '#default_value' => variable_get('vm_subdomain', ''),
+    );
     return system_settings_form($form);
 }
 
-function vm_form_upload_tei_form($form, &$form_state) {
-    $form['tei_file'] = array(
-        '#type' => 'managed_file',
-        '#title' => t('Upload TEI file'),
-        '#description' => t("Upload a TEI-encoded XML file for use in Versioning Machine"),
-        '#upload_validators' => array(
-            'file_validate_extensions' => array('xml'),
-            'file_validate_size' => array(10 * 1024 * 1024),
-        ),
-        '#upload_location' => "public://vm_tei",
-        '#required' => TRUE,
-    );
-
-    $form['submit'] = array(
-        '#type' => 'submit',
-        '#value' => 'Submit'
-    );
-
-    return $form;
+// Alter form for editing nodes to hide the link, handle the submit
+function vm_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'text_node_form') {
+        $form['field_vm_link']['#access'] = FALSE;
+        $form['actions']['submit']['#submit'] = array('vm_text_form_submit');
+    }
 }
 
 /***
  * @param $form
  * @param $form_state
  *
- * Parse the TEI to extract field data; create a node with this data
+ * Parse the TEI to extract field data; update the node with a link to the text in VM
  * Warning: this whole process is insecure. Be careful who has access.
  */
-function vm_form_upload_tei_form_submit($form, &$form_state) {
-    global $user;
+function vm_text_form_submit($form, &$form_state) {
     // Convert the file to HTML via VersioningMachine
     // Really ugly, but PHP doesn't support XSLT 2.0, which is required
     // by VersioningMachine, so this is how we're gonna do it
-    $file = file_load($form_state['values']['tei_file']);
-    $filename = drupal_realpath($file->uri);
-    $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
-    $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl " . $filename;
-    $output = array();
-    $return = -1;
-    exec($cmd, $output, $return);
-    if ($return == 0) { // Success!
-        $basename = basename($filename, '.xml');
-        $vm_filename = $vm_path . '/texts/' . $basename . '.html';
-        file_unmanaged_save_data($output, $vm_filename);
-
-        $file->status = FILE_STATUS_PERMANENT;
-        file_save($file);
-        $node = entity_create('node', array(
-            'type' => VM_NODE_TYPE,
-            'uid' => $user->uid,
-            'status' => 1,
-            'comment' => 0,
-            'promote' => 0
-        ));
-        $wrapper = entity_metadata_wrapper('node', $node);
-        $wrapper->field_tei_file->file->set($file); // Save the filename
-        $wrapper->field_vm_link->set(array(
-            'title' => 'Read in Versioning Machine',
-            'url' => $vm_filename)
-        );
-        $wrapper->save();
-        drupal_goto('/node/' . $node->nid . '/edit');
-    } else {
-        drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again'), 'error');
+    $node = node_form_submit_build_node($form, $form_state);
+    $node->status = NODE_PUBLISHED;
+    $wrapper = entity_metadata_wrapper('node', $node);
+    if (user_access('upload tei')) {
+        $file = file_load($wrapper->field_tei_file->value()['fid']);
+        $filename = drupal_realpath($file->uri);
+        $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
+        $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl " . $filename;
+        $output = array();
+        $return = -1;
+        exec($cmd, $output, $return);   // run xsltproc
+        if ($return == 0) { // Success!
+            $basename = basename($filename, '.xml');
+            $vm_filename = $vm_path . '/texts/' . $basename . '.html';
+            file_unmanaged_save_data($output, $vm_filename);
+            $url = variable_get('vm_subdomain') . '/';
+            if (empty($url)) {
+                $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
+            }
+            $url .= basename($vm_filename);
+            $wrapper->field_vm_link->set(array(
+                'title' => 'Read',
+                'url' => $url
+            ));
+          } else {
+            drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
+        }
     }
-}
-
-
-function vm_form_text_alter($form, $form_state, $form_id) {
-    $form['field_tei_file']['#access'] = FALSE;
-    $form['field_vm_link']['#access'] = FALSE;
+    $wrapper->save();
+    drupal_goto(drupal_get_path_alias('node/' . $node->nid));
 }
 
 
