@@ -1,0 +1,66 @@
+/*------- Begin default section --------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
+  line-height: 1.5em;
+  font-size: 87.5%; /* = 14px assuming browser's regular font size is 16px */
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc;
+  margin-left: 10px;
+}
+ol {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  text-decoration: underline;
+}
+em {
+  font-style: italic;
+}
+/* p,a,strong,em,li,dl,dt { */
+p,li,dl,dt {
+  margin: 6px 0;
+  line-height: 1.5em;
+}
+dd {
+  margin-left: 2.5em;
+}
+table {
+  width: 100%;
+  margin: 4px 0px;
+}
+h1 {
+  font-size: 1.4em;
+}
+h2 {
+  font-size: 1.3em;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1.15em;
+}
+h5 {
+  font-size: 1em;
+}
+fieldset {
+  border-width: 1px;
+  border-style: solid;
+}
+#site-name, #site-slogan {
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
+}
+
+/*------- end of default section --------*/

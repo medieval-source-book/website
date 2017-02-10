@@ -1,0 +1,46 @@
+// ====================================================================
+// Mobile first layout.
+// This is the layout for smalltouch_portrait which stacks all the columns
+// at 100% width for each. Media queries cause this to be available to
+// only the layouts that have width less than 321px.
+// ====================================================================
+  #main-wrapper {
+  width: 100%;
+  position: relative;
+  }
+
+  #main {
+    width: 100%;
+  }
+  // Limits the stacking of top-column blocks to small screen touch.
+  @media only screen and (max-width:320px) {
+  #top-columns .column-block-wrapper,
+  #bottom-columns .column-block-wrapper,
+  #footer-columns .column-block-wrapper {
+    width: 100% !important;
+    margin-top: 1em;
+  }
+
+  #top-columns .column-block-wrapper .column-block,
+  #bottom-columns .column-block-wrapper .column-block,
+  #footer-columns .column-block-wrapper .column-block {
+    height: auto !important;
+    margin:0 !important;
+  }
+  }
+  #content,
+  #sidebar-first,
+  #sidebar-second, {
+    margin: 0;
+    width: 100%;
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  #sidebar-first .section,
+  #sidebar-second .section {
+  //  margin:0 !important;
+  }
+

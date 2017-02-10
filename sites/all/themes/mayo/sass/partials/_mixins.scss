@@ -1,0 +1,35 @@
+// Mixin for box-sizing
+// ====================================================================
+
+@mixin bs($bs-type: $defined-bs-type) {
+	-webkit-box-sizing: $bs-type;
+	-moz-box-sizing: $bs-type;
+	box-sizing: $bs-type;
+}
+
+// Media Query mixin
+@mixin MQ($canvas) {
+	@if $canvas == iphone-land {
+		@media only screen and (min-width: $XS + 1) and (max-width: $S) { @content; }
+	}
+	@else if $canvas == ipad-port {
+		@media only screen and (min-width: $S + 1) and (max-width: $M) { @content; }
+	}
+	@else if $canvas == ipad-land {
+		@media only screen and (min-width: $M + 1) and (max-width: $L) { @content; }
+	}
+	@else if $canvas == standard-pc {
+		@media only screen and (min-width: $L + 1) { @content; }
+	}
+	@else if $canvas == iphone-port {
+		@media only screen and (max-width: $XS) { @content; }
+	}
+	@else if $canvas == iP4 {
+		@media
+        only screen and (-webkit-min-device-pixel-ratio : 1.5),
+        only screen and(min-device-pixel-ratio : 1.5) { @content; }
+	}
+    @else if $canvas == SBig {
+		@media only screen and (min-width: $BS) { @content; }
+	}
+}

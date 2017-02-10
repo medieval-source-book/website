@@ -1,0 +1,39 @@
+/**
+ * For the layout of the responsive sidebar settings.
+ */
+fieldset.mayo-layout-form div.form-type-radio label,div.smalltouch-portrait-layout  {
+    background: url(../images/page-layouts-sprite.png);
+    height: 60px;
+    width: 60px;
+    display:block;
+    margin-top: 4px;
+    text-align: center;
+}
+fieldset.mayo-layout-form .form-type-radio label[for$=three-col-grail]  {background-position: 0 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=two-sidebars-right]  {background-position: -122px 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=two-sidebars-left]  {background-position: -61px 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=two-sidebars-left-stack]  {background-position: -183px 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=two-sidebars-right-stack]  {background-position: -244px 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=one-col-stack] {background-position: -305px 0;}
+fieldset.mayo-layout-form .form-type-radio label[for$=one-col-vert] {background-position: -366px 0;}
+div.smalltouch-portrait-layout  {background-position: -305px 0;}
+
+.mayo-layout-form div.form-item {
+    clear: none;
+    float: left;
+    margin-right: 25px;
+}
+
+fieldset.mayo-layout-form div.form-type-radio label, div.smalltouch-portrait-layout {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+fieldset.mayo-layout-form div.form-type-radio {
+    clear: none;
+    float: left;
+    margin: 0 30px 10px 0;
+    text-align: center;
+    width: 60px;
+}
