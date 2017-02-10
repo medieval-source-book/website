@@ -42,10 +42,10 @@ function vm_admin_form() {
 
 // Alter form for editing nodes to hide the link, handle the submit
 function vm_form_alter(&$form, &$form_state, $form_id) {
-    if ($form_id == 'text_node_form') {
-        $form['field_vm_link']['#access'] = FALSE;
-        $form['actions']['submit']['#submit'] = array('vm_text_form_submit');
-    }
+  if ($form_id == 'text_node_form') {
+    $form['field_vm_link']['#access'] = FALSE;
+    $form['actions']['submit']['#submit'] = array('vm_text_form_submit');
+  }
 }
 
 /***
@@ -74,9 +74,11 @@ function vm_text_form_submit($form, &$form_state) {
             $basename = basename($filename, '.xml');
             $vm_filename = $vm_path . '/texts/' . $basename . '.html';
             file_unmanaged_save_data($output, $vm_filename);
-            $url = variable_get('vm_subdomain') . '/';
+            $url = variable_get('vm_subdomain');
             if (empty($url)) {
                 $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
+            } else {
+              $url .= '/';
             }
             $url .= basename($vm_filename);
             $wrapper->field_vm_link->set(array(
