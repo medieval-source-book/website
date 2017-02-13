@@ -1,9 +1,3 @@
 <?php
 
 
-function vm_install() {
-  // check that php5-xsl is installed
-  if (!extension_loaded('xsl')) {
-
-  }
-}
