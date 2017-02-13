@@ -1587,3 +1587,7 @@ div.field-name-field-vm-link a {
   text-decoration: none;
   color: white;
 }
+
+div#name-and-slogan {
+  padding-top: 35px;
+}
