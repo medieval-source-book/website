@@ -1,0 +1,9 @@
+name = Team Member
+description = Permissions defining the Team Member role
+core = 7.x
+package = GMS
+version = 7.x-1.0
+dependencies[] = features
+features[features_api][] = api:2
+features[user_role][] = Team Member
+project path = sites/all/modules/features
