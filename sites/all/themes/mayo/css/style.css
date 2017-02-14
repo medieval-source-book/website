@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans");
 article,
 aside,
 details,
@@ -449,6 +450,10 @@ div#logo {
   line-height: 1em;
 }
 
+#site-name a {
+  color: #0000DD;
+}
+
 /**
  * Footer
  */
@@ -522,7 +527,7 @@ div#logo {
 #navigation ul li a {
   padding: 2px 4px;
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 
 #navigation #main-menu {
@@ -1590,4 +1595,13 @@ div.field-name-field-vm-link a {
 
 div#name-and-slogan {
   padding-top: 35px;
+}
+
+div.views-field-title {
+  text-align: center;
+  font-size: large;
+}
+
+div.view-filters {
+  margin-left: 15px;
 }

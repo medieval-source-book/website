@@ -10,6 +10,8 @@
 @import "partials/layout";
 @import "partials/style-settings";
 
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+
 .spacer {
   display: block;
   margin-top: 10px;
@@ -125,7 +127,7 @@ div#logo {
 #navigation ul li a {
   padding: 2px 4px;
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 #navigation ul li a:hover {
 }
@@ -850,3 +852,11 @@ div#name-and-slogan {
   padding-top: 35px;
 }
 
+div.views-field-title {
+  text-align: center;
+  font-size: large;
+}
+
+div.view-filters {
+  margin-left: 15px;
+}
