@@ -853,10 +853,17 @@ div#name-and-slogan {
 }
 
 div.views-field-title {
-  text-align: center;
   font-size: large;
 }
 
 div.view-filters {
   margin-left: 15px;
+}
+
+div.view-id-texts {
+  div.view-content {
+    table tbody tr td {
+      text-align: center;
+    }
+  }
 }
