@@ -4,7 +4,7 @@
     exclude-result-prefixes="xs"
     version="1.0">
     
-  <xsl:variable name="vmImages">/sites/default/vm_images</xsl:variable>
+  <xsl:variable name="vmImages">/sites/default/files/vm_images/</xsl:variable>
   <!-- include files in vm-images folder -->
   <xsl:variable name="vmLogo"><xsl:value-of select="$vmImages"/><xsl:text>gms_logo.png</xsl:text></xsl:variable>
   <xsl:variable name="menuArrowUp"><xsl:value-of select="$vmImages"/><xsl:text>arrowup.png</xsl:text></xsl:variable>
