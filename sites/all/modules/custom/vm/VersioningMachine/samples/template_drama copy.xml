@@ -1,0 +1,112 @@
+<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Title here</title>
+				<author></author>
+				<respStmt>
+					<resp>Transcriptions and Translations by</resp>
+					<name>Name here</name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p>Editor Here</p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+	<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Title here</title>
+				<author></author>
+				<respStmt>
+					<resp>Transcriptions and Translations by</resp>
+					<name>Name here</name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p>Editor Here</p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+<castList>
+ <castItem>
+  <role xml:id="menae">Menaechmus</role>
+ </castItem>
+ <castItem>
+  <role xml:id="penic">Peniculus</role>
+ </castItem>
+</castList>
+<sp who="#menae">
+ <speaker>Speaker</speaker>
+ <l>Speech</l>
+</sp>
+<sp who="#penic">
+ <speaker>Speaker</speaker>
+ <l>Speech</l>
+</sp>
+<sp who="#menae">
+ <speaker>Speaker</speaker>
+ <l>Speech</l>
+ <l>More speech</l>
+</sp>
+</TEI>

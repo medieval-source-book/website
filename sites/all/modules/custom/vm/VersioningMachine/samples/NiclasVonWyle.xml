@@ -1,0 +1,151 @@
+<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title></title>
+				<author></author>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p></p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+	<text>
+		<front>
+			<div>
+				<listWit>
+					<witness xml:id="Transcription">BASE TEXT HERE</witness>
+					<witness xml:id="Translation">TRANSLATION TITLE</witness>
+				</listWit>
+			</div>
+		</front>
+		<body>
+			<head>
+				<title>
+					<app>
+						<lem wit="#Transcription">ORIGINAL TITLE</lem>
+						<rdg wit="#Translation">TRANSLATED TITLE</rdg>
+					</app>
+				</title>
+			</head>
+			<div n="1">
+				<p n="1">
+					<app>
+						<s>
+							<lem wit="#Transcription">Dem edeln hochgelerten vnd strengen herrn Jergen von absperg ritter vnd doctor der rechten minem lieben herren günner fründ vnd gebieter Enbütt jch niclẳs von wyle, des hochgebornen herren herrn Vlrichs grauen zů wirtemberg vnd zů Mümpelgarte etc., mines gnedigosten herren minster cantzler vil hails. <note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>
+							<lem wit="#Transcription"> die gedruckt, vsz zegeen lẳssen Vnd als jch das dozemaẳl nit tůn mocht, vrsachen halb, daz das letscht bůche nit gantz zů end gebrẳcht was; rietest du; daz jch doch dann etlich ander miner translatzen vnd schriften; die jch in vergangen zyyten vß schwerem vnd zierlichem latine nit ẳne arbeit zů end gebracht hett; wölt lẳssen trucken vnd vsgeen; vmb daz die menschen, wil klůger dingen dar Inne begriffen; vnd so zewissen gůt sint ouch antailhäftig werden möchten, vnd ir gemüt zů zyten darmit in kurtzwyle ergetzen.<note 
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+									<note type="critical" anchored="true">
+										<p>CRITICAL NOTE GOES HERE</p>
+									</note>
+								</lem>
+								</s>
+								<s>
+								<lem wit="#Transcription"> du hẳst (fürtreffender vnd wytverrümpter mane) vor langem; als du des yetz genanten mines gnedigosten herren lanthofmaister gewesen bist; min translatze vnd tütschung boecy de consolacione philosophie zů meren mẳlen gelopt vnd mir gerẳten? <note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>
+							<lem wit="#Transcription"> wie wol jch nu waisz dero vil sin; die dise min translaciones schelten vnd mich schumpfieren werden vnd sagen; daz die an vil enden wol verstentlicher möchten worden gesetzet sin, dann von mir beschechen syg noch dann dinem rẳte vnd gůt beduncken nẳch (die ich acht sin oraculum appolinis) so wil ich sölich min translaciones yetz lẳssen vszgeen; bis vf boecium den jch noch etlicher vrsachen halb wil verhalten.<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>
+							<lem wit="#Transcription"> vnd gestee disen maistern minen schumpfierern jrer schuldigung nechst gemelt danne war ist, daz jch in der ersten translatze von Euriolo an den anfange in der andern epistel von Enea siluio an marianum sozimum gestellet; dise latinischen wort (Sed inuenies ali[4]quos senes amantes, amatum nullum) Also hab getütschet vnd transferyeret; du findest alber etlich alt liebhabend mane; aber liebgehapten kainen. <note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>	
+							<lem wit="#Transcription"> Welche wort Ich wol verstentlicher hett mugen setzen also.<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>	
+							<lem wit="#Transcription"> du findest aber etlich alt mane die frǒwen liebhabent; Aber kainen alten findst du, der von frǒwen werd lieb gehept.<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>	
+							<lem wit="#Transcription"> jch waiß ouch daz mir so wyt vßlouffe hier Inne erloupt gewesen wer nẳch dem vnd oracius flaccus in siner alten poetrye (als du waist) schribet; daz ain getrüwer tolmetsch vnd transferyerer; nit sorgfeltig sin söll; ain yedes wort gegen aim andern wort zeverglychen, sunder syge gnůg; daz zů zyten ain gantzer sine gegen aim andern sine verglychet werd.<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+						<s>	
+							<lem wit="#Transcription"> als ich dann ouch oft vnd wil in disen nẳchfolgenden translatzen an andern orten getẳn han vnd etwenne genötiget tůn můst; von gebruch wegen tütscher worten gegen den latinischen; dero der grösser folle ist, in dem latine (als wir dann oft mit ainandern von sölichen worten, etas senium senectus.<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+								<note type="critical" anchored="true">
+									<p>CRITICAL NOTE GOES HERE</p>
+								</note>
+							</lem>
+							<rdg wit="#Translation">TRANSLATION GOES HERE</rdg>
+						</s>
+					</app>
+				</p>
+			</div>
+		</body>
+	</text>
+</TEI>

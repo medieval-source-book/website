@@ -1,0 +1,118 @@
+<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Title here</title>
+				<author></author>
+				<respStmt>
+					<resp>Transcriptions and Translations by</resp>
+					<name>Name here</name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p>Editor Here</p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+	<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Title here</title>
+				<author></author>
+				<respStmt>
+					<resp>Transcriptions and Translations by</resp>
+					<name>Name here</name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p>Editor Here</p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+<castList>
+ <castItem>
+  <role xml:id="menae">Menaechmus</role>
+ </castItem>
+ <castItem>
+  <role xml:id="penic">Peniculus</role>
+ </castItem>
+</castList>
+<stage type="setting">Planctum istum facit beata virgo Maria cum quattuor personis deuotis deuotissime bona sexta feria) ante prandium in ecclesia antechroum in loco aliquantum eleuato vel extra ecclesiam, si bona est aura. Planctus iste non est ludus nec ludibrium, sed est planctus et fletus et pia compassio Marie virginis gloriose. Et quandocunque fit a bonis et deuotis hominibus, in genere siue in specie valde prouocat homines circumstantes ad pium) fletum et ad compassionem. sicut facit sermo deuotus bona sexta feria de passione domini nostri Jhesu Cristi. Si non potest fieri bona sexta feria commodose propter sermonem de passione domini, tunc beata virgo faciat istum planttum antea cum suis, sicut feria secunda post dominicam palmarum ante prandium. Iste planctus fit commodose in duabus horis et media. Et omnia, que tunc fiunt ab illis quinque personis, non debent fieri cum festinacione nec nimia mora, sed medio et bono modo. Ille, qui est Jhesus, est deutos sacerdos. Maria iuuenis. Johannes ewangelista sacerdos. Maria Magdalena et mater Johannis ewangeliste iuuenes. Jhesus debet se preparare cum casula rubra. Johannes simili modo. Jhesus et Johannes debent habere dyademata de papiro; dyadema Jhesu habeat gladium de ligno cum vagina, quem tenet in manu, quum exit) cum rigmo) suo. Et Johannes debet sepius tangere cor Marie vel pectus eius.) Et quum facit actum suum, statim deponit gladium. Iuuenis quidam bene vestitus potest tenere gladium cum panno de serico, cum quo beata virgo tegit postea lumbos crucifixi.) Dominus Jhesus cum primo exit cum alijs quattuor personis, deuote protat crucem in manibus suis. Et quum cantauit versum "Quoniam tribulacio proxima est",) statim deponit crucem. Et quum faciunt planctum, dominus Jhesus debet habere crucifixum ante se. Et quandocunque facit actum, tunc crucem) deponit et intrudit crucifixum. Beata virgo stat a dextris Jhesu Cristi cum Maria Magdalena. Johannes a sinistris cum matre sua. Virgo Maria quum facit actum suum, vadit ad medium et aliquando vertit se ad filium ad orientem, aliquando ad occidentem, aliquando ad aquilones), aliquando ad meridem cum gladio Symeonis, quem tenet beatus Johannes ante pectus eius. Aliquando beata virgo expandit brachia sua, aliquando leuat manus suas ad filium cum oculis: omnia cum moderamine. Quandocunque fecit actum suum, vadit ad locum suum et stat a dextris. Simili modo faciunt alij. Quum exeunt et quum intrant,) faciunt tria paria: primo exit dominus Jhesus cum cruce cum Johanne ewangelista, post hos beata virgo cum Maria Magdalena, vltimo mater Johannis cum rectore, et ille incipit psalmum "Circumdederunt me viri mendaces" vsque ad locum preparatum. Ffinito psalmo dominus Jhesus cantat solus versum "Quoniam tribulacio proxima est" et vertit faciem ad occidentem semper.) Vnusquisque dicat rigmum suum cum deuocione plangendo in eadem nota et dono discreto.) Quum Jhesus finiuit versum "Quoniam tribulacio", Johannes ewangelista statim dicit ad omnem populum plangendo:</stage>
+<sp who="#menae">
+ <speaker>Johannes ewangelista:</speaker>
+ <l>Horet, gij salighen lude,
+ 	Vnde latet juw beduden, 
+ 	Wo vnse leue here Jhesu Crist,
+ 	De eyn schepper hemmels vnde eerden ist,
+ 	Huden vmme vnsen wyllen heft geleden de marter grot,
+ 	Dar tho ok den bytteren dot!</l>
+</sp>
+<sp who="#penic">
+ <speaker>Speaker</speaker>
+ <l>Speech</l>
+</sp>
+<sp who="#menae">
+ <speaker>Speaker</speaker>
+ <l>Speech</l>
+ <l>More speech</l>
+</sp>
+</TEI>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>No title specified -- The Versioning Machine 5.0</title><meta charset="utf-8"></meta><link rel="stylesheet" type="text/css" href="../src/js/jquery-ui-1.11.3/jquery-ui.min.css"></link><link rel="stylesheet" type="text/css" href="../src/vmachine.css"></link><script type="text/javascript" src="../src/js/jquery-1.11.2.min.js"></script><script type="text/javascript" src="../src/js/jquery-ui-1.11.3/jquery-ui.min.js"></script><link rel="stylesheet" type="text/css" href="../src/panzoom/panzoom.css"></link><script type="text/javascript" src="../src/panzoom/jquery.panzoom.min.js"></script><script type="text/javascript">
+      /*NOTES PANEL: To change the VM so that the notes panel page does not
+      appear at the initial load, change the constant INITIAL_DISPLAY_BIB_PANEL from "true" to "false" below */
+      INITIAL_DISPLAY_NOTES_PANEL = false;
+      
+      /*BIB PANEL: To change the VM so that the bibliographic information page does not
+      appear at the initial load, change the constant INITIAL_DISPLAY_BIB_PANEL from "true" to "false" below */
+      INITIAL_DISPLAY_BIB_PANEL = false;
+      
+      /**The number of version/witness panels to be displayed initially */
+      INITIAL_DISPLAY_NUM_VERSIONS = 2;
+      
+      /** CRIT PANEL: Critical information should be encoded as tei:notesStmt/tei:note[@type='critIntro'] in the TEI files -->
+      * To change the VM so that the critical information page does not
+      * appear at the initial load, change the constant INITIAL_DISPLAY_CRIT_PANEL from "true" to "false" */
+      INITIAL_DISPLAY_CRIT_PANEL = false;
+      
+      /** To change the VM so that line numbers are hidden by default, change the constant INITIAL_DISPLAY_LINENUMBERS from
+      * "true" to "false" */
+      INITIAL_DISPLAY_LINENUMBERS = true;
+      
+   var timelinePoints = new Array();var timelineDurations = new Array();</script><script type="text/javascript" src="../src/vmachine.js"></script></head><body><div id="mainBanner"><div id="brandingLogo"><a href="../samples.html"><img id="logo" alt="Powered by the Versioning Machine" src="../vm-images/LogoSilver.png"></img></a></div><div id="bannerImageContainer"><img id="logo" alt="Powered by the Versioning Machine" src="../vm-images/HeaderBackground.png"></img><div id="headline"><h1>No title specified</h1></div><nav id="mainControls"><ul><li><button id="selectVersion" class="topMenuButton dropdownButton">2 Total Versions<img class="noDisplay" src="../vm-images/arrowup.png" alt="arrow up"></img><img src="../vm-images/arrowdown.png" alt="arrow down"></img></button><ul id="versionList" class="dropdown notVisible"><li data-panelid="Transcription"><div class="listText"><div><a href="#" title="Transcription: BASE TEXT HERE">Version Transcription</a></div><div><button>OFF</button></div></div></li><li data-panelid="Translation"><div class="listText"><div><a href="#" title="Translation: TRANSLATION TITLE">Version Translation</a></div><div><button>OFF</button></div></div></li></ul></li><li data-panelid="bibPanel" title="Clicking this button triggers the bibliographic panel to appear or disappear."><button class="topMenuButton">Bibliographic panel</button></li><li data-panelid="notesPanel" title="Clicking this button triggers the notes panel to appear or disappear."><button class="topMenuButton listText">Notes panel</button></li></ul></nav></div></div><div id="mssArea"><div id="bibPanel" class="ui-widget-content ui-resizable panel noDisplay"><div class="panelBanner"><img class="closePanel" title="Close panel" src="../vm-images/closePanel.png" alt="X (Close panel)"></img>
+            Bibliographic Information
+         </div><div class="bibContent"><h2>No title specified</h2><h3>
+                  by </h3><h4>Original Source</h4>
+				<p></p>
+				<p></p>
+			<h4>Witness List</h4><ul><li><strong>Witness Transcription:</strong> BASE TEXT HERE</li><li><strong>Witness Translation:</strong> TRANSLATION TITLE</li></ul><h4>Textual Notes</h4><div class="note"></div><h4>Electronic Edition Information:</h4><h5>Responsibility Statement:</h5><ul><li> </li><li> </li></ul><h5>Publication Details:</h5>
+				<p>Published by .</p>
+				
+					<p></p>
+				
+			<h4>Encoding Principles</h4>
+			
+				<p></p>
+			
+			
+		</div></div><div class="ui-widget-content ui-resizable panel mssPanel noDisplay" id="Transcription"><div class="panelBanner"><img class="closePanel" title="Close panel" src="../vm-images/closePanel.png" alt="X (Close panel)"></img><a title="Version Transcription: BASE TEXT HERE">Version Transcription: BASE TEXT HERE</a></div><div class="mssContent">
+			<div class="head">
+				<div class="title">
+					<div style="display:inline-block" class="apparatus apparatus_1" data-app-id="apparatus_1">
+						<div style="display:inline-block" class="reading Transcription" data-reading-wits="Transcription"><span class="textcontent">ORIGINAL TITLE</span></div>
+						<div class="reading Translation" data-reading-wits="Translation"><span class="textcontent">TRANSLATED TITLE</span></div>
+					</div>
+				</div>
+			</div>
+			 <div class="div div-n1">
+				<div class="paragraph">
+					
+					<div style="display:inline-block" class="apparatus apparatus_2" data-app-id="apparatus_2">
+						<div style="display:inline-block" class="reading Transcription" data-reading-wits="Transcription"><span class="textcontent">TEXT GOES HERE</span><div class="noteicon">g<div class="note"><strong>Gloss note:</strong> <span class="textcontent">GLOSS GOES HERE</span></div></div>
+							<div class="noteicon">c<div class="note"><strong>Critical note:</strong> 
+								<p><span class="textcontent">CRITICAL NOTE GOES HERE</span></p>
+							</div></div>
+						</div>
+						<div class="reading Translation" data-reading-wits="Translation"><span class="textcontent">TRANSLATION GOES HERE</span></div>
+					</div>
+				</div>
+			</div>
+		</div></div><div class="ui-widget-content ui-resizable panel mssPanel noDisplay" id="Translation"><div class="panelBanner"><img class="closePanel" title="Close panel" src="../vm-images/closePanel.png" alt="X (Close panel)"></img><a title="Version Translation: TRANSLATION TITLE">Version Translation: TRANSLATION TITLE</a></div><div class="mssContent">
+			<div class="head">
+				<div class="title">
+					<div style="display:inline-block" class="apparatus apparatus_1" data-app-id="apparatus_1">
+						<div class="reading Transcription" data-reading-wits="Transcription"><span class="textcontent">ORIGINAL TITLE</span></div>
+						<div style="display:inline-block" class="reading Translation" data-reading-wits="Translation"><span class="textcontent">TRANSLATED TITLE</span></div>
+					</div>
+				</div>
+			</div>
+			 <div class="div div-n1">
+				<div class="paragraph">
+					
+					<div style="display:inline-block" class="apparatus apparatus_2" data-app-id="apparatus_2">
+						<div class="reading Transcription" data-reading-wits="Transcription"><span class="textcontent">TEXT GOES HERE</span><div class="noteicon">g<div class="note"><strong>Gloss note:</strong> <span class="textcontent">GLOSS GOES HERE</span></div></div>
+							<div class="noteicon">c<div class="note"><strong>Critical note:</strong> 
+								<p><span class="textcontent">CRITICAL NOTE GOES HERE</span></p>
+							</div></div>
+						</div>
+						<div style="display:inline-block" class="reading Translation" data-reading-wits="Translation"><span class="textcontent">TRANSLATION GOES HERE</span></div>
+					</div>
+				</div>
+			</div>
+		</div></div><div id="notesPanel" class="ui-widget-content ui-resizable panel noDisplay"><div class="panelBanner"><img class="closePanel" title="Close panel" src="../vm-images/closePanel.png" alt="X (Close panel)"></img>
+            Textual Notes
+         </div><div class="noteContent Transcription"><div class="witnesses">Transcription</div><div class="position apparatus_2">
+                           Highlight prose section
+                        </div><strong>Gloss note: </strong><span class="textcontent">GLOSS GOES HERE</span></div><div class="noteContent Transcription"><div class="witnesses">Transcription</div><div class="position apparatus_2">
+                           Highlight prose section
+                        </div><strong>Critical note: </strong>
+								<p><span class="textcontent">CRITICAL NOTE GOES HERE</span></p>
+							</div><div id="noNotesFound" class="noteContent">
+            Sorry, but there are no notes associated with
+            any currently displayed witness.
+         </div></div></div></body></html>

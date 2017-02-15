@@ -1,0 +1,79 @@
+<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/vmachine.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI
+[
+<!ENTITY % Menota_entities SYSTEM
+'../menota/menota-entities.txt'   >
+%Menota_entities;]
+>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title></title>
+				<author></author>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+				<respStmt>
+					<resp></resp>
+					<name></name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<publisher></publisher>
+				<availability>
+					<p></p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note anchored="true"></note>
+			</notesStmt>
+			<sourceDesc>
+				<p></p>
+				<p></p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<p></p>
+			</editorialDecl>
+			<variantEncoding method="parallel-segmentation" location="internal"/>
+		</encodingDesc>
+	</teiHeader>
+	<text>
+		<front>
+			<div>
+				<listWit>
+					<lemma xml:id="lemma1">BASE TEXT HERE</witness>
+					<witness xml:id="witness2">TRANSLATION TITLE</witness>
+				</listWit>
+			</div>
+		</front>
+		<body>
+			<head>
+				<title>
+					<app>
+						<rdg wit="#lemma1 #witness2">TITLE HERE</rdg>
+					</app>
+				</title>
+			</head>
+			<lg n="1">
+				<l n="1">
+					<app>
+						<lem wit="#lemma1">TEXT GOES HERE<note
+								type="gloss" anchored="true">GLOSS GOES HERE</note>
+							<note type="critical" anchored="true">
+								<p>CRITICAL NOTE GOES HERE</p>
+							</note>
+						</lem>
+						<rdg wit="#witness2"></rdg>
+					</app>
+				</l>
+			</lg>
+
+		</body>
+	</text>
+</TEI>
