@@ -17,7 +17,7 @@
   <xsl:variable name="facsImageFolder"></xsl:variable> 
   
   <!-- logoLink: path to samples page (VM logo links to this path) -->
-  <xsl:variable name="logoLink">/website</xsl:variable>
+  <xsl:variable name="logoLink">/</xsl:variable>
   
   <!-- include file form src folder -->
   <xsl:variable name="cssInclude">../src/vmachine.css</xsl:variable>
