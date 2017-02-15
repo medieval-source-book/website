@@ -73,7 +73,7 @@ function vm_text_form_submit($form, &$form_state) {
         if ($return == 0) { // Success!
             $basename = basename($filename, '.xml');
             $vm_filename = $vm_path . '/texts/' . $basename . '.html';
-            file_unmanaged_save_data($output, $vm_filename);
+            file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
             $url = variable_get('vm_subdomain');
             if (empty($url)) {
                 $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
