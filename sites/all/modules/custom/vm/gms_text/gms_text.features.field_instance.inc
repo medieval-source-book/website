@@ -98,13 +98,14 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'flexslider_fields',
+        'module' => 'image',
         'settings' => array(
           'caption' => '',
+          'image_link' => '',
           'image_style' => 'flexslider_full',
           'optionset' => 'text',
         ),
-        'type' => 'flexslider',
+        'type' => 'image',
         'weight' => 5,
       ),
       'teaser' => array(
