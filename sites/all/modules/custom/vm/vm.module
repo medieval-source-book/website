@@ -9,6 +9,13 @@ function vm_menu() {
         'access arguments' => array('administer vm'),
         'type' => MENU_NORMAL_ITEM,
     );
+    $items['admin/config/content/vm/rebuild'] = array(
+      'title' => 'Rebuild Versioning Machine settings',
+      'description' => 'If Versioning Machine texts are not displaying correctly, try rebuilding the settings.',
+      'page callback' => 'vm_rebuild_xsl',
+      'access arguments' => array('administer vm'),
+      'type' => MENU_CALLBACK,
+    );
     return $items;
 }
 
@@ -26,18 +33,23 @@ function vm_permission() {
 }
 
 function vm_admin_form() {
-    $form = array();
-    $form['vm_xsltproc'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Location of system xsltproc'),
-        '#default_value' => variable_get('vm_xsltproc', '/usr/bin/xsltproc'),
-    );
-    $form['vm_subdomain'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Domain name for the versioning machine'),
-        '#default_value' => variable_get('vm_subdomain', ''),
-    );
-    return system_settings_form($form);
+  global $base_url;
+  $form = array();
+  $form['vm_xsltproc'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Location of system xsltproc'),
+      '#default_value' => variable_get('vm_xsltproc', '/usr/bin/xsltproc'),
+  );
+  $form['vm_subdomain'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Domain name for the versioning machine'),
+      '#default_value' => variable_get('vm_subdomain', ''),
+  );
+  $form['help_text'] = array(
+    '#markup' => '<p></p><a href="' .
+      $base_url . '/admin/config/content/vm/rebuild">Rebuild XSL</a></p>'
+  );
+  return system_settings_form($form);
 }
 
 // Alter form for editing nodes to hide the link, handle the submit
@@ -71,26 +83,37 @@ function vm_text_form_submit($form, &$form_state) {
         $return = -1;
         exec($cmd, $output, $return);   // run xsltproc
         if ($return == 0) { // Success!
-            $basename = basename($filename, '.xml');
-            $vm_filename = $vm_path . '/texts/' . $basename . '.html';
-            file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
-            $url = variable_get('vm_subdomain');
-            if (empty($url)) {
-                $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
-            } else {
-              $url .= '/';
-            }
-            $url .= basename($vm_filename);
-            $wrapper->field_vm_link->set(array(
-                'title' => 'Read',
-                'url' => $url
-            ));
+          $basename = basename($filename, '.xml');
+          $vm_filename = $vm_path . '/texts/' . $basename . '.html';
+          file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
+          $url = variable_get('vm_subdomain');
+          if (empty($url)) {
+            $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
           } else {
-            drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
+            $url .= '/';
+          }
+          $url .= basename($vm_filename);
+          $wrapper->field_vm_link->set(array(
+            'title' => 'Read',
+            'url' => $url
+          ));
+        } else {
+          drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
         }
     }
     $wrapper->save();
     drupal_goto(drupal_get_path_alias('node/' . $node->nid));
 }
 
+// Recreate the drupal_settings.xsl file
+function vm_rebuild_xsl() {
+////'<?xml version="1.0" encoding="UTF-8"? >'
+//<!--<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"-->
+//<!--                xmlns:xs="http://www.w3.org/2001/XMLSchema"-->
+//<!--                exclude-result-prefixes="xs"-->
+//<!--                version="1.0">-->
+//<!--  <xsl:variable name="vmImages">/website/sites/all/modules/custom/vm/VersioningMachine/vm-images/</xsl:variable>-->
+//<!--  <xsl:variable name="facsImageFolder">/website/sites/default/files/vm_images/</xsl:variable>-->
+//<!--</xsl:stylesheet>-->
+}
 

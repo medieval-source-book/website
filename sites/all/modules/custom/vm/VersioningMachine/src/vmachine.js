@@ -309,6 +309,7 @@ $.fn.imgLinkClick = function() {
 					}).toggleClass("noDisplay").addClass("activePanel");
 				//move the image panel to the front of all visible panels
 				$("#"+imgId).moveToFront();
+				console.log($("#"+imgId));
 			});
 };
 $.fn.imgLinkHover = function() {

@@ -3,8 +3,11 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
     version="1.0">
-    
-  <xsl:variable name="vmImages">/sites/default/files/vm_images/</xsl:variable>
+
+  <!-- IMPORT DRUPAL SETTINGS -->
+  <xsl:include href="drupal_settings.xsl" />
+
+  <!--<xsl:variable name="vmImages">/website/sites/all/modules/custom/vm/VersioningMachine/vm-images/</xsl:variable>-->
   <!-- include files in vm-images folder -->
   <xsl:variable name="vmLogo"><xsl:value-of select="$vmImages"/><xsl:text>gms_logo.png</xsl:text></xsl:variable>
   <xsl:variable name="menuArrowUp"><xsl:value-of select="$vmImages"/><xsl:text>arrowup.png</xsl:text></xsl:variable>
@@ -14,7 +17,7 @@
   <xsl:variable name="bannerImg"><xsl:value-of select="$vmImages"/><xsl:text>HeaderBackground.png</xsl:text></xsl:variable>
    
    <!-- path to folder of facsimile images, the path is encoded in the TEI files like this: images/imagename.jpg -->
-  <xsl:variable name="facsImageFolder"></xsl:variable> 
+  <!--<xsl:variable name="facsImageFolder">/website/sites/default/files/vm_images/</xsl:variable>-->
   
   <!-- logoLink: path to samples page (VM logo links to this path) -->
   <xsl:variable name="logoLink">/</xsl:variable>
