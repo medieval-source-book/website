@@ -107,13 +107,27 @@ function vm_text_form_submit($form, &$form_state) {
 
 // Recreate the drupal_settings.xsl file
 function vm_rebuild_xsl() {
-////'<?xml version="1.0" encoding="UTF-8"? >'
-//<!--<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"-->
-//<!--                xmlns:xs="http://www.w3.org/2001/XMLSchema"-->
-//<!--                exclude-result-prefixes="xs"-->
-//<!--                version="1.0">-->
-//<!--  <xsl:variable name="vmImages">/website/sites/all/modules/custom/vm/VersioningMachine/vm-images/</xsl:variable>-->
-//<!--  <xsl:variable name="facsImageFolder">/website/sites/default/files/vm_images/</xsl:variable>-->
-//<!--</xsl:stylesheet>-->
+  global $base_path;
+  $path = drupal_get_path('module', 'vm') . '/VersioningMachine';
+  $image_field = field_info_instance('node', 'field_image', 'text');
+  $image_path = variable_get('file_public_path', conf_path() . '/files') . '/' .
+  $image_field['settings']['file_directory'] . '/';
+  $string = '<?xml version="1.0" encoding="UTF-8"?' . '>'; // so PHP doesn't
+  // choke
+  $string .= '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" ';
+  $string .= 'xmlns:xs="http://www.w3.org/2001/XMLSchema" ';
+  $string .= 'exclude-result-prefixes="xs" ';
+  $string .= 'version="1.0">';
+  $string .= '<xsl:variable name="vmImages">';
+  $string .= $base_path . $path . '/vm-images/';
+  $string .= '</xsl:variable>';
+  $string .= '<xsl:variable name="facsImageFolder">';
+  $string .= $base_path . $image_path;
+  $string .= '</xsl:variable>';
+  $string .= '</xsl:stylesheet>';
+  file_unmanaged_save_data($string, $path . '/src/drupal_settings.xsl',
+    FILE_EXISTS_REPLACE);
+  drupal_set_message(t('XSL settings have been recreated.'), 'info');
+  drupal_goto('admin/config/content/vm');
 }
 
