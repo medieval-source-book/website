@@ -78,6 +78,9 @@ function vm_text_form_submit($form, &$form_state) {
         $file = file_load($wrapper->field_tei_file->value()['fid']);
         $filename = drupal_realpath($file->uri);
         $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
+        if (!file_exists($vm_path . '/src/drupal_settings.xsl')) {
+          vm_rebuild_xsl(TRUE);
+        }
         $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl " . $filename;
         $output = array();
         $return = -1;
@@ -106,7 +109,7 @@ function vm_text_form_submit($form, &$form_state) {
 }
 
 // Recreate the drupal_settings.xsl file
-function vm_rebuild_xsl() {
+function vm_rebuild_xsl($silent = FALSE) {
   global $base_path;
   $path = drupal_get_path('module', 'vm') . '/VersioningMachine';
   $image_field = field_info_instance('node', 'field_image', 'text');
@@ -127,7 +130,9 @@ function vm_rebuild_xsl() {
   $string .= '</xsl:stylesheet>';
   file_unmanaged_save_data($string, $path . '/src/drupal_settings.xsl',
     FILE_EXISTS_REPLACE);
-  drupal_set_message(t('XSL settings have been recreated.'), 'info');
-  drupal_goto('admin/config/content/vm');
+  if (!$silent) {
+    drupal_set_message(t('XSL settings have been recreated.'), 'info');
+    drupal_goto('admin/config/content/vm');
+  }
 }
 
