@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans");
 article,
 aside,
 details,
@@ -1582,6 +1583,7 @@ div.field-name-field-vm-link {
   width: 100px;
   text-align: center;
   padding: 10px;
+  margin-bottom: 1em;
 }
 div.field-name-field-vm-link a {
   text-decoration: none;
@@ -1611,4 +1613,13 @@ div#footer-wrapper {
 
 a {
   cursor: pointer;
+}
+
+div.group-left {
+  width: 48%;
+  margin-left: 2%;
+}
+
+div.content div.field-label {
+  font-size: large;
 }
