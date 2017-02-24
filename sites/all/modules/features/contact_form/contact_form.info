@@ -1,0 +1,12 @@
+name = Contact form
+core = 7.x
+package = GMS
+version = 7.x-1.0
+dependencies[] = contact
+dependencies[] = features
+features[contact_categories][] = Website feedback
+features[features_api][] = api:2
+features[user_permission][] = access site-wide contact form
+features[user_permission][] = access user contact forms
+features[user_permission][] = administer contact forms
+project path = sites/all/modules/features
