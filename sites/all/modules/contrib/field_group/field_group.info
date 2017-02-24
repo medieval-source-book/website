@@ -1,14 +1,18 @@
-name = Field Group
-description = "Provides the ability to group your fields on both form and display."
+name = Fieldgroup
+description = Fieldgroup
 package = Fields
 dependencies[] = field
 dependencies[] = ctools
 core = 7.x
-files[] = tests/field_group.ui.test
-files[] = tests/field_group.display.test
-; Information added by Drupal.org packaging script on 2016-01-05
-version = "7.x-1.5"
+files[] = field_group.install
+files[] = field_group.module
+files[] = field_group.field_ui.inc
+files[] = field_group.form.inc
+files[] = field_group.features.inc
+files[] = field_group.test
+; Information added by drupal.org packaging script on 2013-09-30
+version = "7.x-2.x-dev"
 core = "7.x"
 project = "field_group"
-datestamp = "1452033709"
+datestamp = "1380578861"
 

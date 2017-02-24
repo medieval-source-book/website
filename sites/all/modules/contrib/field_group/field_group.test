@@ -2,39 +2,88 @@
 
 /**
  * @file
- * Test file for fieldgroup UI.
+ * Unit test file for groups.
+ *
+ * @todo - fill along if we know more.
+ *
+ * - nest a group under another group and see if parent_name is first group
+ * - nest a group under second group and see if parent_name is second group
+ * - settings: open f and verify on front-end (classes)
+ * - settings: collapsible f and verify on front-end (classes)
+ * - settings: collapsed f and verify on front-end (classes)
+ * - settings: vertical tabs and verify on front-end (classes)
+ * - settings: horizontal item and verify on front-end (classes)
+ * - settings: vertical item  and verify on front-end (classes)
+ * - settings: hidden (simple div) and verify on front-end (classes)
+ * - settings: label and verify on front-end
+ * - delete a fieldgroup - make sure we have a couple with the same name
+ *   and make sure the right one is deleted!
  */
 
 /**
  * Group UI tests.
  */
 class GroupUITestCase extends DrupalWebTestCase {
-
   public static function getInfo() {
     return array(
-      'name' => 'UI tests',
-      'description' => 'Test the Field Group UI.',
-      'group' => 'Field Group',
+      'name' => 'Field group tests',
+      'description' => 'Test the field group functionality.',
+      'group' => 'Field group',
     );
   }
 
   function setUp() {
-    parent::setUp('field_test', 'field_group', 'field_group_test');
+    parent::setUp('field_test', 'field_group');
 
     // Create test user.
     $admin_user = $this->drupalCreateUser(array('administer content types', 'administer nodes', 'access administration pages', 'bypass node access'));
     $this->drupalLogin($admin_user);
-  }
-
-  /**
-   * Test the creation a group on the article content type.
-   */
-  function createGroup() {
 
     // Create random group name.
     $this->group_label = $this->randomName(8);
     $this->group_name_input = drupal_strtolower($this->randomName(8));
     $this->group_name = 'group_' . $this->group_name_input;
+
+    // Create a fieldgroup.
+    $field_group = new stdClass;
+    $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+    $field_group->api_version = 1;
+    $field_group->identifier = 'wrapper|node|article|form';
+    $field_group->group_name = 'wrapper';
+    $field_group->entity_type = 'node';
+    $field_group->bundle = 'article';
+    $field_group->mode = 'form';
+    $field_group->parent_name = '';
+    $field_group->data = array(
+      'label' => 'Wrapper',
+      'weight' => '1',
+      'children' => array(
+        0 => 'field_image',
+      ),
+      'format_type' => 'div',
+      'format_settings' => array(
+        'label' => 'Link',
+        'instance_settings' => array(
+          'required_fields' => 0,
+          'id' => 'wrapper-id',
+          'classes' => '',
+          'description' => '',
+          'show_label' => '0',
+          'label_element' => 'h3',
+          'effect' => 'none',
+          'speed' => 'fast',
+        ),
+        'formatter' => 'open',
+      ),
+    );
+    drupal_write_record('field_group', $field_group);
+    ctools_export_crud_enable('field_group', $field_group->identifier);
+  }
+
+  /**
+   * Creates a group on the article content type.
+   */
+  function createGroup() {
 
     // Setup new group.
     $group = array(
@@ -43,8 +92,7 @@ class GroupUITestCase extends DrupalWebTestCase {
     );
 
     // Add new group on the 'Manage fields' page.
-    $this->drupalPost('admin/structure/types/manage/article/fields', $group, t('Save'));
-
+    $this->drupalPost('admin/structure/types/manage/article/fields',  $group, t('Save'));
     $this->assertRaw(t('New group %label successfully created.', array('%label' => $this->group_label)), t('Group message displayed on screen.'));
 
     // Test if group is in the $groups array.
@@ -52,7 +100,7 @@ class GroupUITestCase extends DrupalWebTestCase {
     $this->assertTrue(array_key_exists($this->group_name, $groups), t('Group found in groups array'));
 
     // Add new group on the 'Manage display' page.
-    $this->drupalPost('admin/structure/types/manage/article/display', $group, t('Save'));
+    $this->drupalPost('admin/structure/types/manage/article/display',  $group, t('Save'));
     $this->assertRaw(t('New group %label successfully created.', array('%label' => $this->group_label)), t('Group message displayed on screen.'));
 
     // Test if group is in the $groups array.
@@ -93,17 +141,11 @@ class GroupUITestCase extends DrupalWebTestCase {
    */
   function testNestField() {
 
-    $this->createGroup();
-
-    $edit = array(
-      'fields[field_image][parent]' => $this->group_name,
-    );
-    $this->drupalPost('admin/structure/types/manage/article/fields', $edit, t('Save'));
-    $this->assertRaw(t('Your settings have been saved.'), t('Settings saved'));
-
+    // Test on the wrapper field.
     $groups = field_group_info_groups('node', 'article', 'form', TRUE);
-    $this->assertTrue(in_array('field_image', $groups[$this->group_name]->children), t('Image is a child of %group', array('%group' => $this->group_name)));
+    $this->assertTrue(in_array('field_image', $groups['wrapper']->children), t('Image is a child of %group', array('%group' => 'Wrapper')));
+
+    $this->drupalGet('node/add/article');
+    $this->assertRaw('id="wrapper-id"', t('Wrapper id set on wrapper div'));
   }
-
 }
-
