@@ -138,7 +138,15 @@ $.fn.linenumberOnOff = function() {
 	**/
     return this.click(function(){
 		$(".linenumber").toggleClass("noDisplay");
-		$("#linenumberOnOff").toggleOnOffButton();
+		var button = $("#linenumberOnOff");
+		button.toggleOnOffButton();
+		var text = button[0].childNodes[0].innerText;
+        if (text == 'Hide Line Numbers') {
+			text = 'Show Line Numbers';
+		} else {
+			text = 'Hide Line Numbers';
+		}
+        button[0].childNodes[0].innerText = text;
 	});
 }
 
