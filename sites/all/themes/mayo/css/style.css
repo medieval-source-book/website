@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Droid+Sans");
 article,
 aside,
 details,
@@ -1603,4 +1602,13 @@ div.view-filters {
 
 div.view-id-texts div.view-content table tbody tr td {
   text-align: center;
+}
+
+div#footer-wrapper {
+  padding: 0px;
+  line-height: 1em;
+}
+
+a {
+  cursor: pointer;
 }
