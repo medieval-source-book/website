@@ -45,7 +45,7 @@
   
   <!-- BIB PANEL: To change the VM so that the bibliographic information page does not
     appear at the initial load, change the below variable value from "true" to "false" below -->
-    <xsl:variable name="displayBibInfo">true</xsl:variable>
+    <xsl:variable name="displayBibInfo">false</xsl:variable>
   
   <!-- The number of version/witness panels to be displayed initially can be modified by changing the number below -->
   <xsl:variable name="displayVersions">2</xsl:variable>
