@@ -167,7 +167,8 @@
    <xsl:template name="brandingLogo">
       <div id="brandingLogo">
          <a href="{$logoLink}">
-         <img id="logo" alt="Powered by the Versioning Machine" src="{$vmLogo}"/>
+         <img id="logo" alt="Return to main site" src="{$vmLogo}"/>
+            <span id="home">Home</span>
          </a>
       </div>
    </xsl:template>

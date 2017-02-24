@@ -64,6 +64,17 @@ div#mainBanner div#brandingLogo{
 
 }
 
+div#brandingLogo a {
+    text-decoration: none;
+}
+
+div#brandingLogo a span#home {
+    font-size: large;
+    color: black;
+    text-align: center;
+    padding-left: 2em;
+}
+
 div#mainBanner div#brandingLogo img{
     max-width: 80%;
     margin:5%;
@@ -563,7 +574,7 @@ button{
 }
 
 .buttonPressed{
-    background: darkblue;
+    background: #2c577f;
 }
 /*end OnOff button styling*/
 
@@ -571,6 +582,10 @@ button{
 div.panel.highlight,
 .dropdown .highlight{
     border: 1px solid black;
+}
+
+ul#versionList li.highlight {
+    border: none;
 }
 
 
