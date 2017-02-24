@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function gms_text_field_group_info() {
-  $field_groups = array();
+  $export = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -39,7 +39,7 @@ function gms_text_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $export['group_context|node|text|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -68,7 +68,7 @@ function gms_text_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $export['group_files|node|text|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -98,13 +98,7 @@ function gms_text_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $export['group_metadata|node|text|form'] = $field_group;
 
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Context');
-  t('Files');
-  t('Metadata');
-
-  return $field_groups;
+  return $export;
 }

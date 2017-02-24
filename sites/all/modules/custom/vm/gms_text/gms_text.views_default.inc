@@ -42,7 +42,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Image */
+  /* Field: Content: Images */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -136,6 +136,25 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_genre_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_genre_tid']['vocabulary'] = 'genre';
   $handler->display->display_options['filters']['field_genre_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Keywords (field_keywords) */
+  $handler->display->display_options['filters']['field_keywords_tid']['id'] = 'field_keywords_tid';
+  $handler->display->display_options['filters']['field_keywords_tid']['table'] = 'field_data_field_keywords';
+  $handler->display->display_options['filters']['field_keywords_tid']['field'] = 'field_keywords_tid';
+  $handler->display->display_options['filters']['field_keywords_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['operator_id'] = 'field_keywords_tid_op';
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['label'] = 'Keywords';
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['operator'] = 'field_keywords_tid_op';
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['identifier'] = 'field_keywords_tid';
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_keywords_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_keywords_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_keywords_tid']['vocabulary'] = 'keywords';
+  $handler->display->display_options['filters']['field_keywords_tid']['error_message'] = FALSE;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
