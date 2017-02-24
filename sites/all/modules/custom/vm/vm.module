@@ -97,7 +97,7 @@ function vm_text_form_submit($form, &$form_state) {
           }
           $url .= basename($vm_filename);
           $wrapper->field_vm_link->set(array(
-            'title' => 'Read',
+            'title' => 'Go to Text',
             'url' => $url
           ));
         } else {
