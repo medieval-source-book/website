@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Appearance settings feature.
+ */
+
+include_once 'appearance_settings.features.inc';
