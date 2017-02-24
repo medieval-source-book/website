@@ -240,7 +240,7 @@
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
             <xsl:attribute name="title">Clicking this button turns the line numbers on or off.</xsl:attribute>
             <button><xsl:attribute name="class">topMenuButton</xsl:attribute>
-                <xsl:text>Line numbers</xsl:text>
+                <xsl:text>Hide Line Numbers</xsl:text>
             </button>
                
          </li>
@@ -250,7 +250,7 @@
             <xsl:attribute name="title">Clicking this button triggers the bibliographic panel to appear or disappear.</xsl:attribute>
             <button>
                <xsl:attribute name="class">topMenuButton</xsl:attribute>
-               <xsl:text>Bibliographic panel</xsl:text>
+               <xsl:text>Source Information</xsl:text>
             </button>
          </li>
       <xsl:if test="//tei:body//tei:note">
@@ -259,7 +259,7 @@
             <xsl:attribute name="title">Clicking this button triggers the notes panel to appear or disappear.</xsl:attribute>
             <button>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
-               <xsl:text>Notes panel</xsl:text>
+               <xsl:text>Critical Notes</xsl:text>
             </button>
          </li>
       </xsl:if>
