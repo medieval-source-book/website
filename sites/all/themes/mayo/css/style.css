@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans");
+@import url("https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans");
 article,
 aside,
 details,
@@ -232,7 +232,6 @@ table {
 }
 
 body {
-  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
   line-height: 1.5em;
   font-size: 87.5%;
   /* = 14px assuming browser's regular font size is 16px */
@@ -304,7 +303,7 @@ fieldset {
 }
 
 #site-name, #site-slogan {
-  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
+  font-family: 'Alegreya', serif;
 }
 
 /*------- end of default section --------*/
@@ -1592,6 +1591,7 @@ div.field-name-field-vm-link a {
 
 div#name-and-slogan {
   padding-top: 35px;
+  font-family: 'Alegreya', serif;
 }
 
 div.views-field-title {

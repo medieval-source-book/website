@@ -4,7 +4,6 @@
   padding: 0;
 }
 body {
-  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
   line-height: 1.5em;
   font-size: 87.5%; /* = 14px assuming browser's regular font size is 16px */
 }
@@ -60,7 +59,8 @@ fieldset {
   border-style: solid;
 }
 #site-name, #site-slogan {
-  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Baskerville, serif;
+  font-family: 'Alegreya', serif;
+
 }
 
 /*------- end of default section --------*/

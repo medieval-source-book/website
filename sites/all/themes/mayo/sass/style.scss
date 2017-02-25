@@ -10,7 +10,7 @@
 @import "partials/layout";
 @import "partials/style-settings";
 
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans');
 
 
 .spacer {
@@ -852,6 +852,7 @@ div.field-name-field-vm-link {
 
 div#name-and-slogan {
   padding-top: 35px;
+  font-family: 'Alegreya', serif;
 }
 
 div.views-field-title {
