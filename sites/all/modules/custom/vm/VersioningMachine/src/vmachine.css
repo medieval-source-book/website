@@ -6,9 +6,27 @@
     * Adds CSS styling to VM 5.0
     **/
 
+/*@font-face {*/
+    /*font-family: 'Alphabetum';*/
+    /*!*src: url('/includes/ALPHA-test.otf');*!*/
+/*}*/
+
+/* latin-ext */
 @font-face {
-    font-family: Alphabetum;
-    /*src: url('/includes/ALPHA-test.otf');*/
+    font-family: 'Alegreya';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Alegreya'), local('Alegreya-Regular'), url(https://fonts.gstatic.com/s/alegreya/v7/9u9YGRxvkN-Oe2bJiJD80RkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Alegreya Sans'), local('AlegreyaSans-Regular'), url(https://fonts.gstatic.com/s/alegreyasans/v3/KYNzioYhDai7mTMnx_gDgoLl39Idhk_6gOcz_nuzPgo.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 
 body{
@@ -18,6 +36,7 @@ body{
     font-size:12px;
     font-size: 1vw;
     width:100%;
+    font-family: 'Alegreya Sans';
     min-width:770px;
     background-color:#fff;
 }
@@ -28,6 +47,7 @@ h5,
 h6{
     /*color:;*/
     line-height:115%;
+    font-family: 'Alegreya', 'Baskerville', serif;
 }
 h2{
     font-size:17px;
@@ -73,6 +93,9 @@ div#brandingLogo a span#home {
     color: black;
     text-align: center;
     padding-left: 2em;
+    position: absolute;
+    left: 50px;
+    top: 35px;
 }
 
 div#mainBanner div#brandingLogo img{
@@ -98,9 +121,9 @@ div#headline{
     left: 39%
     }
 div#mainBanner div#headline h1{
+    font-family: 'Alegreya', 'Baskerville', serif;
     margin:0;
-    color: black;
-    font-family: sans-serif;
+    color: #3a536c;
     font-size: x-large;
 }
 div#mainBanner div#headline span.versionCount{
@@ -111,7 +134,6 @@ div#mainBanner div#headline span.versionCount{
 
 /* BEGIN styles top navigation and dropdown menu*/
 div#mainBanner nav#mainControls{
-    border-top: 1px solid #eeeeee;
     margin: 2px;
     padding:1px;
     position:absolute;
@@ -207,7 +229,6 @@ div#mssArea div.panel div.panelBanner{
     line-height:1.6em;
     margin:0;
     padding:3px 7px 3px 10px;
-    font-family:sans-serif;
     color:white;/*changed from black to be easier to read*/
     font-weight:400;/*changed from 800 to be easier to read*/
 }
@@ -241,7 +262,6 @@ div#mssArea div.panel div.mssContent{
     margin:10px;
     padding:0;
     line-height:25px;
-    font-family: Alphabetum;
 }
 
 div#mssArea div.panel div.mssContent img.imgLink{
@@ -474,7 +494,6 @@ div.rend-right{
     line-height:1.4em;
     color:white;/*changed from black to be easier to read*/
     font-weight:400;/*changed from 800 to be easier to read*/
-    font-family:sans-serif;
     overflow:hidden;
     position:absolute;
     top:0;
@@ -510,20 +529,18 @@ span.viewerHandleLt{
 
 #mainControls ul{
     padding:0;
-    margin:233px
+    /*margin:233px*/
 }
 #mainControls > ul > li{
     display:inline-block;
     list-style-type:none;
     padding: 0 5px 5px 15px;; /* changed from 5px*/
     font-size: 1em; /*changed from 1.2em*/
-    font-family:sans-serif;/*added*/
     position:relative;
     float:left;
 }
 /* style dropdown button */
 .topMenuButton{
-    font-family: "Segoe UI";
     font-weight: 300;
     display: block;
     background-color: black;
