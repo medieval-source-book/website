@@ -842,7 +842,7 @@ div.field-name-field-vm-link {
   font-size: xx-large;
   border: 1px solid #3a536c;
   border-radius: 5px;
-  width: 100px;
+  width: 200px;
   text-align: center;
   padding: 10px;
   margin-bottom: 1em;
@@ -890,4 +890,28 @@ div.group-left {
 div.content div.field-label {
   font-size: large;
 
+}
+
+div.media-widget a.button.browse {
+  padding: 5px;
+}
+
+iframe.cke_wysiwyg_frame body {
+  background-color: white;
+}
+
+div.node-text {
+  div.field-type-text-long div.field-label {
+    font-size: x-large;
+    padding-top: .5em;
+  }
+}
+
+div.field-type-taxonomy-term-reference div.field-items div.field-item {
+  margin: 0;
+  float: none;
+}
+
+div.field-name-field-year {
+  margin-bottom: .5em;
 }
