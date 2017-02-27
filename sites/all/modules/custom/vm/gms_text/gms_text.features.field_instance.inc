@@ -58,10 +58,10 @@ function gms_text_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -90,21 +90,81 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_icon'.
+  $field_instances['node-text-field_icon'] = array(
+    'bundle' => 'text',
+    'deleted' => 0,
+    'description' => 'An icon for the main page display',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_icon',
+    'label' => 'Icon',
+    'required' => 1,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '100x100',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_image'.
   $field_instances['node-text-field_image'] = array(
     'bundle' => 'text',
     'deleted' => 0,
-    'description' => 'Upload images for embedding in the text and for use as an icon. The first image will be the icon.',
+    'description' => 'Upload manuscript images for embedding in the text.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'file_entity',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'flexslider_full',
+          'file_view_mode' => 'default',
         ),
-        'type' => 'image',
-        'weight' => 8,
+        'type' => 'file_rendered',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -136,7 +196,7 @@ function gms_text_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 9,
     ),
   );
 
@@ -228,11 +288,11 @@ function gms_text_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 7,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -268,10 +328,10 @@ function gms_text_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 4,
       ),
       'teaser' => array(
@@ -308,11 +368,11 @@ function gms_text_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 6,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -350,7 +410,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -377,7 +437,7 @@ function gms_text_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 2,
+      'weight' => 10,
     ),
   );
 
@@ -438,10 +498,52 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_year'.
+  $field_instances['node-text-field_year'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The year of creation/publication, if known.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_year',
+    'label' => 'Year',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('An icon for the main page display');
   t('Critical Conversation');
   t('Genre');
+  t('Icon');
   t('Images');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
@@ -450,8 +552,10 @@ function gms_text_field_default_field_instances() {
   t('Link to the text in Versioning Machine');
   t('Period');
   t('TEI');
-  t('Upload images for embedding in the text and for use as an icon. The first image will be the icon.');
+  t('The year of creation/publication, if known.');
+  t('Upload manuscript images for embedding in the text.');
   t('Versioning Machine ');
+  t('Year');
 
   return $field_instances;
 }

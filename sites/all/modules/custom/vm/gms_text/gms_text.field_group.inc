@@ -56,6 +56,7 @@ function gms_text_field_group_info() {
     'children' => array(
       0 => 'field_image',
       1 => 'field_tei_file',
+      2 => 'field_icon',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -86,6 +87,7 @@ function gms_text_field_group_info() {
       0 => 'field_genre',
       1 => 'field_language',
       2 => 'field_period',
+      3 => 'field_year',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
