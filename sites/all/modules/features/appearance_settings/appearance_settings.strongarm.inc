@@ -120,8 +120,8 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_files';
   $strongarm->value = array(
-    0 => 'public://color/mayo-323399b8/logo.png',
-    1 => 'public://color/mayo-323399b8/colors.css',
+    0 => 'public://color/mayo-70913aa0/logo.png',
+    1 => 'public://color/mayo-70913aa0/colors.css',
   );
   $export['color_mayo_files'] = $strongarm;
 
@@ -129,7 +129,7 @@ function appearance_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_logo';
-  $strongarm->value = 'public://color/mayo-323399b8/logo.png';
+  $strongarm->value = 'public://color/mayo-70913aa0/logo.png';
   $export['color_mayo_logo'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -171,7 +171,7 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_stylesheets';
   $strongarm->value = array(
-    0 => 'public://color/mayo-323399b8/colors.css',
+    0 => 'public://color/mayo-70913aa0/colors.css',
   );
   $export['color_mayo_stylesheets'] = $strongarm;
 
@@ -210,10 +210,10 @@ function appearance_settings_strongarm() {
     'favicon_path' => 'public://GMS_logo_0.png',
     'favicon_upload' => '',
     'base_font_size' => '87.5%',
-    'base_font_family' => '0',
-    'base_custom_font_family' => '\'Droid Sans\', sans-serif',
-    'heading_font_family' => '0',
-    'heading_custom_font_family' => 'Helvetica, Arial, sans-serif',
+    'base_font_family' => '2',
+    'base_custom_font_family' => '\'Alegreya Sans\', sans-serif',
+    'heading_font_family' => '2',
+    'heading_custom_font_family' => '\'Alegreya Sans\', sans-serif',
     'base_vmargin' => '14px',
     'page_margin' => '10px',
     'layout_style' => '2',
