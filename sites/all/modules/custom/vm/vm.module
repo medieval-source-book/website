@@ -81,10 +81,13 @@ function vm_text_form_submit($form, &$form_state) {
         if (!file_exists($vm_path . '/src/drupal_settings.xsl')) {
           vm_rebuild_xsl(TRUE);
         }
-        $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl " . $filename;
+        $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl '" . $filename . "'";
         $output = array();
         $return = -1;
         exec($cmd, $output, $return);   // run xsltproc
+      dpm($cmd);
+      dpm($output);
+      dpm($return);
         if ($return == 0) { // Success!
           $basename = basename($filename, '.xml');
           $vm_filename = $vm_path . '/texts/' . $basename . '.html';
