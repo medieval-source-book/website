@@ -85,9 +85,6 @@ function vm_text_form_submit($form, &$form_state) {
         $output = array();
         $return = -1;
         exec($cmd, $output, $return);   // run xsltproc
-      dpm($cmd);
-      dpm($output);
-      dpm($return);
         if ($return == 0) { // Success!
           $basename = basename($filename, '.xml');
           $vm_filename = $vm_path . '/texts/' . $basename . '.html';
