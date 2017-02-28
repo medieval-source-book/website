@@ -57,6 +57,7 @@ function gms_text_field_group_info() {
       0 => 'field_image',
       1 => 'field_tei_file',
       2 => 'field_icon',
+      3 => 'field_audio',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
