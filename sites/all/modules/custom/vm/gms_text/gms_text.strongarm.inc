@@ -135,5 +135,38 @@ function gms_text_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_text'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_nodes_global';
+  $strongarm->value = array(
+    0 => 'author',
+    1 => 'format',
+    2 => 'options',
+    3 => 'revision',
+    4 => 'comment',
+    5 => 'menu',
+    6 => 'path',
+  );
+  $export['simplify_nodes_global'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_user1';
+  $strongarm->value = 0;
+  $export['simplify_user1'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_users_global';
+  $strongarm->value = array(
+    0 => 'format',
+    1 => 'status',
+    2 => 'contact',
+  );
+  $export['simplify_users_global'] = $strongarm;
+
   return $export;
 }
