@@ -168,7 +168,7 @@
       <div id="brandingLogo">
          <a href="{$logoLink}">
          <img id="home" alt="Return to main site" src="{$vmLogo}"/>
-            <span id="home">Home</span>
+            <span id="home_text">Home</span>
          </a>
       </div>
    </xsl:template>
