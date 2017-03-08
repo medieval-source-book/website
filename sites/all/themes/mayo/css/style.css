@@ -1577,12 +1577,12 @@ fieldset.mayo-layout-form div.form-type-radio {
 div.field-name-field-vm-link {
   color: white;
   background-color: #2c577f;
-  font-size: xx-large;
+  font-size: x-large;
   border: 1px solid #3a536c;
   border-radius: 5px;
-  width: 200px;
+  width: 100px;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 1em;
 }
 div.field-name-field-vm-link a {
