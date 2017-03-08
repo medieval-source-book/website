@@ -781,9 +781,6 @@ div.tabs ul.secondary li {
 .node {
   margin: 0;
   padding: 15px 12px 10px 14px;
-  margin-bottom: 10px;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .node-sticky {
