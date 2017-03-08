@@ -153,7 +153,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -250,7 +250,7 @@ function gms_text_field_default_field_instances() {
     'description' => 'Upload manuscript images for embedding in the text.',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file_entity',
         'settings' => array(
           'file_view_mode' => 'default',
@@ -267,7 +267,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_image',
-    'label' => 'Images',
+    'label' => 'Manuscript Images',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -465,7 +465,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 9,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -640,12 +640,12 @@ function gms_text_field_default_field_instances() {
   t('Further Reading');
   t('Genre');
   t('Icon');
-  t('Images');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
   t('Keywords');
   t('Language');
   t('Link to the text in Versioning Machine');
+  t('Manuscript Images');
   t('Period');
   t('TEI');
   t('The year of creation/publication, if known.');
