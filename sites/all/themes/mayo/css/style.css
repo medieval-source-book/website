@@ -1662,3 +1662,31 @@ div.field-name-field-year {
 a, a:visited {
   color: #b52e1c;
 }
+
+table.views-view-grid tr {
+  background-color: #fef8dd;
+}
+
+td.views-field {
+  background-color: #fef8dd;
+}
+
+table tr th {
+  background-color: #d2d2d2;
+  border-right-color: #ffffff;
+}
+
+tr.even,
+tr.even td {
+  background-color: #e8e8e8;
+}
+
+tr.odd,
+tr.odd td {
+  background-color: #fefefe;
+}
+
+tr.even td.active,
+tr.odd td.active {
+  background-image: url("../images/dark.png");
+}
