@@ -58,6 +58,49 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_author'.
+  $field_instances['node-text-field_author'] = array(
+    'bundle' => 'text',
+    'default_value' => array(
+      0 => array(
+        'tid' => 21,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_author',
+    'label' => 'Author',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_critical_conversation'.
   $field_instances['node-text-field_critical_conversation'] = array(
     'bundle' => 'text',
@@ -81,7 +124,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_critical_conversation',
-    'label' => 'Critical Conversation',
+    'label' => 'Further Reading',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -134,7 +177,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 6,
+      'weight' => 14,
     ),
   );
 
@@ -404,7 +447,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 5,
+      'weight' => 13,
     ),
   );
 
@@ -444,7 +487,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 7,
+      'weight' => 15,
     ),
   );
 
@@ -582,7 +625,7 @@ function gms_text_field_default_field_instances() {
         'size' => 4,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 16,
     ),
   );
 
@@ -590,7 +633,8 @@ function gms_text_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('An icon for the main page display');
   t('Audio');
-  t('Critical Conversation');
+  t('Author');
+  t('Further Reading');
   t('Genre');
   t('Icon');
   t('Images');

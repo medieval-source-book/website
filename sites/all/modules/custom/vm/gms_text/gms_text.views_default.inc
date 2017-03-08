@@ -80,10 +80,33 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'text' => 'text',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Author (field_author) */
+  $handler->display->display_options['filters']['field_author_tid']['id'] = 'field_author_tid';
+  $handler->display->display_options['filters']['field_author_tid']['table'] = 'field_data_field_author';
+  $handler->display->display_options['filters']['field_author_tid']['field'] = 'field_author_tid';
+  $handler->display->display_options['filters']['field_author_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_author_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_author_tid']['expose']['operator_id'] = 'field_author_tid_op';
+  $handler->display->display_options['filters']['field_author_tid']['expose']['label'] = 'Author';
+  $handler->display->display_options['filters']['field_author_tid']['expose']['operator'] = 'field_author_tid_op';
+  $handler->display->display_options['filters']['field_author_tid']['expose']['identifier'] = 'field_author_tid';
+  $handler->display->display_options['filters']['field_author_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_author_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_author_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_author_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_author_tid']['vocabulary'] = 'author';
+  $handler->display->display_options['filters']['field_author_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Language (field_language) */
   $handler->display->display_options['filters']['field_language_tid']['id'] = 'field_language_tid';
   $handler->display->display_options['filters']['field_language_tid']['table'] = 'field_data_field_language';
   $handler->display->display_options['filters']['field_language_tid']['field'] = 'field_language_tid';
+  $handler->display->display_options['filters']['field_language_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_language_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_language_tid']['expose']['operator_id'] = 'field_language_tid_op';
   $handler->display->display_options['filters']['field_language_tid']['expose']['label'] = 'Language';
@@ -102,6 +125,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_period_tid']['id'] = 'field_period_tid';
   $handler->display->display_options['filters']['field_period_tid']['table'] = 'field_data_field_period';
   $handler->display->display_options['filters']['field_period_tid']['field'] = 'field_period_tid';
+  $handler->display->display_options['filters']['field_period_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_period_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_period_tid']['expose']['operator_id'] = 'field_period_tid_op';
   $handler->display->display_options['filters']['field_period_tid']['expose']['label'] = 'Period';
@@ -116,28 +140,11 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_period_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_period_tid']['vocabulary'] = 'period';
   $handler->display->display_options['filters']['field_period_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Genre (field_genre) */
-  $handler->display->display_options['filters']['field_genre_tid']['id'] = 'field_genre_tid';
-  $handler->display->display_options['filters']['field_genre_tid']['table'] = 'field_data_field_genre';
-  $handler->display->display_options['filters']['field_genre_tid']['field'] = 'field_genre_tid';
-  $handler->display->display_options['filters']['field_genre_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['operator_id'] = 'field_genre_tid_op';
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['label'] = 'Genre';
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['operator'] = 'field_genre_tid_op';
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['identifier'] = 'field_genre_tid';
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_genre_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_genre_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_genre_tid']['vocabulary'] = 'genre';
-  $handler->display->display_options['filters']['field_genre_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Keywords (field_keywords) */
   $handler->display->display_options['filters']['field_keywords_tid']['id'] = 'field_keywords_tid';
   $handler->display->display_options['filters']['field_keywords_tid']['table'] = 'field_data_field_keywords';
   $handler->display->display_options['filters']['field_keywords_tid']['field'] = 'field_keywords_tid';
+  $handler->display->display_options['filters']['field_keywords_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_keywords_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_keywords_tid']['expose']['operator_id'] = 'field_keywords_tid_op';
   $handler->display->display_options['filters']['field_keywords_tid']['expose']['label'] = 'Keywords';
