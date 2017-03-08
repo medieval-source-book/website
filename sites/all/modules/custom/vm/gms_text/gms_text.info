@@ -16,6 +16,7 @@ dependencies[] = media_wysiwyg
 dependencies[] = menu
 dependencies[] = menus
 dependencies[] = node
+dependencies[] = options
 dependencies[] = simplify
 dependencies[] = strongarm
 dependencies[] = taxonomy
