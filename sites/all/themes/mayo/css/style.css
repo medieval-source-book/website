@@ -449,6 +449,10 @@ div#logo {
   line-height: 1em;
 }
 
+#site-name a span {
+  font-size: 42px;
+}
+
 /**
  * Footer
  */
