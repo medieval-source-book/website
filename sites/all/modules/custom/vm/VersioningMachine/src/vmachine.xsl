@@ -75,6 +75,9 @@
                <xsl:value-of select="$cssInclude" />
             </xsl:attribute>
          </link>
+
+         <!-- include custom font-face -->
+         <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet"></link>
         
          <script type="text/javascript">
             <xsl:attribute name="src">
@@ -270,7 +273,7 @@
                <button>
                   <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                   <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
-                  <xsl:text>Critical introduction</xsl:text>
+                  <xsl:text>Introduction to Text</xsl:text>
                </button>
             </li>
          </xsl:if>

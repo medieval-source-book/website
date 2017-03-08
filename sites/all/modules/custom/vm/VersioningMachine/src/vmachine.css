@@ -36,7 +36,7 @@ body{
     font-size:12px;
     font-size: 1vw;
     width:100%;
-    font-family: 'Alegreya Sans';
+    font-family: 'Alegreya Sans', sans-serif;
     min-width:770px;
     background-color:#fff;
 }
