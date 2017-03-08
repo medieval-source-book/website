@@ -1691,3 +1691,8 @@ tr.even td.active,
 tr.odd td.active {
   background-image: url("../images/dark.png");
 }
+
+div#node_text_full_group_metadata {
+  margin-top: 2em;
+  border-top: 1px solid black;
+}
