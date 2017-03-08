@@ -44,7 +44,7 @@ body.overlay {
 }
 #header {
   background-color: #f99301;
-  @include background-image(linear-gradient(to right, #f99301, #ddff61));
+  @include background-image(linear-gradient(right, #f99301, #ddff61));
 }
 a.visited,
 a {

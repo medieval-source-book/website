@@ -48,11 +48,11 @@ body.overlay {
 
 #header {
   background-color: #f99301;
-  background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #f99301), color-stop(100%, #ddff61));
-  background-image: -webkit-linear-gradient(to right, #f99301, #ddff61);
-  background-image: -moz-linear-gradient(to right, #f99301, #ddff61);
-  background-image: -o-linear-gradient(to right, #f99301, #ddff61);
-  background-image: linear-gradient(to right, #f99301, #ddff61);
+  background-image: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #f99301), color-stop(100%, #ddff61));
+  background-image: -webkit-linear-gradient(right, #f99301, #ddff61);
+  background-image: -moz-linear-gradient(right, #f99301, #ddff61);
+  background-image: -o-linear-gradient(right, #f99301, #ddff61);
+  background-image: linear-gradient(right, #f99301, #ddff61);
 }
 
 a.visited,
