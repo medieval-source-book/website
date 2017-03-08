@@ -23,9 +23,9 @@ function gms_text_field_group_info() {
     'label' => 'Context',
     'weight' => '3',
     'children' => array(
-      0 => 'field_introduction_to_the_text',
+      0 => 'field_critical_conversation',
       1 => 'field_intro_manuscript',
-      2 => 'field_critical_conversation',
+      2 => 'field_introduction_to_the_text',
       3 => 'field_keywords',
     ),
     'format_type' => 'fieldset',
@@ -58,6 +58,7 @@ function gms_text_field_group_info() {
       1 => 'field_tei_file',
       2 => 'field_icon',
       3 => 'field_audio',
+      4 => 'field_icon_source',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -83,7 +84,7 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '',
-    'weight' => '16',
+    'weight' => '6',
     'children' => array(
       0 => 'field_genre',
       1 => 'field_language',

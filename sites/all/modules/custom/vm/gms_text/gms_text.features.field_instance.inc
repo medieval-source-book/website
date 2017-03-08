@@ -54,7 +54,7 @@ function gms_text_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -190,9 +190,12 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 13,
+        'module' => 'file_entity',
+        'settings' => array(
+          'file_view_mode' => 'teaser',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -243,6 +246,46 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_icon_source'.
+  $field_instances['node-text-field_icon_source'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Source of the icon image',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_icon_source',
+    'label' => 'Icon Source',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 120,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_image'.
   $field_instances['node-text-field_image'] = array(
     'bundle' => 'text',
@@ -256,7 +299,7 @@ function gms_text_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',
-        'weight' => 11,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -288,7 +331,7 @@ function gms_text_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -504,7 +547,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -531,7 +574,7 @@ function gms_text_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -640,6 +683,7 @@ function gms_text_field_default_field_instances() {
   t('Further Reading');
   t('Genre');
   t('Icon');
+  t('Icon Source');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
   t('Keywords');
@@ -647,6 +691,7 @@ function gms_text_field_default_field_instances() {
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Period');
+  t('Source of the icon image');
   t('TEI');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
