@@ -62,6 +62,7 @@ features[field_instance][] = node-text-field_vm_link
 features[field_instance][] = node-text-field_year
 features[filter][] = filtered_html
 features[image][] = cropped_rectangle
+features[menu_links][] = main-menu_texts:texts-table
 features[node][] = text
 features[taxonomy][] = author
 features[taxonomy][] = genre

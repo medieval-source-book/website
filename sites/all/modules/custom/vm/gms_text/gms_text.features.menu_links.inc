@@ -25,7 +25,7 @@ function gms_text_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 0,
-    'customized' => 0,
+    'customized' => 1,
   );
 
   // Translatables
