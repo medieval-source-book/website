@@ -1648,3 +1648,7 @@ div.field-type-taxonomy-term-reference div.field-items div.field-item {
 div.field-name-field-year {
   margin-bottom: .5em;
 }
+
+#page {
+  background-color: white;
+}
