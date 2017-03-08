@@ -1696,3 +1696,8 @@ div#node_text_full_group_metadata {
   margin-top: 2em;
   border-top: 1px solid black;
 }
+
+div.field-label {
+  margin-top: 1em;
+  font-size: x-large;
+}
