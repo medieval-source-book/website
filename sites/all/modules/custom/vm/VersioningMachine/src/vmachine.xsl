@@ -429,7 +429,7 @@
          </xsl:attribute>
          <div class="panelBanner">
             <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
-            Bibliographic Information
+            Source Information
          </div>
          <div class="bibContent">
             <h2>
@@ -459,7 +459,7 @@
                </xsl:for-each>
             </ul>
             <xsl:if test="tei:notesStmt/tei:note[@anchored = 'true' and not(@type='image')]">
-               <h4>Textual Notes</h4>
+               <h4>Critical Notes</h4>
                <xsl:for-each select="tei:notesStmt/tei:note[@anchored = 'true' and not(@type='image')]">
                   <div class="note">
                      <xsl:if test="@type">
@@ -560,10 +560,10 @@
            
                <div class="panelBanner">
                   <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
-                  Critical Introduction
+                  Introduction to Text
                </div>
                <div class="critContent">
-                  <h4>Critical Introduction</h4>
+                  <h4>Introduction to Text</h4>
                      <xsl:for-each select="//tei:notesStmt">
                         <xsl:apply-templates select="tei:note[@type='critIntro']" />
                      </xsl:for-each>
@@ -612,7 +612,7 @@
          
          <div class="panelBanner">
             <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
-            Textual Notes
+            Critical Notes
          </div>
          <xsl:for-each select="//tei:body//tei:note[not(@type='image')]">
             <xsl:if test="not(ancestor::tei:note)">
