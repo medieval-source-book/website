@@ -1697,7 +1697,6 @@ div#node_text_full_group_metadata {
   border-top: 1px solid black;
 }
 
-div.field-label {
+div.field-label-above {
   margin-top: 1em;
-  font-size: x-large;
 }
