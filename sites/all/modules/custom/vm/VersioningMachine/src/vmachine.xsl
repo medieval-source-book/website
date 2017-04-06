@@ -383,7 +383,8 @@
                   -->
                <source>
                   <xsl:attribute name="class">audiosource</xsl:attribute>
-                  <xsl:attribute name="src"><xsl:value-of select="@url" /></xsl:attribute>
+                  <xsl:attribute name="src"><xsl:value-of select="concat($vmAudioPath, @url)"
+                     /></xsl:attribute>
                   <xsl:attribute name="type"><xsl:value-of select="@mimeType" /></xsl:attribute>
                </source>
                   <!-- </span>-->
