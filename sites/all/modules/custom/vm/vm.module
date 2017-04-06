@@ -69,7 +69,7 @@ function vm_form_alter(&$form, &$form_state, $form_id) {
 }
 
 // Run XSLT on uploaded TEI; takes the Drupal text node as an argument
-function vm_process_text($node) {
+function vm_process_text($node, $silent = FALSE) {
   $wrapper = entity_metadata_wrapper('node', $node);
   $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
   $file = file_load($wrapper->field_tei_file->value()['fid']);
@@ -96,7 +96,7 @@ function vm_process_text($node) {
       'title' => 'Go to Text',
       'url' => $url
     ));
-  } else {
+  } elseif (!$silent) {
     drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
   }
   $wrapper->save();
@@ -128,7 +128,10 @@ function vm_rebuild_xsl($silent = FALSE) {
   $path = drupal_get_path('module', 'vm') . '/VersioningMachine';
   $image_field = field_info_instance('node', 'field_image', 'text');
   $image_path = variable_get('file_public_path', conf_path() . '/files') . '/' .
-  $image_field['settings']['file_directory'] . '/';
+    $image_field['settings']['file_directory'] . '/';
+  $audio_field = field_info_instance('node', 'field_audio', 'text');
+  $audio_path = variable_get('file_public_path', conf_path() . '/files') . '/' .
+    $audio_field['settings']['file_directory'] . '/';
   $string = '<?xml version="1.0" encoding="UTF-8"?' . '>'; // so PHP doesn't
   // choke
   $string .= '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" ';
@@ -138,8 +141,8 @@ function vm_rebuild_xsl($silent = FALSE) {
   $string .= '<xsl:variable name="vmImages">';
   $string .= $base_path . $path . '/vm-images/';
   $string .= '</xsl:variable>';
-  $string .= '<xsl:variable name="vmAudio">';
-  $string .= $base_path . $path . '/vm-audio/';
+  $string .= '<xsl:variable name="vmAudioPath">';
+  $string .= $base_path . $audio_path;
   $string .= '</xsl:variable>';
   $string .= '<xsl:variable name="facsImageFolder">';
   $string .= $base_path . $image_path;
@@ -164,7 +167,7 @@ function vm_reprocess_texts() {
     $nids = array_keys($result['node']);
     $nodes = entity_load('node', $nids);
     foreach ($nodes as $node) {
-      $status[$node->title] = vm_process_text($node);
+      $status[$node->title] = vm_process_text($node, TRUE);
     }
   }
   foreach ($status as $title => $result) {
