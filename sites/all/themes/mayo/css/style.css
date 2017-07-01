@@ -373,10 +373,8 @@ fieldset {
 .rc-3 .node,
 .rc-3 .column-block,
 .rc-3 .sidebar .block {
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
 }
 
@@ -443,16 +441,17 @@ div#logo {
 
 #site-slogan {
   font-weight: normal;
-  font-style: italic;
+  /*font-style: italic;*/
   margin-bottom: 5px;
-  font-size: 15px;
-  /* we do not want it changed by text scaling */
+  font-size: 20px;
+  /* we do not want it changed by text scaling; changes made 6/30/17, DMB*/
   line-height: 1em;
+  margin-top: 5px;
 }
 
 #site-name a span {
   font-size: 42px;
-  color: #3a536c;
+  color: #666666;
 }
 
 /**
@@ -896,7 +895,7 @@ div.tabs ul.secondary li {
   border-bottom-color: #ddd;
   border-right-color: #ddd;
   margin-top: 1px;
-  background: white url(../images/search.png) no-repeat 2px center;
+  background: #fff url(../images/search.png) no-repeat 2px center;
   padding: 0px 4px 0px 4px;
   padding-left: 24px;
   /* space for magnifying glass */
@@ -925,13 +924,13 @@ div.tabs ul.secondary li {
   cursor: pointer;
   font-size: 0.9em;
   border: solid 1px #888888;
-  background: white url(../images/button.gif) repeat-x center;
+  background: #fff url(../images/button.gif) repeat-x center;
 }
 
 .pushbutton:hover, button:hover, .form-submit:hover {
   color: #111111;
   border: solid 1px #666666;
-  background: white url(../images/button-o.gif) repeat-x center;
+  background: #fff url(../images/button-o.gif) repeat-x center;
 }
 
 /**

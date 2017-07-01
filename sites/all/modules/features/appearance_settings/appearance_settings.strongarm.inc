@@ -120,8 +120,8 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_files';
   $strongarm->value = array(
-    0 => 'public://color/mayo-70913aa0/logo.png',
-    1 => 'public://color/mayo-70913aa0/colors.css',
+    0 => 'public://color/mayo-dee38149/logo.png',
+    1 => 'public://color/mayo-dee38149/colors.css',
   );
   $export['color_mayo_files'] = $strongarm;
 
@@ -129,7 +129,7 @@ function appearance_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_logo';
-  $strongarm->value = 'public://color/mayo-70913aa0/logo.png';
+  $strongarm->value = 'public://color/mayo-dee38149/logo.png';
   $export['color_mayo_logo'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -171,9 +171,16 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_stylesheets';
   $strongarm->value = array(
-    0 => 'public://color/mayo-70913aa0/colors.css',
+    0 => 'public://color/mayo-dee38149/colors.css',
   );
   $export['color_mayo_stylesheets'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_slogan';
+  $strongarm->value = 'A Digital Repository of Medieval Texts';
+  $export['site_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -204,10 +211,10 @@ function appearance_settings_strongarm() {
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
     'default_logo' => 0,
-    'logo_path' => 'public://logo_3.png',
+    'logo_path' => 'public://GMS_Design_Corrected_3_23.png',
     'logo_upload' => '',
     'default_favicon' => 0,
-    'favicon_path' => 'public://GMS_logo_0.png',
+    'favicon_path' => 'sites/default/files/T-O Map 1.png',
     'favicon_upload' => '',
     'base_font_size' => '87.5%',
     'base_font_family' => '2',

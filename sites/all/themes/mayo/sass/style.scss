@@ -54,15 +54,16 @@ div#logo {
 }
 #site-slogan {
   font-weight: normal;
-  font-style: italic;
+  /*font-style: italic;*/
   margin-bottom: 5px;
-  font-size: 15px; /* we do not want it changed by text scaling */
+  font-size: 20px; /* we do not want it changed by text scaling; changes made 6/30/17, DMB*/
   line-height: 1em;
+  margin-top: 5px;
 }
 
 #site-name a span {
   font-size: 42px;
-  color: #3a536c;
+  color: #666666;
 }
 
 /**
