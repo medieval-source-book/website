@@ -589,7 +589,29 @@ div#logo {
   margin: 0;
   line-height: 1.6em;
   font-size: medium;
-  text-align: justify;
+  /*text-align: justify; allows us to center text in exposed form widget*/
+}
+.sidebar * form#views-exposed-form-texts-page {
+  background-color: #3b3b3b !important;
+}
+.sidebar * form#views-exposed-form-texts-page div.views-exposed-widget {
+  text-align: center;
+  width: 100%;
+}
+.sidebar * form#views-exposed-form-texts-page div.views-exposed-widget label {
+  color: #ffffff;
+  position: relative;
+  text-align: left;
+  left: 11px;
+  /*creates illusion of being aligned left with inputs*/
+}
+.sidebar * form#views-exposed-form-texts-page div.views-exposed-widget .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  font-size: 80% !important;
+}
+.sidebar * div#block-views-exp-texts-page h2 {
+  display: block;
+  background-color: #3b3b3b;
+  color: #ffffff;
 }
 
 .sidebar .block {
@@ -1601,6 +1623,9 @@ div#name-and-slogan {
 div.views-field-title {
   font-size: large;
 }
+div.views-field-title a {
+  color: #666666;
+}
 
 div.view-filters {
   margin-left: 15px;
@@ -1698,4 +1723,13 @@ div#node_text_full_group_metadata {
 
 div.field-label-above {
   margin-top: 1em;
+}
+
+body.page-texts h1#page-title {
+  display: none;
+  /*hide the page title for the All Texts view*/
+}
+
+div.view-id-texts div.view-content tr {
+  vertical-align: top;
 }

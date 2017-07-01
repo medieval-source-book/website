@@ -194,7 +194,30 @@ div#logo {
   margin: 0;
   line-height: 1.6em;
   font-size: medium;
-  text-align: justify;
+  /*text-align: justify; allows us to center text in exposed form widget*/
+  form#views-exposed-form-texts-page {
+    background-color: #3b3b3b !important;
+    div.views-exposed-widget {
+      text-align: center;
+      width: 100%;
+      label {
+        color: #ffffff;
+        position: relative;
+        text-align: left;
+        left: 11px; /*creates illusion of being aligned left with inputs*/
+      }
+      .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+        font-size: 80% !important;
+      }
+    }
+  }
+  div#block-views-exp-texts-page {
+    h2 {
+      display: block;
+      background-color: #3b3b3b;
+      color: #ffffff;
+    }
+  }
 }
 .sidebar .block {
   padding: 5px 10px;
@@ -861,6 +884,9 @@ div#name-and-slogan {
 
 div.views-field-title {
   font-size: large;
+  a {
+    color: #666666;
+  }
 }
 
 div.view-filters {
@@ -964,4 +990,18 @@ div#node_text_full_group_metadata {
 
 div.field-label-above {
   margin-top: 1em;
+}
+
+body.page-texts {
+  h1#page-title {
+    display: none; /*hide the page title for the All Texts view*/
+  }
+}
+
+div.view-id-texts {
+  div.view-content {
+    tr {
+      vertical-align: top;
+    }
+  }
 }

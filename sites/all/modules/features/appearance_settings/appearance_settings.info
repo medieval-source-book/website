@@ -25,6 +25,7 @@ features[variable][] = color_mayo_logo
 features[variable][] = color_mayo_palette
 features[variable][] = color_mayo_stylesheets
 features[variable][] = site_slogan
+features[variable][] = theme_bootstrap_settings
 features[variable][] = theme_default
 features[variable][] = theme_mayo_files_directory
 features[variable][] = theme_mayo_settings
