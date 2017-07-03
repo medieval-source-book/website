@@ -10,26 +10,6 @@
 function menus_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_about:<front>.
-  $menu_links['main-menu_about:<front>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'About',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_about:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_add-text:node/add/text.
   $menu_links['main-menu_add-text:node/add/text'] = array(
     'menu_name' => 'main-menu',
@@ -145,7 +125,6 @@ function menus_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('About');
   t('Add Text');
   t('Contact');
   t('Home');

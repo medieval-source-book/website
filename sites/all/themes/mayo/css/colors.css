@@ -1,7 +1,8 @@
 /* ---------- Color Module Styles ----------- */
 body,
 #page-wrapper {
-  background-color: #9f8365;
+  background-color: #ffffff !important;
+  /*change to white, 7/1/17 --DMB*/
   color: #3b3b3b;
 }
 
