@@ -942,7 +942,7 @@ iframe.cke_wysiwyg_frame body {
 
 div.node-text {
   div.field-type-text-long div.field-label {
-    font-size: x-large;
+    font-size: large;
     padding-top: .5em;
   }
 }
@@ -997,7 +997,7 @@ tr.odd td.active {
 
 div#node_text_full_group_metadata {
   margin-top: 2em;
-  border-top: 1px solid black;
+  /*border-top: 1px solid black;  removing */
 }
 
 div.field-label-above {
@@ -1014,6 +1014,48 @@ div.view-id-texts {
   div.view-content {
     tr {
       vertical-align: top;
+    }
+  }
+}
+
+
+/*styles for new node (text) pages*/
+body.page-node {
+  div.content {
+    div.group-left {
+      width: 35% !important;
+      div.text-information {
+        h2 {
+          border-bottom: none !important;
+        }
+        div.field-label {
+          font-size: small;
+          font-weight: bolder;
+        }
+      }
+    }
+    div.group-right {
+      width: 61% !important;
+      div.field-name-field-introduction-to-the-text {
+        div.field-label {
+          width: 50%;
+          background-color: #444444;
+          color: #ffffff;
+          padding-left: 10px;
+          padding-bottom: 5px;
+          font-family: sans-serif;
+        }
+      }
+      div.field-name-field-critical-conversation {
+        div.field-label {
+          width: 40%;
+          background-color: #444444;
+          color: #ffffff;
+          padding-left: 10px;
+          padding-bottom: 5px;
+          font-family: sans-serif;
+        }
+      }
     }
   }
 }
