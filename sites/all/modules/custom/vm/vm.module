@@ -74,10 +74,12 @@ function vm_process_text($node, $silent = FALSE) {
   $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
   $file = file_load($wrapper->field_tei_file->value()['fid']);
   $filename = drupal_realpath($file->uri);
+  $error_file = drupal_tempnam(file_directory_temp(), 'gms_xsltproc');
   if (!file_exists($vm_path . '/src/drupal_settings.xsl')) {
     vm_rebuild_xsl(TRUE);
   }
-  $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl '" . $filename . "'";
+  $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl '"
+    . $filename . "' 2> " . $error_file;
   $output = array();
   $return = -1;
   exec($cmd, $output, $return);   // run xsltproc
@@ -98,6 +100,10 @@ function vm_process_text($node, $silent = FALSE) {
     ));
   } elseif (!$silent) {
     drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
+    $fhandle = fopen($error_file, 'r');
+    $result = fread($fhandle, filesize($error_file));
+    fclose($fhandle);
+    drupal_set_message(t($result), 'error');
   }
   $wrapper->save();
   return $return;
