@@ -42,7 +42,7 @@ function gms_text_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => 'vm-audio',
       'file_extensions' => 'mp3 ogg',
       'max_filesize' => '',
       'user_register_form' => FALSE,
