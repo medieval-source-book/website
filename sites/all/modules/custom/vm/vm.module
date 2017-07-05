@@ -99,7 +99,7 @@ function vm_process_text($node, $silent = FALSE) {
       'url' => $url
     ));
   } elseif (!$silent) {
-    drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
+    drupal_set_message(t('Versioning Machine was unable to process this file. Please review the errors and try again:'), 'error');
     $fhandle = fopen($error_file, 'r');
     $result = fread($fhandle, filesize($error_file));
     fclose($fhandle);
