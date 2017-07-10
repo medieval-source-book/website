@@ -464,7 +464,7 @@ span.unclear{
 }
 
 .stanzabreak{
-    display:none;
+    padding-top: 2em;
 }
 div.type-stanza{
     margin-bottom:25px;
