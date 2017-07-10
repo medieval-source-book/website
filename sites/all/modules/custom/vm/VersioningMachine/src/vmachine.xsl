@@ -837,9 +837,12 @@
            </xsl:attribute>
             
          <xsl:if test="@n">
-            <div class="linenumber noDisplay">
-               <xsl:value-of select="@n" />
-            </div>
+
+               <div class="linenumber noDisplay">
+                  <xsl:if test="@n mod 5 = 0">
+                     <xsl:value-of select="@n" />
+                  </xsl:if>
+               </div>
          </xsl:if>
             <xsl:apply-templates>
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
