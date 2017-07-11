@@ -6,10 +6,10 @@
     * Adds CSS styling to VM 5.0
     **/
 
-/*@font-face {*/
-    /*font-family: 'Alphabetum';*/
-    /*!*src: url('/includes/ALPHA-test.otf');*!*/
-/*}*/
+@font-face {
+    font-family: 'Andron-Regular';
+    src: url('../includes/Andron_Scriptor_Web.ttf');
+}
 
 /* latin-ext */
 @font-face {
@@ -36,7 +36,7 @@ body{
     font-size:12px;
     font-size: 1vw;
     width:100%;
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Andron-Regular', 'Alegreya Sans', sans-serif;
     min-width:770px;
     background-color:#fff;
 }
