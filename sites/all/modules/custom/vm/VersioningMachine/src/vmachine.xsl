@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet version="1.0" exclude-result-prefixes="tei"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:tei="http://www.tei-c.org/ns/1.0"
@@ -9,8 +10,8 @@
    <!-- <xsl:strip-space elements="*" /> -->
    
    <!-- IMPORT SETTINGS -->
-   <xsl:include href="settings.xsl" /> 
-   
+   <xsl:include href="settings.xsl" />
+
    
    <!-- CREATE VARIABLE FOR EDITION TITLE -->
    <xsl:variable name="fullTitle">
@@ -801,7 +802,6 @@
       </div>
    </xsl:template>
    
-   
    <xsl:template match="tei:l">
       <xsl:param name="witId"></xsl:param>
       
@@ -996,6 +996,8 @@
          </xsl:when>
          <xsl:otherwise>
             <div class="paragraph">
+               <!-- Number every paragraph -->
+               <xsl:number />
                <xsl:apply-templates>
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:apply-templates>
