@@ -54,11 +54,7 @@ function gms_text_field_default_field_instances() {
   // Exported field_instance: 'node-text-field_author'.
   $field_instances['node-text-field_author'] = array(
     'bundle' => 'text',
-    'default_value' => array(
-      0 => array(
-        'tid' => 21,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -78,7 +74,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_author',
-    'label' => 'Author',
+    'label' => 'Author |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -170,7 +166,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 17,
+      'weight' => 1,
     ),
   );
 
@@ -197,18 +193,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_genre',
-    'label' => 'Genre',
+    'label' => 'Genre |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 14,
@@ -454,9 +448,12 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_link' => 0,
+          'taxonomy_term_separator' => ', ',
+        ),
+        'type' => 'ds_taxonomy_separator',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -468,7 +465,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_keywords',
-    'label' => 'Keywords',
+    'label' => 'Keywords |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -508,18 +505,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_language',
-    'label' => 'Language',
+    'label' => 'Language |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 13,
@@ -549,18 +544,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_period',
-    'label' => 'Period',
+    'label' => 'Period |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 15,
@@ -661,7 +654,7 @@ function gms_text_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -709,19 +702,19 @@ function gms_text_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('An icon for the main page display');
   t('Audio');
-  t('Author');
+  t('Author |');
   t('Display Title');
   t('Further Reading');
-  t('Genre');
+  t('Genre |');
   t('Icon');
   t('Icon Source');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
-  t('Keywords');
-  t('Language');
+  t('Keywords |');
+  t('Language |');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
-  t('Period');
+  t('Period |');
   t('Source of the icon image');
   t('TEI');
   t('The title that will be displayed on the text\'s designated page.');

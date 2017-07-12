@@ -1750,8 +1750,16 @@ div.view-id-texts div.view-content tr {
 }
 
 /*styles for new node (text) pages*/
+body.node-type-text h1#page-title {
+  display: none;
+}
+
 body.page-node div.content div.group-left {
   width: 35% !important;
+}
+body.page-node div.content div.group-left div.text-information {
+  line-height: 1em;
+  font-size: small;
 }
 body.page-node div.content div.group-left div.text-information h2 {
   border-bottom: none !important;
@@ -1759,6 +1767,81 @@ body.page-node div.content div.group-left div.text-information h2 {
 body.page-node div.content div.group-left div.text-information div.field-label {
   font-size: small;
   font-weight: bolder;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-author div.field-label {
+  visibility: hidden;
+  position: relative;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-author div.field-label:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Author |";
+  /*here and below this is to replace Drupal's ":" with "|"*/
+  color: 000000;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-language div.field-label {
+  visibility: hidden;
+  position: relative;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-language div.field-label:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Language |";
+  color: 000000;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-period div.field-label {
+  visibility: hidden;
+  position: relative;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-period div.field-label:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Period |";
+  color: 000000;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-genre div.field-label {
+  visibility: hidden;
+  position: relative;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-genre div.field-label:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Genre |";
+  color: 000000;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-label {
+  visibility: hidden;
+  position: relative;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-label:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Keywords |";
+  color: 000000;
+}
+body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-items {
+  max-width: 66%;
+  /*forces items to wrap*/
+}
+body.page-node div.content div.group-left div.field-name-field-icon-source div.field-item {
+  max-width: 50%;
+  font-style: italic;
+  font-size: smaller;
+  line-height: 1.3em;
+  margin-top: 25px;
+}
+body.page-node div.content div.group-left div.field-name-field-icon-source div.field-item:before {
+  content: "Photo source: ";
 }
 body.page-node div.content div.group-right {
   width: 61% !important;
@@ -1778,4 +1861,8 @@ body.page-node div.content div.group-right div.field-name-field-critical-convers
   padding-left: 10px;
   padding-bottom: 5px;
   font-family: sans-serif;
+}
+body.page-node div.content div.group-right div.field-name-field-display-title {
+  font-size: x-large;
+  font-weight: 900;
 }

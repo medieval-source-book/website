@@ -1020,11 +1020,19 @@ div.view-id-texts {
 
 
 /*styles for new node (text) pages*/
+body.node-type-text {
+  h1#page-title {
+    display: none;
+  }
+}
+
 body.page-node {
   div.content {
     div.group-left {
       width: 35% !important;
       div.text-information {
+        line-height: 1em;
+        font-size: small;
         h2 {
           border-bottom: none !important;
         }
@@ -1032,8 +1040,93 @@ body.page-node {
           font-size: small;
           font-weight: bolder;
         }
+        div.field-name-field-author {
+          div.field-label {
+            visibility: hidden;
+            position: relative;
+          }
+          div.field-label:after {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "Author |";/*here and below this is to replace Drupal's ":" with "|"*/
+            color: 000000;
+          }
+        }
+        div.field-name-field-language {
+          div.field-label {
+            visibility: hidden;
+            position: relative;
+          }
+          div.field-label:after {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "Language |";
+            color: 000000;
+        }
+      }
+      div.field-name-field-period {
+        div.field-label {
+            visibility: hidden;
+            position: relative;
+          }
+          div.field-label:after {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "Period |";
+            color: 000000;
+        }
+      }
+      div.field-name-field-genre {
+        div.field-label {
+            visibility: hidden;
+            position: relative;
+          }
+          div.field-label:after {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "Genre |";
+            color: 000000;
+        }
+      }
+      div.field-name-field-keywords {
+        div.field-label {
+            visibility: hidden;
+            position: relative;
+          }
+          div.field-label:after {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "Keywords |";
+            color: 000000;
+        }
+        div.field-items {
+          max-width: 66%; /*forces items to wrap*/
+        }
       }
     }
+    div.field-name-field-icon-source {
+      div.field-item {
+        max-width: 50%;
+        font-style: italic;
+        font-size: smaller;
+        line-height: 1.3em;
+        margin-top: 25px;
+      }
+      div.field-item:before {
+        content: "Photo source: "
+      }
+    }
+  }
     div.group-right {
       width: 61% !important;
       div.field-name-field-introduction-to-the-text {
@@ -1055,6 +1148,10 @@ body.page-node {
           padding-bottom: 5px;
           font-family: sans-serif;
         }
+      }
+      div.field-name-field-display-title {
+        font-size: x-large;
+        font-weight: 900;
       }
     }
   }
