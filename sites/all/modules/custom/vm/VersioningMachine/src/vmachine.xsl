@@ -722,10 +722,15 @@
    </xsl:template>
    
    <xsl:template match="//tei:body//text()[normalize-space()]">
-      <span class="textcontent"><xsl:value-of select="."></xsl:value-of></span>
+      <span>
+         <xsl:attribute name="class">
+            <xsl:value-of select="concat('textcontent ', name(..))" />
+         </xsl:attribute>
+         <xsl:value-of select="."></xsl:value-of>
+      </span>
    </xsl:template>
    
-   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab">
+   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
       <xsl:param name="witId"></xsl:param>
      <div>
             <xsl:attribute name="class">
@@ -835,15 +840,14 @@
                </xsl:for-each>
               </xsl:if>
            </xsl:attribute>
-            
-         <xsl:if test="@n">
 
+            <xsl:if test="@n">
                <div class="linenumber noDisplay">
                   <xsl:if test="@n mod 5 = 0">
                      <xsl:value-of select="@n" />
                   </xsl:if>
                </div>
-         </xsl:if>
+            </xsl:if>
             <xsl:apply-templates>
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
             </xsl:apply-templates>
