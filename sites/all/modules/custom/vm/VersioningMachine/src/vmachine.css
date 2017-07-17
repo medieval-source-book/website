@@ -677,3 +677,11 @@ ul#versionList li.highlight {
 div.type-sung {
     font-style: italic;
 }
+
+div.stage {
+    font-style: italic;
+}
+
+span.speaker {
+    font-weight: bold;
+}
