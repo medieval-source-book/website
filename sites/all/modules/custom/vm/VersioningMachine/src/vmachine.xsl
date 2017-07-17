@@ -601,9 +601,20 @@
       <xsl:apply-templates />
    </xsl:template>
 
-   <xsl:template match="tei:front/tei:castList">
+   <xsl:template name="castList" match="tei:front/tei:castList">
       <h4>Cast List</h4>
-      <xsl:apply-templates />
+      <xsl:for-each select="./*/tei:castItem">
+         <!-- Need to add support for naming groups of cast, if there
+               otherwise, just the list of cast members -->
+         <div class="classItem">
+         Role:
+            <span class="role">
+         <xsl:value-of select="./tei:role"> </xsl:value-of>
+            </span>
+         Played by:
+         <xsl:value-of select="./tei:actor"> </xsl:value-of>
+         </div>
+      </xsl:for-each>
    </xsl:template>
    
    <xsl:template match="//tei:encodingDesc/tei:classDecl"></xsl:template>
