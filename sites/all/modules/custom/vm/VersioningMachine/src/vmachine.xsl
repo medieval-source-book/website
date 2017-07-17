@@ -551,6 +551,7 @@
                <xsl:apply-templates select="tei:encodingDesc/tei:editorialDecl" />
             </xsl:if>
             <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:encodingDesc" />
+            <xsl:apply-templates select="/tei:TEI/tei:text/tei:front/tei:castList" />
          
          </div>
       </div>
@@ -597,6 +598,11 @@
    </xsl:template>
    
    <xsl:template match="/tei:TEI/tei:teiHeader/tei:encodingDesc/tei:editorialDecl">
+      <xsl:apply-templates />
+   </xsl:template>
+
+   <xsl:template match="tei:front/tei:castList">
+      <h4>Cast List</h4>
       <xsl:apply-templates />
    </xsl:template>
    
