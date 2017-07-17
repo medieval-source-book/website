@@ -673,3 +673,7 @@ ul#versionList li.highlight {
 }
 
 /*END responsive styles*/
+
+div.type-sung {
+    font-style: italic;
+}
