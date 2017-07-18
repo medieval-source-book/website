@@ -127,6 +127,7 @@ function gms_text_field_group_info() {
       2 => 'field_period',
       3 => 'field_year',
       4 => 'field_author',
+      5 => 'field_original_language_title',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
