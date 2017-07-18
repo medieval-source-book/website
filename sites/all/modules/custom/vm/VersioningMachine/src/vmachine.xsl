@@ -603,18 +603,31 @@
 
    <xsl:template name="castList" match="tei:front/tei:castList">
       <h4>Cast List</h4>
-      <xsl:for-each select="./*/tei:castItem">
-         <!-- Need to add support for naming groups of cast, if there
-               otherwise, just the list of cast members -->
-         <div class="classItem">
-         Role:
-            <span class="role">
-         <xsl:value-of select="./tei:role"> </xsl:value-of>
-            </span>
-         Played by:
-         <xsl:value-of select="./tei:actor"> </xsl:value-of>
-         </div>
-      </xsl:for-each>
+      <xsl:choose>
+         <xsl:when test="./tei:castGroup">
+            <div class="castGroup">
+               <xsl:copy-of select="text()"></xsl:copy-of>
+            </div>
+            <xsl:apply-templates />
+         </xsl:when>
+
+         <xsl:otherwise>
+            <xsl:apply-templates select="tei:castItem"/>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+
+   <xsl:template name="castItem" match="tei:castItem">
+      <div class="classItem">
+         <span class="role">
+            Role:
+            <xsl:value-of select="./tei:role"> </xsl:value-of>
+         </span>
+         <span class="played-by">
+            Played by:
+            <xsl:value-of select="./tei:actor"> </xsl:value-of>
+         </span>
+      </div>
    </xsl:template>
    
    <xsl:template match="//tei:encodingDesc/tei:classDecl"></xsl:template>
