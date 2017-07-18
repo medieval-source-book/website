@@ -52,7 +52,7 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Files',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'field_image',
       1 => 'field_tei_file',
@@ -127,7 +127,6 @@ function gms_text_field_group_info() {
       2 => 'field_period',
       3 => 'field_year',
       4 => 'field_author',
-      5 => 'field_original_language_title',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

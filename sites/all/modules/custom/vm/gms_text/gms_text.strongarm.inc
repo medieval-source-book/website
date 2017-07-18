@@ -90,7 +90,7 @@ function gms_text_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '6',
         ),
       ),
       'display' => array(),

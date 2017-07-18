@@ -532,7 +532,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 1,
     ),
   );
 
@@ -671,7 +671,7 @@ function gms_text_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
