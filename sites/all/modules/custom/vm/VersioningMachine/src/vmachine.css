@@ -7,8 +7,31 @@
     **/
 
 @font-face {
-    font-family: 'Andron-Regular';
-    src: url('../includes/Andron_Scriptor_Web.ttf');
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-reg.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-bd.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-it.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-bi.ttf');
+    font-weight: 900;
+    font-style: italic;
 }
 
 /* latin-ext */
@@ -36,7 +59,7 @@ body{
     font-size:12px;
     font-size: 1vw;
     width:100%;
-    font-family: 'Andron-Regular', 'Alegreya Sans', sans-serif;
+    font-family: 'Palemonas MUFI', 'Alegreya Sans', sans-serif;
     min-width:770px;
     background-color:#fff;
 }
