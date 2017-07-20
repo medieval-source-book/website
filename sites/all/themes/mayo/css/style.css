@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif|Roboto");
 article,
 aside,
 details,
@@ -1632,7 +1633,7 @@ div.field-name-field-vm-link a {
 
 div#name-and-slogan {
   padding-top: 35px;
-  font-family: 'Alegreya', serif;
+  font-family: "PT Serif", serif;
 }
 
 div.views-field-title {
