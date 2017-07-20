@@ -61,6 +61,13 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Original Language Title */
+  $handler->display->display_options['fields']['field_original_language_title']['id'] = 'field_original_language_title';
+  $handler->display->display_options['fields']['field_original_language_title']['table'] = 'field_data_field_original_language_title';
+  $handler->display->display_options['fields']['field_original_language_title']['field'] = 'field_original_language_title';
+  $handler->display->display_options['fields']['field_original_language_title']['label'] = '';
+  $handler->display->display_options['fields']['field_original_language_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_original_language_title']['type'] = 'text_plain';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet version="1.0" exclude-result-prefixes="tei"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:tei="http://www.tei-c.org/ns/1.0"
@@ -9,8 +10,8 @@
    <!-- <xsl:strip-space elements="*" /> -->
    
    <!-- IMPORT SETTINGS -->
-   <xsl:include href="settings.xsl" /> 
-   
+   <xsl:include href="settings.xsl" />
+
    
    <!-- CREATE VARIABLE FOR EDITION TITLE -->
    <xsl:variable name="fullTitle">
@@ -383,7 +384,8 @@
                   -->
                <source>
                   <xsl:attribute name="class">audiosource</xsl:attribute>
-                  <xsl:attribute name="src"><xsl:value-of select="@url" /></xsl:attribute>
+                  <xsl:attribute name="src"><xsl:value-of select="concat($vmAudioPath, @url)"
+                     /></xsl:attribute>
                   <xsl:attribute name="type"><xsl:value-of select="@mimeType" /></xsl:attribute>
                </source>
                   <!-- </span>-->
@@ -549,6 +551,7 @@
                <xsl:apply-templates select="tei:encodingDesc/tei:editorialDecl" />
             </xsl:if>
             <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:encodingDesc" />
+            <xsl:apply-templates select="/tei:TEI/tei:text/tei:front/tei:castList" />
          
          </div>
       </div>
@@ -596,6 +599,35 @@
    
    <xsl:template match="/tei:TEI/tei:teiHeader/tei:encodingDesc/tei:editorialDecl">
       <xsl:apply-templates />
+   </xsl:template>
+
+   <xsl:template name="castList" match="tei:front/tei:castList">
+      <h4>Cast List</h4>
+      <xsl:choose>
+         <xsl:when test="./tei:castGroup">
+            <div class="castGroup">
+               <xsl:copy-of select="text()"></xsl:copy-of>
+            </div>
+            <xsl:apply-templates />
+         </xsl:when>
+
+         <xsl:otherwise>
+            <xsl:apply-templates select="tei:castItem"/>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+
+   <xsl:template name="castItem" match="tei:castItem">
+      <div class="classItem">
+         <span class="role">
+            Role:
+            <xsl:value-of select="./tei:role"> </xsl:value-of>
+         </span>
+         <span class="played-by">
+            Played by:
+            <xsl:value-of select="./tei:actor"> </xsl:value-of>
+         </span>
+      </div>
    </xsl:template>
    
    <xsl:template match="//tei:encodingDesc/tei:classDecl"></xsl:template>
@@ -720,10 +752,15 @@
    </xsl:template>
    
    <xsl:template match="//tei:body//text()[normalize-space()]">
-      <span class="textcontent"><xsl:value-of select="."></xsl:value-of></span>
+      <span>
+         <xsl:attribute name="class">
+            <xsl:value-of select="concat('textcontent ', name(..))" />
+         </xsl:attribute>
+         <xsl:value-of select="."></xsl:value-of>
+      </span>
    </xsl:template>
    
-   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab">
+   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
       <xsl:param name="witId"></xsl:param>
      <div>
             <xsl:attribute name="class">
@@ -800,7 +837,6 @@
       </div>
    </xsl:template>
    
-   
    <xsl:template match="tei:l">
       <xsl:param name="witId"></xsl:param>
       
@@ -834,12 +870,14 @@
                </xsl:for-each>
               </xsl:if>
            </xsl:attribute>
-            
-         <xsl:if test="@n">
-            <div class="linenumber noDisplay">
-               <xsl:value-of select="@n" />
-            </div>
-         </xsl:if>
+
+            <xsl:if test="@n">
+               <div class="linenumber noDisplay">
+                  <xsl:if test="@n mod 5 = 0">
+                     <xsl:value-of select="@n" />
+                  </xsl:if>
+               </div>
+            </xsl:if>
             <xsl:apply-templates>
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
             </xsl:apply-templates>
@@ -992,6 +1030,8 @@
          </xsl:when>
          <xsl:otherwise>
             <div class="paragraph">
+               <!-- Number every paragraph -->
+               <xsl:number />
                <xsl:apply-templates>
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:apply-templates>

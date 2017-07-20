@@ -16,6 +16,13 @@ function vm_menu() {
       'access arguments' => array('administer vm'),
       'type' => MENU_CALLBACK,
     );
+    $items['admin/config/content/vm/process_all'] = array(
+      'title' => 'Recreate all Versioning Machine texts',
+      'description' => 'Rebuilds all texts in Versioning Machine using current Drupal settings',
+      'page callback' => 'vm_reprocess_texts',
+      'access arguments' => array('administer vm'),
+      'type' => MENU_CALLBACK,
+    );
     return $items;
 }
 
@@ -47,7 +54,8 @@ function vm_admin_form() {
   );
   $form['help_text'] = array(
     '#markup' => '<p></p><a href="' .
-      $base_url . '/admin/config/content/vm/rebuild">Rebuild XSL</a></p>'
+      $base_url . '/admin/config/content/vm/rebuild">Rebuild XSL</a></p>' .
+      '<p><a href="' . $base_url . '/admin/config/content/vm/process_all">Recreate all Versioning Machine texts</a></p>'
   );
   return system_settings_form($form);
 }
@@ -58,6 +66,47 @@ function vm_form_alter(&$form, &$form_state, $form_id) {
     $form['field_vm_link']['#access'] = FALSE;
     $form['actions']['submit']['#submit'] = array('vm_text_form_submit');
   }
+}
+
+// Run XSLT on uploaded TEI; takes the Drupal text node as an argument
+function vm_process_text($node, $silent = FALSE) {
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
+  $file = file_load($wrapper->field_tei_file->value()['fid']);
+  $filename = drupal_realpath($file->uri);
+  $error_file = drupal_tempnam(file_directory_temp(), 'gms_xsltproc');
+  if (!file_exists($vm_path . '/src/drupal_settings.xsl')) {
+    vm_rebuild_xsl(TRUE);
+  }
+  $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl '"
+    . $filename . "' 2> " . $error_file;
+  $output = array();
+  $return = -1;
+  exec($cmd, $output, $return);   // run xsltproc
+  if ($return == 0) { // Success!
+    $basename = basename($filename, '.xml');
+    $vm_filename = $vm_path . '/texts/' . $basename . '.html';
+    file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
+    $url = variable_get('vm_subdomain');
+    if (empty($url)) {
+      $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
+    } else {
+      $url .= '/';
+    }
+    $url .= basename($vm_filename);
+    $wrapper->field_vm_link->set(array(
+      'title' => 'Go to Text',
+      'url' => $url
+    ));
+  } elseif (!$silent) {
+    drupal_set_message(t('Versioning Machine was unable to process this file. Please review the errors and try again:'), 'error');
+    $fhandle = fopen($error_file, 'r');
+    $result = fread($fhandle, filesize($error_file));
+    fclose($fhandle);
+    drupal_set_message(t($result), 'error');
+  }
+  $wrapper->save();
+  return $return;
 }
 
 /***
@@ -73,38 +122,9 @@ function vm_text_form_submit($form, &$form_state) {
     // by VersioningMachine, so this is how we're gonna do it
     $node = node_form_submit_build_node($form, $form_state);
     $node->status = NODE_PUBLISHED;
-    $wrapper = entity_metadata_wrapper('node', $node);
     if (user_access('upload tei')) {
-        $file = file_load($wrapper->field_tei_file->value()['fid']);
-        $filename = drupal_realpath($file->uri);
-        $vm_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'vm') . '/VersioningMachine';
-        if (!file_exists($vm_path . '/src/drupal_settings.xsl')) {
-          vm_rebuild_xsl(TRUE);
-        }
-        $cmd = variable_get('vm_xsltproc') . " " . $vm_path . "/src/vmachine.xsl '" . $filename . "'";
-        $output = array();
-        $return = -1;
-        exec($cmd, $output, $return);   // run xsltproc
-        if ($return == 0) { // Success!
-          $basename = basename($filename, '.xml');
-          $vm_filename = $vm_path . '/texts/' . $basename . '.html';
-          file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
-          $url = variable_get('vm_subdomain');
-          if (empty($url)) {
-            $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
-          } else {
-            $url .= '/';
-          }
-          $url .= basename($vm_filename);
-          $wrapper->field_vm_link->set(array(
-            'title' => 'Go to Text',
-            'url' => $url
-          ));
-        } else {
-          drupal_set_message(t('Versioning Machine was unable to process this file. Please check it for errors and try again.'), 'error');
-        }
+      vm_process_text($node);
     }
-    $wrapper->save();
     drupal_goto(drupal_get_path_alias('node/' . $node->nid));
 }
 
@@ -114,7 +134,10 @@ function vm_rebuild_xsl($silent = FALSE) {
   $path = drupal_get_path('module', 'vm') . '/VersioningMachine';
   $image_field = field_info_instance('node', 'field_image', 'text');
   $image_path = variable_get('file_public_path', conf_path() . '/files') . '/' .
-  $image_field['settings']['file_directory'] . '/';
+    $image_field['settings']['file_directory'] . '/';
+  $audio_field = field_info_instance('node', 'field_audio', 'text');
+  $audio_path = variable_get('file_public_path', conf_path() . '/files') . '/' .
+    $audio_field['settings']['file_directory'] . '/';
   $string = '<?xml version="1.0" encoding="UTF-8"?' . '>'; // so PHP doesn't
   // choke
   $string .= '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" ';
@@ -123,6 +146,9 @@ function vm_rebuild_xsl($silent = FALSE) {
   $string .= 'version="1.0">';
   $string .= '<xsl:variable name="vmImages">';
   $string .= $base_path . $path . '/vm-images/';
+  $string .= '</xsl:variable>';
+  $string .= '<xsl:variable name="vmAudioPath">';
+  $string .= $base_path . $audio_path;
   $string .= '</xsl:variable>';
   $string .= '<xsl:variable name="facsImageFolder">';
   $string .= $base_path . $image_path;
@@ -134,5 +160,31 @@ function vm_rebuild_xsl($silent = FALSE) {
     drupal_set_message(t('XSL settings have been recreated.'), 'info');
     drupal_goto('admin/config/content/vm');
   }
+}
+
+// Reprocess all XML
+function vm_reprocess_texts() {
+  $status = array();
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'text');
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $nodes = entity_load('node', $nids);
+    foreach ($nodes as $node) {
+      $status[$node->title] = vm_process_text($node, TRUE);
+    }
+  }
+  foreach ($status as $title => $result) {
+    if ($result == 0) {
+      drupal_set_message(t($title . " was successfully processed."),
+      'info');
+    } else {
+      drupal_set_message(t($title . ' failed to processed. Error code: ' .
+        $result), 'error');
+    }
+  }
+  drupal_goto('admin/config/content/vm');
 }
 

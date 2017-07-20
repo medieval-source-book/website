@@ -35,7 +35,7 @@ function gms_text_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => 'vm-audio',
       'file_extensions' => 'mp3 ogg',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -86,7 +86,7 @@ function gms_text_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 32,
     ),
   );
 
@@ -205,7 +205,7 @@ function gms_text_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 34,
     ),
   );
 
@@ -517,7 +517,47 @@ function gms_text_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance: 'node-text-field_original_language_title'.
+  $field_instances['node-text-field_original_language_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_original_language_title',
+    'label' => 'Original Language Title',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -556,7 +596,7 @@ function gms_text_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 35,
     ),
   );
 
@@ -694,7 +734,7 @@ function gms_text_field_default_field_instances() {
         'size' => 4,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 36,
     ),
   );
 
@@ -714,7 +754,8 @@ function gms_text_field_default_field_instances() {
   t('Language |');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
-  t('Period |');
+  t('Original Language Title');
+  t('Period');
   t('Source of the icon image');
   t('TEI');
   t('The title that will be displayed on the text\'s designated page.');
