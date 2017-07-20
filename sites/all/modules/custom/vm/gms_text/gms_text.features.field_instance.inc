@@ -18,16 +18,9 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'autoplay' => FALSE,
-          'controls' => TRUE,
-          'loop' => FALSE,
-          'multiple_file_behavior' => 'tags',
-          'preload' => '',
-        ),
-        'type' => 'file_audio',
-        'weight' => 1,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -61,11 +54,7 @@ function gms_text_field_default_field_instances() {
   // Exported field_instance: 'node-text-field_author'.
   $field_instances['node-text-field_author'] = array(
     'bundle' => 'text',
-    'default_value' => array(
-      0 => array(
-        'tid' => 21,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -85,7 +74,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_author',
-    'label' => 'Author',
+    'label' => 'Author |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -113,7 +102,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -141,6 +130,46 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_display_title'.
+  $field_instances['node-text-field_display_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title that will be displayed on the text\'s designated page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_display_title',
+    'label' => 'Display Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_genre'.
   $field_instances['node-text-field_genre'] = array(
     'bundle' => 'text',
@@ -164,18 +193,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_genre',
-    'label' => 'Genre',
+    'label' => 'Genre |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 34,
@@ -189,13 +216,14 @@ function gms_text_field_default_field_instances() {
     'description' => 'An icon for the main page display',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'file_entity',
+        'label' => 'hidden',
+        'module' => 'image',
         'settings' => array(
-          'file_view_mode' => 'teaser',
+          'image_link' => '',
+          'image_style' => 'cropped_rectangle_larg',
         ),
-        'type' => 'file_rendered',
-        'weight' => 7,
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -254,11 +282,11 @@ function gms_text_field_default_field_instances() {
     'description' => 'Source of the icon image',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -294,12 +322,9 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file_entity',
-        'settings' => array(
-          'file_view_mode' => 'default',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 5,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -344,10 +369,9 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -387,7 +411,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -424,9 +448,12 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_link' => 0,
+          'taxonomy_term_separator' => ', ',
+        ),
+        'type' => 'ds_taxonomy_separator',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -438,7 +465,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_keywords',
-    'label' => 'Keywords',
+    'label' => 'Keywords |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -467,7 +494,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -478,18 +505,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_language',
-    'label' => 'Language',
+    'label' => 'Language |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 33,
@@ -548,7 +573,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -559,18 +584,16 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_period',
-    'label' => 'Period',
+    'label' => 'Period |',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 35,
@@ -587,7 +610,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -630,7 +653,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -686,8 +709,8 @@ function gms_text_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 8,
+        'type' => 'text_plain',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -719,21 +742,23 @@ function gms_text_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('An icon for the main page display');
   t('Audio');
-  t('Author');
+  t('Author |');
+  t('Display Title');
   t('Further Reading');
-  t('Genre');
+  t('Genre |');
   t('Icon');
   t('Icon Source');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
-  t('Keywords');
-  t('Language');
+  t('Keywords |');
+  t('Language |');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Original Language Title');
   t('Period');
   t('Source of the icon image');
   t('TEI');
+  t('The title that will be displayed on the text\'s designated page.');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');

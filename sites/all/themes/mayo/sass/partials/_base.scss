@@ -6,7 +6,7 @@
 body {
   line-height: 1.5em;
   font-size: 87.5%; /* = 14px assuming browser's regular font size is 16px */
-  background-color: #ccc;
+  /*background-color: #ccc; -- allow us to set color in styles.scss --DMB */
 }
 ul {
   margin: 0;

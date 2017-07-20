@@ -83,8 +83,8 @@ function gms_text_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => '',
-    'weight' => '6',
+    'label' => 'Text Information',
+    'weight' => '2',
     'children' => array(
       0 => 'field_genre',
       1 => 'field_language',
@@ -95,12 +95,12 @@ function gms_text_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => '',
+      'label' => 'Text Information',
       'instance_settings' => array(
-        'classes' => '',
+        'classes' => 'text-information',
         'description' => '',
-        'show_label' => '0',
-        'label_element' => 'h3',
+        'show_label' => '1',
+        'label_element' => 'h2',
         'effect' => 'none',
         'speed' => 'fast',
       ),
