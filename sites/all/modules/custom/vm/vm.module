@@ -88,11 +88,7 @@ function vm_process_text($node, $silent = FALSE) {
     $vm_filename = $vm_path . '/texts/' . $basename . '.html';
     file_unmanaged_save_data($output, $vm_filename, FILE_EXISTS_REPLACE);
     $url = variable_get('vm_subdomain');
-    if (empty($url)) {
-      $url = drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
-    } else {
-      $url .= '/';
-    }
+    $url .= drupal_get_path('module', 'vm') . '/VersioningMachine/texts/';
     $url .= basename($vm_filename);
     $wrapper->field_vm_link->set(array(
       'title' => 'Go to Text',
