@@ -1,5 +1,0 @@
-# Ignore cache created by compass project.
-.sass-cache
-
-# Ignore Compass App log.
-compass_app_log.txt
