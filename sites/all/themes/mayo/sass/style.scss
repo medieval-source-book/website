@@ -84,7 +84,7 @@ body,
   padding: 10px;
   font-size: 0.9em;
   font-weight: normal;
-  font-family: sans-serif;
+  font-family: $sans-serif;
 }
 #footer-wrapper .column-block {
   border-style: solid;
@@ -1139,7 +1139,7 @@ body.page-node {
           color: #ffffff;
           padding-left: 10px;
           padding-bottom: 5px;
-          font-family: sans-serif;
+          font-family: $serif;
         }
       }
       div.field-name-field-critical-conversation {
@@ -1149,7 +1149,7 @@ body.page-node {
           color: #ffffff;
           padding-left: 10px;
           padding-bottom: 5px;
-          font-family: sans-serif;
+          font-family: $serif;
         }
       }
       div.field-name-field-display-title {

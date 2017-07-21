@@ -305,7 +305,7 @@ fieldset {
 }
 
 #site-name, #site-slogan {
-  font-family: 'Alegreya', serif;
+  font-family: "PT Serif", serif;
 }
 
 /*------- end of default section --------*/
@@ -475,7 +475,7 @@ body,
   padding: 10px;
   font-size: 0.9em;
   font-weight: normal;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #footer-wrapper .column-block {
@@ -1855,7 +1855,7 @@ body.page-node div.content div.group-right div.field-name-field-introduction-to-
   color: #ffffff;
   padding-left: 10px;
   padding-bottom: 5px;
-  font-family: sans-serif;
+  font-family: "PT Serif", serif;
 }
 body.page-node div.content div.group-right div.field-name-field-critical-conversation div.field-label {
   width: 40%;
@@ -1863,7 +1863,7 @@ body.page-node div.content div.group-right div.field-name-field-critical-convers
   color: #ffffff;
   padding-left: 10px;
   padding-bottom: 5px;
-  font-family: sans-serif;
+  font-family: "PT Serif", serif;
 }
 body.page-node div.content div.group-right div.field-name-field-display-title {
   font-size: x-large;
