@@ -533,7 +533,7 @@
                <h4>Encoding Principles</h4>
                <xsl:apply-templates select="tei:encodingDesc/tei:editorialDecl" />
             </xsl:if>
-            <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:encodingDesc" />
+            <!--<xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:encodingDesc" />-->
             <xsl:apply-templates select="/tei:TEI/tei:text/tei:front/tei:castList" />
          
          </div>
