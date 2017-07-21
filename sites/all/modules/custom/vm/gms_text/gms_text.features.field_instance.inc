@@ -755,7 +755,7 @@ function gms_text_field_default_field_instances() {
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Original Language Title');
-  t('Period');
+  t('Period |');
   t('Source of the icon image');
   t('TEI');
   t('The title that will be displayed on the text\'s designated page.');
