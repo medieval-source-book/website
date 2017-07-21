@@ -220,7 +220,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'cropped_rectangle_larg',
+          'image_style' => 'cropped_rectangle_large',
         ),
         'type' => 'image',
         'weight' => 2,
