@@ -217,9 +217,9 @@ body,
         color: #3b3b3b;
         position: relative;
         text-align: left;
-        -ms-transform: translateX(20%);
-        -webkit-transform: translateX(20%);
-        transform: translateX(20%);  /*creates illusion of being aligned left with inputs*/
+        -ms-transform: translateX(5%);
+        -webkit-transform: translateX(5%);
+        transform: translateX(5%);  /*creates illusion of being aligned left with inputs*/
       }
       .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
         font-size: 80% !important;
@@ -882,7 +882,7 @@ div.field-name-field-vm-link {
   font-size: x-large;
   border: 1px solid #3a536c;
   border-radius: 5px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   padding: 5px;
   margin-bottom: 1em;
@@ -1121,12 +1121,12 @@ body.page-node {
       div.field-item {
         max-width: 50%;
         font-style: italic;
-        font-size: smaller;
+        font-size: 0.6em;
         line-height: 1.3em;
         margin-top: 25px;
       }
       div.field-item:before {
-        content: "Photo source: "
+        content: "Photo source: ";
       }
     }
   }
