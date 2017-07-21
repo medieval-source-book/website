@@ -209,15 +209,17 @@ body,
   font-size: medium;
   /*text-align: justify; allows us to center text in exposed form widget*/
   form#views-exposed-form-texts-page {
-    background-color: #3b3b3b !important;
+    background-color: #ffffff !important;
     div.views-exposed-widget {
       text-align: center;
       width: 100%;
       label {
-        color: #ffffff;
+        color: #3b3b3b;
         position: relative;
         text-align: left;
-        left: 11px; /*creates illusion of being aligned left with inputs*/
+        -ms-transform: translateX(20%);
+        -webkit-transform: translateX(20%);
+        transform: translateX(20%);  /*creates illusion of being aligned left with inputs*/
       }
       .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
         font-size: 80% !important;
