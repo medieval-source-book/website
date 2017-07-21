@@ -460,24 +460,7 @@
                   </li>
                </xsl:for-each>
             </ul>
-            <xsl:if test="tei:notesStmt/tei:note[@anchored = 'true' and not(@type='image')]">
-               <h4>Critical Notes</h4>
-               <xsl:for-each select="tei:notesStmt/tei:note[@anchored = 'true' and not(@type='image')]">
-                  <div class="note">
-                     <xsl:if test="@type">
-                        <em class="label">
-                           <xsl:value-of select="@type" />
-                           <xsl:text>:</xsl:text>
-                        </em>
-                        <xsl:text> </xsl:text>
-                     </xsl:if>
-                     <xsl:apply-templates />
-                     <xsl:if test="position() != last()">
-                        <hr />
-                     </xsl:if>
-                  </div>
-               </xsl:for-each>
-            </xsl:if>
+
             <h4>Electronic Edition Information:</h4>
             <xsl:if test="tei:titleStmt/tei:respStmt">
                <h5>Responsibility Statement:</h5>
