@@ -84,7 +84,7 @@ body,
   padding: 10px;
   font-size: 0.9em;
   font-weight: normal;
-  font-family: sans-serif;
+  font-family: $sans-serif;
 }
 #footer-wrapper .column-block {
   border-style: solid;
@@ -209,15 +209,17 @@ body,
   font-size: medium;
   /*text-align: justify; allows us to center text in exposed form widget*/
   form#views-exposed-form-texts-page {
-    background-color: #3b3b3b !important;
+    background-color: #ffffff !important;
     div.views-exposed-widget {
       text-align: center;
       width: 100%;
       label {
-        color: #ffffff;
+        color: #3b3b3b;
         position: relative;
         text-align: left;
-        left: 11px; /*creates illusion of being aligned left with inputs*/
+        -ms-transform: translateX(5%);
+        -webkit-transform: translateX(5%);
+        transform: translateX(5%);  /*creates illusion of being aligned left with inputs*/
       }
       .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
         font-size: 80% !important;
@@ -880,7 +882,7 @@ div.field-name-field-vm-link {
   font-size: x-large;
   border: 1px solid #3a536c;
   border-radius: 5px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   padding: 5px;
   margin-bottom: 1em;
@@ -1119,12 +1121,12 @@ body.page-node {
       div.field-item {
         max-width: 50%;
         font-style: italic;
-        font-size: smaller;
+        font-size: 0.6em;
         line-height: 1.3em;
         margin-top: 25px;
       }
       div.field-item:before {
-        content: "Photo source: "
+        content: "Photo source: ";
       }
     }
   }
@@ -1137,7 +1139,7 @@ body.page-node {
           color: #ffffff;
           padding-left: 10px;
           padding-bottom: 5px;
-          font-family: sans-serif;
+          font-family: $serif;
         }
       }
       div.field-name-field-critical-conversation {
@@ -1147,7 +1149,7 @@ body.page-node {
           color: #ffffff;
           padding-left: 10px;
           padding-bottom: 5px;
-          font-family: sans-serif;
+          font-family: $serif;
         }
       }
       div.field-name-field-display-title {

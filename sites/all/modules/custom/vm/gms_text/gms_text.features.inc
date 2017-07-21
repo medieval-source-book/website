@@ -36,11 +36,11 @@ function gms_text_image_default_styles() {
   $styles['cropped_rectangle'] = array(
     'label' => 'Cropped rectangle',
     'effects' => array(
-      1 => array(
+      2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 220,
-          'height' => 220,
+          'width' => 300,
+          'height' => 200,
         ),
         'weight' => 2,
       ),
