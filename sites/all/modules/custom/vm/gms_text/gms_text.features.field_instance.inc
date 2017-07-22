@@ -130,6 +130,46 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_display_title'.
+  $field_instances['node-text-field_display_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title that will be displayed on the text\'s designated page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_display_title',
+    'label' => 'Display Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_genre'.
   $field_instances['node-text-field_genre'] = array(
     'bundle' => 'text',
@@ -701,6 +741,7 @@ function gms_text_field_default_field_instances() {
   t('An icon for the main page display');
   t('Audio');
   t('Author |');
+  t('Display Title');
   t('Further Reading');
   t('Genre |');
   t('Icon');
@@ -715,6 +756,7 @@ function gms_text_field_default_field_instances() {
   t('Period |');
   t('Source of the icon image');
   t('TEI');
+  t('The title that will be displayed on the text\'s designated page.');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');
