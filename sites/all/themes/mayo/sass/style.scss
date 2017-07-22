@@ -11,7 +11,7 @@
 @import "partials/style-settings";
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans');
-@import url('https://fonts.googleapis.com/css?family=PT+Serif|Roboto');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif|Roboto:400, 700');
 
 
 .spacer {
@@ -217,12 +217,27 @@ body,
         color: #3b3b3b;
         position: relative;
         text-align: left;
-        -ms-transform: translateX(5%);
-        -webkit-transform: translateX(5%);
-        transform: translateX(5%);  /*creates illusion of being aligned left with inputs*/
+        font-size: 0.8em;
+        -ms-transform: translateX(6%);
+        -webkit-transform: translateX(6%);
+        transform: translateX(6%);  /*creates illusion of being aligned left with inputs*/
       }
       .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-        font-size: 80% !important;
+        font-size: 70% !important; //here and below reduce the size of chosen text on the front page
+      }
+      .chosen-container-multi .chosen-choices li.search-choice span {
+        font-size: 70% !important;
+      }
+      .chosen-container .chosen-results li.active-result {
+        font-size: 70% !important;
+      }
+      .chosen-container-multi .chosen-drop .result-selected {
+        font-size: 70% !important;
+      }
+      .form-submit {
+        border-radius: 3px;
+        font-size: 85%;
+        margin-top: 0 !important; //removes the margin that views adds
       }
     }
   }
@@ -1156,6 +1171,44 @@ body.page-node {
         font-size: x-large;
         font-weight: 900;
       }
+    }
+  }
+}
+
+/*styles for the About Us page*/
+body.page-node {
+  h1#page-title {
+    display: none; /*hide the page title on all page nodes (for now)*/
+  }
+  div#about-us-paragraph {
+    width: 65%;
+    float: left;
+    min-height: 300px;
+    div#about-us-title {
+      font-family: PT serif;
+      font-size: 4em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-family: $serif;
+      font-size: 16px;
+    }
+  }
+  div#about-us-links {
+    width: 25%;
+    float: right;
+    li.leaf {
+      font-weight: 700;
+      border-bottom: 0.1px solid rgb(229, 229, 229);
+      padding-bottom: 15px;
+      padding-top: 15px;
+      list-style-image: none;
+      list-style-type: none;
+    }
+    li:last-child {
+      border-bottom: none;
     }
   }
 }
