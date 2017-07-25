@@ -1099,7 +1099,7 @@
       </xsl:choose>
    </xsl:template>
    
-   <xsl:template match="tei:space[@unit='char']">
+   <xsl:template match="tei:space[@unit='chars']">
       <xsl:variable name="quantity">
          <xsl:choose>
             <xsl:when test="@quantity">
@@ -1479,27 +1479,6 @@
       </div>
       
    </xsl:template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    <xsl:template name="createTimelinePoints">   
         
