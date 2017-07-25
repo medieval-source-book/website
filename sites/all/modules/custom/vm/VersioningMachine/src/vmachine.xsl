@@ -45,7 +45,6 @@
         <body> 
             <xsl:call-template name="mainBanner" />
             <xsl:call-template name="manuscriptArea" />
-            
          </body>
       </html>
    </xsl:template>
@@ -186,7 +185,7 @@
          
       </div>
    </xsl:template>
-   
+
    <xsl:template name="mainControls">
       <nav id="mainControls">
          <ul>
@@ -214,27 +213,26 @@
             <xsl:attribute name="class">dropdown notVisible</xsl:attribute>
             <xsl:for-each select="$witnesses">
                      <li>
-                         <xsl:attribute name="data-panelid">
-                                    <xsl:value-of select="@xml:id"></xsl:value-of>
-                          </xsl:attribute>
-                     <div>
-                                   <xsl:attribute name="class">listText</xsl:attribute>
-                                   
-                                <div>
-                                   <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
-                                   <a href="#" title="{$witTitle}"><xsl:text>Version </xsl:text><xsl:value-of select="@xml:id"/></a>
-                                </div> 
-                                
-                                 <div>
-                                    <button>
-                                       <xsl:text>OFF</xsl:text>
-                                    </button>
-                                 </div>
-                                </div>
-                             </li>
-                        </xsl:for-each>
+                      <xsl:attribute name="data-panelid">
+                           <xsl:value-of select="@xml:id"></xsl:value-of>
+                       </xsl:attribute>
+                        <div>
+                             <xsl:attribute name="class">listText</xsl:attribute>
+                                      
+                             <div>
+                                <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
+                                <a href="#" title="{$witTitle}"><xsl:text>Version </xsl:text><xsl:value-of select="@xml:id"/></a>
+                             </div> 
+                             
+                              <div>
+                                 <button>
+                                    <xsl:text>OFF</xsl:text>
+                                 </button>
+                              </div>
+                        </div>
+                     </li>
+               </xsl:for-each>
          </ul>
-         
       </li>
   </xsl:template>
    
@@ -348,7 +346,16 @@
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:call-template>
             </xsl:if>
+
+            <xsl:apply-templates select="//tei:front">
+               <xsl:with-param name="witId" select="$witId"></xsl:with-param>
+            </xsl:apply-templates>
+            
             <xsl:apply-templates select="//tei:body">
+               <xsl:with-param name="witId" select="$witId"></xsl:with-param>
+            </xsl:apply-templates>
+            
+            <xsl:apply-templates select="//tei:back">
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
             </xsl:apply-templates>
             
@@ -356,6 +363,7 @@
       </div>
       
    </xsl:template>
+
    
    <xsl:template name="audioPlayer">
       <xsl:param name="witId"/>
@@ -602,13 +610,9 @@
 
    <xsl:template name="castItem" match="tei:castItem">
       <div class="classItem">
-         <span class="role">
-            Role:
-            <xsl:value-of select="./tei:role"> </xsl:value-of>
+         <span class="role">Role: <xsl:value-of select="./tei:role"> </xsl:value-of>
          </span>
-         <span class="played-by">
-            Played by:
-            <xsl:value-of select="./tei:actor"> </xsl:value-of>
+         <span class="played-by">Played by: <xsl:value-of select="./tei:actor"> </xsl:value-of>
          </span>
       </div>
    </xsl:template>
@@ -743,7 +747,7 @@
       </span>
    </xsl:template>
    
-   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
+   <xsl:template match="tei:head|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
       <xsl:param name="witId"></xsl:param>
      <div>
             <xsl:attribute name="class">
@@ -1013,8 +1017,10 @@
          </xsl:when>
          <xsl:otherwise>
             <div class="paragraph">
-               <!-- Number every paragraph -->
-               <xsl:number />
+               <!-- Number every paragraph, but only in the body -->
+               <xsl:if test="ancestor::tei:body">
+                  <xsl:number />
+               </xsl:if>
                <xsl:apply-templates>
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:apply-templates>
@@ -1449,6 +1455,7 @@
          <xsl:value-of select="." />
       </a>
    </xsl:template>
+   
   <xsl:template match="tei:closer|tei:closer|tei:salute|tei:signed">
      <xsl:param name="witId"></xsl:param>
       <div>    
@@ -1460,8 +1467,7 @@
          </xsl:apply-templates>         
       </div>
    </xsl:template>
-   
-   
+     
    <xsl:template match="tei:head[(@type='section')]">
       <xsl:param name="witId"></xsl:param>
       <div class="section">
