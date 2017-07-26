@@ -102,7 +102,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -139,10 +139,9 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -223,7 +222,7 @@ function gms_text_field_default_field_instances() {
           'image_style' => 'cropped_rectangle_large',
         ),
         'type' => 'image',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -286,7 +285,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -411,7 +410,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -530,9 +529,10 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -652,7 +652,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -708,7 +708,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
