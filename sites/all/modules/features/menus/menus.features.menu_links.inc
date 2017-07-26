@@ -10,6 +10,24 @@
 function menus_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: main-menu_about:node/50.
+  $menu_links['main-menu_about:node/50'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/50',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'options' => array(
+      'attributes' => array(),
+      'identifier' => 'main-menu_about:node/50',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_add-text:node/add/text.
   $menu_links['main-menu_add-text:node/add/text'] = array(
     'menu_name' => 'main-menu',
@@ -27,7 +45,7 @@ function menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: main-menu_all-texts:texts-table.
@@ -47,7 +65,7 @@ function menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -48,
     'customized' => 1,
   );
   // Exported menu link: main-menu_home:<front>.
@@ -125,6 +143,7 @@ function menus_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('About');
   t('Add Text');
   t('All Texts');
   t('Home');
