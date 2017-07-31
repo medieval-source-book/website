@@ -101,9 +101,7 @@ div#mainBanner{
 }
 div#mainBanner div#brandingLogo{
     float:left;
-    max-width: 10%;
-    height: 10em;
-
+    padding: 9px 4px 4px 9px
 }
 
 div#brandingLogo a {
