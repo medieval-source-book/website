@@ -20,7 +20,8 @@
   <!--<xsl:variable name="facsImageFolder">/website/sites/default/files/vm_images/</xsl:variable>-->
   
   <!-- logoLink: path to samples page (VM logo links to this path) -->
-  <xsl:variable name="logoLink">/</xsl:variable>
+  <!-- NOTE: We're generating this in drupal_settings.xsl -->
+  <!--<xsl:variable name="logoLink">/</xsl:variable>-->
   
   <!-- include file form src folder -->
   <xsl:variable name="cssInclude">../src/vmachine.css</xsl:variable>
