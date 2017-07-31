@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 /**
     * @license vmachine.css for VM 5.0
     * Updated: Aug 10 2015 by roman bleier
@@ -102,9 +101,7 @@ div#mainBanner{
 }
 div#mainBanner div#brandingLogo{
     float:left;
-    max-width: 10%;
-    height: 10em;
-
+    padding: 9px 4px 4px 9px
 }
 
 div#brandingLogo a {
@@ -161,7 +158,9 @@ div#mainBanner nav#mainControls{
     padding:1px;
     position:absolute;
     bottom:5px;
-    width:80%;
+    width:100%;
+    left: 0;
+    background: dimgrey;
 }
 nav#mainControls button img{
     height:.55em;/*controls the size of the arrow button in dropdown menu*/
@@ -552,27 +551,38 @@ span.viewerHandleLt{
 
 #mainControls ul{
     padding:0;
-    /*margin:233px*/
+    margin: 0;
 }
+
 #mainControls > ul > li{
     display:inline-block;
     list-style-type:none;
-    padding: 0 5px 5px 15px;; /* changed from 5px*/
     font-size: 1em; /*changed from 1.2em*/
     position:relative;
     float:left;
 }
+
+button {
+    background-image: none;
+    border: none;
+
+}
 /* style dropdown button */
 .topMenuButton{
     font-weight: 300;
+    font-family: 'Roboto';
     display: block;
-    background-color: black;
-    font-size: 1.2em;
+    background-color: dimgrey;
+    font-size: 1em;
     margin: 0;
-    border: 2px groove white; /*changed from 1px*/
-    border-radius: 5px;
     color:#fff;
     cursor:pointer;
+    border-right: 1px solid black;
+}
+
+.topMenuButton a {
+    text-decoration: none;
+    color: white;
 }
 
 .topMenuButton:hover{

@@ -149,6 +149,13 @@ function vm_rebuild_xsl($silent = FALSE) {
   $string .= '<xsl:variable name="facsImageFolder">';
   $string .= $base_path . $image_path;
   $string .= '</xsl:variable>';
+  $string .= '<xsl:variable name="logoLink">';
+  global $base_path;
+  $string .= $base_path . '</xsl:variable>';
+  $string .= '<xsl:variable name="themePath">';
+  $string .= $base_path . drupal_get_path('theme', variable_get('theme_default', NULL));
+  $string .= '</xsl:variable>';
+
   $string .= '</xsl:stylesheet>';
   file_unmanaged_save_data($string, $path . '/src/drupal_settings.xsl',
     FILE_EXISTS_REPLACE);

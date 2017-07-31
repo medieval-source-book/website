@@ -171,9 +171,9 @@
       <div id="brandingLogo">
          <a href="{$logoLink}">
          <img id="home" alt="Return to main site" src="{$vmLogo}"/>
-            <span id="home_text">Home</span>
          </a>
       </div>
+      <div id="site-name"><strong><a href="{$logoLink}">Global Medieval Sourcebook</a></strong></div>
    </xsl:template>
    
    <xsl:template name="headline">
@@ -189,6 +189,7 @@
    <xsl:template name="mainControls">
       <nav id="mainControls">
          <ul>
+            <li><button class="topMenuButton"><a href="{$logoLink}">Home</a></button></li>
             <!-- add version/witness dropdown menu -->
             <xsl:call-template name="versionDropdown"/>
             
