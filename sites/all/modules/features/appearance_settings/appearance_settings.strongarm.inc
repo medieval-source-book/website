@@ -120,8 +120,8 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_files';
   $strongarm->value = array(
-    0 => 'public://color/mayo-57dacb34/logo.png',
-    1 => 'public://color/mayo-57dacb34/colors.css',
+    0 => 'public://color/mayo-6b702561/logo.png',
+    1 => 'public://color/mayo-6b702561/colors.css',
   );
   $export['color_mayo_files'] = $strongarm;
 
@@ -129,7 +129,7 @@ function appearance_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_logo';
-  $strongarm->value = 'public://color/mayo-57dacb34/logo.png';
+  $strongarm->value = 'public://color/mayo-6b702561/logo.png';
   $export['color_mayo_logo'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -171,7 +171,7 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_mayo_stylesheets';
   $strongarm->value = array(
-    0 => 'public://color/mayo-57dacb34/colors.css',
+    0 => 'public://color/mayo-6b702561/colors.css',
   );
   $export['color_mayo_stylesheets'] = $strongarm;
 
@@ -359,7 +359,7 @@ function appearance_settings_strongarm() {
     'smalltouch_portrait_layout' => 'one_col_stack',
     'legacy_superfish_styles' => 0,
     'round_corners' => 'rc-3',
-    'menubar_style' => '2',
+    'menubar_style' => '1',
     'menubar_background' => 1,
     'menubar_bg_value' => '#ffffff',
     'header_searchbox' => 0,
