@@ -152,8 +152,16 @@ function vm_rebuild_xsl($silent = FALSE) {
   $string .= '<xsl:variable name="logoLink">';
   global $base_path;
   $string .= $base_path . '</xsl:variable>';
-  $string .= '<xsl:variable name="themePath">';
+  $string .= '<xsl:variable name="drupalThemePath">';
   $string .= $base_path . drupal_get_path('theme', variable_get('theme_default', NULL));
+  $string .= '/css/style.css';
+  $string .= '</xsl:variable>';
+  $string .= '<xsl:variable name="drupalLogoPath">';
+  $string .= $base_path . variable_get('file_public_path', conf_path() .
+  '/files') . '/' . file_uri_target(theme_get_setting
+  ('logo_path',
+    variable_get('theme_default',
+    NULL)));
   $string .= '</xsl:variable>';
 
   $string .= '</xsl:stylesheet>';
