@@ -42,9 +42,13 @@
       <!-- GENERATE BASIC HTML STRUCTURE -->
      <html lang="en">
          <xsl:call-template name="htmlHead" />
-        <body> 
-            <xsl:call-template name="mainBanner" />
-            <xsl:call-template name="manuscriptArea" />
+        <body class="html not-front page-node">
+           <div id="page-wrapper">
+              <div id="page">
+                  <xsl:call-template name="mainBanner" />
+                  <xsl:call-template name="manuscriptArea" />
+              </div>
+           </div>
          </body>
       </html>
    </xsl:template>
@@ -75,6 +79,7 @@
                <xsl:value-of select="$cssInclude" />
             </xsl:attribute>
          </link>
+
 
          <!-- include custom font-face -->
          <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet"></link>
@@ -156,59 +161,54 @@
    <xsl:template name="mainBanner">
       <div id="mainBanner">
          <xsl:call-template name="brandingLogo" />
-         <div id="bannerImageContainer">
+         <!--<div id="bannerImageContainer">-->
+            <!---->
+               <!--<img id="logo" alt="Powered by the Versioning Machine" src="{$bannerImg}"/>-->
             
-               <img id="logo" alt="Powered by the Versioning Machine" src="{$bannerImg}"/>
-            
-            <xsl:call-template name="headline" />
-            <xsl:call-template name="mainControls" />
-            
-         </div>
+            <!--<xsl:call-template name="headline" />-->
+
+
+         <!--</div>-->
       </div>
+      <xsl:call-template name="mainControls" />
+
    </xsl:template>
    
    <xsl:template name="brandingLogo">
       <div id="brandingLogo">
          <a href="{$logoLink}">
-         <img id="home" alt="Return to main site" src="{$vmLogo}"/>
+         <img id="home" alt="Return to main site" src="{$drupalLogoPath}"/>
          </a>
       </div>
-      <div id="site-name"><strong><a href="{$logoLink}">Global Medieval Sourcebook</a></strong></div>
-   </xsl:template>
-   
-   <xsl:template name="headline">
-      <div id="headline">
-         
-         <h1>
-            <xsl:value-of select="$truncatedTitle" />
-         </h1>
-         
-      </div>
+      <div id="site-name"><a href="{$logoLink}">Global Medieval Sourcebook</a></div>
+      <div id="site-slogan">A Digital Repository of Medieval Texts</div>
    </xsl:template>
 
    <xsl:template name="mainControls">
-      <nav id="mainControls">
-         <ul>
-            <li><button class="topMenuButton"><a href="{$logoLink}">Home</a></button></li>
-            <!-- add version/witness dropdown menu -->
-            <xsl:call-template name="versionDropdown"/>
-            
-            <!-- add additional nav/control menu -->
-            <xsl:call-template name="topMenu"/>
-         </ul>
-     </nav>
+      <div id="mainControlsWrapper">
+         <nav id="mainControls">
+            <ul>
+               <li><span class="topMenuButton"><a href="{$logoLink}">Home</a></span></li>
+               <!-- add version/witness dropdown menu -->
+               <xsl:call-template name="versionDropdown"/>
+
+               <!-- add additional nav/control menu -->
+               <xsl:call-template name="topMenu"/>
+            </ul>
+        </nav>
+      </div>
    </xsl:template>
    
    <!-- CREATE VERSION/WITNESS DROPDOWN MENU IN NAVIGATION BAR -->
    <xsl:template name="versionDropdown">
       
       <li>
-      <button id="selectVersion" class="topMenuButton dropdownButton">
+      <span id="selectVersion" class="topMenuButton dropdownButton">
          <xsl:value-of select="count($witnesses)"></xsl:value-of>
          <xsl:text> Total Versions</xsl:text>
          <img class="noDisplay" src="{$menuArrowUp}" alt="arrow up"/>
          <img src="{$menuArrowDown}" alt="arrow down"/>
-      </button>
+      </span>
          <ul>
             <xsl:attribute name="id">versionList</xsl:attribute>
             <xsl:attribute name="class">dropdown notVisible</xsl:attribute>
@@ -222,13 +222,13 @@
                                       
                              <div>
                                 <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
-                                <a href="#" title="{$witTitle}"><xsl:text>Version </xsl:text><xsl:value-of select="@xml:id"/></a>
+                                <a href="#" title="{$witTitle}"><xsl:value-of select="@xml:id"/></a>
                              </div> 
                              
                               <div>
-                                 <button>
+                                 <span>
                                     <xsl:text>OFF</xsl:text>
-                                 </button>
+                                 </span>
                               </div>
                         </div>
                      </li>
@@ -243,43 +243,52 @@
          <li>
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
             <xsl:attribute name="title">Clicking this button turns the line numbers on or off.</xsl:attribute>
-            <button><xsl:attribute name="class">topMenuButton</xsl:attribute>
+            <span><xsl:attribute name="class">topMenuButton</xsl:attribute>
                 <xsl:text>Hide Line Numbers</xsl:text>
-            </button>
+            </span>
                
          </li>
       </xsl:if>
          <li>
             <xsl:attribute name="data-panelid">bibPanel</xsl:attribute>
             <xsl:attribute name="title">Clicking this button triggers the bibliographic panel to appear or disappear.</xsl:attribute>
-            <button>
+            <span>
                <xsl:attribute name="class">topMenuButton</xsl:attribute>
                <xsl:text>Source Information</xsl:text>
-            </button>
+            </span>
          </li>
       <xsl:if test="//tei:body//tei:note">
          <li>
             <xsl:attribute name="data-panelid">notesPanel</xsl:attribute>
             <xsl:attribute name="title">Clicking this button triggers the notes panel to appear or disappear.</xsl:attribute>
-            <button>
+            <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                <xsl:text>Critical Notes</xsl:text>
-            </button>
+            </span>
          </li>
       </xsl:if>
       <xsl:if test="//tei:notesStmt/tei:note[@type='critIntro']">
             <li>
                <xsl:attribute name="data-panelid">critPanel</xsl:attribute>
-               <button>
+               <span>
                   <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                   <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
                   <xsl:text>Introduction to Text</xsl:text>
-               </button>
+               </span>
             </li>
          </xsl:if>
    </xsl:template>
-   
-   
+
+
+   <xsl:template name="headline">
+      <div id="headline">
+
+         <h1>
+            <xsl:value-of select="$truncatedTitle" />
+         </h1>
+
+      </div>
+   </xsl:template>
    <!-- **********END MAIN BANNER TEMPLATES************ -->
    
    
@@ -289,7 +298,10 @@
    <!-- **********START MANUSCRIPT/TRANSCRIPTION PANEL AREA TEMPLATES************ -->
    
    <xsl:template name="manuscriptArea">
+
       <div id="mssArea">
+         <xsl:call-template name="headline" />
+
          <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc" />
          <xsl:for-each select="$witnesses">
                <xsl:call-template name="manuscriptPanel">
