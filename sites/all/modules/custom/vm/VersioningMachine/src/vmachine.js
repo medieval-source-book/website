@@ -96,7 +96,7 @@ $.fn.toggleOnOffButton = function() {
 	*plugin toggles between ON and OFF status of a button of top menu and dropdown
 	**/
 	return $(this).each(function(){
-    var b = $(this).find("button");
+    var b = $(this).find("span.toggle");
 		var content = b.html();
 		
 		if (content === "ON"){
