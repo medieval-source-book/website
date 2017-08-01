@@ -41,7 +41,7 @@ $.fn.moveToFront = function() {
 	/** moves panels (mssPanel, imgPanel, etc) to front. Adds a higher z-index**/
 			$that = $(this);
 			$that.addClass("activePanel").css({"z-index":5, "opacity":1});
-			$that.nextAll().insertBefore($that);
+			// $that.nextAll().insertBefore($that);
 			
 			$(".activePanel").each(function(){
 				$(this).css({"z-index":2}).removeClass("activePanel");
@@ -68,13 +68,13 @@ $.fn.mssAreaResize = function (){
 			
 			/*moves panel that is outside of workspace into workspace*/
 			$("div.panel:not(.noDisplay)").each(function(idx, element){
-				$ele = $(element);
-				var l = $ele.position().left;
-				var t = $ele.position().top;
-				var w = $ele.width();
+				var ele = $(element);
+				var l = ele.position().left;
+				var t = ele.position().top;
+				var w = ele.width();
 
 				if( (l + w) > mssAreaWidth ){
-					$ele.offset({top:t, left:mssAreaWidth-w});
+					ele.offset({top:t, left:mssAreaWidth-w});
 				}
 			});
 			
@@ -161,22 +161,24 @@ $.fn.panelButtonClick = function() {
 				//toggle inline note icons in panels
 				$("#mssArea .noteicon").toggle();
 			}
-			
+			console.log(this);
 			$("#"+dataPanelId).each(function(){
-					var top = $(this).css("top");
-					var left = $(this).css("left");
-					if(left === "-1px" || top === "-1px"){
-						//if no panel is at default coordinate
-						if(top == "-1px"){
-							top = $("#mainBanner").height();
-						}
-						left = 0;
-						//check if there is already a panel in this location
-						while(PanelInPosXY("div.panel:not(.noDisplay)", top, left)){
-							top += 20;
-							left += 50;
-						}
-					}
+					// var top = $(this).css("top");
+					// var left = $(this).css("left");
+					// if(left === "-1px" || top === "-1px"){
+					// 	//if no panel is at default coordinate
+					// 	if(top == "-1px"){
+					// 		top = $("#mainBanner").height();
+					// 	}
+					// 	left = 0;
+					// 	//check if there is already a panel in this location
+					// 	while(PanelInPosXY("div.panel:not(.noDisplay)", top, left)){
+					// 		top += 20;
+					// 		left += 50;
+					// 	}
+					// }
+					top = 0;
+					left = 0;
 					$(this).changePanelVisibility(top, left);
 					$(this).moveToFront();
 				});		
@@ -215,13 +217,15 @@ $.fn.changePanelVisibility = function(top,left) {
 	$(this).toggleClass("noDisplay");
 	
 	if( top === "-1px" || top === -1){
-		top = $("#mainBanner").height();
+		// top = $("#mainBanner").height();
+		// Structure changed; should be at top of #mssArea
+		top = 0;
 	}
 	else if( left === "-1px" || left === -1 ){
 		left = 0;
 	
 	}
-	
+
 	if(!(top===undefined || left===undefined)){
 	
 		if($.type(top) === "string"){
@@ -560,8 +564,12 @@ $.fn.mssPanels = function (){
 				
 				var panelPos = totalPanelWidth();
 				var wit = $(this).attr("data-panelid");
+				var left = 0;	// a little nice spacing between panels
 				if(idx < versions){
-					$("#"+wit).changePanelVisibility("-1px", panelPos);
+					if (idx != 0) {
+						left = 10;
+					}
+					$("#"+wit).changePanelVisibility(0, left);
 					$("*[data-panelid='"+wit+"']").toggleOnOffButton();
 				}	
 			});
