@@ -120,12 +120,14 @@ body,
 #navigation {
   margin: 0px;
   padding: 4px 0px 4px 4px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+  /*border-bottom-style: solid;
+  border-bottom-width: 1px;*/
   overflow: hidden;
   position: absolute; /*sets menu to take up the full width of the viewport*/
   left: 0;
   right: 0;
+  background: #2b2b2b;
+  border-bottom: none;
 }
 
 #navigation ul {
@@ -147,8 +149,11 @@ body,
   padding: 2px 4px;
   font-weight: normal;
   font-size: 1.2em;
+  color: #ffffff;
 }
 #navigation ul li a:hover {
+  background-color: #000000 !important;
+  text-decoration: none;
 }
 #navigation #main-menu {
   margin: 0;
