@@ -226,7 +226,7 @@
                              </div> 
                              
                               <div>
-                                 <span>
+                                 <span class="toggle">
                                     <xsl:text>OFF</xsl:text>
                                  </span>
                               </div>
