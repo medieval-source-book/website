@@ -297,8 +297,9 @@ div#mssArea div.panel div.panelBanner{
     line-height: 1.6;
     margin:0;
     padding:3px 7px 3px 10px;
-    color:white;/*changed from black to be easier to read*/
-    font-weight:400;/*changed from 800 to be easier to read*/
+    color: white;
+    font-weight: 400;
+    font-size: medium;
 }
 
 div#mssArea div.panel div.panelBanner select.witnessMenu {
@@ -606,6 +607,7 @@ span.viewerHandleLt{
     font-size: 1em; /*changed from 1.2em*/
     position:relative;
     float:left;
+    padding: 0;
 }
 
 
@@ -631,7 +633,7 @@ span.viewerHandleLt{
 }
 
 .topMenuButton:hover{
-    background-image: none;
+    background-color: grey;
 }
 
 ul#versionList {
@@ -675,9 +677,8 @@ ul#versionList li {
 span.topMenuButton {
     background-color: dimgrey;
     color: #fff;
-    margin-left: 2px;
-    margin-right: 2px;
 }
+
 .imgPanel button{
     color: #000;
 }
