@@ -102,7 +102,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -127,6 +127,45 @@ function gms_text_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-text-field_display_title'.
+  $field_instances['node-text-field_display_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title that will be displayed on the text\'s designated page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_display_title',
+    'label' => 'Display Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -183,7 +222,7 @@ function gms_text_field_default_field_instances() {
           'image_style' => 'cropped_rectangle_large',
         ),
         'type' => 'image',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -246,7 +285,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -371,7 +410,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -490,9 +529,10 @@ function gms_text_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -612,7 +652,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -668,7 +708,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -701,6 +741,7 @@ function gms_text_field_default_field_instances() {
   t('An icon for the main page display');
   t('Audio');
   t('Author |');
+  t('Display Title');
   t('Further Reading');
   t('Genre |');
   t('Icon');
@@ -715,6 +756,7 @@ function gms_text_field_default_field_instances() {
   t('Period |');
   t('Source of the icon image');
   t('TEI');
+  t('The title that will be displayed on the text\'s designated page.');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');

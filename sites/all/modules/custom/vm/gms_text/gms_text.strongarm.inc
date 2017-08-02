@@ -62,6 +62,24 @@ function gms_text_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'default_ds_field_settings';
+  $strongarm->value = array(
+    'node|text|default' => FALSE,
+  );
+  $export['default_ds_field_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'default_ds_layout_settings';
+  $strongarm->value = array(
+    'node|text|default' => FALSE,
+  );
+  $export['default_ds_layout_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__text';
   $strongarm->value = array(
     'view_modes' => array(

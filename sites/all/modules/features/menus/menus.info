@@ -7,6 +7,7 @@ dependencies[] = menu
 features[features_api][] = api:2
 features[menu_custom][] = main-menu
 features[menu_custom][] = user-menu
+features[menu_links][] = main-menu_about:node/50
 features[menu_links][] = main-menu_add-text:node/add/text
 features[menu_links][] = main-menu_all-texts:texts-table
 features[menu_links][] = main-menu_home:<front>
