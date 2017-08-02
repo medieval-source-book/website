@@ -27,11 +27,10 @@ function PanelInPosXY(selector, top, left){
 	*/
 	panelPresent = false;
 	$(selector).each(function(){
-			var pos = $(this).position();
-			if(pos.left == left && pos.top == top){
-					panelPresent = true;
-			}
-			
+		var pos = $(this).position();
+		if(pos.left == left && pos.top == top){
+				panelPresent = true;
+		}
 	});
 	return panelPresent;
 }
@@ -39,13 +38,13 @@ function PanelInPosXY(selector, top, left){
 
 $.fn.moveToFront = function() {
 	/** moves panels (mssPanel, imgPanel, etc) to front. Adds a higher z-index**/
-			$that = $(this);
-			$that.addClass("activePanel").css({"z-index":5, "opacity":1});
-			// $that.nextAll().insertBefore($that);
-			
-			$(".activePanel").each(function(){
-				$(this).css({"z-index":2}).removeClass("activePanel");
-			});	
+	$that = $(this);
+
+	$(".activePanel").each(function(){
+		$(this).css({"z-index":2}).removeClass("activePanel");
+	});
+    $that.addClass("activePanel").css({"z-index":5, "opacity":1});
+
 
 }
 
@@ -155,36 +154,34 @@ $.fn.panelButtonClick = function() {
 	*on click version panels become invisible or visible
 	**/
     return this.click(function(){
-			var dataPanelId = $(this).attr("data-panelid");
-			
-			if(dataPanelId === "notesPanel"){
-				//toggle inline note icons in panels
-				$("#mssArea .noteicon").toggle();
-			}
-			console.log(this);
-			$("#"+dataPanelId).each(function(){
-					// var top = $(this).css("top");
-					// var left = $(this).css("left");
-					// if(left === "-1px" || top === "-1px"){
-					// 	//if no panel is at default coordinate
-					// 	if(top == "-1px"){
-					// 		top = $("#mainBanner").height();
-					// 	}
-					// 	left = 0;
-					// 	//check if there is already a panel in this location
-					// 	while(PanelInPosXY("div.panel:not(.noDisplay)", top, left)){
-					// 		top += 20;
-					// 		left += 50;
-					// 	}
-					// }
-					top = 0;
-					left = 0;
-					$(this).changePanelVisibility(top, left);
-					$(this).moveToFront();
-				});		
-				$("#mssArea").mssAreaResize();
+		var dataPanelId = $(this).attr("data-panelid");
+
+		if(dataPanelId === "notesPanel"){
+			//toggle inline note icons in panels
+			$("#mssArea .noteicon").toggle();
+		}
+		$("#"+dataPanelId).each(function(){
+			// var top = $(this).css("top");
+			// var left = $(this).css("left");
+			// if(left === "-1px" || top === "-1px"){
+			// 	//if no panel is at default coordinate
+			// 	if(top == "-1px"){
+			// 		top = $("#mainBanner").height();
+			// 	}
+			// 	left = 0;
+			// 	//check if there is already a panel in this location
+			// 	while(PanelInPosXY("div.panel:not(.noDisplay)", top, left)){
+			// 		top += 20;
+			// 		left += 50;
+			// 	}
+			// }
+			var top = 0;
+			var left = 10;
+			$(this).changePanelVisibility(top, left);
+			$(this).moveToFront();
+		});
+		$("#mssArea").mssAreaResize();
 		$("*[data-panelid='"+dataPanelId+"']").toggleOnOffButton();
-			
 	});
 };
 	
@@ -215,7 +212,7 @@ $.fn.changePanelVisibility = function(top,left) {
 	/* plugin to change the visibility of a panel and move it to different location
 	param top and left are the coordinates where the panel should be moved to*/
 	$(this).toggleClass("noDisplay");
-	
+	console.log(this, top, left);
 	if( top === "-1px" || top === -1){
 		// top = $("#mainBanner").height();
 		// Structure changed; should be at top of #mssArea
@@ -241,7 +238,7 @@ $.fn.changePanelVisibility = function(top,left) {
 		if(!isNaN(top) && !isNaN(left)){
 			$(this).css({"left":left});
 			$(this).css({"top":top});
-			}
+		}
 	}
 }
 
@@ -250,8 +247,8 @@ $.fn.panelClick = function() {
 	brings the panel to front
 	**/
     return this.mousedown(function(){
-			$(this).moveToFront();
-		});
+		$(this).moveToFront();
+	});
 };
 
 $.fn.panelHover = function() {
@@ -487,8 +484,10 @@ $.fn.bibPanel = function() {
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_BIB_PANEL){
 		//bibPanel visible, constant INITIAL_DISPLAY_BIB_PANEL can be found in settings.xsl
-		$("#"+keyword).changePanelVisibility("-1px", panelPos);
-		$("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
+		// $("#"+keyword).changePanelVisibility("-1px", panelPos);
+        $("#"+keyword).changePanelVisibility(0, 10);
+
+        $("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
 	}
 	$("#"+keyword).panelClick();
 	$("#"+keyword).panelHover();
@@ -503,8 +502,10 @@ $.fn.notesPanel = function() {
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_NOTES_PANEL){
 		//notesPanel visible, constant INITIAL_DISPLAY_NOTES_PANEL can be found in settings.xsl
-		$("#"+keyword).changePanelVisibility("-1px", panelPos);
-		$("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
+		// $("#"+keyword).changePanelVisibility("-1px", panelPos);
+        $("#"+keyword).changePanelVisibility(0, 10);
+
+        $("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
 		$("#mssArea .noteicon").toggle();
 	}
 	$("#"+keyword).panelClick();
@@ -520,8 +521,10 @@ $.fn.critPanel = function() {
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_CRIT_PANEL){
 		//critPanel visible, constant INITIAL_DISPLAY_CRIT_PANEL can be found in settings.xsl
-		$("#"+keyword).changePanelVisibility("-1px", panelPos);
-		$("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
+		// $("#"+keyword).changePanelVisibility("-1px", panelPos);
+        $("#"+keyword).changePanelVisibility(0, 10);
+
+        $("nav *[data-panelid='"+ keyword +"']").toggleOnOffButton();
 	}	
 	$("#"+keyword).panelClick();
 	$("#"+keyword).panelHover();
@@ -562,17 +565,17 @@ $.fn.mssPanels = function (){
 	var versions = INITIAL_DISPLAY_NUM_VERSIONS;
 	$("#versionList li").each(function(idx){
 				
-				var panelPos = totalPanelWidth();
-				var wit = $(this).attr("data-panelid");
-				var left = 0;	// a little nice spacing between panels
-				if(idx < versions){
-					if (idx != 0) {
-						left = 10;
-					}
-					$("#"+wit).changePanelVisibility(0, left);
-					$("*[data-panelid='"+wit+"']").toggleOnOffButton();
-				}	
-			});
+		var panelPos = totalPanelWidth();
+		var wit = $(this).attr("data-panelid");
+		var left = 0;	// a little nice spacing between panels
+		if(idx < versions){
+			if (idx != 0) {
+				left = 10;
+			}
+			$("#"+wit).changePanelVisibility(0, left);
+			$("*[data-panelid='"+wit+"']").toggleOnOffButton();
+		}
+	});
 	//add functionality to manuscript panels
 	$(".mssPanel").panelClick();
 	$(".mssPanel").panelHover();
