@@ -239,6 +239,7 @@
    
   
    <xsl:template name="topMenu">
+
       <xsl:if test="//tei:l[@n]">
          <li>
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
@@ -247,6 +248,16 @@
                 <xsl:text>Hide Line Numbers</xsl:text>
             </span>
                
+         </li>
+      </xsl:if>
+      <xsl:if test="//tei:notesStmt/tei:note[@type='critIntro']">
+         <li>
+            <xsl:attribute name="data-panelid">critPanel</xsl:attribute>
+            <span>
+               <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
+               <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
+               <xsl:text>Introduction to Text</xsl:text>
+            </span>
          </li>
       </xsl:if>
          <li>
@@ -267,16 +278,6 @@
             </span>
          </li>
       </xsl:if>
-      <xsl:if test="//tei:notesStmt/tei:note[@type='critIntro']">
-            <li>
-               <xsl:attribute name="data-panelid">critPanel</xsl:attribute>
-               <span>
-                  <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
-                  <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
-                  <xsl:text>Introduction to Text</xsl:text>
-               </span>
-            </li>
-         </xsl:if>
    </xsl:template>
 
 
