@@ -53,39 +53,42 @@ $.fn.mssAreaResize = function (){
 	* if panel is opened the workspace becomes larger, 
 	* if a panel is closed it becomes smaller
 	*/
-            var mssAreaWidth = $(this).width();
-            var panelsWidth = totalPanelWidth();
-			var windowWidth = $(window).width();
-            if( windowWidth > panelsWidth){
-                $(this).width(windowWidth);
-				mssAreaWidth = windowWidth;
-            }
-            else{
-                $(this).width(panelsWidth + 100);
-				mssAreaWidth = panelsWidth + 100;
-            }
-			
-			/*moves panel that is outside of workspace into workspace*/
-			$("div.panel:not(.noDisplay)").each(function(idx, element){
-				var ele = $(element);
-				var l = ele.position().left;
-				var t = ele.position().top;
-				var w = ele.width();
+	// All the resizing makes the panels go crazy, in fact, with our page structure
+	// So we don't need this; the default behavior works well
+	return;
+	var mssAreaWidth = $(this).width();
+	var panelsWidth = totalPanelWidth();
+	var windowWidth = $(window).width();
+	if( windowWidth > panelsWidth){
+		$(this).width(windowWidth);
+		mssAreaWidth = windowWidth;
+	}
+	else{
+		$(this).width(panelsWidth + 100);
+		mssAreaWidth = panelsWidth + 100;
+	}
 
-				if( (l + w) > mssAreaWidth ){
-					ele.offset({top:t, left:mssAreaWidth-w});
-				}
-			});
-			
-			/* correct height of workspace*/
-			var panelHeight = 0;
-			$(".panel").each(function(idx, element){
-				var h = $(element).height();
-				if(panelHeight < h){
-					panelHeight = h;
-				}
-			});
-			$(this).css({"height":panelHeight+100});
+	/*moves panel that is outside of workspace into workspace*/
+	$("div.panel:not(.noDisplay)").each(function(idx, element){
+		var ele = $(element);
+		var l = ele.position().left;
+		var t = ele.position().top;
+		var w = ele.width();
+
+		if( (l + w) > mssAreaWidth ){
+			ele.offset({top:t, left:mssAreaWidth-w});
+		}
+	});
+
+	/* correct height of workspace*/
+	var panelHeight = 0;
+	$(".panel").each(function(idx, element){
+		var h = $(element).height();
+		if(panelHeight < h){
+			panelHeight = h;
+		}
+	});
+	$(this).css({"height":panelHeight+100});
 }
 
 /***** Functionality of dropdown menu and top menu *****/
