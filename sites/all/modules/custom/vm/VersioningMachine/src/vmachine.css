@@ -223,15 +223,16 @@ nav#mainControls span img{
     padding:2px;
     clear:both;
     cursor:pointer;
+    height: 1.5em;
 }
 #mainControls > ul > li ul li:hover{
     width:auto;
-    /*font-weight:800;*/
     background-color: lightgrey;
 }
 div.listText{
     display:table;
     font-size: 0.9em;
+    padding-left: 5px;
 }
 
 div.listText div a {
@@ -661,12 +662,14 @@ ul#versionList li {
 /* end style dropdown list */
 
 /*OnOff button in dropdown and navigation*/
-.dropdown span.toggle {
-    width: 3em;
-    height: 2em;
+ul.dropdown div.listText div span.toggle {
     padding: 0 2px 0 2px;
     border: 1px solid black;
     color: white;
+}
+
+span.toggle:hover {
+    background-color: lightblue;
 }
 
 .dropdown a{
