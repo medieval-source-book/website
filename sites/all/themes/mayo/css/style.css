@@ -376,8 +376,10 @@ fieldset {
 .rc-3 .node,
 .rc-3 .column-block,
 .rc-3 .sidebar .block {
-  -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   border-radius: 8px;
 }
 
@@ -619,7 +621,7 @@ body,
   background-color: #ffffff !important;
 }
 .sidebar * form#views-exposed-form-texts-page div.views-exposed-widget {
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 .sidebar * form#views-exposed-form-texts-page div.views-exposed-widget label {
@@ -958,7 +960,7 @@ div.tabs ul.secondary li {
   border-bottom-color: #ddd;
   border-right-color: #ddd;
   margin-top: 1px;
-  background: #fff url(../images/search.png) no-repeat 2px center;
+  background: white url(../images/search.png) no-repeat 2px center;
   padding: 0px 4px 0px 4px;
   padding-left: 24px;
   /* space for magnifying glass */
@@ -987,13 +989,13 @@ div.tabs ul.secondary li {
   cursor: pointer;
   font-size: 0.9em;
   border: solid 1px #888888;
-  background: #fff url(../images/button.gif) repeat-x center;
+  background: white url(../images/button.gif) repeat-x center;
 }
 
 .pushbutton:hover, button:hover, .form-submit:hover {
   color: #111111;
   border: solid 1px #666666;
-  background: #fff url(../images/button-o.gif) repeat-x center;
+  background: white url(../images/button-o.gif) repeat-x center;
 }
 
 /**
