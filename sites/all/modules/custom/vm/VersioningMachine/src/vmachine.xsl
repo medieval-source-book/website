@@ -49,6 +49,17 @@
                   <xsl:call-template name="manuscriptArea" />
               </div>
            </div>
+           <script type="text/javascript">
+               <xsl:text disable-output-escaping="yes">
+               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+               })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+               ga('create', 'UA-36801275-11', 'auto');
+               ga('send', 'pageview');
+               </xsl:text>
+           </script>
          </body>
       </html>
    </xsl:template>
@@ -96,15 +107,16 @@
          </script>
          
          
-         <!-- jquery.panzoom plugin from https://github.com/timmywil/jquery.panzoom -->
+         <!-- OpenSeadragon image viewer -->
          <link rel="stylesheet" type="text/css">
             <xsl:attribute name="href">
-               <xsl:value-of select="$cssJQueryZoomPan" />
+               <xsl:value-of select="$jsViewerCSS" />
             </xsl:attribute>
          </link>
+
          <script type="text/javascript">
             <xsl:attribute name="src">
-               <xsl:value-of select="$jsJqueryZoomPan" />
+               <xsl:value-of select="$jsOpenSeadragon" />
             </xsl:attribute>
          </script>
         
@@ -1419,13 +1431,12 @@
             <img class="viewerHandleRt closePanel" src="{$closePanelButton}" title="Close panel" alt="X (Close panel)" />
          </div>
          <div class="viewerContent" id="content_imgViewer">
-             
-            <!-- RB: jquery.panzoom plugin from https://github.com/timmywil/jquery.panzoom The links to the JS and CSS files are in the facsimile template-->
+
             
-               <div class="panzoom-parent" style="overflow:visible">
+               <div class="openseadragon-parent" style="overflow:visible">
             <!-- panzoom image -->
-            <div class="panzoom">
-                     <img width="200" border="1px 2px, 2px, 1px solid #000;" alt="image">
+            <div class="openseadragon">
+                     <img width="300" border="1px 2px, 2px, 1px solid #000;" alt="image">
                         <xsl:attribute name="src">
                            <xsl:value-of select="$facsImageFolder"/>
                            <xsl:value-of select="$imgUrl" />
@@ -1442,7 +1453,7 @@
                <button class="zoom-in">+</button>
                
             </div>
-            <!-- End implementation of jquery.panzoom -->
+            <!-- End implementation of openseadragon -->
          </div>
          
       </div>
@@ -1542,5 +1553,6 @@
             </xsl:choose>
          </xsl:for-each>
     </xsl:template>
-   
+
+
 </xsl:stylesheet>
