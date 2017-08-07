@@ -52,6 +52,11 @@ function vm_admin_form() {
       '#title' => t('Domain name for the versioning machine'),
       '#default_value' => variable_get('vm_subdomain', ''),
   );
+  $form['vm_ga'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Code for Google Analytics'),
+    '#default_value' => variable_get('vm_ga', '')
+  );
   $form['help_text'] = array(
     '#markup' => '<p></p><button><a 
 href="' .
@@ -164,6 +169,10 @@ function vm_rebuild_xsl($silent = FALSE) {
   ('logo_path',
     variable_get('theme_default',
     NULL)));
+  $string .= '</xsl:variable>';
+
+  $string .= '<xsl:variable name="googleAnalyticsCode">';
+  $string .= variable_get('vm_ga');
   $string .= '</xsl:variable>';
 
   $string .= '</xsl:stylesheet>';

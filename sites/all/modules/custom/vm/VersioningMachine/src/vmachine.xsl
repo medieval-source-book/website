@@ -49,17 +49,21 @@
                   <xsl:call-template name="manuscriptArea" />
               </div>
            </div>
-           <script type="text/javascript">
-               <xsl:text disable-output-escaping="yes">
-               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-               })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+           <xsl:if test="$googleAnalyticsCode">
+              <script type="text/javascript">
+                  <xsl:text disable-output-escaping="yes">
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-               ga('create', 'UA-36801275-11', 'auto');
-               ga('send', 'pageview');
-               </xsl:text>
-           </script>
+                  ga('create', '</xsl:text>
+                 <xsl:value-of select="$googleAnalyticsCode" />
+                 <xsl:text>', 'auto');
+                  ga('send', 'pageview');
+                  </xsl:text>
+              </script>
+           </xsl:if>
          </body>
       </html>
    </xsl:template>
