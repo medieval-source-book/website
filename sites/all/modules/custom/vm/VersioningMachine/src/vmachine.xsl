@@ -472,8 +472,8 @@
             <xsl:text>ui-widget-content ui-resizable panel noDisplay</xsl:text>
          </xsl:attribute>
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             Source Information
+            <span class="fa fa-times closePanel" title="Close panel"></span>
          </div>
          <div class="bibContent">
             <h2>
@@ -587,8 +587,9 @@
             </xsl:attribute>
            
                <div class="panelBanner">
-                  <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
                   Introduction to Text
+                  <span class="fa fa-times closePanel" title="Close panel"></span>
+
                </div>
                <div class="critContent">
                   <h4>Introduction to Text</h4>
@@ -664,8 +665,9 @@
          </xsl:attribute>
          
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             Critical Notes
+            <span class="fa fa-times closePanel" title="Close panel"></span>
+
          </div>
          <xsl:for-each select="//tei:body//tei:note[not(@type='image')]">
             <xsl:if test="not(ancestor::tei:note)">
@@ -1436,7 +1438,7 @@
                   </xsl:otherwise>
                </xsl:choose>
             </span>
-            <img class="viewerHandleRt closePanel" src="{$closePanelButton}" title="Close panel" alt="X (Close panel)" />
+            <span class="fa fa-times viewerHandleRt closePanel" title="Close panel"></span>
          </div>
          <div class="viewerContent" id="content_imgViewer">
 
