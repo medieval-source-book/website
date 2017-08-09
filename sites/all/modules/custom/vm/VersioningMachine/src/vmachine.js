@@ -215,7 +215,6 @@ $.fn.changePanelVisibility = function(top,left) {
 	/* plugin to change the visibility of a panel and move it to different location
 	param top and left are the coordinates where the panel should be moved to*/
 	$(this).toggleClass("noDisplay");
-	console.log(this, top, left);
 	if( top === "-1px" || top === -1){
 		// top = $("#mainBanner").height();
 		// Structure changed; should be at top of #mssArea
@@ -321,7 +320,6 @@ $.fn.imgLinkClick = function() {
 					}).toggleClass("noDisplay").addClass("activePanel");
 				//move the image panel to the front of all visible panels
 				$("#"+imgId).moveToFront();
-				console.log($("#"+imgId));
 			});
 };
 $.fn.imgLinkHover = function() {
@@ -639,7 +637,7 @@ $(document).ready(function() {
 	$( ".panel" ).draggable({
 		containment: "parent",
 		zIndex: 6, 
-		cancel: ".textcontent, .zoom-range, .bibContent, .noteConent, .critContent"
+		cancel: ".textcontent, .zoom-range, .bibContent, .noteContent, .critContent"
 	}).resizable(
 	{helper: "ui-resizable-helper"}
 	);

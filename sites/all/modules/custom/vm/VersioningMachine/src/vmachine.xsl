@@ -87,7 +87,11 @@
                <xsl:value-of select="$cssJQuery-UI" />
             </xsl:attribute>
          </link>
-         
+
+         <!-- Font Awesome -->
+         <script src="https://use.fontawesome.com/b4c1558196.js"></script>
+
+
          <!-- include customn CSS -->
          <link rel="stylesheet" type="text/css">
             <xsl:attribute name="href">
@@ -111,16 +115,16 @@
          </script>
          
          
-         <!-- OpenSeadragon image viewer -->
+         <!--  image viewer -->
          <link rel="stylesheet" type="text/css">
             <xsl:attribute name="href">
-               <xsl:value-of select="$jsViewerCSS" />
+               <xsl:value-of select="$cssJQueryZoomPan" />
             </xsl:attribute>
          </link>
 
          <script type="text/javascript">
             <xsl:attribute name="src">
-               <xsl:value-of select="$jsOpenSeadragon" />
+               <xsl:value-of select="$jsJqueryZoomPan" />
             </xsl:attribute>
          </script>
         
@@ -355,13 +359,13 @@
             <xsl:value-of select="$witId"></xsl:value-of>
          </xsl:attribute>
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             <!-- To change the title of the panel banner of each version panel change the text below -->
             
             <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" />: <xsl:value-of select="//tei:witness[@xml:id = $witId]"/></xsl:variable>
             
             <a title="{$witTitle}"><xsl:value-of select="$witTitle"></xsl:value-of></a>
-            
+            <span class="fa fa-times closePanel" title="Close panel"></span>
+
          </div>
          <div class="mssContent">
             <xsl:if test="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]">

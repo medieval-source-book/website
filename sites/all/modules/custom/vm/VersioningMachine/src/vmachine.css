@@ -120,7 +120,7 @@ div#brandingLogo a span#home_text {
 }
 
 div#mainBanner div#brandingLogo img{
-
+    height: 100px;
 }
 
 div#mainBanner div#bannerImageContainer{
@@ -153,7 +153,8 @@ div#mainBanner div#headline span.versionCount{
 }
 
 #site-name, #site-slogan {
-    font-family: 'PT Serif';
+    font-family: 'PT Serif', serif;
+    text-size-adjust: 100%;
 }
 
 #site-slogan {
@@ -165,7 +166,6 @@ div#mainBanner div#headline span.versionCount{
 #site-name a:visited {
     color: #666;
     font-size: 42px !important;
-    font-weight: 800;
     padding-top: 10px;
     margin-bottom: 2em;
     text-decoration: none;
@@ -177,9 +177,9 @@ div#mainControlsWrapper {
     position: absolute;
     left: 0px;
     width: 100%;
-    background: dimgrey;
+    background: #333;
     padding-left: 50px;
-    top: 160px;
+    top: 125px;
     height: 25px;
     font-size: 10pt;
 }
@@ -189,7 +189,6 @@ div#mainBanner nav#mainControls{
     padding: 1px;
     bottom: 5px;
     width:100%;
-    background: dimgrey;
     position: absolute;
     left: 0;
     right: 0;
@@ -226,7 +225,7 @@ nav#mainControls span img{
 }
 #mainControls > ul > li ul li:hover{
     width:auto;
-    background-color: lightgrey;
+    background-color: dimgrey;
 }
 div.listText{
     display:table;
@@ -265,7 +264,7 @@ div#mssArea{
     float:left;
     width: 100%;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 25px;
     padding: 0 0 2em 2em;
     overflow: hidden;
     z-index:10;
@@ -273,7 +272,7 @@ div#mssArea{
 
 div.panel{
     float:left;
-    width: 25%;
+    width: 30%;
     min-height:250px;
     min-width:250px;
     margin:0;
@@ -321,11 +320,12 @@ div#mssArea div.mssPanel div.panelBanner,
 div#mssArea div.imgPanel div.panelBanner{
     border-bottom:1px solid black;
 }
-div#mssArea div.panel div.panelBanner img.closePanel{
+div#mssArea div.panel div.panelBanner span.closePanel{
     float:right;
     cursor:pointer;
     width:1.4em;
     height:1.4em;
+    margin-top: 3px;
 }
 
 div#mssArea div.panel div.mssContent{
@@ -618,7 +618,7 @@ span.viewerHandleLt{
     font-weight: 300;
     font-family: 'Roboto';
     display: block;
-    background-color: dimgrey;
+    background-color: #333;
     font-size: 1em;
     margin: 0;
     color:#fff;
@@ -642,7 +642,7 @@ ul#versionList {
 }
 
 ul#versionList li {
-    background-color: dimgrey;
+    background-color: #333;
 }
 
 .noDisplay{
@@ -677,7 +677,7 @@ span.toggle:hover {
 }
 
 span.topMenuButton {
-    background-color: dimgrey;
+    background-color: #333;
     color: #fff;
 }
 
