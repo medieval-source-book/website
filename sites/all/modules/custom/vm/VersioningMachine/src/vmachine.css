@@ -385,7 +385,7 @@ div.paragraph{
     clear:both;
 }
 div.line{
-    margin:0 4em 0 2.5em;
+    margin:0 5px 0 30px;
     padding:0;
     cursor: auto;
     font-size: 15px;
@@ -541,7 +541,7 @@ div.type-stanza{
 .pagebreak{
     margin:10px auto 10px auto;
     clear:right;
-    min-width:20px;
+    min-width:100%;
 }
 div.rend-right{
     text-align:right;
@@ -780,3 +780,4 @@ div.stage {
 span.speaker {
     font-weight: bold;
 }
+
