@@ -324,6 +324,13 @@
          <xsl:call-template name="headline" />
 
          <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc" />
+
+         <xsl:if test="//tei:witDetail[tei:media[@url]]">
+            <!-- Add an audio player if there are audio files encoded -->
+            <xsl:call-template name="audioPlayer">
+            </xsl:call-template>
+         </xsl:if>
+
          <xsl:for-each select="$witnesses">
                <xsl:call-template name="manuscriptPanel">
                   <xsl:with-param name="witId" select="@xml:id" />
@@ -368,12 +375,7 @@
 
          </div>
          <div class="mssContent">
-            <xsl:if test="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]">
-               <!-- Add an audio player if there are audio files encoded -->
-               <xsl:call-template name="audioPlayer">
-                  <xsl:with-param name="witId" select="$witId"></xsl:with-param>
-               </xsl:call-template>
-            </xsl:if>
+
             <xsl:if test="//tei:note[@type='image']/tei:witDetail[@target = concat('#',$witId)]//tei:graphic[@url]">
                <!-- Add icons for facsimile images if encoded -->
                <xsl:call-template name="facs-images">
@@ -400,21 +402,21 @@
 
    
    <xsl:template name="audioPlayer">
-      <xsl:param name="witId"/>
+      <!--<xsl:param name="witId"/>-->
       <!--foreach witness with media-->
-      <xsl:for-each select="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]">
+      <xsl:for-each select="//tei:witDetail[tei:media[@url]]">
          
          <div>
             <xsl:attribute name="class">audioPlayer <xsl:value-of select="translate(@wit, '#', '')" /></xsl:attribute>
             <xsl:attribute name="data-version"><xsl:value-of select="translate(@wit, '#', '')" /></xsl:attribute>
             <!--<audio controls="controls">-->
             <audio controls="controls" preload="none">
-               <xsl:attribute name="id">
-                  <xsl:value-of select="$witId"/>
-               </xsl:attribute>
+               <!--<xsl:attribute name="id">-->
+                  <!--<xsl:value-of select="$witId"/>-->
+               <!--</xsl:attribute>-->
                
             <!--foreach source-->
-               <xsl:for-each select="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]/tei:media">
+               <xsl:for-each select="//tei:witDetail[tei:media[@url]]/tei:media">
                
                <!--<source>-->
                <!--<xsl:attribute name="src"><xsl:value-of select="@url" /></xsl:attribute>
@@ -488,20 +490,6 @@
                <h4>Original Source</h4>
                <xsl:apply-templates select="tei:sourceDesc" />
             </xsl:if>
-            <h4>Versions List</h4>
-            <ul>
-               <xsl:for-each select="$witnesses">
-                  <li>
-                     <strong>
-                        <xsl:text></xsl:text>
-                        <xsl:value-of select="@xml:id" />
-                        <xsl:text>:</xsl:text>
-                     </strong>
-                     <xsl:text> </xsl:text>
-                     <xsl:value-of select="." />
-                  </li>
-               </xsl:for-each>
-            </ul>
 
             <h4>Electronic Edition Information:</h4>
             <xsl:if test="tei:titleStmt/tei:respStmt">
@@ -822,7 +810,7 @@
       <xsl:param name="imgId"/>
       
       <xsl:if test="$imgUrl != ''">
-         <img src="{$imageIcon}" alt="Facsimile Image Placeholder" title="Open the image viewer">
+         <img src="{$facsImageFolder}{$imgUrl}" alt="Facsimile Image" title="Open the image viewer">
             <xsl:attribute name="class">
                <xsl:text>imgLink</xsl:text>
                <xsl:if test="$wit != ''">
@@ -979,19 +967,19 @@
    
    <xsl:template match="tei:pb">
       <hr>
-            <xsl:attribute name="class">
-               <xsl:text>pagebreak</xsl:text>
-               <xsl:if test="@ed">
-                  <xsl:text> </xsl:text>
-                  <xsl:value-of select="translate(@ed,'#','')" />
-               </xsl:if>
-            </xsl:attribute>
+         <xsl:attribute name="class">
+            <xsl:text>pagebreak</xsl:text>
+            <xsl:if test="@ed">
+               <xsl:text> </xsl:text>
+               <xsl:value-of select="translate(@ed,'#','')" />
+            </xsl:if>
+         </xsl:attribute>
          <xsl:if test="@ed">
             <xsl:attribute name="data-version-id">
                <xsl:value-of select="translate(@ed,'#','')" />
             </xsl:attribute>
          </xsl:if>
-         </hr>
+      </hr>
          <xsl:if test="@facs">
             <xsl:variable name="imgId">
                <xsl:value-of select="translate(@facs,'#','')" />
