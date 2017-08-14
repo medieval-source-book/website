@@ -38,13 +38,12 @@ function PanelInPosXY(selector, top, left){
 
 $.fn.moveToFront = function() {
 	/** moves panels (mssPanel, imgPanel, etc) to front. Adds a higher z-index**/
-	$that = $(this);
+	var that = $(this);
 
 	$(".activePanel").each(function(){
 		$(this).css({"z-index":2}).removeClass("activePanel");
 	});
-    $that.addClass("activePanel").css({"z-index":5, "opacity":1});
-
+    that.addClass("activePanel").css({"z-index":5, "opacity":1});
 
 }
 
@@ -107,7 +106,7 @@ $.fn.toggleOnOffButton = function() {
 		if (content === "OFF"){
 		    b.html("ON");
 		}
-		b.toggleClass("buttonPressed");
+		$(this).toggleClass("buttonPressed");
 		});
 	}
 
@@ -141,7 +140,6 @@ $.fn.linenumberOnOff = function() {
     return this.click(function(){
 		$(".linenumber").toggleClass("noDisplay");
 		var button = $("#linenumberOnOff");
-		button.toggleOnOffButton();
 		var text = button[0].childNodes[0].innerText;
         if (text == 'Hide Line Numbers') {
 			text = 'Show Line Numbers';
@@ -539,7 +537,6 @@ $.fn.linenumber = function (){
 	if(INITIAL_DISPLAY_LINENUMBERS){
 		//line numbers visible, constant INITIAL_DISPLAY_LINENUMBERS can be found in settings.xsl
 		$(".linenumber").toggleClass("noDisplay");
-		$("nav li#linenumberOnOff").toggleOnOffButton();
 	}
 	
 }

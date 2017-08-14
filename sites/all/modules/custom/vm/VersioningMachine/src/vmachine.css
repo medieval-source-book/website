@@ -665,6 +665,7 @@ ul.dropdown div.listText div span.toggle {
     padding: 0 2px 0 2px;
     border: 1px solid black;
     color: white;
+    font-size: 12px;
 }
 
 span.toggle:hover {
@@ -685,8 +686,8 @@ span.topMenuButton {
     color: #000;
 }
 
-.buttonPressed{
-    background: #2c577f;
+.buttonPressed span{
+    background-color: #2a62bc;
 }
 /*end OnOff button styling*/
 
