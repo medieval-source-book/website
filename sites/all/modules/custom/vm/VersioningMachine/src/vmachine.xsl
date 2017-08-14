@@ -491,7 +491,6 @@
                <xsl:apply-templates select="tei:sourceDesc" />
             </xsl:if>
 
-            <h4>Electronic Edition Information:</h4>
             <xsl:if test="tei:titleStmt/tei:respStmt">
                <h5>Responsibility Statement:</h5>
                <ul>
