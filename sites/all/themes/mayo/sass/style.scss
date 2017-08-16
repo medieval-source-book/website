@@ -1163,7 +1163,9 @@ body.page-node {
           font-size: 1.7em !important;
         }
       }
-      div.field-name-field-introduction-to-the-text {
+      div.field-name-field-introduction-to-the-text,
+      div.field-name-field-critical-conversation,
+      div.field-name-field-intro-manuscript {
         div.field-label {
           width: 100%;
           background-color: #444444;
@@ -1172,24 +1174,11 @@ body.page-node {
           padding-bottom: 5px;
           font-family: $serif;
         }
-      }
-      div.field-name-field-critical-conversation {
-        div.field-label {
-          width: 100%;
-          background-color: #444444;
-          color: #ffffff;
-          padding-left: 10px;
-          padding-bottom: 5px;
-          font-family: $serif;
-        }
-      }
-      div.field-name-field-display-title {
-        font-size: x-large;
-        font-weight: 900;
       }
     }
   }
 }
+
 
 /*styles for the About Us page*/
 body.page-node {

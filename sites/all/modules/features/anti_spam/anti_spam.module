@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Anti-spam feature.
+ */
+
+include_once 'anti_spam.features.inc';

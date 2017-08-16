@@ -111,7 +111,7 @@ function gms_text_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '8',
         ),
       ),
       'display' => array(),

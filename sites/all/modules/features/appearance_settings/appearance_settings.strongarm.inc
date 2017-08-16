@@ -33,7 +33,6 @@ function appearance_settings_strongarm() {
     'bartik' => 0,
     'mayo' => 0,
     'seven' => 0,
-    'stanford_light' => 0,
     'zen' => 0,
   );
   $export['chosen_disabled_themes'] = $strongarm;
@@ -91,21 +90,21 @@ function appearance_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_no_results_text';
-  $strongarm->value = 'No results match';
+  $strongarm->value = '  No results match';
   $export['chosen_no_results_text'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_placeholder_text_multiple';
-  $strongarm->value = 'Choose some options';
+  $strongarm->value = '  Choose some options';
   $export['chosen_placeholder_text_multiple'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_placeholder_text_single';
-  $strongarm->value = 'Choose an option';
+  $strongarm->value = '  Choose an option';
   $export['chosen_placeholder_text_single'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -174,6 +173,55 @@ function appearance_settings_strongarm() {
     0 => 'public://color/mayo-6b702561/colors.css',
   );
   $export['color_mayo_stylesheets'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_blocks_global';
+  $strongarm->value = array();
+  $export['simplify_blocks_global'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_comments_global';
+  $strongarm->value = array();
+  $export['simplify_comments_global'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_comments_submission';
+  $strongarm->value = array();
+  $export['simplify_comments_submission'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_nodes_submission';
+  $strongarm->value = array();
+  $export['simplify_nodes_submission'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_taxonomy_academic_role';
+  $strongarm->value = array();
+  $export['simplify_taxonomy_academic_role'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_taxonomy_global';
+  $strongarm->value = array();
+  $export['simplify_taxonomy_global'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'simplify_taxonomy_language';
+  $strongarm->value = array();
+  $export['simplify_taxonomy_language'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
