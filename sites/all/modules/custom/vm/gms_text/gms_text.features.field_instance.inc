@@ -60,7 +60,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -171,6 +171,48 @@ What major questions remain open about the text?',
     ),
   );
 
+<<<<<<< HEAD
+  // Exported field_instance: 'node-text-field_display_title'.
+  $field_instances['node-text-field_display_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title that will be displayed on the text\'s designated page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_display_title',
+    'label' => 'Display Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+=======
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
   // Exported field_instance: 'node-text-field_genre'.
   $field_instances['node-text-field_genre'] = array(
     'bundle' => 'text',
@@ -325,7 +367,11 @@ What major questions remain open about the text?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
+<<<<<<< HEAD
+        'weight' => 20,
+=======
         'weight' => 18,
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
       ),
       'teaser' => array(
         'label' => 'above',
@@ -375,8 +421,13 @@ How has it reached us today?',
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
+<<<<<<< HEAD
+        'type' => 'hidden',
+        'weight' => 19,
+=======
         'type' => 'text_default',
         'weight' => 7,
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
       ),
       'teaser' => array(
         'label' => 'above',
@@ -418,7 +469,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -537,10 +588,16 @@ Who is the author of the text? What is his or her significance?',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+<<<<<<< HEAD
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+=======
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 1,
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
       ),
       'teaser' => array(
         'label' => 'above',
@@ -618,6 +675,9 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
+<<<<<<< HEAD
+        'weight' => 22,
+=======
         'weight' => 20,
       ),
       'teaser' => array(
@@ -660,6 +720,7 @@ Who is the author of the text? What is his or her significance?',
         ),
         'type' => 'file_download_link',
         'weight' => 17,
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
       ),
       'teaser' => array(
         'label' => 'above',
@@ -758,7 +819,11 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
+<<<<<<< HEAD
+        'weight' => 18,
+=======
         'weight' => 17,
+>>>>>>> 41372f6cc5008c8459dba2f41325ddddff9c18eb
       ),
       'teaser' => array(
         'label' => 'above',

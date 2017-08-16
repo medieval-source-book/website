@@ -1157,10 +1157,15 @@ body.page-node {
   }
     div.group-right {
       width: 61% !important;
+      div.field-name-combined-title-field {
+        h2 {
+          border-bottom: none !important;
+          font-size: 1.7em !important;
+        }
+      }
       div.field-name-field-introduction-to-the-text,
       div.field-name-field-critical-conversation,
-      div.field-name-field-intro-manuscript
-      {
+      div.field-name-field-intro-manuscript {
         div.field-label {
           width: 100%;
           background-color: #444444;
@@ -1170,13 +1175,10 @@ body.page-node {
           font-family: $serif;
         }
       }
-      div.field-name-field-display-title {
-        font-size: x-large;
-        font-weight: 900;
-      }
     }
   }
 }
+
 
 /*styles for the About Us page*/
 body.page-node {
