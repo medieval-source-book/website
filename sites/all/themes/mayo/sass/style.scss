@@ -1157,6 +1157,12 @@ body.page-node {
   }
     div.group-right {
       width: 61% !important;
+      div.field-name-combined-title-field {
+        h2 {
+          border-bottom: none !important;
+          font-size: 1.7em !important;
+        }
+      }
       div.field-name-field-introduction-to-the-text {
         div.field-label {
           width: 100%;
