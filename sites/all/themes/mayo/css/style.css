@@ -1878,15 +1878,9 @@ body.page-node div.content div.group-left div.field-name-field-icon-source div.f
 body.page-node div.content div.group-right {
   width: 61% !important;
 }
-body.page-node div.content div.group-right div.field-name-field-introduction-to-the-text div.field-label {
-  width: 100%;
-  background-color: #444444;
-  color: #ffffff;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  font-family: "PT Serif", serif;
-}
-body.page-node div.content div.group-right div.field-name-field-critical-conversation div.field-label {
+body.page-node div.content div.group-right div.field-name-field-introduction-to-the-text div.field-label,
+body.page-node div.content div.group-right div.field-name-field-critical-conversation div.field-label,
+body.page-node div.content div.group-right div.field-name-field-intro-manuscript div.field-label {
   width: 100%;
   background-color: #444444;
   color: #ffffff;
