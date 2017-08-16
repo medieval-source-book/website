@@ -24,7 +24,12 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:variable>
-   
+
+   <!-- CREATE VARIABLE FOR WITNESSES/VERSIONS -->
+   <xsl:variable name="witnesses" select="//tei:witness[@xml:id]" />
+
+   <xsl:variable name="numWitnesses" select="count($witnesses)" />
+
    <xsl:variable name="truncatedTitle">
       <xsl:call-template name="truncateText">
          <xsl:with-param name="string" select="$fullTitle" />
@@ -32,11 +37,7 @@
       </xsl:call-template>
    </xsl:variable>
    
-   <!-- CREATE VARIABLE FOR WITNESSES/VERSIONS -->
-   <xsl:variable name="witnesses" select="//tei:witness[@xml:id]" />
-   
-   <xsl:variable name="numWitnesses" select="count($witnesses)" />
-   
+
       
    <xsl:template match="/">
       <!-- GENERATE BASIC HTML STRUCTURE -->
@@ -76,7 +77,7 @@
       <head>
          <title>
             <xsl:value-of select="$truncatedTitle" />
-            <xsl:text> -- The Versioning Machine 5.0</xsl:text>
+            <xsl:text> | The Global Medieval Sourcebook</xsl:text>
          </title>
          <meta charset="utf-8"/>
          
@@ -181,14 +182,6 @@
    <xsl:template name="mainBanner">
       <div id="mainBanner">
          <xsl:call-template name="brandingLogo" />
-         <!--<div id="bannerImageContainer">-->
-            <!---->
-               <!--<img id="logo" alt="Powered by the Versioning Machine" src="{$bannerImg}"/>-->
-            
-            <!--<xsl:call-template name="headline" />-->
-
-
-         <!--</div>-->
       </div>
       <xsl:call-template name="mainControls" />
 
@@ -233,26 +226,26 @@
             <xsl:attribute name="id">versionList</xsl:attribute>
             <xsl:attribute name="class">dropdown notVisible</xsl:attribute>
             <xsl:for-each select="$witnesses">
-                     <li>
-                      <xsl:attribute name="data-panelid">
-                           <xsl:value-of select="@xml:id"></xsl:value-of>
-                       </xsl:attribute>
+               <li>
+                <xsl:attribute name="data-panelid">
+                     <xsl:value-of select="@xml:id"></xsl:value-of>
+                 </xsl:attribute>
+                  <div>
+                       <xsl:attribute name="class">listText</xsl:attribute>
+
+                       <div>
+                          <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
+                          <a href="#" title="{$witTitle}"><xsl:value-of select="@xml:id"/></a>
+                       </div>
+
                         <div>
-                             <xsl:attribute name="class">listText</xsl:attribute>
-                                      
-                             <div>
-                                <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
-                                <a href="#" title="{$witTitle}"><xsl:value-of select="@xml:id"/></a>
-                             </div> 
-                             
-                              <div>
-                                 <span class="toggle">
-                                    <xsl:text>OFF</xsl:text>
-                                 </span>
-                              </div>
+                           <span class="toggle">
+                              <xsl:text>OFF</xsl:text>
+                           </span>
                         </div>
-                     </li>
-               </xsl:for-each>
+                  </div>
+               </li>
+            </xsl:for-each>
          </ul>
       </li>
   </xsl:template>
@@ -368,7 +361,7 @@
          <div class="panelBanner">
             <!-- To change the title of the panel banner of each version panel change the text below -->
             
-            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" />: <xsl:value-of select="//tei:witness[@xml:id = $witId]"/></xsl:variable>
+            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" /></xsl:variable>
             
             <a title="{$witTitle}"><xsl:value-of select="$witTitle"></xsl:value-of></a>
             <span class="fa fa-times closePanel" title="Close panel"></span>
