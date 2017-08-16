@@ -17,13 +17,40 @@ function gms_text_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'text';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'title' => array(
+    'combined_title_field' => array(
       'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
     ),
   );
   $export['node|text|default'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_custom_fields_info().
+ */
+function gms_text_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'combined_title_field';
+  $ds_field->label = 'Combined title field';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'text|*';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<h2><span class="eng-node-title">[node:title]</span> | <span class="original-node-title"><em>[node:field_original_language_title]</em></h2></span>',
+      'format' => 'full_html',
+    ),
+    'use_token' => 1,
+  );
+  $export['combined_title_field'] = $ds_field;
 
   return $export;
 }
@@ -48,17 +75,16 @@ function gms_text_ds_layout_settings_info() {
         1 => 'field_vm_link',
         2 => 'group_metadata',
         3 => 'field_icon_source',
-        8 => 'field_author',
-        9 => 'field_language',
-        10 => 'field_period',
-        11 => 'field_genre',
-        12 => 'field_keywords',
+        7 => 'field_author',
+        8 => 'field_language',
+        9 => 'field_period',
+        10 => 'field_genre',
+        11 => 'field_keywords',
       ),
       'right' => array(
-        4 => 'title',
-        5 => 'field_original_language_title',
-        6 => 'field_introduction_to_the_text',
-        7 => 'field_critical_conversation',
+        4 => 'combined_title_field',
+        5 => 'field_introduction_to_the_text',
+        6 => 'field_critical_conversation',
       ),
     ),
     'fields' => array(
@@ -66,8 +92,7 @@ function gms_text_ds_layout_settings_info() {
       'field_vm_link' => 'left',
       'group_metadata' => 'left',
       'field_icon_source' => 'left',
-      'title' => 'right',
-      'field_original_language_title' => 'right',
+      'combined_title_field' => 'right',
       'field_introduction_to_the_text' => 'right',
       'field_critical_conversation' => 'right',
       'field_author' => 'left',
