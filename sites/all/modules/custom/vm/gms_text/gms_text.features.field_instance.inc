@@ -10,6 +10,46 @@
 function gms_text_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-text-field_about_edition'.
+  $field_instances['node-text-field_about_edition'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_about_edition',
+    'label' => 'About this Edition',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_audio'.
   $field_instances['node-text-field_audio'] = array(
     'bundle' => 'text',
@@ -445,7 +485,7 @@ Who is the author of the text? What is his or her significance?',
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -748,6 +788,7 @@ Who is the author of the text? What is his or her significance?',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('About this Edition');
   t('An icon for the main page display');
   t('Audio');
   t('Author');
