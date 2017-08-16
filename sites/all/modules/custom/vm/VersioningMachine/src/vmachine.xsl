@@ -36,9 +36,15 @@
          <xsl:with-param name="length" select="40" />
       </xsl:call-template>
    </xsl:variable>
-   
 
-      
+   <xsl:variable name="bothTitles">
+      <xsl:for-each select="$witnesses">
+         <xsl:variable name="witId"><xsl:value-of select="@xml:id"></xsl:value-of></xsl:variable>
+         <xsl:value-of select="//tei:witness[@xml:id = $witId]" />
+         <xsl:if test="not(position() = last())"> | </xsl:if>
+      </xsl:for-each>
+   </xsl:variable>
+
    <xsl:template match="/">
       <!-- GENERATE BASIC HTML STRUCTURE -->
      <html lang="en">
@@ -298,7 +304,7 @@
       <div id="headline">
 
          <h1>
-            <xsl:value-of select="$truncatedTitle" />
+            <xsl:value-of select="$bothTitles" />
          </h1>
 
       </div>
@@ -473,6 +479,8 @@
          <div class="bibContent">
             <h2>
                <xsl:value-of select="$fullTitle" />
+               <xsl:value-of select="$bothTitles" />
+
             </h2>
             <xsl:if test="tei:titleStmt/tei:author">
                <h3>
