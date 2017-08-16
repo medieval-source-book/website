@@ -20,7 +20,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -74,7 +74,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_author',
-    'label' => 'Author |',
+    'label' => 'Author',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -95,14 +95,15 @@ function gms_text_field_default_field_instances() {
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'What are the main lines of inquiry that scholars have pursued?
+What major questions remain open about the text?',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -113,7 +114,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_critical_conversation',
-    'label' => 'Further Reading',
+    'label' => 'Scholarship',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -127,45 +128,6 @@ function gms_text_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-text-field_display_title'.
-  $field_instances['node-text-field_display_title'] = array(
-    'bundle' => 'text',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'The title that will be displayed on the text\'s designated page.',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_display_title',
-    'label' => 'Display Title',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 1,
     ),
   );
 
@@ -192,7 +154,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_genre',
-    'label' => 'Genre |',
+    'label' => 'Genre',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -222,7 +184,7 @@ function gms_text_field_default_field_instances() {
           'image_style' => 'cropped_rectangle_large',
         ),
         'type' => 'image',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -285,7 +247,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -323,7 +285,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -364,13 +326,17 @@ function gms_text_field_default_field_instances() {
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'What can we reconstruct about the medieval reception of the text (how it was read as well as
+how it was responded to)?
+How was the text transmitted in the medieval period?
+How has it reached us today?',
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
+        'type' => 'text_default',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -381,7 +347,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_intro_manuscript',
-    'label' => 'Introduction to the Manuscript',
+    'label' => 'Reception and Transmission',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -403,7 +369,9 @@ function gms_text_field_default_field_instances() {
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'What are the dominant themes in the text?
+What is the generic tradition of the text?
+Who is the author of the text? What is his or her significance?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -421,7 +389,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_introduction_to_the_text',
-    'label' => 'Introduction to the Text',
+    'label' => 'Introduction',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -464,7 +432,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_keywords',
-    'label' => 'Keywords |',
+    'label' => 'Keywords',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -504,7 +472,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_language',
-    'label' => 'Language |',
+    'label' => 'Language',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -528,11 +496,11 @@ function gms_text_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -556,7 +524,7 @@ function gms_text_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -583,7 +551,7 @@ function gms_text_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_period',
-    'label' => 'Period |',
+    'label' => 'Period',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -599,9 +567,10 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-text-field_tei_file'.
-  $field_instances['node-text-field_tei_file'] = array(
+  // Exported field_instance: 'node-text-field_short_title'.
+  $field_instances['node-text-field_short_title'] = array(
     'bundle' => 'text',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -609,7 +578,48 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_short_title',
+    'label' => 'Short Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-text-field_tei_file'.
+  $field_instances['node-text-field_tei_file'] = array(
+    'bundle' => 'text',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'text' => 'Download [file:name]',
+        ),
+        'type' => 'file_download_link',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -652,7 +662,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -693,7 +703,7 @@ function gms_text_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -708,7 +718,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -740,27 +750,35 @@ function gms_text_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('An icon for the main page display');
   t('Audio');
-  t('Author |');
-  t('Display Title');
-  t('Further Reading');
-  t('Genre |');
+  t('Author');
+  t('Genre');
   t('Icon');
   t('Icon Source');
-  t('Introduction to the Manuscript');
-  t('Introduction to the Text');
-  t('Keywords |');
-  t('Language |');
+  t('Introduction');
+  t('Keywords');
+  t('Language');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Original Language Title');
-  t('Period |');
+  t('Period');
+  t('Reception and Transmission');
+  t('Scholarship');
+  t('Short Title');
   t('Source of the icon image');
   t('TEI');
-  t('The title that will be displayed on the text\'s designated page.');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');
   t('Versioning Machine ');
+  t('What are the dominant themes in the text?
+What is the generic tradition of the text?
+Who is the author of the text? What is his or her significance?');
+  t('What are the main lines of inquiry that scholars have pursued?
+What major questions remain open about the text?');
+  t('What can we reconstruct about the medieval reception of the text (how it was read as well as
+how it was responded to)?
+How was the text transmitted in the medieval period?
+How has it reached us today?');
   t('Year');
 
   return $field_instances;

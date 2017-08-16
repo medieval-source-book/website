@@ -18,7 +18,7 @@ function gms_text_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '4',
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -43,38 +43,44 @@ function gms_text_ds_layout_settings_info() {
   $ds_layout->layout = 'ds_2col_stacked_fluid';
   $ds_layout->settings = array(
     'regions' => array(
+      'header' => array(
+        0 => 'title',
+        1 => 'field_original_language_title',
+      ),
       'left' => array(
-        0 => 'field_icon',
-        1 => 'field_vm_link',
-        2 => 'group_metadata',
-        3 => 'field_icon_source',
-        8 => 'field_author',
-        9 => 'field_language',
-        10 => 'field_period',
-        11 => 'field_genre',
-        12 => 'field_keywords',
+        2 => 'field_icon',
+        3 => 'field_vm_link',
+        4 => 'group_metadata',
+        5 => 'field_icon_source',
+        9 => 'field_author',
+        10 => 'field_language',
+        11 => 'field_period',
+        12 => 'field_genre',
+        13 => 'field_keywords',
+        14 => 'field_tei_file',
       ),
       'right' => array(
-        4 => 'title',
-        5 => 'field_original_language_title',
         6 => 'field_introduction_to_the_text',
-        7 => 'field_critical_conversation',
+        7 => 'field_intro_manuscript',
+        8 => 'field_critical_conversation',
       ),
     ),
     'fields' => array(
+      'title' => 'header',
+      'field_original_language_title' => 'header',
       'field_icon' => 'left',
       'field_vm_link' => 'left',
       'group_metadata' => 'left',
       'field_icon_source' => 'left',
-      'title' => 'right',
-      'field_original_language_title' => 'right',
       'field_introduction_to_the_text' => 'right',
+      'field_intro_manuscript' => 'right',
       'field_critical_conversation' => 'right',
       'field_author' => 'left',
       'field_language' => 'left',
       'field_period' => 'left',
       'field_genre' => 'left',
       'field_keywords' => 'left',
+      'field_tei_file' => 'left',
     ),
     'classes' => array(),
     'wrappers' => array(

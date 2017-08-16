@@ -15,6 +15,7 @@ function gms_text_user_default_permissions() {
     'name' => 'create text content',
     'roles' => array(
       'Team Member' => 'Team Member',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -22,7 +23,9 @@ function gms_text_user_default_permissions() {
   // Exported permission: 'delete any text content'.
   $permissions['delete any text content'] = array(
     'name' => 'delete any text content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -31,6 +34,7 @@ function gms_text_user_default_permissions() {
     'name' => 'delete own text content',
     'roles' => array(
       'Team Member' => 'Team Member',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -38,7 +42,9 @@ function gms_text_user_default_permissions() {
   // Exported permission: 'edit any text content'.
   $permissions['edit any text content'] = array(
     'name' => 'edit any text content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -47,6 +53,7 @@ function gms_text_user_default_permissions() {
     'name' => 'edit own text content',
     'roles' => array(
       'Team Member' => 'Team Member',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );

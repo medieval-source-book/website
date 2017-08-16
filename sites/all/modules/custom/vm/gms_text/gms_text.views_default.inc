@@ -89,7 +89,7 @@ function gms_text_views_default_views() {
     'text' => 'text',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Author | (field_author) */
+  /* Filter criterion: Content: Author (field_author) */
   $handler->display->display_options['filters']['field_author_tid']['id'] = 'field_author_tid';
   $handler->display->display_options['filters']['field_author_tid']['table'] = 'field_data_field_author';
   $handler->display->display_options['filters']['field_author_tid']['field'] = 'field_author_tid';
@@ -110,7 +110,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_author_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_author_tid']['vocabulary'] = 'author';
   $handler->display->display_options['filters']['field_author_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Language | (field_language) */
+  /* Filter criterion: Content: Language (field_language) */
   $handler->display->display_options['filters']['field_language_tid']['id'] = 'field_language_tid';
   $handler->display->display_options['filters']['field_language_tid']['table'] = 'field_data_field_language';
   $handler->display->display_options['filters']['field_language_tid']['field'] = 'field_language_tid';
@@ -130,7 +130,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_language_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_language_tid']['vocabulary'] = 'language';
   $handler->display->display_options['filters']['field_language_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Period | (field_period) */
+  /* Filter criterion: Content: Period (field_period) */
   $handler->display->display_options['filters']['field_period_tid']['id'] = 'field_period_tid';
   $handler->display->display_options['filters']['field_period_tid']['table'] = 'field_data_field_period';
   $handler->display->display_options['filters']['field_period_tid']['field'] = 'field_period_tid';
@@ -150,7 +150,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_period_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_period_tid']['vocabulary'] = 'period';
   $handler->display->display_options['filters']['field_period_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Keywords | (field_keywords) */
+  /* Filter criterion: Content: Keywords (field_keywords) */
   $handler->display->display_options['filters']['field_keywords_tid']['id'] = 'field_keywords_tid';
   $handler->display->display_options['filters']['field_keywords_tid']['table'] = 'field_data_field_keywords';
   $handler->display->display_options['filters']['field_keywords_tid']['field'] = 'field_keywords_tid';
@@ -170,7 +170,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_keywords_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_keywords_tid']['vocabulary'] = 'keywords';
   $handler->display->display_options['filters']['field_keywords_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Genre | (field_genre) */
+  /* Filter criterion: Content: Genre (field_genre) */
   $handler->display->display_options['filters']['field_genre_tid']['id'] = 'field_genre_tid';
   $handler->display->display_options['filters']['field_genre_tid']['table'] = 'field_data_field_genre';
   $handler->display->display_options['filters']['field_genre_tid']['field'] = 'field_genre_tid';
@@ -276,7 +276,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Author | */
+  /* Field: Content: Author */
   $handler->display->display_options['fields']['field_author']['id'] = 'field_author';
   $handler->display->display_options['fields']['field_author']['table'] = 'field_data_field_author';
   $handler->display->display_options['fields']['field_author']['field'] = 'field_author';
@@ -286,25 +286,25 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['field_year']['id'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['table'] = 'field_data_field_year';
   $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
-  /* Field: Content: Period | */
+  /* Field: Content: Period */
   $handler->display->display_options['fields']['field_period']['id'] = 'field_period';
   $handler->display->display_options['fields']['field_period']['table'] = 'field_data_field_period';
   $handler->display->display_options['fields']['field_period']['field'] = 'field_period';
   $handler->display->display_options['fields']['field_period']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_period']['delta_offset'] = '0';
-  /* Field: Content: Language | */
+  /* Field: Content: Language */
   $handler->display->display_options['fields']['field_language']['id'] = 'field_language';
   $handler->display->display_options['fields']['field_language']['table'] = 'field_data_field_language';
   $handler->display->display_options['fields']['field_language']['field'] = 'field_language';
   $handler->display->display_options['fields']['field_language']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_language']['delta_offset'] = '0';
-  /* Field: Content: Genre | */
+  /* Field: Content: Genre */
   $handler->display->display_options['fields']['field_genre']['id'] = 'field_genre';
   $handler->display->display_options['fields']['field_genre']['table'] = 'field_data_field_genre';
   $handler->display->display_options['fields']['field_genre']['field'] = 'field_genre';
   $handler->display->display_options['fields']['field_genre']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_genre']['delta_offset'] = '0';
-  /* Field: Content: Keywords | */
+  /* Field: Content: Keywords */
   $handler->display->display_options['fields']['field_keywords']['id'] = 'field_keywords';
   $handler->display->display_options['fields']['field_keywords']['table'] = 'field_data_field_keywords';
   $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
@@ -329,7 +329,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'text' => 'text',
   );
-  /* Filter criterion: Content: Author | (field_author) */
+  /* Filter criterion: Content: Author (field_author) */
   $handler->display->display_options['filters']['field_author_tid']['id'] = 'field_author_tid';
   $handler->display->display_options['filters']['field_author_tid']['table'] = 'field_data_field_author';
   $handler->display->display_options['filters']['field_author_tid']['field'] = 'field_author_tid';
@@ -349,7 +349,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_author_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_author_tid']['vocabulary'] = 'author';
   $handler->display->display_options['filters']['field_author_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Keywords | (field_keywords) */
+  /* Filter criterion: Content: Keywords (field_keywords) */
   $handler->display->display_options['filters']['field_keywords_tid']['id'] = 'field_keywords_tid';
   $handler->display->display_options['filters']['field_keywords_tid']['table'] = 'field_data_field_keywords';
   $handler->display->display_options['filters']['field_keywords_tid']['field'] = 'field_keywords_tid';
@@ -369,7 +369,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_keywords_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_keywords_tid']['vocabulary'] = 'keywords';
   $handler->display->display_options['filters']['field_keywords_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Language | (field_language) */
+  /* Filter criterion: Content: Language (field_language) */
   $handler->display->display_options['filters']['field_language_tid']['id'] = 'field_language_tid';
   $handler->display->display_options['filters']['field_language_tid']['table'] = 'field_data_field_language';
   $handler->display->display_options['filters']['field_language_tid']['field'] = 'field_language_tid';
@@ -389,7 +389,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['filters']['field_language_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_language_tid']['vocabulary'] = 'language';
   $handler->display->display_options['filters']['field_language_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Period | (field_period) */
+  /* Filter criterion: Content: Period (field_period) */
   $handler->display->display_options['filters']['field_period_tid']['id'] = 'field_period_tid';
   $handler->display->display_options['filters']['field_period_tid']['table'] = 'field_data_field_period';
   $handler->display->display_options['filters']['field_period_tid']['field'] = 'field_period_tid';
