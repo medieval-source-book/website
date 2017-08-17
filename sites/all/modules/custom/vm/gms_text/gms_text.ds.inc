@@ -17,13 +17,111 @@ function gms_text_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'text';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'title' => array(
+    'text_title' => array(
       'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_genre' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Genre | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_language' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Language | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_period' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Period | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_tei_file' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
+    ),
+    'field_vm_link' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
+    ),
+    'field_keywords' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Keywords | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_author' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Author | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_icon_source' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
     ),
   );
   $export['node|text|default'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_custom_fields_info().
+ */
+function gms_text_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'text_title';
+  $ds_field->label = 'Text Title[node:field_original_language_title]';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '[node:title] | [node:field_original_language_title]',
+      'format' => 'plain_text',
+    ),
+    'use_token' => 1,
+  );
+  $export['text_title'] = $ds_field;
 
   return $export;
 }
@@ -44,30 +142,28 @@ function gms_text_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'header' => array(
-        0 => 'title',
-        1 => 'field_original_language_title',
+        0 => 'text_title',
       ),
       'left' => array(
-        2 => 'field_icon',
-        3 => 'field_vm_link',
-        4 => 'group_metadata',
-        5 => 'field_icon_source',
-        9 => 'field_author',
-        10 => 'field_language',
-        11 => 'field_period',
-        12 => 'field_genre',
-        13 => 'field_keywords',
-        14 => 'field_tei_file',
+        1 => 'field_icon',
+        2 => 'field_vm_link',
+        3 => 'group_metadata',
+        4 => 'field_icon_source',
+        8 => 'field_author',
+        9 => 'field_language',
+        10 => 'field_period',
+        11 => 'field_genre',
+        12 => 'field_keywords',
+        13 => 'field_tei_file',
       ),
       'right' => array(
-        6 => 'field_introduction_to_the_text',
-        7 => 'field_intro_manuscript',
-        8 => 'field_critical_conversation',
+        5 => 'field_introduction_to_the_text',
+        6 => 'field_intro_manuscript',
+        7 => 'field_critical_conversation',
       ),
     ),
     'fields' => array(
-      'title' => 'header',
-      'field_original_language_title' => 'header',
+      'text_title' => 'header',
       'field_icon' => 'left',
       'field_vm_link' => 'left',
       'group_metadata' => 'left',

@@ -10,7 +10,7 @@
 function gms_text_wysiwyg_default_profiles() {
   $profiles = array();
 
-  // Exported profile: filtered_html
+  // Exported profile: filtered_html.
   $profiles['filtered_html'] = array(
     'format' => 'filtered_html',
     'editor' => 'ckeditor',

@@ -596,7 +596,7 @@ body,
 }
 
 .column-block {
-  font-size: 0.9em;
+  font-size: 1em;
   margin: 0px;
   border-style: solid;
   border-width: 1px;
@@ -864,7 +864,7 @@ div.tabs ul.secondary li {
   background: transparent;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  font-size: 1.45em;
+  font-size: 16pt;
 }
 
 .node .submitted {
@@ -1656,6 +1656,8 @@ div.field-name-field-vm-link {
   text-align: center;
   padding: 5px;
   margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 div.field-name-field-vm-link a {
   text-decoration: none;
@@ -1689,11 +1691,6 @@ div#footer-wrapper {
 
 a {
   cursor: pointer;
-}
-
-div.group-left {
-  width: 48%;
-  margin-left: 2%;
 }
 
 div.content div.field-label {
@@ -1786,6 +1783,12 @@ body.node-type-text h1#page-title {
   display: none;
 }
 
+body.page-node div.content div.group-header {
+  width: 100%;
+  font-size: 20pt;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 body.page-node div.content div.group-left {
   width: 35% !important;
 }
@@ -1796,101 +1799,46 @@ body.page-node div.content div.group-left div.text-information {
 body.page-node div.content div.group-left div.text-information h2 {
   border-bottom: none !important;
 }
-body.page-node div.content div.group-left div.text-information div.field-label {
+body.page-node div.content div.group-left div.text-information div.field {
   font-size: small;
-  font-weight: bolder;
+  margin-bottom: 5px;
 }
-body.page-node div.content div.group-left div.text-information div.field-name-field-author div.field-label {
-  visibility: hidden;
-  position: relative;
+body.page-node div.content div.group-left div.text-information div.field div.label-inline {
+  font-weight: bold;
+  display: inline;
 }
-body.page-node div.content div.group-left div.text-information div.field-name-field-author div.field-label:after {
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "Author |";
-  /*here and below this is to replace Drupal's ":" with "|"*/
-  color: 000000;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-language div.field-label {
-  visibility: hidden;
-  position: relative;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-language div.field-label:after {
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "Language |";
-  color: 000000;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-period div.field-label {
-  visibility: hidden;
-  position: relative;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-period div.field-label:after {
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "Period |";
-  color: 000000;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-genre div.field-label {
-  visibility: hidden;
-  position: relative;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-genre div.field-label:after {
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "Genre |";
-  color: 000000;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-label {
-  visibility: hidden;
-  position: relative;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-label:after {
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "Keywords |";
-  color: 000000;
-}
-body.page-node div.content div.group-left div.text-information div.field-name-field-keywords div.field-items {
+body.page-node div.content div.group-left div.text-information div.field-items {
   max-width: 66%;
   /*forces items to wrap*/
 }
-body.page-node div.content div.group-left div.field-name-field-icon-source div.field-item {
+body.page-node div.content div.field-name-field-icon-source div.field-item {
   max-width: 50%;
   font-style: italic;
   font-size: 0.6em;
   line-height: 1.3em;
   margin-top: 25px;
 }
-body.page-node div.content div.group-left div.field-name-field-icon-source div.field-item:before {
+body.page-node div.content div.field-name-field-icon-source div.field-item:before {
   content: "Photo source: ";
 }
 body.page-node div.content div.group-right {
   width: 61% !important;
 }
-body.page-node div.content div.group-right div.field-name-field-introduction-to-the-text div.field-label,
-body.page-node div.content div.group-right div.field-name-field-critical-conversation div.field-label,
-body.page-node div.content div.group-right div.field-name-field-intro-manuscript div.field-label {
+body.page-node div.content div.group-right div.label-above {
   width: 100%;
   background-color: #444444;
   color: #ffffff;
-  padding-left: 10px;
-  padding-bottom: 5px;
+  padding: 10px 0px 10px 10px;
   font-family: "PT Serif", serif;
+  font-size: x-large;
+  font-weight: 800;
 }
 body.page-node div.content div.group-right div.field-name-field-display-title {
   font-size: x-large;
   font-weight: 900;
+}
+body.page-node div.content div.group-right p + div.label-above {
+  margin-top: 20px;
 }
 
 /*styles for the About Us page*/

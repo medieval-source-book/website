@@ -195,7 +195,7 @@ body,
 }
 
 .column-block {
-  font-size: 0.9em;
+  font-size: 1em;
   margin: 0px;
   border-style: solid;
   border-width: 1px;
@@ -445,7 +445,7 @@ div.tabs ul.secondary li {
   background: transparent;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  font-size: 1.45em;
+  font-size: 16pt;
 }
 
 .node .submitted {
@@ -911,6 +911,8 @@ div.field-name-field-vm-link {
   text-align: center;
   padding: 5px;
   margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
   a {
     text-decoration: none;
     color: white;
@@ -950,10 +952,6 @@ a {
   cursor: pointer;
 }
 
-div.group-left {
-  width: 48%;
-  margin-left: 2%;
-}
 
 div.content div.field-label {
   font-size: large;
@@ -1032,6 +1030,7 @@ div.field-label-above {
   margin-top: 1em;
 }
 
+
 body.page-texts {
   h1#page-title {
     display: none; /*hide the page title for the All Texts view*/
@@ -1056,6 +1055,12 @@ body.node-type-text {
 
 body.page-node {
   div.content {
+    div.group-header {
+      width: 100%;
+      font-size: 20pt;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
     div.group-left {
       width: 35% !important;
       div.text-information {
@@ -1064,78 +1069,13 @@ body.page-node {
         h2 {
           border-bottom: none !important;
         }
-        div.field-label {
+        div.field {
+          div.label-inline {
+            font-weight: bold;
+            display: inline;
+          }
           font-size: small;
-          font-weight: bolder;
-        }
-        div.field-name-field-author {
-          div.field-label {
-            visibility: hidden;
-            position: relative;
-          }
-          div.field-label:after {
-            visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "Author |";/*here and below this is to replace Drupal's ":" with "|"*/
-            color: 000000;
-          }
-        }
-        div.field-name-field-language {
-          div.field-label {
-            visibility: hidden;
-            position: relative;
-          }
-          div.field-label:after {
-            visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "Language |";
-            color: 000000;
-        }
-      }
-      div.field-name-field-period {
-        div.field-label {
-            visibility: hidden;
-            position: relative;
-          }
-          div.field-label:after {
-            visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "Period |";
-            color: 000000;
-        }
-      }
-      div.field-name-field-genre {
-        div.field-label {
-            visibility: hidden;
-            position: relative;
-          }
-          div.field-label:after {
-            visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "Genre |";
-            color: 000000;
-        }
-      }
-      div.field-name-field-keywords {
-        div.field-label {
-            visibility: hidden;
-            position: relative;
-          }
-          div.field-label:after {
-            visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "Keywords |";
-            color: 000000;
+          margin-bottom: 5px;
         }
         div.field-items {
           max-width: 66%; /*forces items to wrap*/
@@ -1154,25 +1094,24 @@ body.page-node {
         content: "Photo source: ";
       }
     }
-  }
+
     div.group-right {
       width: 61% !important;
-      div.field-name-field-introduction-to-the-text,
-      div.field-name-field-critical-conversation,
-      div.field-name-field-intro-manuscript
-      {
-        div.field-label {
-          width: 100%;
-          background-color: #444444;
-          color: #ffffff;
-          padding-left: 10px;
-          padding-bottom: 5px;
-          font-family: $serif;
-        }
+      div.label-above {
+        width: 100%;
+        background-color: #444444;
+        color: #ffffff;
+        padding: 10px 0px 10px 10px;
+        font-family: $serif;
+        font-size: x-large;
+        font-weight: 800;
       }
       div.field-name-field-display-title {
         font-size: x-large;
         font-weight: 900;
+      }
+      p + div.label-above {
+        margin-top: 20px;
       }
     }
   }
