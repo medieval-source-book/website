@@ -85,14 +85,13 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Text Information',
-    'weight' => '5',
+    'weight' => '3',
     'children' => array(
       0 => 'field_genre',
       1 => 'field_language',
       2 => 'field_period',
-      3 => 'field_tei_file',
-      4 => 'field_keywords',
-      5 => 'field_author',
+      3 => 'field_keywords',
+      4 => 'field_author',
     ),
     'format_type' => 'div',
     'format_settings' => array(

@@ -21,7 +21,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 25,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -59,7 +59,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -102,7 +102,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 12,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -142,7 +142,7 @@ What major questions remain open about the text?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -170,6 +170,45 @@ What major questions remain open about the text?',
     ),
   );
 
+  // Exported field_instance: 'node-text-field_display_title'.
+  $field_instances['node-text-field_display_title'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title that will be displayed on the text\'s designated page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_display_title',
+    'label' => 'Display Title',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_genre'.
   $field_instances['node-text-field_genre'] = array(
     'bundle' => 'text',
@@ -182,7 +221,7 @@ What major questions remain open about the text?',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 15,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -217,13 +256,27 @@ What major questions remain open about the text?',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'bg_image_formatter',
         'settings' => array(
-          'image_link' => '',
+          'bg_image_output_type' => 'css',
+          'css_settings' => array(
+            'bg_image_attachment' => 'scroll',
+            'bg_image_background_size' => 'cover',
+            'bg_image_background_size_ie8' => 0,
+            'bg_image_color' => '#FFFFFF',
+            'bg_image_important' => 1,
+            'bg_image_media_query' => 'all',
+            'bg_image_repeat' => 'no-repeat',
+            'bg_image_selector' => 'div.field-name-field-icon',
+            'bg_image_x' => 'left',
+            'bg_image_y' => 'top',
+            'classes' => '',
+          ),
           'image_style' => 'cropped_rectangle_large',
+          'multiple' => 0,
         ),
-        'type' => 'image',
-        'weight' => 3,
+        'type' => 'bg_image_formatter',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -286,7 +339,7 @@ What major questions remain open about the text?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -324,7 +377,7 @@ What major questions remain open about the text?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -375,7 +428,7 @@ How has it reached us today?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -417,7 +470,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -460,7 +513,7 @@ Who is the author of the text? What is his or her significance?',
           'taxonomy_term_separator' => ', ',
         ),
         'type' => 'ds_taxonomy_separator',
-        'weight' => 16,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -500,7 +553,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 13,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -538,7 +591,7 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -578,7 +631,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 14,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -616,7 +669,7 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -657,7 +710,7 @@ Who is the author of the text? What is his or her significance?',
           'text' => 'Download [file:name]',
         ),
         'type' => 'file_download_link',
-        'weight' => 17,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -700,7 +753,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -756,7 +809,7 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -790,6 +843,7 @@ Who is the author of the text? What is his or her significance?',
   t('An icon for the main page display');
   t('Audio');
   t('Author');
+  t('Display Title');
   t('Genre');
   t('Icon');
   t('Icon Source');
@@ -805,6 +859,7 @@ Who is the author of the text? What is his or her significance?',
   t('Short Title');
   t('Source of the icon image');
   t('TEI');
+  t('The title that will be displayed on the text\'s designated page.');
   t('The year of creation/publication, if known.');
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');
