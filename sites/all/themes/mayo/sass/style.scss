@@ -257,6 +257,11 @@ body,
       background-color: #3b3b3b;
       color: #ffffff;
     }
+    div.chosen-container-multi {
+      ul.chosen-choices {
+        max-width: 148px; //prevents field from expanding with really long choices
+      }
+    }
   }
 }
 .sidebar .block {
