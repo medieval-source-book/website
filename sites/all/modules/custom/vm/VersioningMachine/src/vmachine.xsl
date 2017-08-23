@@ -1040,7 +1040,7 @@
          <xsl:otherwise>
             <div class="paragraph">
                <!-- Number every paragraph, but only in the body -->
-               <xsl:if test="ancestor::tei:body">
+               <xsl:if test="ancestor::tei:body and (count(//tei:body/*/tei:p) > 1)">
                   <xsl:number />
                </xsl:if>
                <xsl:apply-templates>
