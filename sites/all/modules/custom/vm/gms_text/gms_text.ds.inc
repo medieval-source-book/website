@@ -117,7 +117,7 @@ function gms_text_ds_custom_fields_info() {
   $ds_field->properties = array(
     'code' => array(
       'value' => '[node:title] | [node:field_original_language_title]',
-      'format' => 'plain_text',
+      'format' => 'full_html',
     ),
     'use_token' => 1,
   );
@@ -149,17 +149,18 @@ function gms_text_ds_layout_settings_info() {
         2 => 'field_vm_link',
         3 => 'group_metadata',
         4 => 'field_icon_source',
-        8 => 'field_author',
-        9 => 'field_language',
-        10 => 'field_period',
-        11 => 'field_genre',
-        12 => 'field_keywords',
-        13 => 'field_tei_file',
+        9 => 'field_author',
+        10 => 'field_language',
+        11 => 'field_period',
+        12 => 'field_genre',
+        13 => 'field_keywords',
+        14 => 'field_tei_file',
       ),
       'right' => array(
         5 => 'field_introduction_to_the_text',
         6 => 'field_intro_manuscript',
         7 => 'field_critical_conversation',
+        8 => 'field_about_edition',
       ),
     ),
     'fields' => array(
@@ -171,6 +172,7 @@ function gms_text_ds_layout_settings_info() {
       'field_introduction_to_the_text' => 'right',
       'field_intro_manuscript' => 'right',
       'field_critical_conversation' => 'right',
+      'field_about_edition' => 'right',
       'field_author' => 'left',
       'field_language' => 'left',
       'field_period' => 'left',
