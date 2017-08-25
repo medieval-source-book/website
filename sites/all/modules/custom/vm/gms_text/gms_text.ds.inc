@@ -27,6 +27,72 @@ function gms_text_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_genre' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Genre | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_language' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Language | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_period' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Period | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_tei_file' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
+    ),
+    'field_vm_link' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
+    ),
+    'field_keywords' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Keywords | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_author' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'lb' => 'Author | ',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_icon_source' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
+      ),
+    ),
   );
   $export['node|text|default'] = $ds_fieldsetting;
 
@@ -51,7 +117,7 @@ function gms_text_ds_custom_fields_info() {
   $ds_field->properties = array(
     'code' => array(
       'value' => '[node:title] | [node:field_original_language_title]',
-      'format' => 'plain_text',
+      'format' => 'full_html',
     ),
     'use_token' => 1,
   );
@@ -82,18 +148,19 @@ function gms_text_ds_layout_settings_info() {
         1 => 'field_icon',
         2 => 'field_vm_link',
         3 => 'group_metadata',
-        4 => 'field_author',
-        5 => 'field_icon_source',
-        6 => 'field_language',
-        7 => 'field_tei_file',
-        8 => 'field_period',
-        10 => 'field_genre',
+        4 => 'field_icon_source',
+        9 => 'field_author',
+        10 => 'field_language',
+        11 => 'field_period',
+        12 => 'field_genre',
         13 => 'field_keywords',
+        14 => 'field_tei_file',
       ),
       'right' => array(
-        9 => 'field_introduction_to_the_text',
-        11 => 'field_intro_manuscript',
-        12 => 'field_critical_conversation',
+        5 => 'field_introduction_to_the_text',
+        6 => 'field_intro_manuscript',
+        7 => 'field_critical_conversation',
+        8 => 'field_about_edition',
       ),
     ),
     'fields' => array(
@@ -101,16 +168,17 @@ function gms_text_ds_layout_settings_info() {
       'field_icon' => 'left',
       'field_vm_link' => 'left',
       'group_metadata' => 'left',
-      'field_author' => 'left',
       'field_icon_source' => 'left',
-      'field_language' => 'left',
-      'field_tei_file' => 'left',
-      'field_period' => 'left',
       'field_introduction_to_the_text' => 'right',
-      'field_genre' => 'left',
       'field_intro_manuscript' => 'right',
       'field_critical_conversation' => 'right',
+      'field_about_edition' => 'right',
+      'field_author' => 'left',
+      'field_language' => 'left',
+      'field_period' => 'left',
+      'field_genre' => 'left',
       'field_keywords' => 'left',
+      'field_tei_file' => 'left',
     ),
     'classes' => array(),
     'wrappers' => array(

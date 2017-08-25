@@ -478,9 +478,7 @@
          </div>
          <div class="bibContent">
             <h2>
-               <xsl:value-of select="$fullTitle" />
                <xsl:value-of select="$bothTitles" />
-
             </h2>
             <xsl:if test="tei:titleStmt/tei:author">
                <h3>
@@ -1042,7 +1040,7 @@
          <xsl:otherwise>
             <div class="paragraph">
                <!-- Number every paragraph, but only in the body -->
-               <xsl:if test="ancestor::tei:body">
+               <xsl:if test="ancestor::tei:body and (count(//tei:body/*/tei:p) > 1)">
                   <xsl:number />
                </xsl:if>
                <xsl:apply-templates>
