@@ -940,6 +940,12 @@ div.view-id-texts {
   div.view-content {
     table tbody tr td {
       text-align: center;
+      float: left;
+      margin-right: 40px;
+    }
+    div.views-field-field-short-title,
+    div.views-field-field-original-language-title {
+      max-width: 220px;
     }
   }
 }
