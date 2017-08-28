@@ -915,6 +915,7 @@ div.field-name-field-vm-link {
   width: 120px;
   text-align: center;
   padding: 5px;
+  margin-top: 1em;
   margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
@@ -944,6 +945,12 @@ div.view-id-texts {
   div.view-content {
     table tbody tr td {
       text-align: center;
+      float: left;
+      margin-right: 40px;
+    }
+    div.views-field-field-short-title,
+    div.views-field-field-original-language-title {
+      max-width: 220px;
     }
   }
 }
@@ -1068,8 +1075,12 @@ body.page-node {
     }
     div.group-left {
       width: 35% !important;
+      div.field-name-field-icon {
+        width: 100%;
+        height: 30vh;
+      }
       div.text-information {
-        line-height: 1em;
+        line-height: 1.7em;
         font-size: small;
         h2 {
           border-bottom: none !important;
