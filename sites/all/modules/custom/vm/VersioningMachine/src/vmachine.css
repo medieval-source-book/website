@@ -472,7 +472,8 @@ div.paragraph{
     margin:0;
 }
 div.mssContent div.paragraph div.reading{
-    margin:6px 0;
+    margin: 0;
+    float: left;
 }
 
 div.apparatus div.reading{
