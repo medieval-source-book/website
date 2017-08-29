@@ -1,3 +1,4 @@
+/*! typey | GPLv2 License | https://github.com/jptaranto/typey */
 * {
   box-sizing: border-box;
 }
@@ -112,6 +113,12 @@ h2 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+h2.text-section-title {
+  background-color: #444444;
+  color: #ffffff;
+  padding: 10px 0px 10px 10px;
 }
 
 h3 {
@@ -1237,7 +1244,6 @@ span.field-label {
   margin: 1.125rem 0 0;
   line-height: 1.875rem;
   border-bottom: 1px solid #cccccc \0/ie;
-  background-image: -webkit-linear-gradient(bottom, #cccccc 1px, transparent 1px);
   background-image: linear-gradient(to top, #cccccc 1px, transparent 1px);
   padding: 0 2px;
   list-style: none;
@@ -1274,7 +1280,6 @@ span.field-label {
   padding: 0 1.5rem;
   display: block;
   text-decoration: none;
-  -webkit-transition: color .3s, background .3s, border .3s;
   transition: color .3s, background .3s, border .3s;
   text-shadow: #fff 0 1px 0;
   color: #000;
@@ -1307,7 +1312,6 @@ span.field-label {
 
 .tabs + .tabs--secondary {
   margin-top: 0;
-  background-image: -webkit-linear-gradient(bottom, #cccccc 1px, transparent 1px);
   background-image: linear-gradient(to top, #cccccc 1px, transparent 1px);
 }
 
@@ -1821,3 +1825,5 @@ tr.drag-previous {
 .tree-child-horizontal {
   background-position: -11px center;
 }
+
+/*# sourceMappingURL=styles.css.map */

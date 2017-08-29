@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../css/style-guide/kss-only.css">
 
 </head>
-<body id="kss-node">
+<body id="kss-node" >
 
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
@@ -62,8 +62,8 @@
   </nav>
 </div>
 <article role="main" class="kss-main">
-  <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-    <h1 id="kss-style-guide">KSS Style Guide</h1>
+      <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
+      <h1 id="kss-style-guide">KSS Style Guide</h1>
 <p>This style guide documents the designs of this website which are built with component-based styles and Sass variables, functions and mixins. To ensure it is always up-to-date, this style guide is automatically generated from comments in the Sass files.</p>
 <h2 id="organization">Organization</h2>
 <p>Design components are reusable designs that can be applied using just the CSS class names specified in the component. We categorize our components to make them easy to find.</p>
@@ -88,18 +88,33 @@
 <dd><code>sass/style-guide</code> — files needed to build this automated style guide; includes some CSS overrides for the default KSS style guide</dd>
 </dl>
 
-  </div>
-</article>
+    </div>
+  </article>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
 <script src="kss-assets/prettify.js"></script>
+<script src="kss-assets/kss-fullscreen.js"></script>
+<script src="kss-assets/kss-guides.js"></script>
+<script src="kss-assets/kss-markup.js"></script>
 <script>
   prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
+  });
+  var kssFullScreen = new KssFullScreen({
+    idPrefix: 'kss-fullscreen-',
+    bodyClass: 'kss-fullscreen-mode',
+    elementClass: 'is-fullscreen'
+  });
+  var kssGuides = new KssGuides({
+    bodyClass: 'kss-guides-mode'
+  });
+  var kssMarkup = new KssMarkup({
+    bodyClass: 'kss-markup-mode',
+    detailsClass: 'kss-markup'
   });
 </script>
 

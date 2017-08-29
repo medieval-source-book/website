@@ -1,0 +1,302 @@
+// Flow module
+//
+// The "Flow" module for the Zen Grids system allows an item in the normal flow of a document to be aligned to the grid, e.g. an image can be aligned to the grid.
+//
+// To understand this module, it is important to understand the CSS definition of “normal flow”. According to CSS, all content is part of the [normal <em>flow</em>](http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme) by default. For example, paragraph text and images are part of the normal flow.
+//
+// Positioned elements (floats, absolute positioning, etc.) are not part of the normal flow.
+//
+// Zen Grid’s grid items are also positioned elements and, therefore, are no longer part of the normal flow.
+//
+// For example, a layout designer will often make one of Zen Grid’s grid items span multiple columns. The elements within that grid item are part of the normal flow and span the same number of columns as their containing grid item. The layout designer may wish to have an element in the normal flow align to one or more of the columns within the grid item. For example, if a grid item spans 3 columns, the layout designer may want to have all of the images within it to align to the first column inside that grid item and have other flow items wrap around those images.
+//
+// Weight: -8
+//
+// Style guide: flow
+
+@import "./grids";
+
+
+// zen-flow-item-width()
+//
+// Apply this to an HTML item that is in the normal flow of a document to help align it to the grid. Set the `$column-span` to the number of columns that the HTML element should span. For responsive layouts with a percentage-based grid width, set the `$parent-column-span` to the number of columns that the parent element spans; fixed-unit layouts using px, em, etc. do not need to specify this.
+//
+// Unlike the `zen-grid-item()` mixin, this mixin does not float the HTML item; see the related `zen-float()` mixin. This mixin also does not have a half-gutter on each side. By default, it has no gutter in the "alpha position" (the left side) and a full gutter in the "omega position" (the right side.) You can turn on or off the alpha and omega gutters by setting the `$alpha-gutter` and `$omega-gutter` parameters to `true` or `false`.
+//
+// Note: when the `$direction` is set to `right` (for RTL languages), the alpha position is on the right and the omega position is on the left.
+//
+// Common usage:
+// ```
+// @include zen-flow-item-width(
+//   [column-span],
+//   $parent-column-span: [integer]
+// );
+// ```
+// or:
+// ```
+// @include zen-flow-item-width(
+//   [column-span],
+//   $parent-column-span: [integer],
+//   $alpha-gutter: [boolean],
+//   $omega-gutter: [boolean]
+// );
+// ```
+// or for fixed length (em, px, etc.) layouts:
+// ```
+// @include zen-flow-item-width(
+//   [column-span]
+// );
+// ```
+// or:
+// ```
+// @include zen-flow-item-width(
+//   [column-span],
+//   $alpha-gutter: [boolean],
+//   $omega-gutter: [boolean]
+// );
+// ```
+//
+// $column-span         - Required. The number of columns the flow item will span.
+// $parent-column-span  = false - Required for %-based layouts, but not for fixed-width layouts. The number of columns the parent grid item spans.
+// $alpha-gutter        = false - Whether the flow item should have a gutter on its left (or, for RTL layouts, on its right.)
+// $omega-gutter        = true - Whether the flow item should have a gutter on its right (or, for RTL layouts, on its left.)
+// $direction           = $zen-direction - The direction to use. See the docs for [`$zen-direction`](section-grids.html#kssref-grids-variables-rtl-zen-direction).
+// $columns             = $zen-columns - The number of columns in the grid. See the docs for [`$zen-columns`](section-grids.html#kssref-grids-variables-zen-columns).
+// $gutters             = $zen-gutters - The width of the gutters. See the docs for [`$zen-gutters`](section-grids.html#kssref-grids-variables-zen-gutters).
+// $gutter-method       = $zen-gutter-method - The gutter method to use. See the docs for [`$zen-gutter-method`](section-grids.html#kssref-grids-variables-zen-gutter-method).
+// $grid-width          = $zen-grid-width - The width of the entire grid. See the docs for [`$zen-gutter-method`](section-grids.html#kssref-grids-variables-fixed-zen-grid-width).
+// $box-sizing          = $zen-box-sizing - The box sizing to use. See the docs for [`$zen-box-sizing`](section-grids.html#kssref-grids-variables-zen-box-sizing).
+// $switch-direction    = $zen-switch-direction - Whether to switch the default direction. See the docs for [`$zen-switch-direction`](section-grids.html#kssref-grids-variables-rtl-zen-switch-direction).
+// $rtl-selector        = $zen-rtl-selector - The RTL selector for this background. See the docs for [`$zen-rtl-selector`](section-grids.html#kssref-grids-variables-rtl-zen-rtl-selector).
+// $include-base        = $zen-auto-include-flow-item-base - Whether to auto-include the zen-flow-item-base() mixin. See the docs for [`$zen-auto-include-flow-item-base`](section-flow.html#kssref-grids-variables-zen-auto-include-flow-item-base).
+//
+// Style guide: flow.zen-flow-item-width
+@mixin zen-flow-item-width(
+  $column-span,
+  $parent-column-span   : false,
+  $alpha-gutter         : false,
+  $omega-gutter         : true,
+  $direction            : $zen-direction,
+  $columns              : $zen-columns,
+  $gutters              : $zen-gutters,
+  $gutter-method        : $zen-gutter-method,
+  $grid-width           : $zen-grid-width,
+  $box-sizing           : $zen-box-sizing,
+  $switch-direction     : $zen-switch-direction,
+  $rtl-selector         : $zen-rtl-selector,
+  $include-base         : $zen-auto-include-flow-item-base
+) {
+
+  // Save the columns and gutters from the parent context.
+  $main-columns: $columns;
+  $main-gutters: $gutters;
+  $main-grid-width: $grid-width;
+
+  // Find the parent context for fluid layouts.
+  @if unit($grid-width) == "%" {
+    // The number of columns the parent element spans is our new column count.
+    @if $parent-column-span != false {
+      $columns: $parent-column-span;
+    }
+    @else {
+      // If we don't know the number of columns the parent element spans, then
+      // warn the user and force the flow item to span 100% of the parent.
+      @error "For responsive layouts with a percentage-based grid width, you must set the $parent-column-span to the number of columns that the parent element spans.";
+    }
+    // We want our inner grid to span the entire width of the parent.
+    $grid-width: 100%;
+  }
+
+  // Determine the flow direction and its reverse.
+  $dir: $direction;
+  @if $switch-direction {
+    $dir: zen-direction-switch($dir);
+  }
+  $rev: zen-direction-switch($dir);
+
+  // Calculate the new gutters when the layout and gutters are both fluid.
+  @if unit($grid-width) == "%" and unit($gutters) == "%" {
+    // Calculate the parent's width.
+    $parent-width: zen-grid-item-width($parent-column-span, $main-columns, $main-gutters, $gutter-method, $main-grid-width, $box-sizing);
+    // Calculate the new gutters.
+    $gutters: $main-gutters * ($grid-width / $parent-width);
+  }
+
+  // Include the flow item base mixin.
+  @if $include-base {
+    @include zen-flow-item-base($gutters, $gutter-method, $box-sizing, $direction, $switch-direction, $rtl-selector);
+  }
+
+  // Calculate the item's width.
+  $width: zen-grid-item-width($column-span, $columns, $gutters, $gutter-method, $grid-width, $box-sizing);
+  @if $gutter-method == padding and unit($grid-width) != "%" and not $alpha-gutter and not $omega-gutter and ($box-sizing == border-box or $box-sizing == universal-border-box) {
+    $width: $width - $gutters;
+  }
+  width: $width;
+
+  @if $gutter-method == margin {
+    @if $alpha-gutter {
+      margin-#{$dir}: $gutters;
+    }
+    @if $omega-gutter {
+      margin-#{$rev}: $gutters;
+    }
+    @if not ($omega-gutter and $omega-gutter) {
+      @include zen-rtl($rtl-selector) {
+        @if $alpha-gutter {
+          margin-#{$dir}: 0;
+          margin-#{$rev}: $gutters;
+        }
+        @else if $omega-gutter {
+          margin-#{$rev}: 0;
+          margin-#{$dir}: $gutters;
+        }
+      }
+    }
+  }
+  @else if unit($grid-width) == "%" {
+    // Our percentage $width is off since the parent has $main-gutters padding.
+    // Calculate an adjusted gutter to fix the width.
+    $adjusted-gutter: ($columns - $column-span) * $gutters / $columns;
+
+    // Ensure the HTML item either has a full gutter or no gutter on each side.
+    padding-#{$dir}: 0;
+    @if $alpha-gutter {
+      margin-#{$dir}: $gutters;
+    }
+    padding-#{$rev}: $adjusted-gutter;
+    @if $omega-gutter {
+      margin-#{$rev}: $gutters - $adjusted-gutter;
+    }
+    @else {
+      margin-#{$rev}: -($adjusted-gutter);
+    }
+    @include zen-rtl($rtl-selector) {
+      padding-#{$rev}: 0;
+      @if $alpha-gutter {
+        margin-#{$rev}: $gutters;
+      }
+      padding-#{$dir}: $adjusted-gutter;
+      @if $omega-gutter {
+        margin-#{$dir}: $gutters - $adjusted-gutter;
+      }
+      @else {
+        margin-#{$dir}: -($adjusted-gutter);
+      }
+    }
+  }
+  @else {
+    @if $alpha-gutter and $omega-gutter {
+      @if $gutters != 0 {
+        margin: {
+          #{$dir}: zen-half-gutter($gutters, left, $dir);
+          #{$rev}: zen-half-gutter($gutters, right, $dir);
+        }
+        // If $gutters is an odd number of pixels, we need special RTL handling.
+        @if zen-half-gutter($gutters, left, $dir) != zen-half-gutter($gutters, right, $dir) {
+          @include zen-rtl($rtl-selector) {
+            margin: {
+              left: zen-half-gutter($gutters, right, $dir);
+              right: zen-half-gutter($gutters, left, $dir);
+            }
+          }
+        }
+      }
+    }
+    @else if not $alpha-gutter and not $omega-gutter {
+      @if $gutters != 0 {
+        padding: {
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+    @else if $omega-gutter {
+      padding-#{$dir}: 0;
+      padding-#{$rev}: $gutters;
+      @include zen-rtl($rtl-selector) {
+        padding-#{$rev}: 0;
+        padding-#{$dir}: $gutters;
+      }
+    }
+    @else {
+      padding-#{$dir}: $gutters;
+      padding-#{$rev}: 0;
+      @include zen-rtl($rtl-selector) {
+        padding-#{$rev}: $gutters;
+        padding-#{$dir}: 0;
+      }
+    }
+  }
+}
+
+// zen-flow-item-base()
+//
+// Applies a standard set of properties to flow items that are aligned to the grid.
+//
+// Common usage:
+// ```
+// @include zen-flow-item-base();
+// ```
+//
+// $gutters             = $zen-gutters - The width of the gutters. See the docs for [`$zen-gutters`](section-grids.html#kssref-grids-variables-zen-gutters).
+// $gutter-method       = $zen-gutter-method - The gutter method to use. See the docs for [`$zen-gutter-method`](section-grids.html#kssref-grids-variables-zen-gutter-method).
+// $box-sizing          = $zen-box-sizing - The box sizing to use. See the docs for [`$zen-box-sizing`](section-grids.html#kssref-grids-variables-zen-box-sizing).
+// $direction           = $zen-direction - The direction to use. See the docs for [`$zen-direction`](section-grids.html#kssref-grids-variables-rtl-zen-direction).
+// $switch-direction    = $zen-switch-direction - Whether to switch the default direction. See the docs for [`$zen-switch-direction`](section-grids.html#kssref-grids-variables-rtl-zen-switch-direction).
+// $rtl-selector        = $zen-rtl-selector - The RTL selector for this background. See the docs for [`$zen-rtl-selector`](section-grids.html#kssref-grids-variables-rtl-zen-rtl-selector).
+//
+// Style guide: flow.zen-flow-item-base
+@mixin zen-flow-item-base(
+  $gutters                  : $zen-gutters,
+  $gutter-method            : $zen-gutter-method,
+  $box-sizing               : $zen-box-sizing,
+  $direction                : $zen-direction,
+  $switch-direction         : $zen-switch-direction,
+  $rtl-selector             : $zen-rtl-selector
+) {
+
+  // Since we have to set padding in zen-flow-item-width(), suppress extraneous
+  // padding declarations in the base by setting $gutter-method to none.
+  @if $gutter-method == padding {
+    $gutter-method: none;
+  }
+  @include zen-grid-item-base($gutters, $gutter-method, $box-sizing, $direction, $switch-direction, $rtl-selector);
+}
+
+// zen-float()
+//
+// Apply this to flow items that need to be floated.
+//
+// Using this mixin is longer than just typing `float: left;`. However, this mixin integrates with the RTL variables and mixins so that the direction of floating can be changed automatically.
+//
+// Common usage:
+// ```
+// @include zen-float();
+// ```
+// or:
+// ```
+// @include zen-float(right);
+// ```
+//
+// $direction           = $zen-direction - The direction to use. See the docs for [`$zen-direction`](section-grids.html#kssref-grids-variables-rtl-zen-direction).
+// $switch-direction    = $zen-switch-direction - Whether to switch the default direction. See the docs for [`$zen-switch-direction`](section-grids.html#kssref-grids-variables-rtl-zen-switch-direction).
+// $rtl-selector        = $zen-rtl-selector - The RTL selector for this background. See the docs for [`$zen-rtl-selector`](section-grids.html#kssref-grids-variables-rtl-zen-rtl-selector).
+//
+// Style guide: flow.zen-float
+@mixin zen-float(
+  $direction          : $zen-direction,
+  $switch-direction   : $zen-switch-direction,
+  $rtl-selector       : $zen-rtl-selector
+) {
+  // Determine the float direction.
+  $dir: $direction;
+  @if $switch-direction {
+    $dir: zen-direction-switch($dir);
+  }
+  float: $dir;
+
+  @include zen-rtl($rtl-selector) {
+    float: zen-direction-switch($dir);
+  }
+}

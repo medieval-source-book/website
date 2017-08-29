@@ -1,0 +1,38 @@
+// ====================================================================
+// Rounded nodes or sidebars
+// rc-x classes relate to admin setting for rounded corners.
+// .rc-1 Sidebar block only
+// .rc-2 Node only
+// .rc-3 Both sidebar block and node
+// ====================================================================
+.rc-2 .comment,
+.rc-2 .node,
+.rc-1 .column-block,
+.rc-1 .sidebar .block,
+.rc-3 .comment,
+.rc-3 .node,
+.rc-3 .column-block,
+.rc-3 .sidebar .block {
+  @include border-radius (8px);
+}
+
+// ====================================================================
+// Dark color set for message and errors.
+// ====================================================================
+.dark-messages {
+  div.status {
+    background-color: #224422;
+    border: solid 1px #669966;
+    color: #aaccaa;
+  }
+  div.warning {
+    background-color: #666633;
+    border: solid 1px #aaaa44;
+    color: #ccccaa;
+  }
+  div.error {
+    background-color: #663333;
+    border: solid 1px #bb6666;
+    color: #ccaaaa;
+  }
+}

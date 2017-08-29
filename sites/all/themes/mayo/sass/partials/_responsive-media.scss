@@ -1,0 +1,166 @@
+// ====================================================================
+// Media queries
+// Responsive styles not for layout.
+// ====================================================================
+
+@include MQ(iphone-port) {    // Max   320px.
+
+  #content,
+  #sidebar-first,
+  #sidebar-second {
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  #site-name a, #site-name a:link, #site-name a:visited {
+    margin: 0 0;
+    font-size: .85em;
+    font-weight: 800;
+    line-height: 1em;
+  }
+  #header h1 a, #header h1 a:link, #header h1 a:visited {
+    font-size: .85em;
+    font-weight: 800;
+    line-height: 1em;
+    text-decoration: none;
+  }
+  #site-slogan {
+    font-size: 12px;
+  }
+}
+
+
+@include MQ(iphone-land) {     // 321px to 480px.
+
+  #content,
+  #sidebar-first,
+  #sidebar-second {
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  input.form-text {
+    width: 95%;
+  }
+  #site-name a, #site-name a:link, #site-name a:visited {
+    margin: 0 0;
+    font-size: 1.2em;
+    font-weight: 800;
+    line-height: 1em;
+  }
+  #header h1 a, #header h1 a:link, #header h1 a:visited {
+    font-size: .85em;
+    font-weight: 800;
+    line-height: 1em;
+    text-decoration: none;
+  }
+  #site-slogan {
+    font-size: 12px;
+  }
+}
+
+
+@include MQ(ipad-port) {    // 481px to 768px.
+
+  #content,
+  #sidebar-first,
+  #sidebar-second {
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  input.form-text {
+    width: 75%;
+  }
+
+  #top-columns .column-block-wrapper {
+    width: 100% !important;
+    margin-top: 1em;
+  }
+
+  #top-columns .column-block-wrapper .column-block {
+    height: auto !important;
+    margin:0 !important;
+  }
+
+  #sidebar-first.sb-one,
+  #sidebar-second.sb-one {
+    margin: 0;
+    width: 50% !important;
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  #site-name a, #site-name a:link, #site-name a:visited {
+    margin: 0 0;
+    font-size: 1.8em;
+    font-weight: 800;
+    line-height: 1em;
+  }
+  #header h1 a, #header h1 a:link, #header h1 a:visited {
+    font-size: 1.3em;
+    font-weight: 800;
+    line-height: 1em;
+    text-decoration: none;
+  }
+}
+
+
+@include MQ(ipad-land) {   // 769px to 1024px.
+  #content,
+  #sidebar-first,
+  #sidebar-second {
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  input.form-text {
+    width: 75%;
+  }
+
+  #top-columns .column-block-wrapper {
+    width: 100% !important;
+    margin-top: 1em;
+  }
+
+  #top-columns .column-block-wrapper .column-block {
+    height: auto !important;
+    margin:0 !important;
+  }
+
+  #sidebar-first.sb-one,
+  #sidebar-second.sb-one {
+    margin: 0;
+    width: 50% !important;
+    img {
+      max-width: 100%; // Make sure all images fit within viewport
+      height: auto; // Correct width from max-width rule above.
+    }
+  }
+
+  #site-name a, #site-name a:link, #site-name a:visited {
+    margin: 0 0;
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1em;
+  }
+  #header h1 a, #header h1 a:link, #header h1 a:visited {
+    font-size: 1.6em;
+    font-weight: 800;
+    line-height: 1em;
+    text-decoration: none;
+  }
+}
+
+/*@include MQ(standard-pc) {
+}   */

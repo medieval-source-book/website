@@ -1,0 +1,19 @@
+#test-zen-half-gutter {
+  /* Test zen-half-gutter() with default $zen-gutters: 20px */
+  padding-left: 10px;
+  /* Test zen-half-gutter() with $zen-gutters: 30px */
+  padding-left: 15px;
+  /* Test zen-half-gutter(10em) */
+  padding-left: 5em;
+  /* Test zen-half-gutter(11em) */
+  padding-left: 5.5em;
+  /* Test zen-half-gutter(10px) */
+  padding-left: 5px;
+  /* Test zen-half-gutter(11px) */
+  padding-left: 5px;
+  /* Test zen-half-gutter(11px, right) */
+  padding-left: 6px;
+  /* Test zen-half-gutter(11px) with $zen-direction: right */
+  padding-left: 5px;
+  /* Test zen-half-gutter(11px, left) with $zen-direction: right */
+  padding-left: 6px; }

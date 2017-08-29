@@ -27,6 +27,12 @@ h2,
   @include margin-bottom(1, xl);
 }
 
+h2.text-section-title {
+  background-color: #444444;
+  color: #ffffff;
+  padding: 10px 0px 10px 10px;
+}
+
 h3,
 %h3 {
   @include type-layout(l, 1.5);
