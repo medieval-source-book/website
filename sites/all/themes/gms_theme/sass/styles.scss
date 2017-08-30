@@ -35,6 +35,7 @@
 //
 // Style guide: layouts
 @import 'layouts/layout-3col/layout-3col';
+@import 'layouts/layout-4col/layout-4col';
 @import 'layouts/layout-center/layout-center';
 @import 'layouts/layout-swap/layout-swap';
 
@@ -49,7 +50,7 @@
 
 @import 'components/box/box';
 @import 'components/clearfix/clearfix';
-//@import 'components/comment/comment';
+@import 'components/comment/comment';
 @import 'components/divider/divider';
 @import 'components/header/header';
 @import 'components/hidden/hidden';

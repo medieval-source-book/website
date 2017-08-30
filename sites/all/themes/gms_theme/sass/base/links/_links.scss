@@ -17,6 +17,7 @@
 
 a,
 %link {
+  text-decoration: none;
   color: color(link);
   // Remove gaps in links underline in iOS 8+ and Safari 8+.
   -webkit-text-decoration-skip: objects;
@@ -54,7 +55,7 @@ a:hover {
   // Underline all links.
   :link,
   :visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   // Add visible URL after links.

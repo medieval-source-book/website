@@ -24,6 +24,7 @@ $chroma: add-colors((
 
   blue:                   #0072b9,
   red:                    #c00,
+  link-red:               #b52e1c,
   yellow:                 #fd0,
 ));
 
@@ -34,9 +35,9 @@ $chroma: add-colors('functional', (
   text:                   'black',
   text-bg:                'white',
 
-  link:                   'blue',
-  link-visited:           ('blue' darken 20%),
-  link-active:            'red',
+  link:                   'link-red',
+  link-visited:           ('link-red' darken 5%),
+  link-active:            'link-red',
 
   border:                 'grey-light',
 
@@ -95,3 +96,16 @@ $chroma: add-colors('functional', (
 ));
 
 $chroma-active-scheme: 'functional';
+
+// Colors
+$sitename-color: dimgray;
+$navbar-bg: #2b2b2b;
+$navbar-fg: white;
+$heading-bg: #444;
+$heading-fg: white;
+$vm-button: #2c577f;
+$vm-button-border: #3a536c;
+$border-color: gray;
+$link-default: #b52e1c;
+$link-visited: #b52e1c;
+$link-hover: #b52e1c;

@@ -33,19 +33,24 @@
   // Wrapper for website name and slogan.
   &__name-and-slogan {
     float: left;
+    padding-top: $base-line-height;
+    font-family: $header-font;
+    color: $sitename-color;
   }
 
   // The name of the website.
   &__site-name {
     @extend %h1;
+    font-size: 36pt;
     margin: 0;
   }
 
   // The link around the name of the website.
   &__site-link {
+    color: $sitename-color;
+
     &:link,
     &:visited {
-      color: color(text);
       text-decoration: none;
     }
 
@@ -57,7 +62,8 @@
 
   // The slogan (or tagline) of a website.
   &__site-slogan {
-    margin: 0;
+    margin: 5px 0;
+    font-size: 20px;
   }
 
   // The secondary menu (login, etc.)
