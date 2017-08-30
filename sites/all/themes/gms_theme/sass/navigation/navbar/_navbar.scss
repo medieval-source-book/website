@@ -11,8 +11,9 @@
 
 .navbar,
 %navbar {
-  margin: 0;
-  padding: 4px 0px 4px 4px;
+  margin-left: -$zen-gutters * 2;
+  width: 120%;
+  padding: 4px 0 4px $zen-gutters * 2;
   text-align: left;
   background: $navbar-bg;
   font-family: $header-font;
@@ -27,12 +28,13 @@
     float: left;
     list-style-type: none;
     list-style-image: none;
-    margin: 0px;
-    padding: 0px;
-    margin-right: 0px;
-    padding: 2px 4px 2px 0px;
+    margin: 0;
+    padding: 0;
+    margin-right: 0;
+    padding: 2px 4px 2px 0;
     border-right-style: solid;
     border-right-width: 1px;
+    border-color: $border-color;
 
     a {
       padding: 2px 4px;
