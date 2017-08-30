@@ -12,8 +12,10 @@
 .navbar,
 %navbar {
   margin: 0;
-  padding: 0;
+  padding: 4px 0px 4px 4px;
   text-align: left;
+  background: $navbar-bg;
+  font-family: $header-font;
 
   @include rtl() {
     text-align: right;
@@ -21,10 +23,24 @@
 
   &__item,
   li {
+    color: $navbar-fg;
     float: left;
-    padding: 0 10px 0 0;
     list-style-type: none;
     list-style-image: none;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 0px;
+    padding: 2px 4px 2px 0px;
+    border-right-style: solid;
+    border-right-width: 1px;
+
+    a {
+      padding: 2px 4px;
+      font-weight: normal;
+      font-size: 1.2em;
+      color: $heading-fg;
+      text-decoration: none;
+    }
 
     @include rtl() {
       float: right;

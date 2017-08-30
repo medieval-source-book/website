@@ -87,3 +87,22 @@ button,
     color: color(button-disabled);
   }
 }
+
+div.field-name-field-vm-link {
+  color: white;
+  background-color: $vm-button;
+  font-size: x-large;
+  border: 1px solid $vm-button-border;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

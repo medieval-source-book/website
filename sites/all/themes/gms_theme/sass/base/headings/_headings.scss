@@ -18,6 +18,7 @@ h1,
   // Set 1 unit of vertical rhythm on the top and bottom margins.
   @include margin-top(1, xxl);
   @include margin-bottom(1, xxl);
+  font-family: $header-font;
 }
 
 h2,
@@ -25,11 +26,12 @@ h2,
   @include type-layout(xl, 1.5);
   @include margin-top(1, xl);
   @include margin-bottom(1, xl);
+  font-family: $header-font;
 }
 
 h2.text-section-title {
-  background-color: #444444;
-  color: #ffffff;
+  background-color: $heading-bg;
+  color: $heading-fg;
   padding: 10px 0px 10px 10px;
 }
 
@@ -38,6 +40,7 @@ h3,
   @include type-layout(l, 1.5);
   @include margin-top(1, l);
   @include margin-bottom(1, l);
+  font-family: $header-font;
 }
 
 h4,
@@ -45,6 +48,7 @@ h4,
   @include type-layout(m, 1);
   @include margin-top(1, m);
   @include margin-bottom(1, m);
+  font-family: $header-font;
 }
 
 h5,
@@ -52,6 +56,7 @@ h5,
   @include type-layout(s, 1);
   @include margin-top(1, s);
   @include margin-bottom(1, s);
+  font-family: $header-font;
 }
 
 h6,
@@ -59,4 +64,5 @@ h6,
   @include type-layout(xs, 1);
   @include margin-top(1, xs);
   @include margin-bottom(1, xs);
+  font-family: $header-font;
 }

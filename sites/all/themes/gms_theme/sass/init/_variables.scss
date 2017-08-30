@@ -82,11 +82,14 @@ $impact:          Impact, 'Arial Narrow', Helvetica, sans-serif;
 // http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 $menlo:           Menlo, 'DejaVu Sans Mono', 'Ubuntu Mono', Courier, 'Courier New', monospace, sans-serif;
 
+$header-font: 'Alegreya', 'DejaVu Serif', serif;
+$default-font: 'Roboto', $verdana;
+
 // The font faces you specify in the $typefaces map can be used in the
 // typeface() mixin.
 $typefaces: (
   body: (
-    font-family: $verdana,
+    font-family: $default-font,
   ),
   monospace: (
     font-family: $menlo,
@@ -189,3 +192,12 @@ $include-rtl: true;
 @if not $include-rtl {
   $zen-rtl-selector: false !global;
 }
+
+
+// Colors
+$navbar-bg: #2b2b2b;
+$navbar-fg: white;
+$heading-bg: #444444;
+$heading-fg: white;
+$vm-button: #2c577f;
+$vm-button-border: #3a536c;
