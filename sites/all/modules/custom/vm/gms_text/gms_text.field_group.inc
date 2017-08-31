@@ -84,7 +84,7 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Text Information',
-    'weight' => '4',
+    'weight' => '3',
     'children' => array(
       0 => 'field_genre',
       1 => 'field_language',
@@ -99,7 +99,7 @@ function gms_text_field_group_info() {
         'classes' => 'text-information',
         'description' => '',
         'show_label' => '1',
-        'label_element' => 'h2',
+        'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'fast',
       ),
