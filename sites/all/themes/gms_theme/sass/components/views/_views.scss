@@ -3,10 +3,36 @@
 
 // grid display of images
 div.view-id-texts {
+
+  @include zen-grid-container();
+  //$zen-column-count: 6;
+  //$zen-gutters: 2px;
+
   .views-row {
+    //@include zen-grid-item-base();
+    //@include zen-new-row(both);
+
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: center;
+
+    .views-column {
+      //padding: 0 $zen-gutters;
+      //width: 90%;
+    }
+
+
+    //.views-column-1 {
+    //  @include zen-grid-item(2, 1);
+    //}
+    //
+    //.views-column-2 {
+    //  @include zen-grid-item(2, 3);
+    //}
+    //
+    //.views-column-3 {
+    //  @include zen-grid-item(2, 5);
+    //}
   }
 }

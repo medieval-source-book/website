@@ -73,53 +73,62 @@ $zen-columns: 5;
   //  }
   //}
 
-  //@include zen-respond-to(xl) {
-  //  &__full {
-  //    @include zen-grid-item(5, 1);
-  //  }
-  //
-  //  &__left-content {
-  //    @include zen-grid-item(1, 1);
-  //  }
-  //
-  //  &__right-content {
-  //    @include zen-grid-item(4, 2);
-  //  }
-  //
-  //  &__left-sidebar,
-  //  &__first-left-sidebar,
-  //  &__second-left-sidebar {
-  //    @include zen-new-row(right);
-  //    @include zen-grid-item(1, 3, right);
-  //  }
-  //
-  //  //&__right-sidebar {
-  //  //  @include zen-new-row(right);
-  //  //  @include zen-grid-item(1, 1, right);
-  //  //}
-  //  //
-  //  //&__col-1,
-  //  //&__col-x:nth-child(3n+1) {
-  //  //  @include zen-new-row(both);
-  //  //  @include zen-grid-item(1, 1);
-  //  //}
-  //  //
-  //  //&__col-2,
-  //  //&__col-x:nth-child(3n+2) {
-  //  //  @include zen-new-row(none);
-  //  //  @include zen-grid-item(1, 2);
-  //  //}
-  //  //
-  //  //&__col-3,
-  //  //&__col-x:nth-child(3n) {
-  //  //  @include zen-new-row(none);
-  //  //  @include zen-grid-item(1, 3);
-  //  //}
-  //  //
-  //  //&__col-4 {
-  //  //  display: none;
-  //  //}
-  //}
+  @include zen-respond-to(xl) {
+    //&__full {
+    //  @include zen-grid-item(5, 1);
+    //}
+
+    //&__left-content {
+    //  @include zen-grid-item(1, 1);
+    //}
+
+    //&__right-content {
+    //  @include zen-grid-item(4, 2);
+    //}
+
+    //
+    //&__right-content {
+    //  @include zen-grid-item(4, 2);
+    //}
+    //
+    //&__left-sidebar {
+    //  @include zen-grid-item(1, 1);
+    //}
+
+    //&__left-sidebar,
+    //&__first-left-sidebar,
+    //&__second-left-sidebar {
+    //  @include zen-new-row(right);
+    //  @include zen-grid-item(1, 3, right);
+    //}
+
+    //&__right-sidebar {
+    //  @include zen-new-row(right);
+    //  @include zen-grid-item(1, 1, right);
+    //}
+    //
+    //&__col-1,
+    //&__col-x:nth-child(3n+1) {
+    //  @include zen-new-row(both);
+    //  @include zen-grid-item(1, 1);
+    //}
+    //
+    //&__col-2,
+    //&__col-x:nth-child(3n+2) {
+    //  @include zen-new-row(none);
+    //  @include zen-grid-item(1, 2);
+    //}
+    //
+    //&__col-3,
+    //&__col-x:nth-child(3n) {
+    //  @include zen-new-row(none);
+    //  @include zen-grid-item(1, 3);
+    //}
+    //
+    //&__col-4 {
+    //  display: none;
+    //}
+  }
 
   // Place last so it can override the padding of grid items.
   &__grid-item-container {
