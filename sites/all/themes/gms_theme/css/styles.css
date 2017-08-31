@@ -1226,6 +1226,16 @@ span.field-label {
   word-wrap: break-word;
 }
 
+div.view-id-texts .views-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
 @media print {
   .breadcrumb {
     display: none;

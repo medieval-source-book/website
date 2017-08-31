@@ -1,0 +1,12 @@
+//
+// Theming for all views
+
+// grid display of images
+div.view-id-texts {
+  .views-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+  }
+}
