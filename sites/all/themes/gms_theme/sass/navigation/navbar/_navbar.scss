@@ -11,13 +11,19 @@
 
 .navbar,
 %navbar {
-  margin-left: -$zen-gutters * 2;
   margin-top: 0;
-  width: 120%;
-  padding: 4px 0 4px $zen-gutters * 2;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 4px 0 4px 6px;
   text-align: left;
   background: $navbar-bg;
   font-family: $header-font;
+  z-index: 10;
+
+  @include respond-to(xs) {
+
+  }
 
   @include rtl() {
     text-align: right;
@@ -34,6 +40,7 @@
     border-right-style: solid;
     border-right-width: 1px;
     border-color: $border-color;
+    cursor: pointer;
 
     a {
       padding: 2px 6px;
