@@ -936,6 +936,12 @@ th {
   margin-right: 32px;
 }
 
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 .header__logo {
   float: left;
   margin: 0 10px 0 0;
