@@ -942,6 +942,11 @@ footer {
   right: 0;
 }
 
+footer div#global-footer,
+footer p.copyright {
+  text-align: center;
+}
+
 .header__logo {
   float: left;
   margin: 0 10px 0 0;

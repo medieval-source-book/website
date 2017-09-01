@@ -2,4 +2,9 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
+
+  div#global-footer,
+  p.copyright {
+    text-align: center
+  }
 }
