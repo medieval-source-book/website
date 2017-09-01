@@ -1,0 +1,418 @@
+<?php
+
+/**
+ * @file
+ * Module related functions.
+ */
+
+require_once 'bg_image_formatter.helpers.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function bg_image_formatter_field_formatter_info() {
+  return array(
+    'bg_image_formatter' => array(
+      'label' => t('Background image'),
+      'field types' => array('image', 'imagefield_crop'),
+      'settings' => array(
+        'image_style' => '',
+        'multiple' => FALSE,
+        'bg_image_output_type' => 'css',
+        'css_settings' => array(
+          'classes' => '',
+          'bg_image_selector' => 'body',
+          'bg_image_color' => '#FFFFFF',
+          'bg_image_x' => 'left',
+          'bg_image_y' => 'top',
+          'bg_image_attachment' => 'scroll',
+          'bg_image_repeat' => 'no-repeat',
+          'bg_image_background_size' => '',
+          'bg_image_background_size_ie8' => 0,
+          'bg_image_media_query' => 'all',
+          'bg_image_important' => 1,
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function bg_image_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $placeholders = array(
+    '!image_styles_link' => l(t('the image style'), '/admin/config/media/image-styles'),
+    '!bg_image_link' => l(t('the default configuration set in the bg_image configuration page'), '/admin/config/content/background-image'),
+    '%none' => t('None'),
+    '%multiple' => t('Multiple'),
+    '!break' => '<br/>',
+  );
+
+  $element['image_style'] = array(
+    '#title' => t('Image style'),
+    '#type' => 'select',
+    '#default_value' => $settings['image_style'],
+    '#empty_option' => t('None (original image)'),
+    '#options' => image_style_options(),
+    '#description' => t('Select !image_styles_link to apply on images. If %none is selected, it will use !bg_image_link.',
+      $placeholders
+    ),
+  );
+
+  // Background-size:cover support for IE8.
+  $element['multiple'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable multiple image?'),
+    '#default_value' => $settings['multiple'],
+  );
+
+  $element['bg_image_output_type'] = array(
+    '#title' => t('Output To'),
+    '#type' => 'select',
+    '#options' => array(
+      'css' => t('Write background-image to CSS selector'),
+      'inline' => t('Write background-image to inline style attribute'),
+    ),
+    '#default_value' => $settings['bg_image_output_type'],
+    '#required' => TRUE,
+    '#description' => t('Define how background-image will be printed to the dom.'),
+  );
+
+  // The CSS background-color property.
+  $link = l(t('https://www.w3.org/TR/css3-background'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  // Fieldset for css settings.
+  $element['css_settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Default CSS Settings'),
+    '#description' => t('Default CSS settings for outputting the background property. !break
+    These settings will be concatenated to form a complete css statement that uses the "background" property. !break
+    For more information on the css background property see !link', array('!link' => $link, '!break' => '<br/>')),
+  );
+
+  $css_settings = &$element['css_settings'];
+
+  // The selector for the background property.
+  $css_settings['bg_image_selector'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Selector(s)'),
+    '#description' => t('A valid CSS selector that will be used to apply the background image. One per line. !break
+    If the field is multiple and the option %multiple is enabled, the first line will be applied to the first value, !break
+    the second to the second value... and so on.', $placeholders),
+    '#default_value' => $settings['css_settings']['bg_image_selector'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="fields[field_image][settings_edit_form][settings][bg_image_output_type]"]' => array('value' => 'css'),
+      ),
+    ),
+  );
+
+  $css_settings['classes'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Classes'),
+    '#description' => t('The class that will be used to apply the background image. One per line. !break
+    If the field is multiple and the option %multiple is enabled, the first line will be applied to the first value, !break
+    the second to the second value... and so on.', $placeholders),
+    '#default_value' => $settings['css_settings']['classes'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="fields[field_image][settings_edit_form][settings][bg_image_output_type]"]' => array('value' => 'inline'),
+      ),
+    ),
+  );
+
+  // The CSS background-color property.
+  $link = l(t('css property: background-color'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'fragment' => 'background-color',
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  $css_settings['bg_image_color'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Color'),
+    '#description' => t('The background color formatted as any valid css color format (e.g. hex, rgb, text, hsl) [!link]. One per line. !break
+    If the field is multiple and the option %multiple is enabled, the first line will be applied to the first value, !break
+    the second to the second value... and so on.', array('!link' => $link, '!break' => '<br/>')),
+    '#default_value' => $settings['css_settings']['bg_image_color'],
+  );
+
+  if (module_exists('token') && !empty($field)) {
+    $tokens_mapping = token_get_entity_mapping();
+    $entity_types = array_keys($field['bundles']);
+    $tokens_list = array();
+
+    foreach ($tokens_mapping as $token_map => $entity_map) {
+      foreach ($entity_types as $entity_type) {
+        if ($entity_type == $entity_map) {
+          $tokens_list[] = $token_map;
+        }
+      }
+    }
+
+    // Fieldset for tokens.
+    $css_settings['tokens'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Available tokens'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    // Tokens available.
+    $css_settings['tokens']['list'] = array(
+      '#theme' => 'token_tree',
+      '#token_types' => $tokens_list,
+      '#global_types' => TRUE,
+      '#click_insert' => TRUE,
+    );
+  }
+
+  // The CSS background-position property.
+  $link = l(t('css property: background-position'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'fragment' => 'background-position',
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  $css_settings['bg_image_x'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Horizontal Alignment'),
+    '#description' => t('The horizontal alignment of the background image formatted as any valid css alignment. [!link]', array('!link' => $link)),
+    '#default_value' => $settings['css_settings']['bg_image_x'],
+  );
+
+  $css_settings['bg_image_y'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Vertical Alignment'),
+    '#description' => t('The vertical alignment of the background image formatted as any valid css alignment. [!link]', array('!link' => $link)),
+    '#default_value' => $settings['css_settings']['bg_image_y'],
+  );
+
+  // The CSS background-attachment property.
+  $link = l(t('css property: background-attachment'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'fragment' => 'background-attachment',
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  $css_settings['bg_image_attachment'] = array(
+    '#type' => 'radios',
+    '#title' => t('Background Attachment'),
+    '#description' => t('The attachment setting for the background image. [!link]', array('!link' => $link)),
+    '#options' => array('scroll' => 'Scroll', 'fixed' => 'Fixed'),
+    '#default_value' => $settings['css_settings']['bg_image_attachment'],
+  );
+
+  // The CSS background-repeat property.
+  $link = l(t('css property: background-repeat'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'fragment' => 'background-repeat',
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  $css_settings['bg_image_repeat'] = array(
+    '#type' => 'radios',
+    '#title' => t('Background Repeat'),
+    '#description' => t('Define the repeat settings for the background image. [!link]', array('!link' => $link)),
+    '#options' => array(
+      'no-repeat' => t('No Repeat'),
+      'repeat' => t('Tiled (repeat)'),
+      'repeat-x' => t('Repeat Horizontally (repeat-x)'),
+      'repeat-y' => t('Repeat Vertically (repeat-y)'),
+    ),
+    '#default_value' => $settings['css_settings']['bg_image_repeat'],
+  );
+
+  // The CSS background-size property.
+  $link = l(t('css property: background-size'), 'https://www.w3.org/TR/css3-background', array(
+    'external' => TRUE,
+    'fragment' => 'background-size',
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  // The background-size property.
+  $css_settings['bg_image_background_size'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Background Size'),
+    '#description' => t('The size of the background (NOTE: CSS3 only. Useful for responsive designs) [!link]', array('!link' => $link)),
+    '#default_value' => $settings['css_settings']['bg_image_background_size'],
+  );
+
+  // IE filters link.
+  $link = l(t('AlphaImageLoader Filter'), 'http://msdn.microsoft.com/en-us/library/ms532969%28v=vs.85%29.aspx', array(
+    'external' => TRUE,
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  // background-size:cover support for IE8.
+  $css_settings['bg_image_background_size_ie8'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Add background-size:cover support for ie8'),
+    '#description' => t("The background-size css property is only supported on browsers that support CSS3. !break
+    However, there is a workaround for IE using Internet Explorer's built-in filters (!link). !break
+    Check this box to add the filters to the css. Sometimes it works well, sometimes it doesn't. Use at your own risk", array('!link' => $link, '!break' => '<br/>')),
+    '#default_value' => $settings['css_settings']['bg_image_background_size_ie8'],
+  );
+
+  // The media query specifics.
+  $link = l(t('Read about media queries'), 'https://www.w3.org/TR/css3-mediaqueries', array(
+    'external' => TRUE,
+    'attributes' => array(
+      'target' => '_blank',
+    ),
+  ));
+
+  $css_settings['bg_image_media_query'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Media Query'),
+    '#description' => t('Apply this background image css using a media query. CSS3 Only. !break
+    Useful for responsive designs. example: only screen and (min-width:481px) and (max-width:768px) [!link]', array('!link' => $link, '!break' => '<br/>')),
+    '#default_value' => $settings['css_settings']['bg_image_media_query'],
+  );
+
+  $css_settings['bg_image_important'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Add "!important" to the background property.'),
+    '#description' => t('This can be helpful to override any existing background image or color properties added by the theme.'),
+    '#default_value' => $settings['css_settings']['bg_image_important'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function bg_image_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $summary = array();
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $css_settings = $settings['css_settings'];
+
+  $image_styles = image_style_options(FALSE);
+  // Unset possible 'No defined styles' option.
+  unset($image_styles['']);
+
+  if ($settings['bg_image_output_type'] == 'css') {
+    $summary[] = t('Display: CSS and selectors.');
+  }
+  else {
+    $summary[] = t('Display: Inline.');
+  }
+
+  // Styles could be lost because of enabled/disabled modules that defines,
+  // their styles in code.
+  if (isset($image_styles[$settings['image_style']])) {
+    $summary[] = t('Image style: @style', array('@style' => $image_styles[$settings['image_style']]));
+  }
+  else {
+    $summary[] = t('Image style: Original');
+  }
+
+  if (isset($settings['css_settings']['bg_image_selector'])) {
+    $selectors = bg_image_formatter_extract_settings_values($css_settings, 'bg_image_selector');
+    $summary[] = t('Selectors: @selectors', array('@selectors' => implode(',', $selectors)));
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function bg_image_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  $settings = $display['settings'];
+  $css_settings = $settings['css_settings'];
+  $image_style = $settings['image_style'] ? $settings['image_style'] : NULL;
+
+  $selectors = bg_image_formatter_extract_settings_values($css_settings, 'bg_image_selector');
+  $classes = bg_image_formatter_extract_settings_values($css_settings, 'classes');
+  $colors = bg_image_formatter_extract_settings_values($css_settings, 'bg_image_color');
+
+  foreach ($items as $delta => $item) {
+    $image_url = file_create_url($item['uri']);
+
+    if (!empty($settings['image_style'])) {
+      $image_url = image_style_url($settings['image_style'], $item['uri']);
+    }
+
+    if (module_exists('token')) {
+      $tokens_mapping = array_flip(token_get_entity_mapping());
+
+      // Replace the tokens.
+      $selectors = array_map(function ($selector) use ($tokens_mapping, $entity_type, $entity) {
+        return token_replace($selector, array($tokens_mapping[$entity_type] => $entity));
+      }, $selectors);
+
+      $colors = array_map(function ($color) use ($tokens_mapping, $entity_type, $entity) {
+        return token_replace($color, array($tokens_mapping[$entity_type] => $entity));
+      }, $colors);
+    }
+
+    switch ($settings['bg_image_output_type']) {
+      case 'css':
+        if ($settings['multiple']) {
+          $css_settings['bg_image_selector'] = $selectors[$delta % count($selectors)];
+          $css_settings['bg_image_color'] = $colors[$delta % count($colors)];
+        }
+        else {
+          $css_settings['bg_image_selector'] = implode(',', $selectors);
+          $css_settings['bg_image_color'] = implode('', $colors);
+        }
+
+        $context = compact('entity_type', 'entity', 'item');
+
+        // Let other module alter the CSS settings by implementing the hook:
+        // hook_bg_image_formatter_css_settings_alter().
+        drupal_alter('bg_image_formatter_css_settings', $css_settings, $context);
+
+        if ($css = bg_image_formatter_add_background_image_css($item['uri'], $css_settings, $image_style)) {
+          $element[0]['#attached'] = array(
+            'css' => array(
+              $css['style'] => array(
+                'type' => $css['type'],
+                'media' => $css['media'],
+                'group' => $css['group'],
+              ),
+            ),
+          );
+        }
+        break;
+
+      case 'inline':
+        $element[$delta] = array(
+          '#theme' => 'container',
+          '#attributes' => array(
+            'style' => sprintf('background-image: url("%s");', $image_url),
+            'class' => (bool) $settings['multiple'] ? $classes[$delta % count($classes)] : $classes,
+          ),
+        );
+        break;
+    }
+  }
+
+  return $element;
+}
