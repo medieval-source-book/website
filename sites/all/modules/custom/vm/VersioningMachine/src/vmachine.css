@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 /**
     * @license vmachine.css for VM 5.0
     * Updated: Aug 10 2015 by roman bleier
@@ -57,11 +56,11 @@ body{
     margin:0;
     padding:0;
     font-size:12px;
-    font-size: 1vw;
     width:100%;
     font-family: 'Palemonas MUFI', 'Alegreya Sans', sans-serif;
     min-width:770px;
     background-color:#fff;
+    line-height: 1.5em;
 }
 h2,
 h3,
@@ -87,24 +86,26 @@ h5{
 h6{
     font-size:14px;
 }
+
+div#page-wrapper {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    width: 95%;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+
 /* BEGIN styles for main banner*/
 div#mainBanner{
-    float:left;
-    width:100%;
-    height: 10em;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:10;
     background-color: white;
     background-size: cover;
     background-repeat:no-repeat;
+    padding-left: 20px;
 }
 div#mainBanner div#brandingLogo{
     float:left;
-    max-width: 10%;
-    height: 10em;
-
+    padding: 9px 4px 4px 9px
 }
 
 div#brandingLogo a {
@@ -116,15 +117,10 @@ div#brandingLogo a span#home_text {
     color: black;
     text-align: center;
     padding-left: 2em;
-    position: absolute;
-    left: 95px;
-    top: 25px;
 }
 
 div#mainBanner div#brandingLogo img{
-    max-width: 80%;
-    margin:5%;
-    max-height:125%;
+    height: 100px;
 }
 
 div#mainBanner div#bannerImageContainer{
@@ -138,14 +134,11 @@ div#mainBanner div#bannerImageContainer>img{
 }
 
 div#headline{
-    padding:2em;
-    position: absolute;
-    top: 0;
     left: 20%
-    }
-div#mainBanner div#headline h1{
+}
+
+div#headline h1{
     font-family: 'Alegreya', 'Baskerville', serif;
-    margin:0;
     color: #3a536c;
     font-size: x-large;
 }
@@ -153,46 +146,98 @@ div#mainBanner div#headline span.versionCount{
     font-size:1.07em;
     font-style:italic;
 }
+
+
+#site-name {
+    padding-top: 35px;
+}
+
+#site-name, #site-slogan {
+    font-family: 'PT Serif', serif;
+    text-size-adjust: 100%;
+}
+
+#site-slogan {
+    font-size: large;
+    padding-top: 5px;
+}
+
+#site-name a,
+#site-name a:visited {
+    color: #666;
+    font-size: 42px !important;
+    padding-top: 10px;
+    margin-bottom: 2em;
+    text-decoration: none;
+}
 /* END styles for main banner*/
 
 /* BEGIN styles top navigation and dropdown menu*/
+div#mainControlsWrapper {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    background: #333;
+    padding-left: 50px;
+    top: 125px;
+    height: 25px;
+    font-size: 12pt;
+}
+
 div#mainBanner nav#mainControls{
     margin: 2px;
-    padding:1px;
-    position:absolute;
-    bottom:5px;
-    width:80%;
+    padding: 1px;
+    bottom: 5px;
+    width:100%;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
-nav#mainControls button img{
+
+nav#mainControls ul li {
+    height: 15px;
+}
+
+nav#mainControls > ul > li > span {
+    padding: 5px 10px 5px 10px;
+    border-right: solid 1px black;
+}
+
+nav#mainControls span img{
     height:.55em;/*controls the size of the arrow button in dropdown menu*/
     padding-left: 15px; /*added to create some space between the text and the arrow*/
 }
 /*styling of version dropdown list items*/
 #mainControls > ul > li ul.dropdown{
-    position:absolute;
-    border:1px solid black;
     margin:0;
     padding:0;
     z-index:0;
+    width: auto;
+    max-width: 150px;
 }
 #mainControls > ul > li ul.dropdown li{
     display:block;
     float:none;
     padding:2px;
-    min-width:12em;
     clear:both;
-    background-color:#fff;
     cursor:pointer;
+    height: 1.5em;
 }
 #mainControls > ul > li ul li:hover{
     width:auto;
-    /*font-weight:800;*/
-    background-color: lightgrey;
+    background-color: dimgrey;
 }
 div.listText{
     display:table;
     font-size: 0.9em;
+    padding-left: 5px;
 }
+
+div.listText div a {
+    color: white;
+    font-size: medium;
+}
+
 /*styling of div containing the names of individual witnesses in version dropdown*/
 div.listText div:first-child{
     width:75%; 
@@ -217,17 +262,17 @@ ul#witnessList.notVisible li{
 
 div#mssArea{
     float:left;
-    width:100%;
+    width: 100%;
     height: 100%;
-    margin:10em 0 0;
-    padding: 0 0 2em 0;
-    overflow:hidden;
+    margin-top: 25px;
+    padding: 0 0 2em 2em;
+    overflow: hidden;
     z-index:10;
 }
 
 div.panel{
     float:left;
-    width:35%; /* changed this--CHECK*/
+    width: 30%;
     min-height:250px;
     min-width:250px;
     margin:0;
@@ -240,7 +285,6 @@ div.panel{
 }
 /*position:absolute to prevent that adjacent panels get moved on resize*/
 div.panel.ui-resizable{
-    position:absolute;   
 }
 div#mssArea div.panel div.panelBanner,
 .viewerHandle{
@@ -249,16 +293,18 @@ div#mssArea div.panel div.panelBanner,
 }
 div#mssArea div.panel div.panelBanner{
     height:1.6em;
-    line-height:1.6em;
+    line-height: 1.6;
     margin:0;
     padding:3px 7px 3px 10px;
-    color:white;/*changed from black to be easier to read*/
-    font-weight:400;/*changed from 800 to be easier to read*/
+    color: white;
+    font-weight: 400;
+    font-size: medium;
 }
 
-div#mssArea div.panel div.panelBanner select.witnessMenu{
+div#mssArea div.panel div.panelBanner select.witnessMenu {
     width:160px;
 }
+
 div#mssArea div.mssPanel{
     overflow:hidden;
     min-width:300px;
@@ -274,17 +320,17 @@ div#mssArea div.mssPanel div.panelBanner,
 div#mssArea div.imgPanel div.panelBanner{
     border-bottom:1px solid black;
 }
-div#mssArea div.panel div.panelBanner img.closePanel{
+div#mssArea div.panel div.panelBanner span.closePanel{
     float:right;
     cursor:pointer;
     width:1.4em;
     height:1.4em;
+    margin-top: 3px;
 }
 
 div#mssArea div.panel div.mssContent{
     margin:10px;
     padding:0;
-    line-height:25px;
 }
 
 div#mssArea div.panel div.mssContent img.imgLink{
@@ -339,7 +385,7 @@ div.paragraph{
     clear:both;
 }
 div.line{
-    margin:0 4em 0 2.5em;
+    margin:0 5px 0 30px;
     padding:0;
     cursor: auto;
     font-size: 15px;
@@ -426,7 +472,8 @@ div.paragraph{
     margin:0;
 }
 div.mssContent div.paragraph div.reading{
-    margin:6px 0;
+    margin: 0;
+    float: left;
 }
 
 div.apparatus div.reading{
@@ -495,7 +542,7 @@ div.type-stanza{
 .pagebreak{
     margin:10px auto 10px auto;
     clear:right;
-    min-width:20px;
+    min-width:100%;
 }
 div.rend-right{
     text-align:right;
@@ -514,7 +561,7 @@ div.rend-right{
     margin:0;
     padding:0.32em;
     height:1.4em;
-    line-height:1.4em;
+    line-height:1.4;
     color:white;/*changed from black to be easier to read*/
     font-weight:400;/*changed from 800 to be easier to read*/
     overflow:hidden;
@@ -552,31 +599,51 @@ span.viewerHandleLt{
 
 #mainControls ul{
     padding:0;
-    /*margin:233px*/
+    margin: 0;
 }
+
 #mainControls > ul > li{
     display:inline-block;
     list-style-type:none;
-    padding: 0 5px 5px 15px;; /* changed from 5px*/
     font-size: 1em; /*changed from 1.2em*/
     position:relative;
     float:left;
+    padding: 0;
 }
+
+
 /* style dropdown button */
-.topMenuButton{
+.topMenuButton {
+    background-image: none;
+    border: none;
     font-weight: 300;
+    font-family: 'Roboto';
     display: block;
-    background-color: black;
-    font-size: 1.2em;
+    background-color: #333;
+    font-size: 1em;
     margin: 0;
-    border: 2px groove white; /*changed from 1px*/
-    border-radius: 5px;
     color:#fff;
     cursor:pointer;
+    border-right: 1px solid black;
+    height: 15px;
+}
+
+.topMenuButton a {
+    text-decoration: none;
+    color: white;
 }
 
 .topMenuButton:hover{
-    /*background: radial-gradient(farthest-corner at 5px 5px ,#9aa0a5  40%, #4589C7 100%); !*changed to gradient*!*/
+    background-color: grey;
+}
+
+ul#versionList {
+    max-width: 150px;
+    width: 90%;
+}
+
+ul#versionList li {
+    background-color: #333;
 }
 
 .noDisplay{
@@ -595,9 +662,15 @@ span.viewerHandleLt{
 /* end style dropdown list */
 
 /*OnOff button in dropdown and navigation*/
-.dropdown button{
-    width: 3em;
-    height: 2em;
+ul.dropdown div.listText div span.toggle {
+    padding: 0 2px 0 2px;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+}
+
+span.toggle:hover {
+    background-color: lightblue;
 }
 
 .dropdown a{
@@ -605,16 +678,17 @@ span.viewerHandleLt{
     text-decoration: none;
 }
 
-button{
-    background-color:#2c577f;
+span.topMenuButton {
+    background-color: #333;
     color: #fff;
 }
+
 .imgPanel button{
     color: #000;
 }
 
-.buttonPressed{
-    background: #2c577f;
+.buttonPressed span{
+    background-color: #2a62bc;
 }
 /*end OnOff button styling*/
 
@@ -708,3 +782,4 @@ div.stage {
 span.speaker {
     font-weight: bold;
 }
+

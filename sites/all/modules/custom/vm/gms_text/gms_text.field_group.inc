@@ -21,12 +21,13 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Context',
-    'weight' => '3',
+    'weight' => '5',
     'children' => array(
       0 => 'field_critical_conversation',
       1 => 'field_intro_manuscript',
       2 => 'field_introduction_to_the_text',
       3 => 'field_keywords',
+      4 => 'field_about_edition',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -52,7 +53,7 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Files',
-    'weight' => '2',
+    'weight' => '4',
     'children' => array(
       0 => 'field_image',
       1 => 'field_tei_file',
@@ -119,7 +120,7 @@ function gms_text_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Metadata',
-    'weight' => '4',
+    'weight' => '6',
     'children' => array(
       0 => 'field_genre',
       1 => 'field_language',
@@ -139,6 +140,35 @@ function gms_text_field_group_info() {
     ),
   );
   $export['group_metadata|node|text|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_titles|node|text|form';
+  $field_group->group_name = 'group_titles';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'text';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Titles',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_original_language_title',
+      1 => 'field_short_title',
+      2 => 'title',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_titles|node|text|form'] = $field_group;
 
   return $export;
 }

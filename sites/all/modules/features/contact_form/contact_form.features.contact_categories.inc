@@ -11,7 +11,7 @@ function contact_form_contact_categories_defaults() {
   return array(
     'Website feedback' => array(
       'category' => 'Website feedback',
-      'recipients' => 'admin@gms.org',
+      'recipients' => 'starkey@stanford.edu,maelp@stanford.edu,mikewidner@stanford.edu',
       'reply' => '',
       'weight' => 0,
       'selected' => 1,

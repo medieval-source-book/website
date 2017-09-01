@@ -24,28 +24,53 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:variable>
-   
+
+   <!-- CREATE VARIABLE FOR WITNESSES/VERSIONS -->
+   <xsl:variable name="witnesses" select="//tei:witness[@xml:id]" />
+
+   <xsl:variable name="numWitnesses" select="count($witnesses)" />
+
    <xsl:variable name="truncatedTitle">
       <xsl:call-template name="truncateText">
          <xsl:with-param name="string" select="$fullTitle" />
          <xsl:with-param name="length" select="40" />
       </xsl:call-template>
    </xsl:variable>
-   
-   <!-- CREATE VARIABLE FOR WITNESSES/VERSIONS -->
-   <xsl:variable name="witnesses" select="//tei:witness[@xml:id]" />
-   
-   <xsl:variable name="numWitnesses" select="count($witnesses)" />
-   
-      
+
+   <xsl:variable name="bothTitles">
+      <xsl:for-each select="$witnesses">
+         <xsl:variable name="witId"><xsl:value-of select="@xml:id"></xsl:value-of></xsl:variable>
+         <xsl:value-of select="//tei:witness[@xml:id = $witId]" />
+         <xsl:if test="not(position() = last())"> | </xsl:if>
+      </xsl:for-each>
+   </xsl:variable>
+
    <xsl:template match="/">
       <!-- GENERATE BASIC HTML STRUCTURE -->
      <html lang="en">
          <xsl:call-template name="htmlHead" />
-        <body> 
-            <xsl:call-template name="mainBanner" />
-            <xsl:call-template name="manuscriptArea" />
-            
+        <body class="html not-front page-node">
+           <div id="page-wrapper">
+              <div id="page">
+                  <xsl:call-template name="mainBanner" />
+                  <xsl:call-template name="manuscriptArea" />
+              </div>
+           </div>
+           <xsl:if test="$googleAnalyticsCode">
+              <script type="text/javascript">
+                  <xsl:text disable-output-escaping="yes">
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                  ga('create', '</xsl:text>
+                 <xsl:value-of select="$googleAnalyticsCode" />
+                 <xsl:text>', 'auto');
+                  ga('send', 'pageview');
+                  </xsl:text>
+              </script>
+           </xsl:if>
          </body>
       </html>
    </xsl:template>
@@ -58,7 +83,7 @@
       <head>
          <title>
             <xsl:value-of select="$truncatedTitle" />
-            <xsl:text> -- The Versioning Machine 5.0</xsl:text>
+            <xsl:text> | The Global Medieval Sourcebook</xsl:text>
          </title>
          <meta charset="utf-8"/>
          
@@ -69,13 +94,18 @@
                <xsl:value-of select="$cssJQuery-UI" />
             </xsl:attribute>
          </link>
-         
+
+         <!-- Font Awesome -->
+         <script src="https://use.fontawesome.com/b4c1558196.js"></script>
+
+
          <!-- include customn CSS -->
          <link rel="stylesheet" type="text/css">
             <xsl:attribute name="href">
                <xsl:value-of select="$cssInclude" />
             </xsl:attribute>
          </link>
+
 
          <!-- include custom font-face -->
          <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet"></link>
@@ -92,12 +122,13 @@
          </script>
          
          
-         <!-- jquery.panzoom plugin from https://github.com/timmywil/jquery.panzoom -->
+         <!--  image viewer -->
          <link rel="stylesheet" type="text/css">
             <xsl:attribute name="href">
                <xsl:value-of select="$cssJQueryZoomPan" />
             </xsl:attribute>
          </link>
+
          <script type="text/javascript">
             <xsl:attribute name="src">
                <xsl:value-of select="$jsJqueryZoomPan" />
@@ -157,130 +188,127 @@
    <xsl:template name="mainBanner">
       <div id="mainBanner">
          <xsl:call-template name="brandingLogo" />
-         <div id="bannerImageContainer">
-            
-               <img id="logo" alt="Powered by the Versioning Machine" src="{$bannerImg}"/>
-            
-            <xsl:call-template name="headline" />
-            <xsl:call-template name="mainControls" />
-            
-         </div>
       </div>
+      <xsl:call-template name="mainControls" />
+
    </xsl:template>
    
    <xsl:template name="brandingLogo">
       <div id="brandingLogo">
          <a href="{$logoLink}">
-         <img id="home" alt="Return to main site" src="{$vmLogo}"/>
-            <span id="home_text">Home</span>
+         <img id="home" alt="Return to main site" src="{$drupalLogoPath}"/>
          </a>
       </div>
+      <div id="site-name"><a href="{$logoLink}">Global Medieval Sourcebook</a></div>
+      <div id="site-slogan">A Digital Repository of Medieval Texts</div>
    </xsl:template>
-   
-   <xsl:template name="headline">
-      <div id="headline">
-         
-         <h1>
-            <xsl:value-of select="$truncatedTitle" />
-         </h1>
-         
-      </div>
-   </xsl:template>
-   
+
    <xsl:template name="mainControls">
-      <nav id="mainControls">
-         <ul>
-            <!-- add version/witness dropdown menu -->
-            <xsl:call-template name="versionDropdown"/>
-            
-            <!-- add additional nav/control menu -->
-            <xsl:call-template name="topMenu"/>
-         </ul>
-     </nav>
+      <div id="mainControlsWrapper">
+         <nav id="mainControls">
+            <ul>
+               <li><span class="topMenuButton"><a href="{$logoLink}">Home</a></span></li>
+               <!-- add version/witness dropdown menu -->
+               <xsl:call-template name="versionDropdown"/>
+
+               <!-- add additional nav/control menu -->
+               <xsl:call-template name="topMenu"/>
+            </ul>
+        </nav>
+      </div>
    </xsl:template>
    
    <!-- CREATE VERSION/WITNESS DROPDOWN MENU IN NAVIGATION BAR -->
    <xsl:template name="versionDropdown">
       
       <li>
-      <button id="selectVersion" class="topMenuButton dropdownButton">
+      <span id="selectVersion" class="topMenuButton dropdownButton">
          <xsl:value-of select="count($witnesses)"></xsl:value-of>
          <xsl:text> Total Versions</xsl:text>
          <img class="noDisplay" src="{$menuArrowUp}" alt="arrow up"/>
          <img src="{$menuArrowDown}" alt="arrow down"/>
-      </button>
+      </span>
          <ul>
             <xsl:attribute name="id">versionList</xsl:attribute>
             <xsl:attribute name="class">dropdown notVisible</xsl:attribute>
             <xsl:for-each select="$witnesses">
-                     <li>
-                         <xsl:attribute name="data-panelid">
-                                    <xsl:value-of select="@xml:id"></xsl:value-of>
-                          </xsl:attribute>
-                     <div>
-                                   <xsl:attribute name="class">listText</xsl:attribute>
-                                   
-                                <div>
-                                   <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
-                                   <a href="#" title="{$witTitle}"><xsl:text>Version </xsl:text><xsl:value-of select="@xml:id"/></a>
-                                </div> 
-                                
-                                 <div>
-                                    <button>
-                                       <xsl:text>OFF</xsl:text>
-                                    </button>
-                                 </div>
-                                </div>
-                             </li>
-                        </xsl:for-each>
+               <li>
+                <xsl:attribute name="data-panelid">
+                     <xsl:value-of select="@xml:id"></xsl:value-of>
+                 </xsl:attribute>
+                  <div>
+                       <xsl:attribute name="class">listText</xsl:attribute>
+
+                       <div>
+                          <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
+                          <a href="#" title="{$witTitle}"><xsl:value-of select="@xml:id"/></a>
+                       </div>
+
+                        <div>
+                           <span class="toggle">
+                              <xsl:text>OFF</xsl:text>
+                           </span>
+                        </div>
+                  </div>
+               </li>
+            </xsl:for-each>
          </ul>
-         
       </li>
   </xsl:template>
    
   
    <xsl:template name="topMenu">
+
       <xsl:if test="//tei:l[@n]">
          <li>
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
             <xsl:attribute name="title">Clicking this button turns the line numbers on or off.</xsl:attribute>
-            <button><xsl:attribute name="class">topMenuButton</xsl:attribute>
+            <span><xsl:attribute name="class">topMenuButton</xsl:attribute>
                 <xsl:text>Hide Line Numbers</xsl:text>
-            </button>
+            </span>
                
+         </li>
+      </xsl:if>
+      <xsl:if test="//tei:notesStmt/tei:note[@type='critIntro']">
+         <li>
+            <xsl:attribute name="data-panelid">critPanel</xsl:attribute>
+            <span>
+               <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
+               <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
+               <xsl:text>Introduction to Text</xsl:text>
+            </span>
          </li>
       </xsl:if>
          <li>
             <xsl:attribute name="data-panelid">bibPanel</xsl:attribute>
             <xsl:attribute name="title">Clicking this button triggers the bibliographic panel to appear or disappear.</xsl:attribute>
-            <button>
+            <span>
                <xsl:attribute name="class">topMenuButton</xsl:attribute>
                <xsl:text>Source Information</xsl:text>
-            </button>
+            </span>
          </li>
       <xsl:if test="//tei:body//tei:note">
          <li>
             <xsl:attribute name="data-panelid">notesPanel</xsl:attribute>
             <xsl:attribute name="title">Clicking this button triggers the notes panel to appear or disappear.</xsl:attribute>
-            <button>
+            <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                <xsl:text>Critical Notes</xsl:text>
-            </button>
+            </span>
          </li>
       </xsl:if>
-      <xsl:if test="//tei:notesStmt/tei:note[@type='critIntro']">
-            <li>
-               <xsl:attribute name="data-panelid">critPanel</xsl:attribute>
-               <button>
-                  <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
-                  <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
-                  <xsl:text>Introduction to Text</xsl:text>
-               </button>
-            </li>
-         </xsl:if>
    </xsl:template>
-   
-   
+
+
+   <xsl:template name="headline">
+      <div id="headline">
+
+         <h1>
+            <xsl:value-of select="$bothTitles" />
+         </h1>
+
+      </div>
+   </xsl:template>
    <!-- **********END MAIN BANNER TEMPLATES************ -->
    
    
@@ -290,8 +318,18 @@
    <!-- **********START MANUSCRIPT/TRANSCRIPTION PANEL AREA TEMPLATES************ -->
    
    <xsl:template name="manuscriptArea">
+
       <div id="mssArea">
+         <xsl:call-template name="headline" />
+
          <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc" />
+
+         <xsl:if test="//tei:witDetail[tei:media[@url]]">
+            <!-- Add an audio player if there are audio files encoded -->
+            <xsl:call-template name="audioPlayer">
+            </xsl:call-template>
+         </xsl:if>
+
          <xsl:for-each select="$witnesses">
                <xsl:call-template name="manuscriptPanel">
                   <xsl:with-param name="witId" select="@xml:id" />
@@ -327,28 +365,32 @@
             <xsl:value-of select="$witId"></xsl:value-of>
          </xsl:attribute>
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             <!-- To change the title of the panel banner of each version panel change the text below -->
             
-            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" />: <xsl:value-of select="//tei:witness[@xml:id = $witId]"/></xsl:variable>
+            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" /></xsl:variable>
             
             <a title="{$witTitle}"><xsl:value-of select="$witTitle"></xsl:value-of></a>
-            
+            <span class="fa fa-times closePanel" title="Close panel"></span>
+
          </div>
          <div class="mssContent">
-            <xsl:if test="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]">
-               <!-- Add an audio player if there are audio files encoded -->
-               <xsl:call-template name="audioPlayer">
-                  <xsl:with-param name="witId" select="$witId"></xsl:with-param>
-               </xsl:call-template>
-            </xsl:if>
+
             <xsl:if test="//tei:note[@type='image']/tei:witDetail[@target = concat('#',$witId)]//tei:graphic[@url]">
                <!-- Add icons for facsimile images if encoded -->
                <xsl:call-template name="facs-images">
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:call-template>
             </xsl:if>
+
+            <xsl:apply-templates select="//tei:front">
+               <xsl:with-param name="witId" select="$witId"></xsl:with-param>
+            </xsl:apply-templates>
+            
             <xsl:apply-templates select="//tei:body">
+               <xsl:with-param name="witId" select="$witId"></xsl:with-param>
+            </xsl:apply-templates>
+            
+            <xsl:apply-templates select="//tei:back">
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
             </xsl:apply-templates>
             
@@ -356,23 +398,24 @@
       </div>
       
    </xsl:template>
+
    
    <xsl:template name="audioPlayer">
-      <xsl:param name="witId"/>
+      <!--<xsl:param name="witId"/>-->
       <!--foreach witness with media-->
-      <xsl:for-each select="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]">
+      <xsl:for-each select="//tei:witDetail[tei:media[@url]]">
          
          <div>
             <xsl:attribute name="class">audioPlayer <xsl:value-of select="translate(@wit, '#', '')" /></xsl:attribute>
             <xsl:attribute name="data-version"><xsl:value-of select="translate(@wit, '#', '')" /></xsl:attribute>
             <!--<audio controls="controls">-->
             <audio controls="controls" preload="none">
-               <xsl:attribute name="id">
-                  <xsl:value-of select="$witId"/>
-               </xsl:attribute>
+               <!--<xsl:attribute name="id">-->
+                  <!--<xsl:value-of select="$witId"/>-->
+               <!--</xsl:attribute>-->
                
             <!--foreach source-->
-               <xsl:for-each select="//tei:witDetail[@target = concat('#',$witId) and tei:media[@url]]/tei:media">
+               <xsl:for-each select="//tei:witDetail[tei:media[@url]]/tei:media">
                
                <!--<source>-->
                <!--<xsl:attribute name="src"><xsl:value-of select="@url" /></xsl:attribute>
@@ -430,12 +473,12 @@
             <xsl:text>ui-widget-content ui-resizable panel noDisplay</xsl:text>
          </xsl:attribute>
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             Source Information
+            <span class="fa fa-times closePanel" title="Close panel"></span>
          </div>
          <div class="bibContent">
             <h2>
-               <xsl:value-of select="$fullTitle" />
+               <xsl:value-of select="$bothTitles" />
             </h2>
             <xsl:if test="tei:titleStmt/tei:author">
                <h3>
@@ -446,22 +489,7 @@
                <h4>Original Source</h4>
                <xsl:apply-templates select="tei:sourceDesc" />
             </xsl:if>
-            <h4>Versions List</h4>
-            <ul>
-               <xsl:for-each select="$witnesses">
-                  <li>
-                     <strong>
-                        <xsl:text></xsl:text>
-                        <xsl:value-of select="@xml:id" />
-                        <xsl:text>:</xsl:text>
-                     </strong>
-                     <xsl:text> </xsl:text>
-                     <xsl:value-of select="." />
-                  </li>
-               </xsl:for-each>
-            </ul>
 
-            <h4>Electronic Edition Information:</h4>
             <xsl:if test="tei:titleStmt/tei:respStmt">
                <h5>Responsibility Statement:</h5>
                <ul>
@@ -545,8 +573,9 @@
             </xsl:attribute>
            
                <div class="panelBanner">
-                  <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
                   Introduction to Text
+                  <span class="fa fa-times closePanel" title="Close panel"></span>
+
                </div>
                <div class="critContent">
                   <h4>Introduction to Text</h4>
@@ -602,13 +631,9 @@
 
    <xsl:template name="castItem" match="tei:castItem">
       <div class="classItem">
-         <span class="role">
-            Role:
-            <xsl:value-of select="./tei:role"> </xsl:value-of>
+         <span class="role">Role: <xsl:value-of select="./tei:role"> </xsl:value-of>
          </span>
-         <span class="played-by">
-            Played by:
-            <xsl:value-of select="./tei:actor"> </xsl:value-of>
+         <span class="played-by">Played by: <xsl:value-of select="./tei:actor"> </xsl:value-of>
          </span>
       </div>
    </xsl:template>
@@ -626,8 +651,9 @@
          </xsl:attribute>
          
          <div class="panelBanner">
-            <img class="closePanel" title="Close panel" src="{$closePanelButton}" alt="X (Close panel)" />
             Critical Notes
+            <span class="fa fa-times closePanel" title="Close panel"></span>
+
          </div>
          <xsl:for-each select="//tei:body//tei:note[not(@type='image')]">
             <xsl:if test="not(ancestor::tei:note)">
@@ -743,7 +769,7 @@
       </span>
    </xsl:template>
    
-   <xsl:template match="tei:head|tei:title|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
+   <xsl:template match="tei:head|tei:epigraph|tei:div|tei:div1|tei:div2|tei:div3|tei:div4|tei:div5|tei:div6|tei:div7|tei:div8|tei:lg|tei:ab|tei:sp|tei:stage">
       <xsl:param name="witId"></xsl:param>
      <div>
             <xsl:attribute name="class">
@@ -782,7 +808,7 @@
       <xsl:param name="imgId"/>
       
       <xsl:if test="$imgUrl != ''">
-         <img src="{$imageIcon}" alt="Facsimile Image Placeholder" title="Open the image viewer">
+         <img src="{$facsImageFolder}{$imgUrl}" alt="Facsimile Image" title="Open the image viewer">
             <xsl:attribute name="class">
                <xsl:text>imgLink</xsl:text>
                <xsl:if test="$wit != ''">
@@ -939,19 +965,19 @@
    
    <xsl:template match="tei:pb">
       <hr>
-            <xsl:attribute name="class">
-               <xsl:text>pagebreak</xsl:text>
-               <xsl:if test="@ed">
-                  <xsl:text> </xsl:text>
-                  <xsl:value-of select="translate(@ed,'#','')" />
-               </xsl:if>
-            </xsl:attribute>
+         <xsl:attribute name="class">
+            <xsl:text>pagebreak</xsl:text>
+            <xsl:if test="@ed">
+               <xsl:text> </xsl:text>
+               <xsl:value-of select="translate(@ed,'#','')" />
+            </xsl:if>
+         </xsl:attribute>
          <xsl:if test="@ed">
             <xsl:attribute name="data-version-id">
                <xsl:value-of select="translate(@ed,'#','')" />
             </xsl:attribute>
          </xsl:if>
-         </hr>
+      </hr>
          <xsl:if test="@facs">
             <xsl:variable name="imgId">
                <xsl:value-of select="translate(@facs,'#','')" />
@@ -1013,8 +1039,10 @@
          </xsl:when>
          <xsl:otherwise>
             <div class="paragraph">
-               <!-- Number every paragraph -->
-               <xsl:number />
+               <!-- Number every paragraph, but only in the body -->
+               <xsl:if test="ancestor::tei:body and (count(//tei:body/*/tei:p) > 1)">
+                  <xsl:number />
+               </xsl:if>
                <xsl:apply-templates>
                   <xsl:with-param name="witId" select="$witId"></xsl:with-param>
                </xsl:apply-templates>
@@ -1093,7 +1121,7 @@
       </xsl:choose>
    </xsl:template>
    
-   <xsl:template match="tei:space[@unit='char']">
+   <xsl:template match="tei:space[@unit='chars']">
       <xsl:variable name="quantity">
          <xsl:choose>
             <xsl:when test="@quantity">
@@ -1396,16 +1424,15 @@
                   </xsl:otherwise>
                </xsl:choose>
             </span>
-            <img class="viewerHandleRt closePanel" src="{$closePanelButton}" title="Close panel" alt="X (Close panel)" />
+            <span class="fa fa-times viewerHandleRt closePanel" title="Close panel"></span>
          </div>
          <div class="viewerContent" id="content_imgViewer">
-             
-            <!-- RB: jquery.panzoom plugin from https://github.com/timmywil/jquery.panzoom The links to the JS and CSS files are in the facsimile template-->
+
             
-               <div class="panzoom-parent" style="overflow:visible">
+               <div class="openseadragon-parent" style="overflow:visible">
             <!-- panzoom image -->
-            <div class="panzoom">
-                     <img width="200" border="1px 2px, 2px, 1px solid #000;" alt="image">
+            <div class="openseadragon">
+                     <img width="300" border="1px 2px, 2px, 1px solid #000;" alt="image">
                         <xsl:attribute name="src">
                            <xsl:value-of select="$facsImageFolder"/>
                            <xsl:value-of select="$imgUrl" />
@@ -1422,7 +1449,7 @@
                <button class="zoom-in">+</button>
                
             </div>
-            <!-- End implementation of jquery.panzoom -->
+            <!-- End implementation of openseadragon -->
          </div>
          
       </div>
@@ -1449,6 +1476,7 @@
          <xsl:value-of select="." />
       </a>
    </xsl:template>
+   
   <xsl:template match="tei:closer|tei:closer|tei:salute|tei:signed">
      <xsl:param name="witId"></xsl:param>
       <div>    
@@ -1460,8 +1488,7 @@
          </xsl:apply-templates>         
       </div>
    </xsl:template>
-   
-   
+     
    <xsl:template match="tei:head[(@type='section')]">
       <xsl:param name="witId"></xsl:param>
       <div class="section">
@@ -1473,27 +1500,6 @@
       </div>
       
    </xsl:template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    <xsl:template name="createTimelinePoints">   
         
@@ -1543,5 +1549,6 @@
             </xsl:choose>
          </xsl:for-each>
     </xsl:template>
-   
+
+
 </xsl:stylesheet>
