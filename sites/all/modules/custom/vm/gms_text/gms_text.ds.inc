@@ -29,6 +29,7 @@ function gms_text_ds_layout_settings_info() {
         10 => 'field_period',
         11 => 'field_genre',
         12 => 'field_keywords',
+        13 => 'field_tei_file',
       ),
       'right' => array(
         4 => 'field_introduction_to_the_text',
@@ -51,6 +52,7 @@ function gms_text_ds_layout_settings_info() {
       'field_period' => 'left',
       'field_genre' => 'left',
       'field_keywords' => 'left',
+      'field_tei_file' => 'left',
     ),
     'classes' => array(),
     'wrappers' => array(

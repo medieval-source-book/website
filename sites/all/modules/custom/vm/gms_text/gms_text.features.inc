@@ -47,21 +47,6 @@ function gms_text_image_default_styles() {
     ),
   );
 
-  // Exported image style: cropped_rectangle_large.
-  $styles['cropped_rectangle_large'] = array(
-    'label' => 'Cropped rectangle large',
-    'effects' => array(
-      3 => array(
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => 350,
-          'height' => 350,
-        ),
-        'weight' => 1,
-      ),
-    ),
-  );
-
   return $styles;
 }
 
