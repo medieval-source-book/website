@@ -1737,6 +1737,10 @@ label.option {
   border: 1px solid #c00;
 }
 
+div#block-views-exp-texts-page .views-exposed-form div.chosen-container {
+  max-width: 150px;
+}
+
 .form-table__sticky-header,
 .sticky-header {
   position: fixed;

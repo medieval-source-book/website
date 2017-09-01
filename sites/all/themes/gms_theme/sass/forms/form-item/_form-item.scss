@@ -145,6 +145,8 @@ label.option {
 div#block-views-exp-texts-page {
 
   .views-exposed-form {
-
+    div.chosen-container {
+      max-width: 150px;
+    }
   }
 }
