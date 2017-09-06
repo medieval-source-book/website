@@ -29,7 +29,8 @@ $zen-columns: 5;
   //  @include zen-grid-item(1, 1);
   //}
 
-  &__right-content {
+  &__right-content,
+  #node_text_full_group_right {
     @include zen-grid-item(4, 2);
   }
 

@@ -112,6 +112,16 @@ h1,
   font-family: "Alegreya", "DejaVu Serif", serif;
 }
 
+h1.node-title {
+  text-align: center;
+}
+
+@media (min-width: 999px) {
+  h1.node-title {
+    text-align: left;
+  }
+}
+
 h2 {
   font-size: 1.5rem;
   line-height: 2.25rem;
@@ -124,6 +134,10 @@ h2.text-section-title {
   background-color: #444;
   color: white;
   padding: 10px 0px 10px 10px;
+}
+
+h2.text-section-title:first-of-type {
+  margin-top: 0;
 }
 
 h3 {
@@ -218,6 +232,12 @@ sup {
   top: -.5em;
 }
 
+div.label-inline {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
 .divider,
 hr {
   margin: 1.5rem 0;
@@ -280,43 +300,6 @@ hr {
 p,
 pre {
   margin: 1.5rem 0;
-}
-
-div.group-left {
-  width: 35% !important;
-}
-
-div.group-left div.field-name-field-icon {
-  width: 100%;
-  height: 30vh;
-}
-
-div.group-left div.text-information {
-  line-height: 1.7em;
-  font-size: small;
-}
-
-div.group-left div.text-information h2 {
-  border-bottom: 0 !important;
-}
-
-div.group-left div.text-information div.field {
-  font-size: small;
-  margin-bottom: 5px;
-}
-
-div.group-left div.text-information div.field div.label-inline {
-  font-weight: bold;
-  display: inline;
-}
-
-div.group-left div.text-information div.field-items {
-  max-width: 66%;
-  /*forces items to wrap*/
-}
-
-div.group-right {
-  width: 64% !important;
 }
 
 div.field-name-field-icon-source div.field-item {
@@ -598,6 +581,7 @@ th {
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
+    clear: both;
     padding-left: 12px;
     padding-right: 13px;
   }
@@ -675,6 +659,7 @@ th {
     width: 66.66667%;
     margin-left: 33.33333%;
     margin-right: -100%;
+    clear: none;
   }
   [dir="rtl"] .layout-3col__right-content {
     float: right;
@@ -788,14 +773,16 @@ th {
   clear: both;
 }
 
-.layout-4col__right-content {
+.layout-4col__right-content,
+.layout-4col #node_text_full_group_right {
   float: left;
   width: 80%;
   margin-left: 20%;
   margin-right: -100%;
 }
 
-[dir="rtl"] .layout-4col__right-content {
+[dir="rtl"] .layout-4col__right-content, [dir="rtl"]
+.layout-4col #node_text_full_group_right {
   float: right;
   margin-right: 20%;
   margin-left: -100%;
@@ -1373,7 +1360,7 @@ div.view-id-texts .views-row {
 .navbar__item:hover,
 .navbar li:hover, .main-navigation .links li:hover,
 .main-navigation .menu li:hover {
-  background-color: #cccccc;
+  background-color: #666666;
 }
 
 .navbar__item a,

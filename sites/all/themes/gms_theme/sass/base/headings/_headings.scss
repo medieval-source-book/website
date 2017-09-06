@@ -21,6 +21,14 @@ h1,
   font-family: $header-font;
 }
 
+h1.node-title {
+  text-align: center;
+
+  @include zen-respond-to(xl) {
+    text-align: left;
+  }
+}
+
 h2,
 %h2 {
   @include type-layout(xl, 1.5);
@@ -33,6 +41,10 @@ h2.text-section-title {
   background-color: $heading-bg;
   color: $heading-fg;
   padding: 10px 0px 10px 10px;
+}
+
+h2.text-section-title:first-of-type {
+  margin-top: 0;
 }
 
 h3,

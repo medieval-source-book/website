@@ -332,7 +332,7 @@ function appearance_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'mayo';
+  $strongarm->value = 'gms_theme';
   $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1423,7 +1423,7 @@ function appearance_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_settings';
   $strongarm->value = array(
-    'toggle_logo' => 0,
+    'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
     'toggle_node_user_picture' => 1,
@@ -1433,8 +1433,7 @@ function appearance_settings_strongarm() {
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
     'default_logo' => 0,
-    'logo_path' => 'public://GMS_logo.png',
-    'logo_upload' => '',
+    'logo_path' => 'public://GMS Design Corrected_0.png',
     'default_favicon' => 0,
     'favicon_path' => 'public://GMS_logo_0.png',
     'favicon_upload' => '',

@@ -82,6 +82,7 @@
     &__left-sidebar,
     &__right-sidebar {
       @include zen-grid-item(2, 1);
+      @include zen-new-row(both);
       // Since we changed the gutter size for this media query, we need to
       // re-apply the padding to every grid item.
       @include zen-apply-gutter-padding();
@@ -118,6 +119,7 @@
 
     &__right-content {
       @include zen-grid-item(2, 2);
+      @include zen-new-row(none);
     }
 
     &__left-sidebar,

@@ -103,7 +103,7 @@
       <?php print $breadcrumb; ?>
       <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>
       <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
+      <?php if (($title) && ($variables['node']->type != 'text')): ?>
         <h1><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
