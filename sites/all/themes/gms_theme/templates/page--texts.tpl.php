@@ -76,25 +76,25 @@
   <?php print render($page['navigation']); ?>
 
 
-  <div class="layout-4col layout-swap">
+  <div class="layout-6col layout-swap">
 
     <?php
       // Render the sidebars to see if there's anything in them.
       $sidebar_first  = render($page['sidebar_first']);
       $sidebar_second = render($page['sidebar_second']);
       // Decide on layout classes by checking if sidebars have content.
-      $content_class = 'layout-4col__full';
+      $content_class = 'layout-6col__full';
       $sidebar_first_class = $sidebar_second_class = '';
       if ($sidebar_first && $sidebar_second):
-        $content_class = 'layout-4col__right-content';
-        $sidebar_first_class = 'layout-4col__first-left-sidebar';
-        $sidebar_second_class = 'layout-4col__second-left-sidebar';
+        $content_class = 'layout-6col__right-content';
+        $sidebar_first_class = 'layout-6col__first-left-sidebar';
+        $sidebar_second_class = 'layout-6col__second-left-sidebar';
       elseif ($sidebar_second):
-        $content_class = 'layout-4col__left-content';
-        $sidebar_second_class = 'layout-4col__right-sidebar';
+        $content_class = 'layout-6col__left-content';
+        $sidebar_second_class = 'layout-6col__right-sidebar';
       elseif ($sidebar_first):
-        $content_class = 'layout-4col__right-content';
-        $sidebar_first_class = 'layout-4col__left-sidebar';
+        $content_class = 'layout-6col__right-content';
+        $sidebar_first_class = 'layout-6col__left-sidebar';
       endif;
     ?>
 
@@ -102,11 +102,6 @@
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>
-      <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
-        <h1><?php print $title; ?></h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
       <?php print $messages; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>

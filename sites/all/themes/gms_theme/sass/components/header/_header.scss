@@ -12,6 +12,8 @@
 %header {
   @extend %clearfix;
 
+  margin-left: $zen-gutters / 2;
+
   // Wrapping link for logo.
   &__logo {
     float: left;
@@ -47,7 +49,7 @@
 
   // The link around the name of the website.
   &__site-link {
-    color: $sitename-color;
+    color: color(site-name);
 
     &:link,
     &:visited {
@@ -64,6 +66,7 @@
   &__site-slogan {
     margin: 5px 0;
     font-size: 20px;
+    color: color(site-slogan);
   }
 
   // The secondary menu (login, etc.)

@@ -55,6 +55,11 @@ h3,
   font-family: $header-font;
 }
 
+// For the "Text Information" header
+#node_text_full_group_metadata h3 {
+  margin-bottom: 0;
+}
+
 h4,
 %h4 {
   @include type-layout(m, 1);

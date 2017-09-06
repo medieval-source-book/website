@@ -148,6 +148,10 @@ h3 {
   font-family: "Alegreya", "DejaVu Serif", serif;
 }
 
+#node_text_full_group_metadata h3 {
+  margin-bottom: 0;
+}
+
 h4 {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -515,11 +519,41 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
+  max-width: 100%;
 }
 
 td,
 th {
   padding: 0;
+  text-align: left;
+  font-weight: normal;
+}
+
+tr {
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+
+tr.odd {
+  background-color: #eeeeee;
+}
+
+tr td {
+  white-space: nowrap;
+  max-width: 100%;
+  padding-right: 15px;
+}
+
+td.views-field-field-keywords {
+  white-space: normal;
+}
+
+tr td:last-of-type {
+  padding-left: 0;
+}
+
+td.active {
+  background-color: inherit !important;
 }
 
 .layout-3col {
@@ -933,6 +967,10 @@ footer p.copyright {
   text-align: center;
 }
 
+.header {
+  margin-left: 20px;
+}
+
 .header__logo {
   float: left;
   margin: 0 10px 0 0;
@@ -962,7 +1000,7 @@ footer p.copyright {
 }
 
 .header__site-link {
-  color: dimgray;
+  color: #666666;
 }
 
 .header__site-link:link, .header__site-link:visited {
@@ -976,6 +1014,7 @@ footer p.copyright {
 .header__site-slogan {
   margin: 5px 0;
   font-size: 20px;
+  color: #000;
 }
 
 .header__secondary-menu {
@@ -1416,7 +1455,7 @@ span.field-label {
 .navbar__item.active,
 .navbar li.active, .main-navigation .links li.active,
 .main-navigation .menu li.active {
-  background-color: #86d1ff;
+  background-color: black;
 }
 
 .navbar__item a,
