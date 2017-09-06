@@ -23,6 +23,7 @@ $chroma: add-colors((
   white:                  #fff,
 
   blue:                   #0072b9,
+  dark-blue:              ('blue' darken 40%),
   red:                    #c00,
   link-red:               #b52e1c,
   yellow:                 #fd0,

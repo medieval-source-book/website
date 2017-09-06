@@ -46,6 +46,10 @@
       background-color: color(grey-dark);
     }
 
+    &.active {
+      background-color: color(dark-blue);
+    }
+
     a {
       padding: 2px 6px;
       font-weight: normal;

@@ -112,9 +112,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_author',
-    'label' => 'Author |',
+    'label' => 'Author',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -191,9 +192,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_genre',
-    'label' => 'Genre |',
+    'label' => 'Genre',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -464,9 +466,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_keywords',
-    'label' => 'Keywords |',
+    'label' => 'Keywords',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -504,9 +507,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_language',
-    'label' => 'Language |',
+    'label' => 'Language',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -582,9 +586,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_period',
-    'label' => 'Period |',
+    'label' => 'Period',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -784,19 +789,19 @@ function gms_text_field_default_field_instances() {
   t('About this Edition');
   t('An icon for the main page display');
   t('Audio');
-  t('Author |');
+  t('Author');
   t('Further Reading');
-  t('Genre |');
+  t('Genre');
   t('Icon');
   t('Icon Source');
   t('Introduction to the Manuscript');
   t('Introduction to the Text');
-  t('Keywords |');
-  t('Language |');
+  t('Keywords');
+  t('Language');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Original Language Title');
-  t('Period |');
+  t('Period');
   t('Short Title');
   t('Source of the icon image');
   t('TEI');

@@ -1,42 +1,24 @@
-// Responsive 5-column grid
+// Responsive 6-column grid
 //
 // See 3-column grid file for details; this one is just a slightly tweaked copy - MLW
-$zen-columns: 5;
+$zen-columns: 6;
 
-.layout-4col,
-%layout-4col {
+.layout-6col,
+%layout-6col {
   // We set the context to flow, so that this container can be used in most
   // places in the HTML, i.e. it must be nested inside something that has
   // padding.
   @include zen-grid-container($context: flow);
   @include zen-apply-gutter-padding();
 
-
-  //&__full,
-  //&__left-content,
-  //&__right-content,
-  //&__left-sidebar,
-  //&__right-sidebar,
-  //&__first-left-sidebar,
-  //&__second-left-sidebar,
-  //&__col-1,
-  //&__col-2,
-  //&__col-3,
-  //&__col-4,
-  //&__col-x {
-  //  @include zen-new-row(both);
-  //  @include zen-grid-item-base();
-  //  @include zen-grid-item(1, 1);
-  //}
-
-  &__right-content,
-  #node_text_full_group_right {
-    @include zen-grid-item(4, 2);
+  &__right-content {
+    @include zen-grid-item(5, 2);
   }
 
   &__left-sidebar {
     @include zen-grid-item(1, 1);
   }
+
 
   //@include zen-respond-to(m) {
   //  // Since our container's context is "flow" and we changed the gutter size,
