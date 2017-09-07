@@ -15,6 +15,9 @@
 // 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
+
+@import "buttons.css";
+
 .button,
 %button,
 button,
@@ -33,9 +36,12 @@ button,
 [type='reset'],
 [type='submit'] {
   @extend %button--disabled;
+  @extend .button;
+  @extend .button-rounded;
   // Some styles don't apply to <a> links since they are inline elements by default.
   display: inline-block;
   padding: 2px 6px;
+  margin: 0 6px;
   // Address Firefox 4+ setting `line-height` on `input` using `!important` in
   // the UA stylesheet. And prevent its "line-height: normal" rule below from
   // breaking the "appearance: button" styling on the input elements.

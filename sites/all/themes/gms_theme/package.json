@@ -7,6 +7,7 @@
   "devDependencies": {
     "breakpoint-sass": "^2.7.0",
     "browser-sync": "^2.12.3",
+    "buttons": "^2.0.0",
     "chroma-sass": "^1.2.4",
     "del": "^2.2.0",
     "eslint": "^2.9.0",
