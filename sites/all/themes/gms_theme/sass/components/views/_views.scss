@@ -5,80 +5,63 @@
 
 
 // Zen grid layout for the text grid
-.view-id-texts .view-content {
-  $zen-column-count: 6;
-  $zen-gutter-method: margin;
-  $zen-gutters: 2%;
-  @include zen-grid-container();
+.layout-6col,
+%layout-6col {
+  .view-id-texts .view-content {
+    $zen-column-count: 6;
+    $zen-gutter-method: margin;
+    $zen-gutters: 2%;
+    @include zen-grid-container();
 
-  .views-field-field-short-title,
-  .views-field-field-original-language-title {
-    font-size: small;
-    line-height: 1rem;
-    margin-right: 10%;
-    text-align: center;
+    .views-field-field-short-title,
+    .views-field-field-original-language-title {
+      font-size: small;
+      line-height: 1rem;
+      margin-right: 10%;
+      text-align: center;
+    }
+
+    .views-row {
+      @include zen-grid-item-base();
+      @include zen-new-row(both);
+    }
+
+    .views-column {
+      align-items: center;
+      @include zen-apply-gutter-padding();
+      margin-bottom: 5%;
+    }
+
+    .views-column-1 {
+      @include zen-grid-item(2, 1);
+    }
+
+    .views-column-2 {
+      @include zen-grid-item(2, 3);
+    }
+
+    .views-column-3 {
+      @include zen-grid-item(2, 5);
+    }
+  }
+
+  .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 1em !important;
   }
 }
 
-.views-row {
-  @include zen-grid-item-base();
-  @include zen-new-row(both);
-}
 
-.views-column {
-  align-items: center;
-  @include zen-apply-gutter-padding();
-  margin-bottom: 5%;
-}
-
-.views-column-1 {
-  @include zen-grid-item(2, 1);
-}
-
-.views-column-2 {
-  @include zen-grid-item(2, 3);
-}
-
-.views-column-3 {
-  @include zen-grid-item(2, 5);
-}
-
-//div.view-id-texts {
-
-  //@include zen-grid-container();
-  //$zen-column-count: 6;
-  //$zen-gutters: 2px;
-
-  //.views-row {
-    //@include zen-grid-item-base();
-    //@include zen-new-row(both);
-
-    //display: flex;
-    //flex-wrap: wrap;
-    //align-items: baseline;
-    //justify-content: center;
-
-    //.views-column {
-    //  //padding: 0 $zen-gutters;
-    //  //width: 90%;
-    //  padding-right: $zen-gutters;
-    //}
-    //
-    //.views-column-last {
-    //  padding-right: 0;
-    //}
-
-
-    //.views-column-1 {
-    //  @include zen-grid-item(2, 1);
-    //}
-    //
-    //.views-column-2 {
-    //  @include zen-grid-item(2, 3);
-    //}
-    //
-    //.views-column-3 {
-    //  @include zen-grid-item(2, 5);
-    //}
+//@include zen-respond-to(s) {
+//  $zen-columns: 2;
+//  @include zen-grid-container($context: flow);
+//
+//  .layout-6col {
+//    &__left-sidebar,
+//    .views-column {
+//      @include zen-apply-gutter-padding();
+//      @include zen-new-row();
+//      @include zen-grid-item(2, 1);
+//    }
 //  }
 //}
+

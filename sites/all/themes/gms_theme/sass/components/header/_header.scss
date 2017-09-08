@@ -13,6 +13,11 @@
   @extend %clearfix;
 
   margin-left: $zen-gutters / 2;
+  padding-top: $base-line-height;
+
+  @include respond-to(l) {
+    margin-top: 0;
+  }
 
   // Wrapping link for logo.
   &__logo {
@@ -35,9 +40,13 @@
   // Wrapper for website name and slogan.
   &__name-and-slogan {
     float: left;
-    padding-top: $base-line-height;
     font-family: $header-font;
     color: $sitename-color;
+    padding-top: 0;
+
+    @include respond-to(l) {
+      padding-top: $base-line-height;
+    }
   }
 
   // The name of the website.

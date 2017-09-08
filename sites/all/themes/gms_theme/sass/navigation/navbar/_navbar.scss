@@ -37,17 +37,17 @@
     list-style-image: none;
     margin-right: 0;
     padding: 2px 10px;
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-color: $border-color;
+    //border-right-style: solid;
+    //border-right-width: 1px;
+    //border-color: $border-color;
     cursor: pointer;
 
     &:hover {
-      background-color: color(grey-dark);
+      background-color: color(blue);
     }
 
     &.active {
-      background-color: color(dark-blue);
+      background-color: color(light-blue);
     }
 
     a {
