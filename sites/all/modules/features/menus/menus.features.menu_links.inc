@@ -10,6 +10,24 @@
 function menus_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: main-menu_about:node/61.
+  $menu_links['main-menu_about:node/61'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/61',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'options' => array(
+      'attributes' => array(),
+      'identifier' => 'main-menu_about:node/61',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_add-text:node/add/text.
   $menu_links['main-menu_add-text:node/add/text'] = array(
     'menu_name' => 'main-menu',
@@ -50,6 +68,26 @@ function menus_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_contact:contact.
+  $menu_links['main-menu_contact:contact'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'contact',
+    'router_path' => 'contact',
+    'link_title' => 'Contact',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_contact:contact',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_home:<front>.
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -65,6 +103,23 @@ function menus_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -50,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_submissions:node/66.
+  $menu_links['main-menu_submissions:node/66'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/66',
+    'router_path' => 'node/%',
+    'link_title' => 'Submissions',
+    'options' => array(
+      'identifier' => 'main-menu_submissions:node/66',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
     'customized' => 1,
   );
   // Exported menu link: user-menu_log-out:user/logout.
@@ -125,11 +180,14 @@ function menus_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('About');
   t('Add Text');
   t('All Texts');
+  t('Contact');
   t('Home');
   t('Log out');
   t('Login');
+  t('Submissions');
   t('User account');
 
   return $menu_links;
