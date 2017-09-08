@@ -56,6 +56,7 @@ features[variable][] = simplify_taxonomy_language
 features[variable][] = site_slogan
 features[variable][] = theme_bootstrap_settings
 features[variable][] = theme_default
+features[variable][] = theme_gms_theme_settings
 features[variable][] = theme_mayo_files_directory
 features[variable][] = theme_mayo_settings
 features[variable][] = theme_settings
