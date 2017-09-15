@@ -27,6 +27,7 @@ html [type='button'],
 [type='submit'] {
   -moz-appearance: button;
   -webkit-appearance: button; // 2
+  font-family: $default-font;
 }
 
 .button,

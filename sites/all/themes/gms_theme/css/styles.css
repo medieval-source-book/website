@@ -2368,6 +2368,7 @@ html [type='button'],
 [type='submit'] {
   -moz-appearance: button;
   -webkit-appearance: button;
+  font-family: "Roboto", Verdana, Tahoma, "DejaVu Sans", sans-serif;
 }
 
 .button,
@@ -3383,6 +3384,10 @@ span.field-label {
 
 .layout-6col .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1em !important;
+}
+
+#views-exposed-form-texts-page input#edit-reset {
+  margin-left: 0;
 }
 
 @media print {

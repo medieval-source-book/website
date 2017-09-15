@@ -27,6 +27,7 @@
       text-align: center;
     }
 
+
     .views-field-field-icon {
       padding-bottom: .5em;
     }
@@ -57,6 +58,12 @@
 
   .views-exposed-form .views-exposed-widget .form-submit {
     margin-top: 1em !important;
+  }
+}
+
+#views-exposed-form-texts-page {
+  input#edit-reset {
+    margin-left: 0;
   }
 }
 
