@@ -2861,7 +2861,7 @@ td.active {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
-  max-width: 1165px;
+  max-width: 1825px;
 }
 
 @media (min-width: 777px) {
@@ -3310,11 +3310,16 @@ span.field-label {
   clear: both;
 }
 
+.layout-6col .view-id-texts .view-content img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .layout-6col .view-id-texts .view-content .views-field-field-short-title,
 .layout-6col .view-id-texts .view-content .views-field-field-original-language-title {
   font-size: small;
   line-height: 1rem;
-  margin-right: 10%;
   text-align: center;
 }
 
