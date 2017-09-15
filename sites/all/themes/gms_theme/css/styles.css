@@ -2599,6 +2599,11 @@ td.active {
   margin-left: -100%;
 }
 
+.layout-3col__full {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 @media (min-width: 777px) {
   .layout-3col {
     margin-left: -12px;
@@ -2636,6 +2641,10 @@ td.active {
   [dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar {
     padding-left: 13px;
     padding-right: 12px;
+  }
+  .layout-3col__full {
+    padding-left: 25px;
+    padding-right: 25px;
   }
   .layout-3col__first-left-sidebar, .layout-3col__col-1, .layout-3col__col-3, .layout-3col__col-x:nth-child(2n + 1) {
     float: left;
@@ -2680,6 +2689,8 @@ td.active {
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   [dir="rtl"] .layout-3col__full {
     float: right;

@@ -71,6 +71,11 @@
     @include zen-grid-item(1, 1);
   }
 
+  &__full {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   @include zen-respond-to(m) {
     // Since our container's context is "flow" and we changed the gutter size,
     // we need to re-apply the container's negative left/right margins.
@@ -86,6 +91,11 @@
       // Since we changed the gutter size for this media query, we need to
       // re-apply the padding to every grid item.
       @include zen-apply-gutter-padding();
+    }
+
+    &__full {
+      padding-left: 25px;
+      padding-right: 25px;
     }
 
     &__first-left-sidebar,
@@ -111,6 +121,8 @@
   @include zen-respond-to(xl) {
     &__full {
       @include zen-grid-item(3, 1);
+      padding-left: 25px;
+      padding-right: 25px;
     }
 
     &__left-content {
