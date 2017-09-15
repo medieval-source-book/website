@@ -12,6 +12,7 @@
     $zen-gutter-method: margin;
     $zen-gutters: 2%;
     @include zen-grid-container();
+    padding-top: 2rem;
 
     .views-field-field-short-title,
     .views-field-field-original-language-title {

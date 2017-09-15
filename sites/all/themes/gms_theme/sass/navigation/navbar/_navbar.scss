@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   position: absolute;
-  padding: 4px 0 4px $zen-gutters * 2;
+  padding: 0 0 0 $zen-gutters;
   text-align: left;
   background: $navbar-bg;
   font-family: $menu-font;
@@ -43,11 +43,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: color(blue);
+      background-color: $navbar-hover;
     }
 
     &.active {
-      background-color: color(light-blue);
+      background-color: $navbar-active;
     }
 
     a {

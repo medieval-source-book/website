@@ -2832,6 +2832,7 @@ td.active {
   width: 16.66667%;
   margin-left: 0%;
   margin-right: -100%;
+  padding-left: 3%;
 }
 
 [dir="rtl"] .layout-6col__left-sidebar {
@@ -2974,9 +2975,21 @@ footer p.copyright {
   text-align: center;
 }
 
+footer #block-system-user-menu ul {
+  background: #666666;
+}
+
+footer #block-system-user-menu ul li {
+  list-style: none !important;
+  float: left;
+  padding-left: 10px;
+  font-variant: all-small-caps;
+}
+
 .header {
-  margin-left: 20px;
+  margin-left: 0;
   padding-top: 24px;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 860px) {
@@ -3004,7 +3017,7 @@ footer p.copyright {
 .header__name-and-slogan {
   float: left;
   font-family: "Alegreya", "DejaVu Serif", serif;
-  color: dimgray;
+  color: black;
   padding-top: 0;
 }
 
@@ -3020,7 +3033,7 @@ footer p.copyright {
 }
 
 .header__site-link {
-  color: #666666;
+  color: black;
 }
 
 .header__site-link:link, .header__site-link:visited {
@@ -3282,6 +3295,10 @@ span.field-label {
   word-wrap: break-word;
 }
 
+.layout-6col .view-id-texts .view-content {
+  padding-top: 2rem;
+}
+
 .layout-6col .view-id-texts .view-content:before {
   content: "";
   display: table;
@@ -3439,10 +3456,10 @@ span.field-label {
   left: 0;
   right: 0;
   position: absolute;
-  padding: 4px 0 4px 80px;
+  padding: 0 0 0 40px;
   text-align: left;
-  background: #2b2b2b;
-  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  background: #666666;
+  font-family: "Roboto", Verdana, Tahoma, "DejaVu Sans", sans-serif;
   z-index: 10;
 }
 
@@ -3476,7 +3493,7 @@ span.field-label {
 .navbar__item.active,
 .navbar li.active, .main-navigation .links li.active,
 .main-navigation .menu li.active {
-  background-color: #07a0ff;
+  background-color: black;
 }
 
 .navbar__item a,

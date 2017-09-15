@@ -12,8 +12,9 @@
 %header {
   @extend %clearfix;
 
-  margin-left: $zen-gutters / 2;
+  margin-left: 0;
   padding-top: $base-line-height;
+  padding-bottom: 2rem;
 
   @include respond-to(l) {
     margin-top: 0;
@@ -58,7 +59,7 @@
 
   // The link around the name of the website.
   &__site-link {
-    color: color(site-name);
+    color: $sitename-color;
 
     &:link,
     &:visited {

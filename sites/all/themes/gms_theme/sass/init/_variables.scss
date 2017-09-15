@@ -83,8 +83,9 @@ $impact:          Impact, 'Arial Narrow', Helvetica, sans-serif;
 $menlo:           Menlo, 'DejaVu Sans Mono', 'Ubuntu Mono', Courier, 'Courier New', monospace, sans-serif;
 
 $header-font: 'Alegreya', 'DejaVu Serif', serif;
-$menu-font: $verdana;
 $default-font: 'Roboto', $verdana;
+$menu-font: $default-font;
+
 
 // The font faces you specify in the $typefaces map can be used in the
 // typeface() mixin.

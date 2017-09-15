@@ -17,6 +17,7 @@ $zen-columns: 6;
 
   &__left-sidebar {
     @include zen-grid-item(1, 1);
+    padding-left: 3%;
   }
 
   // Place last so it can override the padding of grid items.

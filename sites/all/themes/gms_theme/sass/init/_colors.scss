@@ -103,9 +103,11 @@ $chroma: add-colors('functional', (
 $chroma-active-scheme: 'functional';
 
 // Colors
-$sitename-color: dimgray;
-$navbar-bg: #2b2b2b;
+$sitename-color: black;
+$navbar-bg: color(grey-dark);
 $navbar-fg: white;
+$navbar-hover: color(blue);
+$navbar-active: black;
 $heading-bg: #444;
 $heading-fg: white;
 $vm-button: #2c577f;
