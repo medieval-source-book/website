@@ -3390,6 +3390,10 @@ span.field-label {
   margin-left: 0;
 }
 
+#views-exposed-form-texts-table-page input#edit-reset {
+  margin-top: 1em;
+}
+
 @media print {
   .breadcrumb {
     display: none;
