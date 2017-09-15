@@ -1,0 +1,18 @@
+.foo {
+
+}
+
+.bar {
+  content: 'baz';
+
+  .qux {}
+}
+
+.bar{}
+
+.baz {
+	// a comment
+	/* and
+	   yet
+	   another */
+}

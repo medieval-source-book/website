@@ -1,0 +1,85 @@
+// Dependencies.
+@import 'components/visually-hidden/visually-hidden';
+
+// Navbar
+//
+// A simple method to get navigation links to appear in one line.
+//
+// Markup: navbar.twig
+//
+// Style guide: navigation.navbar
+
+.navbar,
+%navbar {
+  margin-top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 0 0 0 $zen-gutters;
+  text-align: left;
+  background: $navbar-bg;
+  font-family: $menu-font;
+  z-index: 10;
+
+  @include respond-to(xs) {
+
+  }
+
+  @include rtl() {
+    text-align: right;
+  }
+
+  &__item,
+  li {
+    color: $navbar-fg;
+    float: left;
+    list-style-type: none;
+    list-style-image: none;
+    margin-right: 0;
+    padding: 2px 10px;
+    //border-right-style: solid;
+    //border-right-width: 1px;
+    //border-color: $border-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $navbar-hover;
+    }
+
+    &.active {
+      background-color: $navbar-active;
+    }
+
+    a {
+      padding: 2px 6px;
+      font-weight: normal;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      color: $heading-fg;
+      text-decoration: none;
+    }
+
+    @include rtl() {
+      float: right;
+      padding: 0 0 0 10px;
+    }
+  }
+}
+
+//
+// Drupal selectors.
+//
+
+.main-navigation {
+  // Hide the block titles put into the main-navigation area of the page.tpl.php.
+  .block-menu .block__title,
+  .block-menu-block .block__title {
+    @extend %visually-hidden;
+  }
+
+  // Main menu and secondary menu links and menu block links.
+  .links,
+  .menu {
+    @extend %navbar;
+  }
+}

@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Test zen-float()
+ */
+
+@import "zen-grids/flow";
+
+#test-zen-float {
+  /* Test zen-float() */
+  @include zen-float();
+
+  /* Test zen-float() with $zen-direction: right */
+  $zen-direction: right !global;
+  @include zen-float();
+  $zen-direction: left !global;
+
+  /* Test zen-float(left) */
+  @include zen-float(left);
+
+  /* Test zen-float(left, $switch-direction: TRUE) */
+  @include zen-float(left, $switch-direction: TRUE);
+
+  /* Test zen-float() with $rtl-selector */
+  @include zen-float(left, $rtl-selector: '[dir="rtl"]');
+}

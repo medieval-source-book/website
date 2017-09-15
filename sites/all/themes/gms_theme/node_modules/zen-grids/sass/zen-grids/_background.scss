@@ -1,0 +1,196 @@
+// Background module
+//
+// During site development, it’s often useful to have a background image that shows the columns of the grid. The "Background grid image" module for the Zen Grids system provides a mixin to set this background image.
+//
+// Note: This module is not automatically loaded with `@import "zen-grids";`. Before using it, you must first import the module with:
+// ```
+// @import "zen-grids/background";
+// ```
+//
+// Weight: 20
+//
+// Style guide: background
+
+@import "./grids";
+// Add the default set of background images.
+@import "./internal/variables-background";
+
+
+// zen-grid-background()
+//
+// Adds a background grid image to an element’s background.
+//
+// Since the mixins of Zen Grids use the `$column-position` for placement of grid items, the background grid image produced by this mixin numbers all of the columns. The `$grid-numbers` parameter specifies how to place the column numbers in the background grid image. By default, column numbers are displayed across the top of the background grid image and then displayed in reverse order along the bottom of the background grid image. `$grid-numbers` can be set to: `both` (the default), `top` (don’t display the bottom numbers), `bottom` (don’t display the top numbers), or `none` (don’t display any column numbers.)
+//
+// Note: when the `$direction` is set to `right` (for RTL languages), the column numbers are displayed right-to-left along the top and left-to-right along the bottom.
+//
+// The easiest way to align this background grid image to the actual grid is to apply this mixin to the same element that `zen-grid-container()` is applied to.
+//
+// ```
+// .layout-container {
+//   @include zen-grid-background();
+//   @include zen-layout(m) {
+//     @include zen-grid-background();
+//   }
+//   @include zen-layout(l) {
+//     @include zen-grid-background();
+//   }
+// }
+// ```
+//
+// Common usage:
+// ```
+// @include zen-grid-background();
+// ```
+//
+// $columns          = $zen-columns - The number of columns for this background. See the docs for [`$zen-columns`](section-grids.html#kssref-grids-variables-zen-columns).
+// $gutters          = $zen-gutters - The width of the gutters for this background. See the docs for [`$zen-gutters`](section-grids.html#kssref-grids-variables-zen-gutters).
+// $gutter-method    = $zen-gutter-method - The gutter method to use for this background. See the docs for [`$zen-gutter-method`](section-grids.html#kssref-grids-variables-zen-gutter-method).
+// $grid-width       = $zen-grid-width - The width of the entire grid for this background. See the docs for [`$zen-gutter-method`](section-grids.html#kssref-grids-variables-fixed-zen-grid-width).
+// $grid-color       = $zen-grid-color - The column color to use for the background grid image.
+// $grid-numbers     = $zen-grid-numbers - Specify the set of images used for the numbering of the columns in the background grid image.
+// $direction        = $zen-direction - The direction to use for this background. See the docs for [`$zen-direction`](section-grids.html#kssref-grids-variables-rtl-zen-direction).
+// $switch-direction = $zen-switch-direction - Whether to switch the default direction for this background. See the docs for [`$zen-switch-direction`](section-grids.html#kssref-grids-variables-rtl-zen-switch-direction).
+// $rtl-selector     = $zen-rtl-selector - The RTL selector for this background. See the docs for [`$zen-rtl-selector`](section-grids.html#kssref-grids-variables-rtl-zen-rtl-selector).
+//
+// Style guide: background.zen-grid-background
+@mixin zen-grid-background(
+  $columns              : $zen-columns,
+  $gutters              : $zen-gutters,
+  $gutter-method        : $zen-gutter-method,
+  $grid-width           : $zen-grid-width,
+  $grid-color           : $zen-grid-color,
+  $grid-numbers         : $zen-grid-numbers,
+  $direction            : $zen-direction,
+  $switch-direction     : $zen-switch-direction,
+  $rtl-selector         : $zen-rtl-selector
+) {
+
+  // Check if the global variable is turning off background images.
+  @if $display-zen-grid-background {
+
+    $bg-images            : ();
+    $gradient             : ();
+    $left-half-gradient   : ();
+    $right-half-gradient  : ();
+
+    // Calculate half of the unit width.
+    $unit-width           : zen-unit-width($columns, $gutters, $gutter-method, $grid-width);
+    $half-unit-width      : $unit-width / 2;
+
+    // Determine the float direction.
+    $dir                  : $direction;
+    @if $switch-direction {
+      $dir                : zen-direction-switch($dir);
+    }
+
+    @for $count from 1 through $columns {
+      // First add the grid numbers to the background images list.
+      $position: (2 * $count - 1) * $half-unit-width;
+      @if $gutter-method == margin {
+        $position: $position + ($count - 1) * $gutters;
+      }
+      $reverse-count: $columns + 1 - $count;
+
+      @if $dir == left {
+        @if $grid-numbers == both or $grid-numbers == top {
+          $bg-images  : append($bg-images, nth($zen-grid-number-images, $count) $position top no-repeat, comma);
+        }
+        @if $grid-numbers == both or $grid-numbers == bottom {
+          $bg-images  : append($bg-images, nth($zen-grid-number-images, $reverse-count) $position bottom no-repeat, comma);
+        }
+      }
+      @else {
+        @if $grid-numbers == both or $grid-numbers == bottom {
+          $bg-images  : append($bg-images, nth($zen-grid-number-images, $count) $position bottom no-repeat, comma);
+        }
+        @if $grid-numbers == both or $grid-numbers == top {
+          $bg-images  : append($bg-images, nth($zen-grid-number-images, $reverse-count) $position top no-repeat, comma);
+        }
+      }
+
+      // Next, build the color stops for the column gradients.
+      @if $gutter-method == margin {
+        // If the gutter method is "margin", calculating the color stops is easy.
+        @if $count < $columns {
+          $stop: $count * $unit-width + ($count - 1) * $gutters;
+          $gradient: append($gradient, $grid-color $stop, comma);
+          $gradient: append($gradient, transparent $stop, comma);
+
+          $stop: $stop + $gutters;
+          $gradient: append($gradient, transparent $stop, comma);
+          $gradient: append($gradient, $grid-color $stop, comma);
+        }
+      }
+      @else if comparable($gutters, $grid-width) {
+        // If the gutter and grid width have the same units, calculating the color
+        // stops is easy.
+        $stop: ($count - 1) * $unit-width + zen-half-gutter($gutters);
+        $gradient: append($gradient, transparent $stop, comma);
+        $gradient: append($gradient, $grid-color $stop, comma);
+
+        $stop: $count * $unit-width - zen-half-gutter($gutters);
+        $gradient: append($gradient, $grid-color $stop, comma);
+        $gradient: append($gradient, transparent $stop, comma);
+      }
+      @else {
+        // If the gutter and grid width have different units, things are tricky.
+        // The CSS3 Gradient syntax doesn't allow for calc() to be used in color
+        // stops, so we can't express the columns as 20% + 10px. Instead we are
+        // going to divide all our columns in half and into 2 groups: one group
+        // for the left halves of the columns and one group for the right halves.
+        // Then we'll use background position to shift the left halves over to the
+        // right by a half gutter width and shift the right halves over to the
+        // left by a half gutter width and just let the two sets of gradients
+        // overlap in the middle. Easy.
+
+        // Build the color stops for the left halves of the column gradients.
+        @if $count > 1 {
+          $stop: (2 * $count - 2) * $half-unit-width;
+          $left-half-gradient: append($left-half-gradient, transparent $stop, comma);
+          $left-half-gradient: append($left-half-gradient, $grid-color $stop, comma);
+        }
+
+        $stop: (2 * $count - 1) * $half-unit-width;
+        $left-half-gradient: append($left-half-gradient, $grid-color $stop, comma);
+        $left-half-gradient: append($left-half-gradient, transparent $stop, comma);
+
+        // Build the color stops for the right halves of the column gradients.
+        $right-half-gradient: append($right-half-gradient, transparent $stop, comma);
+        $right-half-gradient: append($right-half-gradient, $grid-color $stop, comma);
+
+        @if $count < $columns {
+          $stop: (2 * $count) * $half-unit-width;
+          $right-half-gradient: append($right-half-gradient, $grid-color $stop, comma);
+          $right-half-gradient: append($right-half-gradient, transparent $stop, comma);
+        }
+      }
+    }
+
+    // Last, add the gradient (or gradient halves) to the background images list.
+    @if $gutter-method == margin or comparable($gutters, $grid-width) {
+      $bg-images  : append($bg-images, linear-gradient(to right, $gradient) left top no-repeat, comma);
+    }
+    @else {
+      $bg-images  : append($bg-images, linear-gradient(to right, $left-half-gradient) zen-half-gutter($gutters) top no-repeat, comma);
+      $bg-images  : append($bg-images, linear-gradient(to right, $right-half-gradient) (-(zen-half-gutter($gutters))) top no-repeat, comma);
+    }
+
+    // Apply the full list of background images.
+    background: $bg-images;
+
+    @include zen-rtl($rtl-selector) {
+      @include zen-grid-background(
+        $columns              : $zen-columns,
+        $gutters              : $zen-gutters,
+        $gutter-method        : $zen-gutter-method,
+        $grid-width           : $zen-grid-width,
+        $grid-color           : $zen-grid-color,
+        $grid-numbers         : $zen-grid-numbers,
+        $direction            : zen-direction-switch($zen-direction),
+        $switch-direction     : $zen-switch-direction,
+        $rtl-selector         : false
+      );
+    }
+  }
+}

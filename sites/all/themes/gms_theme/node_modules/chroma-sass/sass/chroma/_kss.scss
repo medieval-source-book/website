@@ -1,0 +1,247 @@
+// KSS module
+//
+// A basic "KSS" module for Chroma.
+//
+// Use `chroma-kss-markup()` to export a chunk of HTML wrapped in a `/* */` CSS
+// comment. Then use `chroma-kss-styles()` to style it.
+//
+// @TODO: These functions and mixins are a bit janky because it exports to HTML
+// directly rather than to JSON or some other exportable data set.
+//
+// Style guide: kss
+
+@import "./functions";
+
+// chroma-kss-markup()
+//
+// Returns the HTML needed to display all colors in color() in a KSS style
+// guide. The parameters are used to specify the classes for various elements.
+//
+// Since regular text can only be output with Sass in certain contexts, you must
+// wrap this function call in a CSS comment.
+//
+// Usage:
+// ```scss
+// // Include chroma's optional kss module.
+// @import 'chroma/kss';
+// // Include the colors defined for your project.
+// @import 'init';
+//
+// /*
+// #{chroma-kss-markup()}
+// */
+// ```
+//
+// Then use a Gulp.js or Grunt task to strip the leading and trailing lines
+// (containing "/*" and "*/" respectively) from the generated file.
+//
+// $wrapper-class     - Defaults to 'kss-style'.
+// $title-class       - Defaults to 'chroma-kss__title'.
+// $description-class - Defaults to 'chroma-kss__description'.
+// $color-class       - Defaults to 'chroma-kss'.
+// $swatch-class      - Defaults to 'chroma-kss__swatch'.
+// $variable-class    - Defaults to 'chroma-kss__variable'.
+// $alt-text-class    - Defaults to 'chroma-kss__alt-text'.
+// $value-class       - Defaults to 'chroma-kss__value'.
+// $reference-class   - Defaults to 'chroma-kss__reference'.
+//
+// style guide: kss.chroma-kss-markup
+@function chroma-kss-markup(
+  $wrapper-class:     'kss-style',
+  $title-class:       'chroma-kss__title',
+  $description-class: 'chroma-kss__description',
+  $color-class:       'chroma-kss',
+  $swatch-class:      'chroma-kss__swatch',
+  $variable-class:    'chroma-kss__variable',
+  $alt-text-class:    'chroma-kss__alt-text',
+  $value-class:       'chroma-kss__value',
+  $reference-class:   'chroma-kss__reference'
+) {
+  $markup: '';
+
+  @each $scheme, $data in map-get($chroma, 'schemes') {
+    // Display the scheme name and description.
+    $markup: $markup
+      + '<h3 class="' + $title-class + '">#{$scheme}</h3>'
+      + '<p class="' + $description-class + '">#{map-get($data, 'description')}</p>';
+
+    // Display the colors in the scheme.
+    @each $color, $data in map-get($chroma, 'names') {
+      $seperator: str-index($color, '::');
+      @if $scheme == str-slice($color, 1, $seperator - 1) {
+        $color: str-slice($color, $seperator + 2);
+        $value: map-get($data, 'value');
+        $reference: map-get($data, 'reference');
+        $referenced_by: map-get($data, 'referenced_by');
+
+        // @TODO: node-sass 3.6.0 crashes with too many "+" operators in one command.
+        $markup: $markup
+          + '<div class="#{$color-class}">'
+          +   '<span class="#{$swatch-class}" style="background-color: #{$value}"></span>';
+        $markup: $markup
+          +   '<code class="#{$variable-class}">#{$_chroma-spelling}(#{$color})</code>'
+          +   ' <span class="#{$alt-text-class}">uses the #{$_chroma-spelling}:</span> ';
+        $markup: $markup
+          +   '<span class="#{$value-class}"><code>#{$value}</code>';
+        @if $reference {
+          $markup: $markup + ' (#{$reference})';
+        }
+        $markup: $markup + '</span>';
+        @if length($referenced_by) > 0 {
+          $markup: $markup + ' <span class="#{$reference_class}">This #{$_chroma-spelling} is inherited by: ';
+          @for $i from 1 through length($referenced_by) {
+            $markup: $markup + nth($referenced_by, $i);
+            @if ($i != length($referenced_by)) {
+              $markup: $markup + ', ';
+            }
+          }
+          $markup: $markup + '</span>';
+        }
+        $markup: $markup + '</div>';
+      }
+    }
+  }
+
+  @if $markup and $wrapper-class {
+    $markup: '<div class="' + $wrapper-class + '">' + $markup + '</div>';
+  }
+
+  $markup: '<!-- This markup is auto-generated from Sass with chroma-kss-markup(). Do not modify. -->' + $markup;
+
+  @return $markup;
+}
+
+// chroma-kss-styles()
+//
+// A mixin to add a series of rulesets that style Chroma color swatches in a KSS
+// style guide.
+//
+// Since the mixin writes CSS selectors, the mixin can be used at the root of a
+// stylesheet.
+//
+// Usage:
+// ```scss
+// // Include chroma's optional kss module.
+// @import 'chroma/kss';
+//
+// @include chroma-kss-styles();
+// ```
+//
+// $wrapper-class     - Defaults to 'kss-style'.
+// $title-class       - Defaults to 'chroma-kss__title'.
+// $description-class - Defaults to 'chroma-kss__description'.
+// $color-class       - Defaults to 'chroma-kss'.
+// $swatch-class      - Defaults to 'chroma-kss__swatch'.
+// $variable-class    - Defaults to 'chroma-kss__variable'.
+// $alt-text-class    - Defaults to 'chroma-kss__alt-text'.
+// $value-class       - Defaults to 'chroma-kss__value'.
+// $reference-class   - Defaults to 'chroma-kss__reference'.
+//
+// Style guide: kss.chroma-kss-styles
+@mixin chroma-kss-styles(
+  $wrapper-class:     'kss-style',
+  $title-class:       'chroma-kss__title',
+  $description-class: 'chroma-kss__description',
+  $color-class:       'chroma-kss',
+  $swatch-class:      'chroma-kss__swatch',
+  $variable-class:    'chroma-kss__variable',
+  $alt-text-class:    'chroma-kss__alt-text',
+  $value-class:       'chroma-kss__value',
+  $reference-class:   'chroma-kss__reference'
+) {
+  @if $wrapper-class {
+    .#{$wrapper-class} {
+      @include _chroma-kss-styles(
+        $title-class,
+        $description-class,
+        $color-class,
+        $swatch-class,
+        $variable-class,
+        $alt-text-class,
+        $value-class,
+        $reference-class
+      );
+    }
+  }
+  @else {
+    @include _chroma-kss-styles(
+      $title-class,
+      $description-class,
+      $color-class,
+      $swatch-class,
+      $variable-class,
+      $alt-text-class,
+      $value-class,
+      $reference-class
+    );
+  }
+}
+
+// _chroma-kss-styles()
+//
+// Helper mixin for chroma-kss-styles().
+//
+// No style guide reference.
+@mixin _chroma-kss-styles(
+  $title-class:       'chroma-kss__title',
+  $description-class: 'chroma-kss__description',
+  $color-class:       'chroma-kss',
+  $swatch-class:      'chroma-kss__swatch',
+  $variable-class:    'chroma-kss__variable',
+  $alt-text-class:    'chroma-kss__alt-text',
+  $value-class:       'chroma-kss__value',
+  $reference-class:   'chroma-kss__reference'
+  ) {
+
+  .#{$color-class} {
+    line-height: 50px;
+  }
+
+  .#{$swatch-class} {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 2px solid #000;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .#{$variable-class} {
+    margin-right: 10px;
+  }
+
+  .#{$alt-text-class} {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    // IE6 and IE7 use the wrong syntax.
+    *clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  .#{$value-class} {
+    color: #bbb;
+
+    code {
+      color: #bbb;
+    }
+
+    &:before {
+      // "\2192" is unicode for right arrow. "\ " is a hack; otherwise space is
+      // ignored in some browsers.
+      content: '\2192\ ';
+      font-family: sans-serif;
+    }
+  }
+
+  .#{$reference-class} {
+    display: block;
+    position: relative;
+    top: -12px;
+    line-height: 25px;
+    padding-left: 50px;
+    color: #999;
+  }
+}

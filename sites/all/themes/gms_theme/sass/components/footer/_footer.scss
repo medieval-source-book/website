@@ -1,0 +1,22 @@
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  div#global-footer,
+  p.copyright {
+    text-align: center
+  }
+
+  #block-system-user-menu {
+    ul {
+      background: $navbar-bg;
+      li {
+        list-style: none !important;
+        float: left;
+        padding-left: 10px;
+        font-variant: all-small-caps;
+      }
+    }
+  }
+}

@@ -10,22 +10,22 @@
 function menus_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_about:node/50.
-  $menu_links['main-menu_about:node/50'] = array(
+  // Exported menu link: main-menu_about:node/61.
+  $menu_links['main-menu_about:node/61'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/50',
+    'link_path' => 'node/61',
     'router_path' => 'node/%',
     'link_title' => 'About',
     'options' => array(
       'attributes' => array(),
-      'identifier' => 'main-menu_about:node/50',
+      'identifier' => 'main-menu_about:node/61',
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: main-menu_add-text:node/add/text.
@@ -45,7 +45,7 @@ function menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -44,
     'customized' => 1,
   );
   // Exported menu link: main-menu_all-texts:texts-table.
@@ -61,6 +61,26 @@ function menus_menu_default_menu_links() {
       ),
     ),
     'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_contact:contact.
+  $menu_links['main-menu_contact:contact'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'contact',
+    'router_path' => 'contact',
+    'link_title' => 'Contact',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_contact:contact',
+    ),
+    'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
@@ -83,6 +103,23 @@ function menus_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -50,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_submissions:node/66.
+  $menu_links['main-menu_submissions:node/66'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/66',
+    'router_path' => 'node/%',
+    'link_title' => 'Submissions',
+    'options' => array(
+      'identifier' => 'main-menu_submissions:node/66',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
     'customized' => 1,
   );
   // Exported menu link: user-menu_log-out:user/logout.
@@ -146,9 +183,11 @@ function menus_menu_default_menu_links() {
   t('About');
   t('Add Text');
   t('All Texts');
+  t('Contact');
   t('Home');
   t('Log out');
   t('Login');
+  t('Submissions');
   t('User account');
 
   return $menu_links;

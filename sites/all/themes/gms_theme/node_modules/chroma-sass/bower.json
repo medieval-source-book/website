@@ -1,0 +1,24 @@
+{
+  "name": "chroma",
+  "description": "Chroma is the Sass color manager. Manages color names, variations, and schemes.",
+  "main": [
+    "sass/_chroma.scss"
+  ],
+  "authors": [
+    "John Albin Wilkins <virtually.johnalbin@gmail.com> (http://john.albin.net/)"
+  ],
+  "license": "GPL-2.0",
+  "keywords": [
+    "sass",
+    "colors"
+  ],
+  "homepage": "https://github.com/JohnAlbin/chroma",
+  "ignore": [
+    "**/.*",
+    "chroma.gemspec",
+    "lib",
+    "node_modules",
+    "sache.json",
+    "test"
+  ]
+}

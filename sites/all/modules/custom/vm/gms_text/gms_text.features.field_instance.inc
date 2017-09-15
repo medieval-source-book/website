@@ -22,7 +22,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -60,7 +60,7 @@ function gms_text_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -112,6 +112,7 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_author',
     'label' => 'Author',
@@ -135,15 +136,14 @@ function gms_text_field_default_field_instances() {
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'What are the main lines of inquiry that scholars have pursued?
-What major questions remain open about the text?',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -154,7 +154,7 @@ What major questions remain open about the text?',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_critical_conversation',
-    'label' => 'Scholarship',
+    'label' => 'Further Reading',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -192,6 +192,7 @@ What major questions remain open about the text?',
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_genre',
     'label' => 'Genre',
@@ -221,10 +222,10 @@ What major questions remain open about the text?',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'cropped_rectangle_large',
+          'image_style' => 'large',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -287,7 +288,7 @@ What major questions remain open about the text?',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -325,7 +326,7 @@ What major questions remain open about the text?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -366,17 +367,14 @@ What major questions remain open about the text?',
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'What can we reconstruct about the medieval reception of the text (how it was read as well as
-how it was responded to)?
-How was the text transmitted in the medieval period?
-How has it reached us today?',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -387,7 +385,7 @@ How has it reached us today?',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_intro_manuscript',
-    'label' => 'Reception and Transmission',
+    'label' => 'Introduction to the Manuscript',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -409,16 +407,14 @@ How has it reached us today?',
     'bundle' => 'text',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'What are the dominant themes in the text?
-What is the generic tradition of the text?
-Who is the author of the text? What is his or her significance?',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -429,7 +425,7 @@ Who is the author of the text? What is his or her significance?',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_introduction_to_the_text',
-    'label' => 'Introduction',
+    'label' => 'Introduction to the Text',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -470,6 +466,7 @@ Who is the author of the text? What is his or her significance?',
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_keywords',
     'label' => 'Keywords',
@@ -485,7 +482,7 @@ Who is the author of the text? What is his or her significance?',
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -510,6 +507,7 @@ Who is the author of the text? What is his or her significance?',
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_language',
     'label' => 'Language',
@@ -536,10 +534,10 @@ Who is the author of the text? What is his or her significance?',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -563,7 +561,7 @@ Who is the author of the text? What is his or her significance?',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -588,6 +586,7 @@ Who is the author of the text? What is his or her significance?',
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_period',
     'label' => 'Period',
@@ -617,7 +616,7 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -652,7 +651,7 @@ Who is the author of the text? What is his or her significance?',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'file_entity',
         'settings' => array(
           'text' => 'Download [file:name]',
@@ -701,7 +700,7 @@ Who is the author of the text? What is his or her significance?',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -742,7 +741,7 @@ Who is the author of the text? What is his or her significance?',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 5,
     ),
   );
 
@@ -757,7 +756,7 @@ Who is the author of the text? What is his or her significance?',
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -791,18 +790,18 @@ Who is the author of the text? What is his or her significance?',
   t('An icon for the main page display');
   t('Audio');
   t('Author');
+  t('Further Reading');
   t('Genre');
   t('Icon');
   t('Icon Source');
-  t('Introduction');
+  t('Introduction to the Manuscript');
+  t('Introduction to the Text');
   t('Keywords');
   t('Language');
   t('Link to the text in Versioning Machine');
   t('Manuscript Images');
   t('Original Language Title');
   t('Period');
-  t('Reception and Transmission');
-  t('Scholarship');
   t('Short Title');
   t('Source of the icon image');
   t('TEI');
@@ -810,15 +809,6 @@ Who is the author of the text? What is his or her significance?',
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');
   t('Versioning Machine ');
-  t('What are the dominant themes in the text?
-What is the generic tradition of the text?
-Who is the author of the text? What is his or her significance?');
-  t('What are the main lines of inquiry that scholars have pursued?
-What major questions remain open about the text?');
-  t('What can we reconstruct about the medieval reception of the text (how it was read as well as
-how it was responded to)?
-How was the text transmitted in the medieval period?
-How has it reached us today?');
   t('Year');
 
   return $field_instances;

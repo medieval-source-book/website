@@ -1,0 +1,8 @@
+@import 'support-for';
+@import 'zen-grids/grids';
+
+.test {
+  $support-for: (ie: 7) !global;
+  @include zen-grid-item-base();
+  $support-for: ('*': -4) !global;
+}

@@ -1,0 +1,27 @@
+// Responsive 6-column grid
+//
+// See 3-column grid file for details; this one is just a slightly tweaked copy - MLW
+$zen-columns: 6;
+
+.layout-6col,
+%layout-6col {
+  // We set the context to flow, so that this container can be used in most
+  // places in the HTML, i.e. it must be nested inside something that has
+  // padding.
+  @include zen-grid-container($context: flow);
+  @include zen-apply-gutter-padding();
+
+  &__right-content {
+    @include zen-grid-item(5, 2);
+  }
+
+  &__left-sidebar {
+    @include zen-grid-item(1, 1);
+    padding-left: 3%;
+  }
+
+  // Place last so it can override the padding of grid items.
+  &__grid-item-container {
+    @include zen-grid-container($context: grid-item);
+  }
+}

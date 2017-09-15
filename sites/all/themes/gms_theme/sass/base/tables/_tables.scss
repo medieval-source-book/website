@@ -1,0 +1,57 @@
+// Tables
+//
+// The `<table>` element displays tabular data in rows, columns, and cells.
+//
+// Markup: tables-table.twig
+//
+// Weight: 1
+//
+// Style guide: base.table
+
+table {
+  // Add vertical rhythm margins.
+  @include margin(1 0);
+  // Remove most spacing between table cells.
+  border-collapse: collapse;
+  border-spacing: 0;
+  // Prevent cramped-looking tables
+  width: 100%;
+  max-width: 100%;
+}
+
+td,
+th {
+  // Remove most spacing between table cells.
+  padding: 0;
+  text-align: left;
+  font-weight: normal;
+}
+
+tr {
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+
+tr.odd {
+  background-color: color(grey-extra-light);
+}
+
+tr td {
+  white-space: nowrap;
+  max-width: 100%;
+  padding-right: 15px;
+}
+
+td.views-field-field-keywords {
+  white-space: normal;
+}
+
+tr td:last-of-type {
+  padding-left: 0;
+}
+
+td.active {
+  background-color: inherit !important;
+}
+
+

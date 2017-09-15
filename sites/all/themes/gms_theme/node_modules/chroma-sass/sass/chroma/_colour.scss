@@ -1,0 +1,66 @@
+// Colour module
+//
+// An optional module for Chroma that uses "colour" instead of "color" in all
+// its variables and functions.
+//
+// Style guide: colour
+
+// Import the main module of Chroma.
+@import './functions';
+
+// The one true spelling.
+$_chroma-spelling: 'colour';
+
+// is-dangerous-colour-keyword($name)
+//
+// See `is-dangerous-color-keyword()` for the documentation.
+//
+// Style guide: colour.is-dangerous-colour-keyword
+@function is-dangerous-colour-keyword($name) {
+  @return is-dangerous-color-keyword($name);
+}
+
+// is-colour-keyword($name)
+//
+// See `is-color-keyword()` for the documentation.
+//
+// Style guide: colour.is-colour-keyword
+@function is-colour-keyword($name) {
+  @return is-color-keyword($name);
+}
+
+// colour([$scheme,] $name)
+//
+// See `color()` for the documentation.
+//
+// Style guide: colour.colour
+@function colour($scheme, $name: null) {
+  @return color($scheme, $name);
+}
+
+// define-colour-scheme($scheme [, $description] [, $parent])
+//
+// See `define-color-scheme()` for the documentation.
+//
+// Style guide: colour.define-colour-scheme
+@function define-colour-scheme($scheme, $description: '', $parent: $CHROMA_DEFAULT_SCHEME) {
+  @return define-color-scheme($scheme, $description, $parent);
+}
+
+// define-default-colour-scheme([$name,] $description)
+//
+// See `define-default-color-scheme()` for the documentation.
+//
+// Style guide: colour.define-default-colour-scheme
+@function define-default-colour-scheme($name, $description: null) {
+  @return define-default-color-scheme($name, $description);
+}
+
+// add-colours([$scheme,] $colours)
+//
+// See `add-colors()` for the documentation.
+//
+// Style guide: colour.add-colours
+@function add-colours($scheme, $colours: null) {
+  @return add-colors($scheme, $colours);
+}

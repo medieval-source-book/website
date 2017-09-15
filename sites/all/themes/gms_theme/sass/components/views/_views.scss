@@ -1,0 +1,68 @@
+//
+// Theming for all views
+
+// grid display of images
+
+
+// Zen grid layout for the text grid
+.layout-6col,
+%layout-6col {
+  .view-id-texts .view-content {
+    $zen-column-count: 6;
+    $zen-gutter-method: margin;
+    $zen-gutters: 2%;
+    @include zen-grid-container();
+    padding-top: 2rem;
+
+    .views-field-field-short-title,
+    .views-field-field-original-language-title {
+      font-size: small;
+      line-height: 1rem;
+      margin-right: 10%;
+      text-align: center;
+    }
+
+    .views-row {
+      @include zen-grid-item-base();
+      @include zen-new-row(both);
+    }
+
+    .views-column {
+      align-items: center;
+      @include zen-apply-gutter-padding();
+      margin-bottom: 5%;
+    }
+
+    .views-column-1 {
+      @include zen-grid-item(2, 1);
+    }
+
+    .views-column-2 {
+      @include zen-grid-item(2, 3);
+    }
+
+    .views-column-3 {
+      @include zen-grid-item(2, 5);
+    }
+  }
+
+  .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 1em !important;
+  }
+}
+
+
+//@include zen-respond-to(s) {
+//  $zen-columns: 2;
+//  @include zen-grid-container($context: flow);
+//
+//  .layout-6col {
+//    &__left-sidebar,
+//    .views-column {
+//      @include zen-apply-gutter-padding();
+//      @include zen-new-row();
+//      @include zen-grid-item(2, 1);
+//    }
+//  }
+//}
+

@@ -1,0 +1,147 @@
+// Internals
+//
+// Helper functions that query the internal data structure in $chroma. These are
+// not part of the public API and are subject to change at any time.
+//
+// Weight: 10
+//
+// Style guide: internals
+
+// Import the global variables needed by all of Chroma.
+@import './variables';
+
+// chroma-has-scheme($scheme)
+//
+// Checks if the named color scheme exists.
+//
+// Style guide: internals.chroma-has-scheme
+@function chroma-has-scheme($scheme) {
+  @return map-has-key(map-get($chroma, 'schemes'), $scheme);
+}
+
+// chroma-schemes()
+//
+// Returns a list of all color schemes in $chroma.
+//
+// Style guide: internals.chroma-schemes
+@function chroma-schemes() {
+  @return map-keys(map-get($chroma, 'schemes'));
+}
+
+// chroma-has-color($name [, $scheme])
+//
+// Checks if the named color exists in the given scheme or its parent schemes.
+// Returns false or a string of the scheme name that contains the color.
+//
+// Style guide: internals.chroma-has-color
+@function chroma-has-color($name, $scheme: $chroma-active-scheme) {
+  $current-scheme: $scheme;
+  @while $current-scheme {
+    @if map-has-key(map-get($chroma, 'names'), "#{$current-scheme}::#{$name}") {
+      @return $current-scheme;
+    }
+    // Look in the parent scheme.
+    $current-scheme: map-get(map-get(map-get($chroma, 'schemes'), $current-scheme), 'parent');
+  }
+  @return false;
+}
+
+// _chroma-add-name()
+//
+// Private function that adds a color to the data structure of the $chroma
+// variable.
+//
+// Style guide: internals._chroma-add-name
+@function _chroma-add-name($scheme, $name, $value: false, $reference: false, $referenced_by: (), $function: false, $parameters: ()) {
+  $names: map-merge(
+    map-get($chroma, 'names'),
+    ("#{$scheme}::#{$name}": (
+      value         : $value,
+      reference     : $reference,
+      referenced_by : $referenced_by,
+      function      : $function,
+      parameters    : $parameters,
+    ))
+  );
+
+  @return map-merge(
+    $chroma,
+    ('names': $names)
+  );
+}
+
+// _chroma-init()
+//
+// Private function that sets up the initial data structure of the $chroma
+// variable. Can be called repeatedly without damaging existing data.
+//
+// Style guide: internals._chroma-init
+@function _chroma-init() {
+  @if length($chroma) == 0 {
+    @return (
+      'schemes': (
+        $CHROMA_DEFAULT_SCHEME : (
+          'description': '',
+          'parent': false,
+        ),
+      ),
+      'skins': (),
+      'names': (),
+    );
+  }
+  @else {
+    @return $chroma;
+  }
+}
+
+// is-old-libsass()
+//
+// libsass before 3.3.0 is funky, making it very hard for Chroma to do its job.
+//
+// - `inspect([color])` returns the original value instead of returning the
+//   string equivalent, so you can't cast a color to a string.
+// - `type-of('[color keyword]')` thinks that these strings are colors.
+// - `map-has-key()` works properly, thankfully. So:
+//   - `map-has-key((white: ''), white)` correctly returns `true`
+//   - `map-has-key(('white': ''), 'white')` correctly returns `true`
+//   - `map-has-key((white: ''), 'white')` correctly returns `false`
+//   - `map-has-key(('white': ''), white)` correctly returns `false`
+//   This means we can cobble together a replacement for `type-of()`. And a
+//   partial replacement for `inspect()` that works for everything except
+//   dangerous color keywords.
+//
+// @TODO: Remove when LibSass 3.2.5 support is dropped.
+//
+// Style guide: internals._is-old-libsass
+@function _is-old-libsass() {
+  @return if(type-of('white') == 'color', true, false);
+}
+
+// _is-keyword-string($name)
+//
+// Normally, `type-of()` can be used to tell if a given value is a string. But
+// LibSass versions before 3.3.0 think that color keywords in strings are still
+// colors and not strings. This function works, regardless of LibSass bugs.
+//
+// @TODO: Remove when LibSass 3.2.5 support is dropped.
+//
+// Style guide: internals._is-keyword-string
+@function _is-keyword-string($name) {
+  @return if(map-has-key($_chroma-css4-color-keywords-in-strings, $name), true, false);
+}
+
+// _safe-call()
+//
+// LibSass incorrectly throws an error when using the variable argument
+// indicator, ..., with an overloaded function; e.g. rgba(). To work-around this
+// bug, we call rgba() with direct parameters.
+//
+// @TODO: Remove when the fix for https://github.com/sass/libsass/issues/2205 is released.
+//
+// Style guide: internals._safe-call
+@function _safe-call($function, $parameters...) {
+  @if $function == rgba {
+    @return rgba(nth($parameters, 1), nth($parameters, 2));
+  }
+  @return call($function, $parameters...);
+}
