@@ -82,9 +82,9 @@ $impact:          Impact, 'Arial Narrow', Helvetica, sans-serif;
 // http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 $menlo:           Menlo, 'DejaVu Sans Mono', 'Ubuntu Mono', Courier, 'Courier New', monospace, sans-serif;
 
-$header-font: 'Alegreya', 'DejaVu Serif', serif;
+$header-font: 'PT Serif', 'Alegreya', 'DejaVu Serif', serif;
 $default-font: 'Roboto', $verdana;
-$menu-font: $default-font;
+$menu-font: $header-font;
 
 
 // The font faces you specify in the $typefaces map can be used in the

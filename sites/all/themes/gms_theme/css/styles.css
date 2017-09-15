@@ -1,6 +1,7 @@
 /*! typey | GPLv2 License | https://github.com/jptaranto/typey */
 @import url("https://fonts.googleapis.com/css?family=Alegreya");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif");
 * {
   box-sizing: border-box;
 }
@@ -113,7 +114,7 @@ h1,
   line-height: 3rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 h1.node-title {
@@ -131,7 +132,7 @@ h2 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 h2.text-section-title {
@@ -149,7 +150,7 @@ h3 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 #node_text_full_group_metadata h3 {
@@ -161,7 +162,7 @@ h4 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 h5 {
@@ -169,7 +170,7 @@ h5 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 h6 {
@@ -177,7 +178,7 @@ h6 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
 }
 
 abbr[title] {
@@ -3016,7 +3017,7 @@ footer #block-system-user-menu ul li {
 
 .header__name-and-slogan {
   float: left;
-  font-family: "Alegreya", "DejaVu Serif", serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
   color: black;
   padding-top: 0;
 }
@@ -3323,6 +3324,10 @@ span.field-label {
   text-align: center;
 }
 
+.layout-6col .view-id-texts .view-content .views-field-field-icon {
+  padding-bottom: .5em;
+}
+
 .layout-6col .view-id-texts .view-content .views-row {
   padding-left: 20px;
   padding-right: 20px;
@@ -3464,7 +3469,7 @@ span.field-label {
   padding: 0 0 0 40px;
   text-align: left;
   background: #666666;
-  font-family: "Roboto", Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
   z-index: 10;
 }
 
