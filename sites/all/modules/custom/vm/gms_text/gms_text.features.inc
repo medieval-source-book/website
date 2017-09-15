@@ -47,6 +47,22 @@ function gms_text_image_default_styles() {
     ),
   );
 
+  // Exported image style: small_rectangle.
+  $styles['small_rectangle'] = array(
+    'label' => 'Small Rectangle',
+    'effects' => array(
+      4 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 100,
+          'anchor' => 'center-top',
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
