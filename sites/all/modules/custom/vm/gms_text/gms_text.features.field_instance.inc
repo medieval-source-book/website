@@ -22,7 +22,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -46,7 +46,7 @@ function gms_text_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -131,6 +131,47 @@ function gms_text_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-text-field_credits'.
+  $field_instances['node-text-field_credits'] = array(
+    'bundle' => 'text',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Who did what for this text? Use a new line per person. Should be automatically populated from the TEI, if information has been encoded correctly.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_credits',
+    'label' => 'Credits',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-text-field_critical_conversation'.
   $field_instances['node-text-field_critical_conversation'] = array(
     'bundle' => 'text',
@@ -143,7 +184,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -374,7 +415,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -414,7 +455,7 @@ function gms_text_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -790,6 +831,7 @@ function gms_text_field_default_field_instances() {
   t('An icon for the main page display');
   t('Audio');
   t('Author');
+  t('Credits');
   t('Further Reading');
   t('Genre');
   t('Icon');
@@ -809,6 +851,7 @@ function gms_text_field_default_field_instances() {
   t('Upload audio files associated with this text.');
   t('Upload manuscript images for embedding in the text.');
   t('Versioning Machine ');
+  t('Who did what for this text? Use a new line per person. Should be automatically populated from the TEI, if information has been encoded correctly.');
   t('Year');
 
   return $field_instances;

@@ -28,6 +28,7 @@ function gms_text_field_group_info() {
       2 => 'field_introduction_to_the_text',
       3 => 'field_keywords',
       4 => 'field_about_edition',
+      5 => 'field_credits',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -193,6 +194,7 @@ function gms_text_field_group_info() {
       1 => 'field_intro_manuscript',
       2 => 'field_introduction_to_the_text',
       3 => 'field_about_edition',
+      4 => 'field_credits',
     ),
     'format_type' => 'div',
     'format_settings' => array(
