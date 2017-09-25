@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif|Roboto');
+
 /**
     * @license vmachine.css for VM 5.0
     * Updated: Aug 10 2015 by roman bleier
@@ -33,23 +34,7 @@
     font-style: italic;
 }
 
-/* latin-ext */
-@font-face {
-    font-family: 'Alegreya';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Alegreya'), local('Alegreya-Regular'), url(https://fonts.gstatic.com/s/alegreya/v7/9u9YGRxvkN-Oe2bJiJD80RkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
 
-/* latin-ext */
-@font-face {
-    font-family: 'Alegreya Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Alegreya Sans'), local('AlegreyaSans-Regular'), url(https://fonts.gstatic.com/s/alegreyasans/v3/KYNzioYhDai7mTMnx_gDgoLl39Idhk_6gOcz_nuzPgo.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
 
 body{
     width:100%;
@@ -57,7 +42,7 @@ body{
     padding:0;
     font-size:12px;
     width:100%;
-    font-family: 'Palemonas MUFI', 'Alegreya Sans', sans-serif;
+    font-family: 'Palemonas MUFI', 'Roboto', sans-serif;
     min-width:770px;
     background-color:#fff;
     line-height: 1.5em;
@@ -69,7 +54,7 @@ h5,
 h6{
     /*color:;*/
     line-height:115%;
-    font-family: 'Alegreya', 'Baskerville', serif;
+    font-family: 'PT Serif', serif;
 }
 h2{
     font-size:17px;
@@ -175,11 +160,11 @@ div#mainBanner div#headline span.versionCount{
 /* BEGIN styles top navigation and dropdown menu*/
 div#mainControlsWrapper {
     position: absolute;
-    left: 0px;
+    left: 0;
+    top: 140px;
     width: 100%;
-    background: #333;
+    background: #666;
     padding-left: 50px;
-    top: 125px;
     height: 25px;
     font-size: 12pt;
 }
@@ -200,7 +185,6 @@ nav#mainControls ul li {
 
 nav#mainControls > ul > li > span {
     padding: 5px 10px 5px 10px;
-    border-right: solid 1px black;
 }
 
 nav#mainControls span img{
@@ -211,7 +195,7 @@ nav#mainControls span img{
 #mainControls > ul > li ul.dropdown{
     margin:0;
     padding:0;
-    z-index:0;
+    z-index:10;
     width: auto;
     max-width: 150px;
 }
@@ -264,7 +248,7 @@ div#mssArea{
     float:left;
     width: 100%;
     height: 100%;
-    margin-top: 25px;
+    margin-top: 50px;
     padding: 0 0 2em 2em;
     overflow: hidden;
     z-index:10;
@@ -617,14 +601,15 @@ span.viewerHandleLt{
     background-image: none;
     border: none;
     font-weight: 300;
-    font-family: 'Roboto';
+    font-family: 'PT Serif';
+    text-transform: uppercase;
+    padding: 2px 6px;
     display: block;
-    background-color: #333;
-    font-size: 1em;
+    background-color: #666;
+    font-size: 1.2em;
     margin: 0;
     color:#fff;
     cursor:pointer;
-    border-right: 1px solid black;
     height: 15px;
 }
 
@@ -634,7 +619,7 @@ span.viewerHandleLt{
 }
 
 .topMenuButton:hover{
-    background-color: grey;
+    background-color: #0072b9;
 }
 
 ul#versionList {
@@ -676,11 +661,6 @@ span.toggle:hover {
 .dropdown a{
     color: black;
     text-decoration: none;
-}
-
-span.topMenuButton {
-    background-color: #333;
-    color: #fff;
 }
 
 .imgPanel button{
