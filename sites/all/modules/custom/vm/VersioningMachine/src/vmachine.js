@@ -141,7 +141,7 @@ $.fn.linenumberOnOff = function() {
 		$(".linenumber").toggleClass("noDisplay");
 		var button = $("#linenumberOnOff");
 		var text = button[0].childNodes[0].innerText;
-        if (text == 'Hide Line Numbers') {
+        if (text.toUpperCase() == 'Hide Line Numbers'.toUpperCase()) {
 			text = 'Show Line Numbers';
 		} else {
 			text = 'Hide Line Numbers';
