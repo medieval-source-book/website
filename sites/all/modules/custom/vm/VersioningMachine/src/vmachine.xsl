@@ -275,7 +275,7 @@
             <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
-               <xsl:text>Introduction to Text</xsl:text>
+               <xsl:text>Introduction</xsl:text>
             </span>
          </li>
       </xsl:if>
@@ -284,7 +284,7 @@
             <xsl:attribute name="title">Clicking this button triggers the bibliographic panel to appear or disappear.</xsl:attribute>
             <span>
                <xsl:attribute name="class">topMenuButton</xsl:attribute>
-               <xsl:text>Source Information</xsl:text>
+               <xsl:text>Source Info</xsl:text>
             </span>
          </li>
       <xsl:if test="//tei:body//tei:note">
@@ -293,7 +293,7 @@
             <xsl:attribute name="title">Clicking this button triggers the notes panel to appear or disappear.</xsl:attribute>
             <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
-               <xsl:text>Critical Notes</xsl:text>
+               <xsl:text>Notes</xsl:text>
             </span>
          </li>
       </xsl:if>
