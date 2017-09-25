@@ -224,7 +224,7 @@
       <li>
       <span id="selectVersion" class="topMenuButton dropdownButton">
          <xsl:value-of select="count($witnesses)"></xsl:value-of>
-         <xsl:text> Total Versions</xsl:text>
+         <xsl:text> Versions</xsl:text>
          <img class="noDisplay" src="{$menuArrowUp}" alt="arrow up"/>
          <img src="{$menuArrowDown}" alt="arrow down"/>
       </span>
@@ -264,7 +264,7 @@
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
             <xsl:attribute name="title">Clicking this button turns the line numbers on or off.</xsl:attribute>
             <span><xsl:attribute name="class">topMenuButton</xsl:attribute>
-                <xsl:text>Hide Line Numbers</xsl:text>
+                <xsl:text>Line Numbers On</xsl:text>
             </span>
                
          </li>
