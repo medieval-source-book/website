@@ -134,7 +134,7 @@ div#mainBanner div#headline span.versionCount{
 
 
 #site-name {
-    padding-top: 35px;
+    padding-top: 45px;
 }
 
 #site-name, #site-slogan {
@@ -149,11 +149,11 @@ div#mainBanner div#headline span.versionCount{
 
 #site-name a,
 #site-name a:visited {
-    color: #666;
-    font-size: 42px !important;
-    padding-top: 10px;
+    color: black;
+    font-size: 48px !important;
     margin-bottom: 2em;
     text-decoration: none;
+    font-weight:bold;
 }
 /* END styles for main banner*/
 
