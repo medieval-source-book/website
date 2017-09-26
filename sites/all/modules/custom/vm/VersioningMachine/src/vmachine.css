@@ -167,6 +167,7 @@ div#mainControlsWrapper {
     padding-left: 50px;
     height: 25px;
     font-size: 12pt;
+    z-index: 10;
 }
 
 div#mainBanner nav#mainControls{
