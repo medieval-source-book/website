@@ -134,11 +134,25 @@ function vm_set_contributors($node) {
   $credits = array();
   $wrapper = entity_metadata_wrapper('node', $node);
   $file = file_load($wrapper->field_tei_file->value()['fid']);
-  $xml = simplexml_load_file($file->uri);
+  $uri = file_create_url($file->uri);
+  $xml = simplexml_load_file($uri);
   $xml->registerXPathNamespace('tei', 'http://www.tei-c.org/ns/1.0');
   $elements = $xml->xpath('//tei:respStmt');
   foreach ($elements as $el) {
-    $credits[] = $el->resp . ' '. $el->name;
+    $credit = $el->resp . ' ';
+    $total_names = count($el->name);
+    // handle multiple names
+    foreach ((array)$el->name as $i => $name) {
+      // Add correct punctation
+      if ($i > 0) {
+        $credit .= ', ';
+      }
+      if (($total_names > 1) && ($i == $total_names - 1)) {
+        $credit .= ' and ';
+      }
+      $credit .= $name;
+    }
+    $credits[] = $credit;
   }
   if (count($credits) > 0) {
     $wrapper->field_credits->set($credits);
