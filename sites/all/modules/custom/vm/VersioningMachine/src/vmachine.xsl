@@ -1429,9 +1429,9 @@
          <div class="viewerContent" id="content_imgViewer">
 
             
-               <div class="openseadragon-parent" style="overflow:visible">
+               <div class="panzoom-parent" style="overflow:visible">
             <!-- panzoom image -->
-            <div class="openseadragon">
+            <div class="panzoom">
                      <img width="300" border="1px 2px, 2px, 1px solid #000;" alt="image">
                         <xsl:attribute name="src">
                            <xsl:value-of select="$facsImageFolder"/>
@@ -1449,7 +1449,7 @@
                <button class="zoom-in">+</button>
                
             </div>
-            <!-- End implementation of openseadragon -->
+            <!-- End implementation of image viewer -->
          </div>
          
       </div>
