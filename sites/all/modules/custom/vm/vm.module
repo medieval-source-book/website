@@ -39,6 +39,17 @@ function vm_permission() {
     );
 }
 
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ *
+ * Disables access to the credits field, which should be populated from TEI
+ */
+function vm_form_text_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_credits']['#access'] = FALSE;
+}
+
 function vm_admin_form() {
   global $base_url;
   $form = array();
@@ -113,6 +124,29 @@ function vm_process_text($node, $silent = FALSE) {
 }
 
 /***
+ * @param $node
+ *
+ * Extracts contributor information from responsibility statement in TEI
+ * Adds to Drupal node as credits
+ *
+ */
+function vm_set_contributors($node) {
+  $credits = array();
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $file = file_load($wrapper->field_tei_file->value()['fid']);
+  $xml = simplexml_load_file($file->uri);
+  $xml->registerXPathNamespace('tei', 'http://www.tei-c.org/ns/1.0');
+  $elements = $xml->xpath('//tei:respStmt');
+  foreach ($elements as $el) {
+    $credits[] = $el->resp . ' '. $el->name;
+  }
+  if (count($credits) > 0) {
+    $wrapper->field_credits->set($credits);
+    $wrapper->save();
+  }
+}
+
+/***
  * @param $form
  * @param $form_state
  *
@@ -127,6 +161,7 @@ function vm_text_form_submit($form, &$form_state) {
     $node->status = NODE_PUBLISHED;
     if (user_access('upload tei')) {
       vm_process_text($node);
+      vm_set_contributors($node);
     }
     drupal_goto(drupal_get_path_alias('node/' . $node->nid));
 }

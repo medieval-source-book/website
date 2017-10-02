@@ -224,7 +224,7 @@
       <li>
       <span id="selectVersion" class="topMenuButton dropdownButton">
          <xsl:value-of select="count($witnesses)"></xsl:value-of>
-         <xsl:text> Total Versions</xsl:text>
+         <xsl:text> Versions</xsl:text>
          <img class="noDisplay" src="{$menuArrowUp}" alt="arrow up"/>
          <img src="{$menuArrowDown}" alt="arrow down"/>
       </span>
@@ -264,7 +264,7 @@
             <xsl:attribute name="id">linenumberOnOff</xsl:attribute>
             <xsl:attribute name="title">Clicking this button turns the line numbers on or off.</xsl:attribute>
             <span><xsl:attribute name="class">topMenuButton</xsl:attribute>
-                <xsl:text>Hide Line Numbers</xsl:text>
+                <xsl:text>Line Numbers On</xsl:text>
             </span>
                
          </li>
@@ -275,7 +275,7 @@
             <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
                <xsl:attribute name="title">Clicking this button triggers the critical introduction panel to appear or disappear.</xsl:attribute>
-               <xsl:text>Introduction to Text</xsl:text>
+               <xsl:text>Introduction</xsl:text>
             </span>
          </li>
       </xsl:if>
@@ -284,7 +284,7 @@
             <xsl:attribute name="title">Clicking this button triggers the bibliographic panel to appear or disappear.</xsl:attribute>
             <span>
                <xsl:attribute name="class">topMenuButton</xsl:attribute>
-               <xsl:text>Source Information</xsl:text>
+               <xsl:text>Source Info</xsl:text>
             </span>
          </li>
       <xsl:if test="//tei:body//tei:note">
@@ -293,7 +293,7 @@
             <xsl:attribute name="title">Clicking this button triggers the notes panel to appear or disappear.</xsl:attribute>
             <span>
                <xsl:attribute name="class">topMenuButton listText</xsl:attribute>
-               <xsl:text>Critical Notes</xsl:text>
+               <xsl:text>Notes</xsl:text>
             </span>
          </li>
       </xsl:if>
@@ -1429,9 +1429,9 @@
          <div class="viewerContent" id="content_imgViewer">
 
             
-               <div class="openseadragon-parent" style="overflow:visible">
+               <div class="panzoom-parent" style="overflow:visible">
             <!-- panzoom image -->
-            <div class="openseadragon">
+            <div class="panzoom">
                      <img width="300" border="1px 2px, 2px, 1px solid #000;" alt="image">
                         <xsl:attribute name="src">
                            <xsl:value-of select="$facsImageFolder"/>
@@ -1449,7 +1449,7 @@
                <button class="zoom-in">+</button>
                
             </div>
-            <!-- End implementation of openseadragon -->
+            <!-- End implementation of image viewer -->
          </div>
          
       </div>

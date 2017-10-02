@@ -141,10 +141,10 @@ $.fn.linenumberOnOff = function() {
 		$(".linenumber").toggleClass("noDisplay");
 		var button = $("#linenumberOnOff");
 		var text = button[0].childNodes[0].innerText;
-        if (text == 'Hide Line Numbers') {
-			text = 'Show Line Numbers';
+        if (text.toUpperCase() == 'Line Numbers On'.toUpperCase()) {
+			text = 'Line Numbers Off';
 		} else {
-			text = 'Hide Line Numbers';
+			text = 'Line Numbers On';
 		}
         button[0].childNodes[0].innerText = text;
 	});
@@ -295,47 +295,50 @@ $.fn.zoomPan = function() {
 	/* plugin to use JQuery panzoom library for the image viewer
 	https://github.com/timmywil/jquery.panzoom
 	*/
-		this.each(function(){
-			var imgId = $(this).attr("id");
-			var $section = $("div#" + imgId + ".imgPanel");
-            $section.find('.panzoom').panzoom({
-            $zoomIn: $section.find(".zoom-in"),
-            $zoomOut: $section.find(".zoom-out"),
-            $zoomRange: $section.find(".zoom-range")
+	this.each(function(){
+		var imgId = $(this).attr("id");
+		console.log(imgId);
+		var $section = $("div#" + imgId + ".imgPanel");
+		$section.find('.panzoom').panzoom({
+			$zoomIn: $section.find(".zoom-in"),
+			$zoomOut: $section.find(".zoom-out"),
+			$zoomRange: $section.find(".zoom-range")
 		});
-});
+	});
 };
 
 $.fn.imgLinkClick = function() {
 	/* plugin to add a click event to imgLinks (icons that open the image viewer on click) */
-		this.click(function(e){
-				var imgId = $(this).attr("data-img-id");
-				$("#"+imgId).appendTo("#mssArea");
-				$("#"+imgId).css({
-					"position": "absolute",
-					"top": e.pageY,
-					"left": e.pageX,
-					}).toggleClass("noDisplay").addClass("activePanel");
-				//move the image panel to the front of all visible panels
-				$("#"+imgId).moveToFront();
-			});
+	this.click(function(e){
+		var imgId = $(this).attr("data-img-id");
+		$("#"+imgId).appendTo("#mssArea");
+		$("#"+imgId).css({
+			"position": "absolute",
+			"top": e.pageY,
+			"left": e.pageX,
+			}).toggleClass("noDisplay").addClass("activePanel");
+		//move the image panel to the front of all visible panels
+		$("#"+imgId).moveToFront();
+	});
 };
+
 $.fn.imgLinkHover = function() {
 	/* plugin to add a hover event to imgLinks (icons that open the image viewer on click) */
-		this.hover(function(){
-			/* current hover event add class 'highlight' on hover*/
-				$(this).addClass("highlight");
-				$(this).css({"border":"1px solid red"});
-				var panelId = $(this).attr("data-img-id");
-				$(".imgPanel[id='" + panelId + "']").addClass("highlight");
-			},function(){
-			/* on hover out remove 'highlight' class*/
-				$(this).removeClass("highlight");
-				$(this).css({"border":"1px solid white"});
-				var panelId = $(this).attr("data-img-id");
-				$(".imgPanel[id='" + panelId + "']").removeClass("highlight");
-			});		
+	this.hover(function(){
+	/* current hover event add class 'highlight' on hover*/
+		$(this).addClass("highlight");
+		$(this).css({"border":"1px solid red"});
+		var panelId = $(this).attr("data-img-id");
+		$(".imgPanel[id='" + panelId + "']").addClass("highlight");
+	},function(){
+	/* on hover out remove 'highlight' class*/
+		$(this).removeClass("highlight");
+		$(this).css({"border":"1px solid white"});
+		var panelId = $(this).attr("data-img-id");
+		$(".imgPanel[id='" + panelId + "']").removeClass("highlight");
+	});
 };
+
 $.fn.imgPanelMousedown = function() {
 	/* plugin to add a mousedown event to image panels */
     return this.mousedown(function(){
