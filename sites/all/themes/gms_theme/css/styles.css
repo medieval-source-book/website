@@ -247,6 +247,10 @@ div.label-inline {
   margin-right: .5rem;
 }
 
+body.page-node span.text-credit {
+  display: block;
+}
+
 .divider,
 hr {
   margin: 1.5rem 0;
