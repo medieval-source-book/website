@@ -1220,13 +1220,13 @@
       </xsl:variable>
       
       <div>
-            <xsl:for-each select="*">
-               <xsl:if test="contains(@wit, $witId)">
-                  <xsl:attribute name="style">
-                     <xsl:text>display:inline-block</xsl:text>
-                  </xsl:attribute>
-               </xsl:if>
-            </xsl:for-each>
+            <!--<xsl:for-each select="*">-->
+               <!--<xsl:if test="contains(@wit, $witId)">-->
+                  <!--<xsl:attribute name="style">-->
+                     <!--<xsl:text>display:inline-block</xsl:text>-->
+                  <!--</xsl:attribute>-->
+               <!--</xsl:if>-->
+            <!--</xsl:for-each>-->
          
          <xsl:attribute name="class">
             <xsl:text>apparatus </xsl:text>
