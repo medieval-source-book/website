@@ -96,7 +96,12 @@ function vm_form_alter(&$form, &$form_state, $form_id) {
 function vm_set_contributors($node, $filename) {
   $credits = array();
   $wrapper = entity_metadata_wrapper('node', $node);
+  libxml_use_internal_errors(TRUE);  // Error suppression
   $xml = simplexml_load_file($filename);
+  if (FALSE == $xml) {
+    drupal_set_message(t('Unable to process this file.'), 'error');
+    return;
+  }
   $xml->registerXPathNamespace('tei', 'http://www.tei-c.org/ns/1.0');
   $elements = $xml->xpath('//tei:respStmt');
   foreach ($elements as $el) {
