@@ -148,7 +148,9 @@ function adminsettings_user_default_permissions() {
   // Exported permission: 'administer vm'.
   $permissions['administer vm'] = array(
     'name' => 'administer vm',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'vm',
   );
 
