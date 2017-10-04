@@ -456,7 +456,7 @@ function appearance_settings_strongarm() {
       'html5' => 'html5',
       'meta' => 'meta',
     ),
-    'zen_rebuild_registry' => 1,
+    'zen_rebuild_registry' => 0,
     'favicon_mimetype' => 'image/png',
   );
   $export['theme_gms_theme_settings'] = $strongarm;

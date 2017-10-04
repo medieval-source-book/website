@@ -185,6 +185,24 @@ function appearance_settings_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_credits' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-col' => TRUE,
+          'lbw' => 1,
+          'lbw-el' => 'h2',
+          'lbw-cl' => 'text-section-title',
+          'fi' => TRUE,
+          'fi-el' => 'span',
+          'fi-cl' => 'text-credit',
+          'fi-at' => '',
+          'fi-def-at' => TRUE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['node|text|default'] = $ds_fieldsetting;
 
