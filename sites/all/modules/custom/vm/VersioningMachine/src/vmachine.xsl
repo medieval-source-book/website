@@ -40,8 +40,12 @@
    <xsl:variable name="bothTitles">
       <xsl:for-each select="$witnesses">
          <xsl:variable name="witId"><xsl:value-of select="@xml:id"></xsl:value-of></xsl:variable>
-         <xsl:value-of select="//tei:witness[@xml:id = $witId]" />
-         <xsl:if test="not(position() = last())"> | </xsl:if>
+         <xsl:if test="(position() = 1) or (position() = last())">
+            <xsl:value-of select="//tei:witness[@xml:id = $witId]"/>
+            <xsl:if test="position() = 1">
+               | 
+            </xsl:if>
+         </xsl:if>
       </xsl:for-each>
    </xsl:variable>
 
@@ -1220,14 +1224,6 @@
       </xsl:variable>
       
       <div>
-            <!--<xsl:for-each select="*">-->
-               <!--<xsl:if test="contains(@wit, $witId)">-->
-                  <!--<xsl:attribute name="style">-->
-                     <!--<xsl:text>display:inline-block</xsl:text>-->
-                  <!--</xsl:attribute>-->
-               <!--</xsl:if>-->
-            <!--</xsl:for-each>-->
-         
          <xsl:attribute name="class">
             <xsl:text>apparatus </xsl:text>
             <xsl:value-of select="$appId"></xsl:value-of>
