@@ -466,7 +466,7 @@ div.apparatus div.reading{
 }
 
 div.apparatus{
-    display:none;
+    display: block;
     cursor: pointer;
 }
 
@@ -518,9 +518,6 @@ span.unclear{
     line-height:0;
 }
 
-.stanzabreak{
-    padding-top: 2em;
-}
 div.type-stanza{
     margin-bottom:25px;
 }
@@ -758,9 +755,15 @@ div.type-sung {
 
 div.stage {
     font-style: italic;
+    font-size: 15px;
 }
 
 span.speaker {
     font-weight: bold;
+    font-size: 17px;
+    margin-top: .5em;
 }
 
+div.stanzabreak {
+    margin-top: 2em;
+}
