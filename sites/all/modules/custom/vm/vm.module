@@ -86,6 +86,40 @@ function vm_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+/***
+ * @param $node
+ *
+ * Extracts contributor information from responsibility statement in TEI
+ * Adds to Drupal node as credits
+ *
+ */
+function vm_set_contributors($node, $filename) {
+  $credits = array();
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $xml = simplexml_load_file($filename);
+  $xml->registerXPathNamespace('tei', 'http://www.tei-c.org/ns/1.0');
+  $elements = $xml->xpath('//tei:respStmt');
+  foreach ($elements as $el) {
+    $credit = $el->resp . ' ';
+    $total_names = count($el->name);
+    // handle multiple names
+    foreach ((array)$el->name as $i => $name) {
+      // Add correct punctation
+      if ($i > 0) {
+        $credit .= ', ';
+      }
+      if (($total_names > 1) && ($i == $total_names - 1)) {
+        $credit .= ' and ';
+      }
+      $credit .= $name;
+    }
+    $credits[] = $credit;
+  }
+  if (count($credits) > 0) {
+    $wrapper->field_credits->set($credits);
+  }
+}
+
 // Run XSLT on uploaded TEI; takes the Drupal text node as an argument
 function vm_process_text($node, $silent = FALSE) {
   $wrapper = entity_metadata_wrapper('node', $node);
@@ -119,46 +153,17 @@ function vm_process_text($node, $silent = FALSE) {
     fclose($fhandle);
     drupal_set_message(t($result), 'error');
   }
+
+  if ($return == 0) {
+    // Now update the node with contributors listed in the TEI
+    vm_set_contributors($node, $filename);
+  }
+
   $wrapper->save();
+
   return $return;
 }
 
-/***
- * @param $node
- *
- * Extracts contributor information from responsibility statement in TEI
- * Adds to Drupal node as credits
- *
- */
-function vm_set_contributors($node) {
-  $credits = array();
-  $wrapper = entity_metadata_wrapper('node', $node);
-  $file = file_load($wrapper->field_tei_file->value()['fid']);
-  $uri = file_create_url($file->uri);
-  $xml = simplexml_load_file($uri);
-  $xml->registerXPathNamespace('tei', 'http://www.tei-c.org/ns/1.0');
-  $elements = $xml->xpath('//tei:respStmt');
-  foreach ($elements as $el) {
-    $credit = $el->resp . ' ';
-    $total_names = count($el->name);
-    // handle multiple names
-    foreach ((array)$el->name as $i => $name) {
-      // Add correct punctation
-      if ($i > 0) {
-        $credit .= ', ';
-      }
-      if (($total_names > 1) && ($i == $total_names - 1)) {
-        $credit .= ' and ';
-      }
-      $credit .= $name;
-    }
-    $credits[] = $credit;
-  }
-  if (count($credits) > 0) {
-    $wrapper->field_credits->set($credits);
-    $wrapper->save();
-  }
-}
 
 /***
  * @param $form
@@ -175,7 +180,6 @@ function vm_text_form_submit($form, &$form_state) {
     $node->status = NODE_PUBLISHED;
     if (user_access('upload tei')) {
       vm_process_text($node);
-      vm_set_contributors($node);
     }
     drupal_goto(drupal_get_path_alias('node/' . $node->nid));
 }
