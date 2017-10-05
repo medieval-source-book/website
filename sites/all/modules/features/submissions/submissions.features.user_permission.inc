@@ -14,7 +14,6 @@ function submissions_user_default_permissions() {
   $permissions['create submission content'] = array(
     'name' => 'create submission content',
     'roles' => array(
-      'Submitter' => 'Submitter',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -33,7 +32,6 @@ function submissions_user_default_permissions() {
   $permissions['delete own submission content'] = array(
     'name' => 'delete own submission content',
     'roles' => array(
-      'Submitter' => 'Submitter',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -52,7 +50,6 @@ function submissions_user_default_permissions() {
   $permissions['edit own submission content'] = array(
     'name' => 'edit own submission content',
     'roles' => array(
-      'Submitter' => 'Submitter',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
