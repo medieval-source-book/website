@@ -466,6 +466,7 @@ div.apparatus div.reading{
 div.apparatus{
     display: block;
     cursor: pointer;
+    width: 100%;
 }
 
 em.label{
