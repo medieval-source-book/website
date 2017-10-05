@@ -56,7 +56,7 @@ function gms_text_image_default_styles() {
         'data' => array(
           'width' => 220,
           'height' => 100,
-          'anchor' => 'center-top',
+          'anchor' => 'center-center',
         ),
         'weight' => 1,
       ),
