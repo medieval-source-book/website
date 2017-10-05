@@ -968,7 +968,7 @@
    </xsl:template>
    
    <xsl:template match="tei:pb">
-      <hr>
+      <div>
          <xsl:attribute name="class">
             <xsl:text>pagebreak</xsl:text>
             <xsl:if test="@ed">
@@ -981,7 +981,7 @@
                <xsl:value-of select="translate(@ed,'#','')" />
             </xsl:attribute>
          </xsl:if>
-      </hr>
+      </div>
          <xsl:if test="@facs">
             <xsl:variable name="imgId">
                <xsl:value-of select="translate(@facs,'#','')" />
