@@ -42,7 +42,6 @@ $.fn.panelResize = function (){
 	var totalPanels = visiblePanels.length;
 	var mssAreaWidth = $(this).width();
 	var panelWidth = (mssAreaWidth / totalPanels) - 10;
-	console.log(mssAreaWidth, panelWidth);
 
 	// resize every panel to fit width
 	visiblePanels.each(function(idx, element) {
@@ -374,7 +373,7 @@ $.fn.matchAppClick = function() {
 $.fn.matchLineHover = function() {
 	/*** plugin that adds a apparatus matching functionality ***/
 		this.hover(function(){
-			var line = $(this).closest("div.lineWrapper").attr("data-line-id");
+            var line = $(this).closest("div.lineWrapper").attr("data-line-id");
 			$("."+line).closest("div.lineWrapper").addClass("matchLineHi");
 			$("#notesPanel .position."+line).parent(".noteContent").addClass("matchLineHi");
 		},function(){
