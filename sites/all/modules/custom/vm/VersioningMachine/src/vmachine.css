@@ -259,6 +259,7 @@ div.panel{
     float:left;
     width: 30%;
     min-height:250px;
+    max-width: 50%;
     margin:0;
     padding:0;
     /* by default the panels are set to 'top: -1px; left: -1px', this is used by JS code to identify panels without location*/
@@ -755,6 +756,7 @@ div.type-sung {
 div.stage {
     font-style: italic;
     font-size: 15px;
+    font-weight: bold;
 }
 
 span.speaker {
