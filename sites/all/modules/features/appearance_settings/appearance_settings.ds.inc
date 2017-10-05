@@ -226,8 +226,8 @@ function appearance_settings_ds_custom_fields_info() {
   $ds_field->ui_limit = 'text|*';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '[node:title] | [node:field-original-language-title]',
-      'format' => 'plain_text',
+      'value' => '<p>[node:title] | [node:field-original-language-title]</p>',
+      'format' => 'full_html',
     ),
     'use_token' => 1,
   );
