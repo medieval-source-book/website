@@ -8,16 +8,6 @@
 	*
 	**/
 
-	
-function totalPanelWidth(){
-	/***function to calculate and return the total panel width of visible panels***/
-	var totalWidth = 0;
-	$("div.panel:not(.noDisplay)").each(function(){
-		var wid = $(this).width();
-		totalWidth += wid;
-	});
-	return totalWidth;
-}
 
 function PanelInPosXY(selector, top, left){
 	/** PanelInPosXY function to find if a panel/element is in the location left/top 
@@ -47,47 +37,17 @@ $.fn.moveToFront = function() {
 
 }
 
-$.fn.mssAreaResize = function (){
-	/** resizes the workspace (area where the versions are displayed) depending on how many panels are visible, 
-	* if panel is opened the workspace becomes larger, 
-	* if a panel is closed it becomes smaller
-	*/
-	// All the resizing makes the panels go crazy, in fact, with our page structure
-	// So we don't need this; the default behavior works well
-	return;
+$.fn.panelResize = function (){
+	var visiblePanels = $("div.panel:not(.noDisplay)")
+	var totalPanels = visiblePanels.length;
 	var mssAreaWidth = $(this).width();
-	var panelsWidth = totalPanelWidth();
-	var windowWidth = $(window).width();
-	if( windowWidth > panelsWidth){
-		$(this).width(windowWidth);
-		mssAreaWidth = windowWidth;
-	}
-	else{
-		$(this).width(panelsWidth + 100);
-		mssAreaWidth = panelsWidth + 100;
-	}
+	var panelWidth = (mssAreaWidth / totalPanels) - 10;
+	console.log(mssAreaWidth, panelWidth);
 
-	/*moves panel that is outside of workspace into workspace*/
-	$("div.panel:not(.noDisplay)").each(function(idx, element){
-		var ele = $(element);
-		var l = ele.position().left;
-		var t = ele.position().top;
-		var w = ele.width();
-
-		if( (l + w) > mssAreaWidth ){
-			ele.offset({top:t, left:mssAreaWidth-w});
-		}
+	// resize every panel to fit width
+	visiblePanels.each(function(idx, element) {
+		$(element).width(panelWidth);
 	});
-
-	/* correct height of workspace*/
-	var panelHeight = 0;
-	$(".panel").each(function(idx, element){
-		var h = $(element).height();
-		if(panelHeight < h){
-			panelHeight = h;
-		}
-	});
-	$(this).css({"height":panelHeight+100});
 }
 
 /***** Functionality of dropdown menu and top menu *****/
@@ -162,26 +122,12 @@ $.fn.panelButtonClick = function() {
 			$("#mssArea .noteicon").toggle();
 		}
 		$("#"+dataPanelId).each(function(){
-			// var top = $(this).css("top");
-			// var left = $(this).css("left");
-			// if(left === "-1px" || top === "-1px"){
-			// 	//if no panel is at default coordinate
-			// 	if(top == "-1px"){
-			// 		top = $("#mainBanner").height();
-			// 	}
-			// 	left = 0;
-			// 	//check if there is already a panel in this location
-			// 	while(PanelInPosXY("div.panel:not(.noDisplay)", top, left)){
-			// 		top += 20;
-			// 		left += 50;
-			// 	}
-			// }
 			var top = 0;
-			var left = 10;
+			var left = 0;
 			$(this).changePanelVisibility(top, left);
 			$(this).moveToFront();
 		});
-		$("#mssArea").mssAreaResize();
+		$("#mssArea").panelResize();
 		$("*[data-panelid='"+dataPanelId+"']").toggleOnOffButton();
 	});
 };
@@ -280,7 +226,7 @@ $.fn.closeButtonClick = function() {
 		$(this).closest(".panel").addClass("noDisplay");
 		$("*[data-panelid='"+w+"']").toggleOnOffButton();
 		//$showNote.removeClass("clicked")
-		$("#mssArea").mssAreaResize();
+		$("#mssArea").panelResize();
 		$(panel).find("audio").each(function(){
 			$(this).trigger("pause");
 			});
@@ -297,7 +243,6 @@ $.fn.zoomPan = function() {
 	*/
 	this.each(function(){
 		var imgId = $(this).attr("id");
-		console.log(imgId);
 		var $section = $("div#" + imgId + ".imgPanel");
 		$section.find('.panzoom').panzoom({
 			$zoomIn: $section.find(".zoom-in"),
@@ -482,7 +427,6 @@ $.fn.bibPanel = function() {
 	Plugin adds also click and hover effects to panel
 	***/
 	var keyword = "bibPanel";
-	var panelPos = totalPanelWidth();
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_BIB_PANEL){
 		//bibPanel visible, constant INITIAL_DISPLAY_BIB_PANEL can be found in settings.xsl
@@ -500,7 +444,6 @@ $.fn.notesPanel = function() {
 	Plugin adds also click and hover effects to panel
 	***/
 	var keyword = "notesPanel";
-	var panelPos = totalPanelWidth();
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_NOTES_PANEL){
 		//notesPanel visible, constant INITIAL_DISPLAY_NOTES_PANEL can be found in settings.xsl
@@ -519,7 +462,6 @@ $.fn.critPanel = function() {
 	Plugin adds also click and hover effects to panel
 	***/
 	var keyword = "critPanel";
-	var panelPos = totalPanelWidth();
 	$("#"+keyword).appendTo(this);
 	if(INITIAL_DISPLAY_CRIT_PANEL){
 		//critPanel visible, constant INITIAL_DISPLAY_CRIT_PANEL can be found in settings.xsl
@@ -565,15 +507,9 @@ $.fn.mssPanels = function (){
 	//manuscript panels visible, constant INITIAL_DISPLAY_NUM_VERSIONS can be found in settings.xsl
 	var versions = INITIAL_DISPLAY_NUM_VERSIONS;
 	$("#versionList li").each(function(idx){
-				
-		var panelPos = totalPanelWidth();
 		var wit = $(this).attr("data-panelid");
-		var left = 0;	// a little nice spacing between panels
 		if(idx < versions){
-			if (idx != 0) {
-				left = 10;
-			}
-			$("#"+wit).changePanelVisibility(0, left);
+			$("#"+wit).changePanelVisibility(0, 0);
 			$("*[data-panelid='"+wit+"']").toggleOnOffButton();
 		}
 	});
@@ -602,7 +538,7 @@ $(document).ready(function() {
 	$("#mssArea").linenumber();
 
 	//after the visibility of all necessary panels is changed the workspace/mssArea has to be resized to fit panels
-	$("#mssArea").mssAreaResize();
+	$("#mssArea").panelResize();
 	
 	/*****END init panel and visibility *****/
 	

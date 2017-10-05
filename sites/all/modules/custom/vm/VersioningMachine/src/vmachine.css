@@ -259,7 +259,6 @@ div.panel{
     float:left;
     width: 30%;
     min-height:250px;
-    min-width:250px;
     margin:0;
     padding:0;
     /* by default the panels are set to 'top: -1px; left: -1px', this is used by JS code to identify panels without location*/
@@ -292,7 +291,6 @@ div#mssArea div.panel div.panelBanner select.witnessMenu {
 
 div#mssArea div.mssPanel{
     overflow:hidden;
-    min-width:300px;
     z-index:2;
 }
 div.imgPanel{
