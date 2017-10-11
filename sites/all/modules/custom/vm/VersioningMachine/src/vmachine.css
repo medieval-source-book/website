@@ -714,8 +714,9 @@ ul#versionList li.highlight {
 .ui-resizable-helper { border: 2px dotted #2c577f; }
 
 
-.viewerContent .buttons button{
-    background-color: #ccc;
+.viewerContent .buttons button,
+.viewerContent .buttons span {
+    cursor: pointer !important;
 }
 
 

@@ -1448,9 +1448,9 @@
                </div><!-- zoom parent end -->
             <!-- zoom control -->
             <div class="buttons">
-               <button class="zoom-out">-</button>
-               <input type="range" min="0" max="100" class="zoom-range"/>
-               <button class="zoom-in">+</button>
+               <span class="zoom-out fa fa-search-minus fa-2x"></span>
+               <input type="range" min="25" max="100" class="zoom-range"/>
+               <span class="zoom-in fa fa-search-plus fa-2x"></span>
                
             </div>
             <!-- End implementation of image viewer -->

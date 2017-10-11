@@ -255,14 +255,17 @@ $.fn.imgLinkClick = function() {
 	/* plugin to add a click event to imgLinks (icons that open the image viewer on click) */
 	this.click(function(e){
 		var imgId = $(this).attr("data-img-id");
-		$("#"+imgId).appendTo("#mssArea");
-		$("#"+imgId).css({
+		var imagePanel = $("#"+imgId);
+		imagePanel.appendTo("#mssArea");
+		imagePanel.css({
 			"position": "absolute",
 			"top": e.pageY,
-			"left": e.pageX,
+			"left": e.pageX - imagePanel.width(),
+            "width": "30%",
+            "height": "500px",
 			}).toggleClass("noDisplay").addClass("activePanel");
 		//move the image panel to the front of all visible panels
-		$("#"+imgId).moveToFront();
+		imagePanel.moveToFront();
 	});
 };
 
