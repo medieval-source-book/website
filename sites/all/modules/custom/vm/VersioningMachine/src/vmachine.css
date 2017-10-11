@@ -673,7 +673,8 @@ span.toggle:hover {
 
 div.panel.highlight,
 .dropdown .highlight{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    border-color: black;
 }
 
 ul#versionList li.highlight {
