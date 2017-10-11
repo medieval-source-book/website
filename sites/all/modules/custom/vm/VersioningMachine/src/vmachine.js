@@ -38,7 +38,7 @@ $.fn.moveToFront = function() {
 }
 
 $.fn.panelResize = function (){
-	var visiblePanels = $("div.mssPanel:not(.noDisplay)")
+	var visiblePanels = $("div.panel:not(.imgPanel):not(.noDisplay)")
 	var totalPanels = visiblePanels.length;
 	var mssAreaWidth = $(this).width();
 	var panelWidth = (mssAreaWidth / totalPanels) - 10;
