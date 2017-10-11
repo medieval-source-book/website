@@ -7,7 +7,6 @@
   <!-- IMPORT DRUPAL SETTINGS -->
   <xsl:include href="drupal_settings.xsl" />
 
-  <!--<xsl:variable name="vmImages">/website/sites/all/modules/custom/vm/VersioningMachine/vm-images/</xsl:variable>-->
   <!-- include files in vm-images folder -->
   <xsl:variable name="vmLogo"><xsl:value-of select="$vmImages"/><xsl:text>gms_logo.png</xsl:text></xsl:variable>
   <xsl:variable name="menuArrowUp"><xsl:value-of select="$vmImages"/><xsl:text>arrowup.png</xsl:text></xsl:variable>
@@ -15,13 +14,6 @@
   <xsl:variable name="closePanelButton"><xsl:value-of select="$vmImages"/><xsl:text>closePanel.png</xsl:text></xsl:variable>
   <xsl:variable name="imageIcon"><xsl:value-of select="$vmImages"/><xsl:text>image.png</xsl:text></xsl:variable>
   <xsl:variable name="bannerImg"><xsl:value-of select="$vmImages"/><xsl:text>HeaderBackground.png</xsl:text></xsl:variable>
-   
-   <!-- path to folder of facsimile images, the path is encoded in the TEI files like this: images/imagename.jpg -->
-  <!--<xsl:variable name="facsImageFolder">/website/sites/default/files/vm_images/</xsl:variable>-->
-  
-  <!-- logoLink: path to samples page (VM logo links to this path) -->
-  <!-- NOTE: We're generating this in drupal_settings.xsl -->
-  <!--<xsl:variable name="logoLink">/</xsl:variable>-->
   
   <!-- include file form src folder -->
   <xsl:variable name="cssInclude">../src/vmachine.css</xsl:variable>
