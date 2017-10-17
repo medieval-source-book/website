@@ -41,11 +41,22 @@ function gms_text_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'responsive_grid';
   $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Sticky */
+  $handler->display->display_options['fields']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['fields']['sticky']['table'] = 'node';
+  $handler->display->display_options['fields']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['fields']['sticky']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sticky']['type'] = 'custom';
+  $handler->display->display_options['fields']['sticky']['type_custom_true'] = 'true';
+  $handler->display->display_options['fields']['sticky']['type_custom_false'] = 'false';
+  $handler->display->display_options['fields']['sticky']['not'] = 0;
   /* Field: Content: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_icon']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_icon']['element_class'] = 'promoted-[sticky]';
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_icon']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_icon']['settings'] = array(
@@ -75,6 +86,7 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['field_short_title']['table'] = 'field_data_field_short_title';
   $handler->display->display_options['fields']['field_short_title']['field'] = 'field_short_title';
   $handler->display->display_options['fields']['field_short_title']['label'] = '';
+  $handler->display->display_options['fields']['field_short_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_short_title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_short_title']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_short_title']['element_label_colon'] = FALSE;
@@ -85,8 +97,26 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['field_original_language_title']['table'] = 'field_data_field_original_language_title';
   $handler->display->display_options['fields']['field_original_language_title']['field'] = 'field_original_language_title';
   $handler->display->display_options['fields']['field_original_language_title']['label'] = '';
+  $handler->display->display_options['fields']['field_original_language_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_original_language_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_original_language_title']['type'] = 'text_plain';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="views-field-field-icon">[field_icon]</div>
+<div class="views-field-field-short-title">[field_short_title]</div>
+<div class="views-field-field-original-language-title">[field_original_language_title]</div>';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'grid-item promoted-[sticky]';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

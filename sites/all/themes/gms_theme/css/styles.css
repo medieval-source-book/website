@@ -3327,6 +3327,15 @@ span.field-label {
   clear: both;
 }
 
+.layout-6col .view-id-texts .view-content .grid-item {
+  padding-top: 1em;
+}
+
+.layout-6col .view-id-texts .view-content .promoted-true {
+  background-color: rgba(200, 200, 200, 0.25);
+  border-radius: 15px;
+}
+
 .layout-6col .view-id-texts .view-content img {
   margin-left: auto;
   margin-right: auto;
@@ -3342,6 +3351,7 @@ span.field-label {
 
 .layout-6col .view-id-texts .view-content .views-field-field-icon {
   padding-bottom: .5em;
+  padding-top: .5em;
 }
 
 .layout-6col .view-id-texts .view-content .views-row {
@@ -3407,6 +3417,21 @@ span.field-label {
 
 #views-exposed-form-texts-table-page input#edit-reset {
   margin-top: 1em;
+}
+
+.view-id-texts .promoted-true::after {
+  content: '';
+  display: block;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  top: -150px;
+  left: 10px;
+  background-image: url("/sites/all/themes/gms_theme/images-source/star_icon.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 25px;
+  z-index: 100;
 }
 
 @media print {
