@@ -2647,7 +2647,7 @@ td.active {
     padding-right: 12px;
   }
   .layout-3col__full {
-    padding-left: 25px;
+    padding-left: 50px;
     padding-right: 25px;
   }
   .layout-3col__first-left-sidebar, .layout-3col__col-1, .layout-3col__col-3, .layout-3col__col-x:nth-child(2n + 1) {
@@ -2693,7 +2693,7 @@ td.active {
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 25px;
+    padding-left: 50px;
     padding-right: 25px;
   }
   [dir="rtl"] .layout-3col__full {
