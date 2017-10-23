@@ -37,10 +37,11 @@
       </xsl:call-template>
    </xsl:variable>
 
+   <!-- Create original language / translation title; assumes translation is second in listWit -->
    <xsl:variable name="bothTitles">
       <xsl:for-each select="$witnesses">
          <xsl:variable name="witId"><xsl:value-of select="@xml:id"></xsl:value-of></xsl:variable>
-         <xsl:if test="(position() = 1) or (position() = last())">
+         <xsl:if test="(position() = 1) or (position() = 2)">
             <xsl:value-of select="//tei:witness[@xml:id = $witId]"/>
             <xsl:if test="position() = 1">
                | 
@@ -244,8 +245,8 @@
                        <xsl:attribute name="class">listText</xsl:attribute>
 
                        <div>
-                          <xsl:variable name="witTitle"><xsl:value-of select="@xml:id"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
-                          <a href="#" title="{$witTitle}"><xsl:value-of select="@xml:id"/></a>
+                          <xsl:variable name="witTitle"><xsl:value-of select="translate(@xml:id, '_', ' ')"/><xsl:text>: </xsl:text><xsl:value-of select="."/></xsl:variable>
+                          <a href="#" title="{$witTitle}"><xsl:value-of select="translate(@xml:id, '_', ' ')"/></a>
                        </div>
 
                         <div>
@@ -371,7 +372,7 @@
          <div class="panelBanner">
             <!-- To change the title of the panel banner of each version panel change the text below -->
             
-            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="$witId" /></xsl:variable>
+            <xsl:variable name="witTitle"><xsl:text></xsl:text><xsl:value-of select="translate($witId, '_', ' ')" /></xsl:variable>
             
             <a title="{$witTitle}"><xsl:value-of select="$witTitle"></xsl:value-of></a>
             <span class="fa fa-times closePanel" title="Close panel"></span>
@@ -1424,7 +1425,7 @@
                      <a title="{$imgUrl}"><xsl:text>...</xsl:text><xsl:value-of select="substring($imgUrl,$strgLength-29,30)"/></a>
                   </xsl:when>
                   <xsl:otherwise>
-                     <xsl:value-of select="$imgUrl"></xsl:value-of>
+                     <xsl:value-of select="substring-before(translate($imgUrl,'_',' '), '.')"></xsl:value-of>
                   </xsl:otherwise>
                </xsl:choose>
             </span>
