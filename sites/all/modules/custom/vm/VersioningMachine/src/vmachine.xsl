@@ -609,6 +609,10 @@
       <xsl:apply-templates />
    </xsl:template>
    
+   <xsl:template match="tei:sourceDesc">
+      <xsl:apply-templates select="*[not(self::tei:listWit)]"></xsl:apply-templates>
+   </xsl:template>
+   
    <xsl:template match="/tei:TEI/tei:teiHeader/tei:encodingDesc">
       <h4>Encoding Principles</h4>
       <xsl:apply-templates />
