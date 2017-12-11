@@ -256,7 +256,6 @@ function vm_reprocess_texts() {
       $status[$node->title] = vm_process_text($node, TRUE);
     }
   }
-  dpm($result);
   foreach ($status as $title => $result) {
     if ($result == 0) {
       drupal_set_message(t($title . " was successfully processed."),
