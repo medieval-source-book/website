@@ -69,11 +69,11 @@ function vm_admin_form() {
     '#default_value' => variable_get('vm_ga', '')
   );
   $form['help_text'] = array(
-    '#markup' => '<p></p><button><a 
+    '#markup' => '<p></p><a 
 href="' .
       $base_url . '/admin/config/content/vm/rebuild">Rebuild 
-XSL</a></button></p>' .
-      '<p><button><a href="' . $base_url . '/admin/config/content/vm/process_all">Recreate all Versioning Machine texts</a></button></p>'
+XSL</a></p>' .
+      '<p><a href="' . $base_url . '/admin/config/content/vm/process_all">Recreate all Versioning Machine texts</a></p>'
   );
   return system_settings_form($form);
 }
@@ -256,6 +256,7 @@ function vm_reprocess_texts() {
       $status[$node->title] = vm_process_text($node, TRUE);
     }
   }
+  dpm($result);
   foreach ($status as $title => $result) {
     if ($result == 0) {
       drupal_set_message(t($title . " was successfully processed."),
