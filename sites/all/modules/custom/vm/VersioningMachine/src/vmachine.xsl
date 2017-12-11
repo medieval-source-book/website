@@ -1228,11 +1228,11 @@
          </xsl:choose>
       </xsl:variable>
       
-      <div>
+      <span>
          <xsl:for-each select="*">
             <xsl:if test="contains(@wit, $witId)">
                <xsl:attribute name="style">
-                  <xsl:text>display: inline-block</xsl:text>
+                  <xsl:text>display: inline</xsl:text>
                </xsl:attribute>
             </xsl:if>
          </xsl:for-each>
@@ -1247,7 +1247,7 @@
          <xsl:apply-templates>
             <xsl:with-param name="witId" select="$witId"></xsl:with-param>
          </xsl:apply-templates>
-      </div>
+      </span>
    </xsl:template>
    
    <xsl:template name="string-replace-all">
@@ -1303,11 +1303,11 @@
          </xsl:choose>
       </xsl:variable>
       <xsl:variable name="currentWitId" select="@wit"/>
-      <div>
-         
+
+      <span>
          <xsl:if test="contains(@wit, $witId)">
             <xsl:attribute name="style">
-            <xsl:text>display:inline-block</xsl:text>
+            <xsl:text>display: inline</xsl:text>
             </xsl:attribute>
          </xsl:if>
             <xsl:attribute name="class">reading <xsl:value-of select="$readings"></xsl:value-of>
@@ -1350,7 +1350,7 @@
             <xsl:apply-templates>
                <xsl:with-param name="witId" select="$witId"></xsl:with-param>
             </xsl:apply-templates>   
-         </div>
+      </span>
       
    </xsl:template>
  
