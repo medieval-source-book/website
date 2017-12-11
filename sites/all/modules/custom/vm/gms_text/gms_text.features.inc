@@ -51,6 +51,15 @@ function gms_text_image_default_styles() {
   $styles['small_rectangle'] = array(
     'label' => 'Small Rectangle',
     'effects' => array(
+      5 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 220,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => -10,
+      ),
       4 => array(
         'name' => 'image_crop',
         'data' => array(
@@ -58,7 +67,7 @@ function gms_text_image_default_styles() {
           'height' => 100,
           'anchor' => 'center-center',
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
