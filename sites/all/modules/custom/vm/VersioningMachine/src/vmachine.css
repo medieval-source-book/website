@@ -460,14 +460,18 @@ div.mssContent div.paragraph div.reading{
     float: left;
 }
 
-div.apparatus div.reading{
-    display:none;
+div.paragraph {
+    margin-bottom: 1em;
 }
 
-div.apparatus{
-    display: block;
+span.apparatus span.reading{
+    display: none;
+}
+
+span.apparatus{
+    /*display: inline-block;*/
     cursor: pointer;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 em.label{
