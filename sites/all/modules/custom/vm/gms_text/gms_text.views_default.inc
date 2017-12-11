@@ -332,10 +332,6 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['field_author']['field'] = 'field_author';
   $handler->display->display_options['fields']['field_author']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_author']['delta_offset'] = '0';
-  /* Field: Content: Year */
-  $handler->display->display_options['fields']['field_year']['id'] = 'field_year';
-  $handler->display->display_options['fields']['field_year']['table'] = 'field_data_field_year';
-  $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
   /* Field: Content: Period */
   $handler->display->display_options['fields']['field_period']['id'] = 'field_period';
   $handler->display->display_options['fields']['field_period']['table'] = 'field_data_field_period';
@@ -354,12 +350,6 @@ function gms_text_views_default_views() {
   $handler->display->display_options['fields']['field_genre']['field'] = 'field_genre';
   $handler->display->display_options['fields']['field_genre']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_genre']['delta_offset'] = '0';
-  /* Field: Content: Keywords */
-  $handler->display->display_options['fields']['field_keywords']['id'] = 'field_keywords';
-  $handler->display->display_options['fields']['field_keywords']['table'] = 'field_data_field_keywords';
-  $handler->display->display_options['fields']['field_keywords']['field'] = 'field_keywords';
-  $handler->display->display_options['fields']['field_keywords']['type'] = 'taxonomy_term_reference_plain';
-  $handler->display->display_options['fields']['field_keywords']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
