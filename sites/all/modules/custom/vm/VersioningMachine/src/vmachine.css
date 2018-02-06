@@ -40,8 +40,7 @@ body{
     width:100%;
     margin:0;
     padding:0;
-    font-size:12px;
-    width:100%;
+    font-size: 12pt;
     font-family: 'Palemonas MUFI', 'Roboto', sans-serif;
     min-width:770px;
     background-color:#fff;
@@ -165,6 +164,7 @@ div#mainControlsWrapper {
     width: 100%;
     background: #666;
     padding-left: 50px;
+    padding-bottom: 5px;
     height: 25px;
     font-size: 12pt;
     z-index: 10;
@@ -174,14 +174,14 @@ div#mainBanner nav#mainControls{
     margin: 2px;
     padding: 1px;
     bottom: 5px;
-    width:100%;
+    width: 100%;
     position: absolute;
     left: 0;
     right: 0;
 }
 
 nav#mainControls ul li {
-    height: 15px;
+    height: 20px;
 }
 
 nav#mainControls > ul > li > span {
@@ -372,7 +372,6 @@ div.line{
     margin:0 5px 0 30px;
     padding:0;
     cursor: auto;
-    font-size: 15px;
 }
 div.line div.linenumber,
 div.line div.emptynumber{
