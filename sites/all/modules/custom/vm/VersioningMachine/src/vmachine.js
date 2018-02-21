@@ -38,8 +38,9 @@ $.fn.moveToFront = function() {
 }
 
 $.fn.panelResize = function (){
-	var visiblePanels = $("div.panel:not(.imgPanel):not(.noDisplay)")
-	var totalPanels = visiblePanels.length;
+	// var visiblePanels = $("div.panel:not(.imgPanel):not(.noDisplay)")
+    var visiblePanels = $("div.panel:not(.noDisplay)");
+    var totalPanels = visiblePanels.length;
 	var mssAreaWidth = $(this).width();
 	var panelWidth = (mssAreaWidth / totalPanels) - 10;
 
@@ -258,15 +259,15 @@ $.fn.imgLinkClick = function() {
 		var imagePanel = $("#"+imgId);
 		imagePanel.appendTo("#mssArea");
 		imagePanel.css({
-			"position": "absolute",
-			"top": e.pageY,
-			"left": e.pageX - imagePanel.width(),
-            "width": "30%",
-            "height": "500px",
-			}).toggleClass("noDisplay").addClass("activePanel");
+			"top": 0,
+			"height": "500px",
+		}).toggleClass("noDisplay").addClass("activePanel");
 		//move the image panel to the front of all visible panels
 		imagePanel.moveToFront();
+		// Resize all panels to fit
+        $("#mssArea").panelResize();
 	});
+
 };
 
 $.fn.imgLinkHover = function() {
