@@ -775,14 +775,61 @@ div.stanzabreak {
     margin-top: 2em;
 }
 
-/* For printing VM */
+/* For printing the VM interface */
 @media print {
-    #mainBanner,
+    body {
+        counter-reset: footnotes;
+    }
+
+    #brandingLogo,
     #mainControlsWrapper,
     .closePanel,
-    .facs-images {
+    .facs-images,
+    #content_imgViewer .buttons
+    {
         display: none;
     }
+
+    div.noteIcon:after {
+        content: counter(footnotes);
+    }
+
+    /*div.noteIcon {*/
+        /*display: none !important;*/
+    /*}*/
+
+    div.note:before {
+        content: counter(footnotes, ".");
+    }
+
+    div.note {
+        counter-increment: footnotes;
+        display: block !important;
+        position: absolute;
+        top: 500px;
+        left: 0;
+        width: 200px;
+        color: black;
+    }
+
+    div#noNotesFound {
+        display: none !important;
+    }
+
     @page { margin: 0; }
-    body { margin: 1.6cm; }
+    body {
+        margin-top: 1.6cm;
+        margin-bottom: 1.6cm;
+    }
+    div.panelBanner {
+        font-weight: bold;
+    }
+    div.mssPanel {
+        margin-bottom: 15px;
+        margin-right: 5px;
+        border-color: #ddd !important;
+    }
+    div.mssPanel + div.mssPanel {
+        page-break-before: always;
+    }
 }
