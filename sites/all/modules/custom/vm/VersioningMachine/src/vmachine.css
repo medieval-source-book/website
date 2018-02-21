@@ -774,3 +774,15 @@ span.speaker {
 div.stanzabreak {
     margin-top: 2em;
 }
+
+/* For printing VM */
+@media print {
+    #mainBanner,
+    #mainControlsWrapper,
+    .closePanel,
+    .facs-images {
+        display: none;
+    }
+    @page { margin: 0; }
+    body { margin: 1.6cm; }
+}
