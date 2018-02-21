@@ -387,7 +387,8 @@ div.line div.linenumber{
     cursor:pointer;
 }
 div.head{
-    font-size:180%;
+    font-size:18pt;
+    line-height: 22pt;
     color:#003366;
 }
 
