@@ -424,9 +424,10 @@ function gms_text_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_intro_manuscript',
-    'label' => 'Introduction to the Manuscript',
+    'label' => 'Introduction to Source',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -836,7 +837,7 @@ function gms_text_field_default_field_instances() {
   t('Genre');
   t('Icon');
   t('Icon Source');
-  t('Introduction to the Manuscript');
+  t('Introduction to Source');
   t('Introduction to the Text');
   t('Keywords');
   t('Language');
