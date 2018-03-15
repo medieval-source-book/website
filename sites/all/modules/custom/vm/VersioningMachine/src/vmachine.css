@@ -79,6 +79,9 @@ div#page-wrapper {
     margin-left: 20px;
 }
 
+span#citation {
+    display: none;
+}
 
 /* BEGIN styles for main banner*/
 div#mainBanner{
@@ -781,6 +784,11 @@ div.stanzabreak {
         counter-reset: footnotes;
     }
 
+    span#citation {
+        display: block;
+        margin-left: 1em;
+    }
+
     #brandingLogo,
     #mainControlsWrapper,
     .closePanel,
@@ -825,11 +833,14 @@ div.stanzabreak {
         font-weight: bold;
     }
     div.mssPanel {
-        margin-bottom: 15px;
+        width: 100% !important;
+        margin-bottom: 50px;
         margin-right: 5px;
         border-color: #ddd !important;
+        page-break-after: always;
     }
-    div.mssPanel + div.mssPanel {
-        page-break-before: always;
+
+    div.mssPanel ~ div.mssPanel {
+        page-break-inside: avoid;
     }
 }
