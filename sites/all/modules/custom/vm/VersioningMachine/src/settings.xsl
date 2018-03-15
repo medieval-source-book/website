@@ -14,6 +14,7 @@
   <xsl:variable name="closePanelButton"><xsl:value-of select="$vmImages"/><xsl:text>closePanel.png</xsl:text></xsl:variable>
   <xsl:variable name="imageIcon"><xsl:value-of select="$vmImages"/><xsl:text>image.png</xsl:text></xsl:variable>
   <xsl:variable name="bannerImg"><xsl:value-of select="$vmImages"/><xsl:text>HeaderBackground.png</xsl:text></xsl:variable>
+  <xsl:variable name="printerIcon"><xsl:value-of select="$vmImages"/><xsl:text>printer_icon.png</xsl:text></xsl:variable>
   
   <!-- include file form src folder -->
   <xsl:variable name="cssInclude">../src/vmachine.css</xsl:variable>

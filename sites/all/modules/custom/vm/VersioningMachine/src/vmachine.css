@@ -711,6 +711,12 @@ ul#versionList li.highlight {
     cursor:pointer;
 }
 
+#print-button {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
 /* change colour of match app/line highlight*/
 .matchLineHi, .matchLineHiClicked{
     background-color: #F0E68C;
@@ -781,8 +787,12 @@ div.stanzabreak {
 /* For printing the VM interface */
 @media print {
     body {
-        counter-reset: footnotes;
+        width: 100%;
+        margin-top: 1.6cm;
+        margin-bottom: 1.6cm;
     }
+
+    @page { margin: 0; }
 
     span#citation {
         display: block;
@@ -798,42 +808,16 @@ div.stanzabreak {
         display: none;
     }
 
-    div.noteIcon:after {
-        content: counter(footnotes);
-    }
-
-    /*div.noteIcon {*/
-        /*display: none !important;*/
-    /*}*/
-
-    div.note:before {
-        content: counter(footnotes, ".");
-    }
-
-    div.note {
-        counter-increment: footnotes;
-        display: block !important;
-        position: absolute;
-        top: 500px;
-        left: 0;
-        width: 200px;
-        color: black;
-    }
 
     div#noNotesFound {
         display: none !important;
     }
 
-    @page { margin: 0; }
-    body {
-        margin-top: 1.6cm;
-        margin-bottom: 1.6cm;
-    }
     div.panelBanner {
         font-weight: bold;
     }
     div.mssPanel {
-        width: 100% !important;
+        width: 900px !important;
         margin-bottom: 50px;
         margin-right: 5px;
         border-color: #ddd !important;
@@ -842,5 +826,9 @@ div.stanzabreak {
 
     div.mssPanel ~ div.mssPanel {
         page-break-inside: avoid;
+    }
+
+    #print-button {
+        display: none;
     }
 }

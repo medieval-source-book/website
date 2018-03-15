@@ -65,6 +65,9 @@
                     <xsl:text>." Global Medieval Sourcebook.</xsl:text>
                  </span>
                   <xsl:call-template name="mainBanner" />
+                 <a href="javascript:window.print()">
+                  <img id="print-button" src="{$printerIcon}" alt="Click to print" />
+                 </a>
                   <xsl:call-template name="manuscriptArea" />
               </div>
            </div>
@@ -1165,9 +1168,10 @@
          </xsl:call-template>
       </xsl:if>
    </xsl:template>
-   
+
    <xsl:template match="tei:note[not(@type='critIntro')]">
       <div class="noteicon">
+         <span class="notetype">
          <xsl:choose>
             <xsl:when test="@type = 'critical'">
                <xsl:text>c</xsl:text>
@@ -1185,6 +1189,7 @@
                <xsl:text>n</xsl:text>
             </xsl:otherwise>
          </xsl:choose>
+         </span>
          <div class="note">
             <strong>
                <xsl:choose>
@@ -1209,6 +1214,7 @@
             <xsl:apply-templates />
          </div>
       </div>
+
    </xsl:template>
    
    <xsl:template match="tei:note//tei:note">
