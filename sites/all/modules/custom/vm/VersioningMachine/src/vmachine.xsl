@@ -37,6 +37,7 @@
       </xsl:call-template>
    </xsl:variable>
 
+
    <!-- Create original language / translation title; assumes translation is second in listWit -->
    <xsl:variable name="bothTitles">
       <xsl:for-each select="$witnesses">
@@ -57,6 +58,12 @@
         <body class="html not-front page-node">
            <div id="page-wrapper">
               <div id="page">
+                 <span id="citation">
+                    <xsl:value-of select="//tei:titleStmt/tei:author" />
+                    <xsl:text>. "</xsl:text>
+                    <xsl:value-of select="//tei:titleStmt/tei:title" />
+                    <xsl:text>." Global Medieval Sourcebook.</xsl:text>
+                 </span>
                   <xsl:call-template name="mainBanner" />
                   <xsl:call-template name="manuscriptArea" />
               </div>
