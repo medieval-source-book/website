@@ -540,6 +540,8 @@ $(document).ready(function() {
 	$("#mssArea").critPanel();
 	$("#mssArea").linenumber();
 
+	$('#citation').append('<br/>' + window.location.href);
+
 	//after the visibility of all necessary panels is changed the workspace/mssArea has to be resized to fit panels
 	$("#mssArea").panelResize();
 	
