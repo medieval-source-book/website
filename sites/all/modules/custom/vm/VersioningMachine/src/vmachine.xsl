@@ -58,16 +58,19 @@
         <body class="html not-front page-node">
            <div id="page-wrapper">
               <div id="page">
+                  <xsl:call-template name="mainBanner" />
+                 <a href="javascript:window.print()">
+                  <img id="print-button" src="{$printerIcon}" alt="Click to print" />
+                 </a>
                  <span id="citation">
                     <xsl:value-of select="//tei:titleStmt/tei:author" />
                     <xsl:text>. "</xsl:text>
                     <xsl:value-of select="//tei:titleStmt/tei:title" />
                     <xsl:text>." Global Medieval Sourcebook.</xsl:text>
+                    <br />
+                    <xsl:value-of select="//tei:respStmt" />
+                    <xsl:text>. </xsl:text>
                  </span>
-                  <xsl:call-template name="mainBanner" />
-                 <a href="javascript:window.print()">
-                  <img id="print-button" src="{$printerIcon}" alt="Click to print" />
-                 </a>
                   <xsl:call-template name="manuscriptArea" />
               </div>
            </div>
