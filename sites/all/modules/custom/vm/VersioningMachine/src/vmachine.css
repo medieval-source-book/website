@@ -788,22 +788,25 @@ div.stanzabreak {
 @media print {
     body {
         width: 100%;
-        margin-top: 1.6cm;
-        margin-bottom: 1.6cm;
+        overflow: visible;
     }
-
-    @page { margin: 0; }
 
     span#citation {
         display: block;
         margin-left: 1em;
     }
 
+    h1 {
+        font-size: 14pt !important;
+        font-weight: normal !important;
+    }
+
     #brandingLogo,
     #mainControlsWrapper,
     .closePanel,
     .facs-images,
-    #content_imgViewer .buttons
+    #content_imgViewer .buttons,
+    div.audioPlayer
     {
         display: none;
     }
@@ -830,5 +833,28 @@ div.stanzabreak {
 
     #print-button {
         display: none;
+    }
+
+    #site-name a {
+        font-size: 16pt !important;
+        font-weight: normal;
+    }
+    #site-slogan {
+        font-size: 12pt !important;
+    }
+
+    #notesPanel {
+        display: block;
+        page-break-before: always;
+        page-break-inside: avoid;
+        width: 900px;
+    }
+    
+    #notesPanel .noteContent div.position,
+    .linenumber,
+    h1
+    {
+        text-decoration: none !important;
+        color: black !important;
     }
 }
