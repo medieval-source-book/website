@@ -6,9 +6,9 @@
 }
 
 html {
-  @include define-type-sizing();
+  //@include define-type-sizing();
   // Change the default font family in all browsers (opinionated).
-  @include typeface(body);
+  //@include typeface(body);
   // Prevent adjustments of font size after orientation changes in IE and iOS.
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -20,7 +20,7 @@ html {
 body {
   // Output a horizontal grid to help with debugging typography. The
   // $typey-debug variable will toggle its output.
-  @include typey-debug-grid();
+  //@include typey-debug-grid();
   // Remove default margin and padding.
   margin: 0;
   padding: 0;
