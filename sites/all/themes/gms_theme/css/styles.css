@@ -4225,13 +4225,6 @@ footer{
   padding: 0;
 }
 
-/*
-.footer_wrap{
-  position: relative; 
-  background-color: #666666; 
-  float: left;
-}*/
-
 .footer-wrap{
   width: 90%;
   margin: auto;
@@ -4253,7 +4246,8 @@ footer{
 }
 
 .logos {
-   width: 60%;
+   /*width: 60%;*/
+   width: 300px;
 }
 
 .logos::after {
