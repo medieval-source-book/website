@@ -4217,7 +4217,7 @@ tr.drag-previous {
   background-position: -11px center;
 }
 
-/* Irene's changes go here */
+/* footer */
 footer{
   background: #666666;
   color: #fff;
@@ -4246,7 +4246,6 @@ footer{
 }
 
 .logos {
-   /*width: 60%;*/
    width: 300px;
 }
 
@@ -4284,7 +4283,6 @@ footer{
    width: 80%;
 }
 
-/*links*/
 .section-1 a{
   color: #f2f2f2;
   text-decoration: none;
