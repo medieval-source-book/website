@@ -4216,3 +4216,79 @@ tr.drag-previous {
 .tree-child-horizontal {
   background-position: -11px center;
 }
+
+/* footer */
+footer{
+  background: #666666;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-wrap{
+  width: 90%;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+.section-1{
+  overflow: hidden;
+  float: left;
+  display: inline;
+  width: 25%;
+}
+
+.section-2{
+  overflow: hidden;
+  float: left;
+  display: block;
+  width: 75%;
+}
+
+.logos {
+   width: 300px;
+}
+
+.logos::after {
+  clear: both;
+  display: table;
+}
+
+.logo-container {
+   float: left;
+   width: 50%;
+   padding: 5px;
+}
+
+.footer h3 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+.section-2::after {
+  clear: both;
+  display: table;
+}
+
+.permissions-container-1 {
+   float: left;
+   width: 10%;
+   margin-right: 10px;
+}
+
+.permissions-container-2 {
+   float: left;
+   width: 80%;
+}
+
+.section-1 a{
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.section-2 a{
+  color: lightgray;
+  text-decoration: none;
+}
