@@ -4216,3 +4216,10 @@ tr.drag-previous {
 .tree-child-horizontal {
   background-position: -11px center;
 }
+
+/*slider*/
+.slides .flex-active-slide img {
+    height: 50%;
+    width: 50%;
+    float: right;
+}
