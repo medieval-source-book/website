@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Contains install, uninstall, and update hooks for Views TimelineJS.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function views_timelinejs_uninstall() {
+  variable_del('views_timelinejs_css_library_group');
+}
+
+/**
+ * Sets the CSS library group to 200 for existing installations.
+ *
+ * @see https://www.drupal.org/node/2856403
+ */
+function views_timelinejs_update_7300() {
+  variable_set('views_timelinejs_css_library_group', 200);
+}
