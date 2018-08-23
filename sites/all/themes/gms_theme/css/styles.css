@@ -2903,6 +2903,10 @@ td.active {
   position: relative;
 }
 
+.front .layout-swap {
+  background-color: #F6F6F6;
+}
+
 @media (min-width: 555px) {
   .layout-swap {
     padding-top: 48px;
@@ -3340,6 +3344,8 @@ span.field-label {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  height: 200px;
+  object-fit: cover;
 }
 
 .layout-6col .view-id-texts .view-content .views-field-field-short-title,
@@ -4219,34 +4225,36 @@ tr.drag-previous {
 
 /*slider*/
 .view-content #flexslider-1 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 370px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 370px;
+  box-shadow: 1px 1px 4px #bdbdbd;
 }
 
 .flex-active-slide .slide-content {
   width: 55%;
   float: left;
-  /*margin-right: 2.59067%;*/
+  max-height: 200px;
+  overflow: scroll;
 }
 
 .views-field-field-collection-type {
-    font-weight: 700;
-    font-size: 12px;
-    font-size: 0.75rem;
-    text-transform: capitalize;
-    display: inline-block;
-    white-space: nowrap;
-    
-    float: left;
-    padding: 4px 6px;
-    padding: 0.25rem 0.375rem;
-    border: 1px solid black;
-    margin-bottom: 10px;
-    margin-bottom: 0.625rem;
-    margin-top: 28px;
+  font-weight: 700;
+  font-size: 12px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  display: inline-block;
+  white-space: nowrap;
+  
+  float: left;
+  padding: 4px 6px;
+  padding: 0.25rem 0.375rem;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  margin-top: 28px;
 }
 
 .flex-direction-nav a {
@@ -4256,11 +4264,11 @@ tr.drag-previous {
 .flexslider .slides img {
   width: 40%;
   float: right;
-  vertical-align: text-bottom;
+  margin-top: 5%;
 }
 
 .slides, .slides > li, .flex-control-nav, .flex-direction-nav {
-  padding: 0px 50px 0px 50px;
+  padding: 0px 50px 50px 50px;
   /*margin-left: 20px;
   margin-right: 20px;*/
 }
@@ -4269,4 +4277,28 @@ h2.views-field.views-field-title {
   margin-top: 4.5rem;
   color: blue;
   margin-bottom: 0rem;
+}
+
+.view.view-texts.view-id-texts.view-display-id-page {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1px;
+  background-color: white;
+  box-shadow: 1px 1px 4px #bdbdbd;
+}
+
+/*home page cards*/
+.grid-item .views-field-field-short-title {
+  border: 1px solid #bdbdbd;
+  margin-top: -0.5rem;
+  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+
+.grid-item .views-field-field-original-language-title {
+  margin-top: -1.7rem;
 }
