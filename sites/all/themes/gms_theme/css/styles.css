@@ -4216,3 +4216,14 @@ tr.drag-previous {
 .tree-child-horizontal {
   background-position: -11px center;
 }
+
+/*timeline*/
+.tl-text-content {
+  width: 135%;
+  max-height: 20rem;
+  overflow: scroll;
+}
+
+#timelinejs-timelinejs-view-block {
+  margin: auto;
+}
