@@ -4254,7 +4254,7 @@ tr.drag-previous {
   border: 1px solid black;
   margin-bottom: 10px;
   margin-bottom: 0.625rem;
-  margin-top: 28px;
+  margin-top: 3rem;
 }
 
 .flex-direction-nav a {
@@ -4274,9 +4274,11 @@ tr.drag-previous {
 }
 
 h2.views-field.views-field-title {
-  margin-top: 4.5rem;
-  color: blue;
+  /*margin-top: 4.5rem;
+  max-width: 35rem;*/
   margin-bottom: 0rem;
+  margin-top: 6rem;
+  max-width: 35rem;
 }
 
 .view.view-texts.view-id-texts.view-display-id-page {
