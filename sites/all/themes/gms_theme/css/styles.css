@@ -4238,6 +4238,8 @@ tr.drag-previous {
   float: left;
   max-height: 200px;
   overflow: scroll;
+  font-size: 105%;
+  font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
 }
 
 .views-field-field-collection-type {
