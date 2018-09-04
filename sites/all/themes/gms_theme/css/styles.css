@@ -4224,6 +4224,10 @@ tr.drag-previous {
   overflow: scroll;
 }
 
+.tl-media-content-container {
+  width: 75%;
+}
+
 #timelinejs-timelinejs-view-block {
   margin: auto;
 }
