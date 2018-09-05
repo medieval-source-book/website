@@ -17,11 +17,11 @@
 
 // The following Sass functions/mixins are required to generate some variables'
 // values, so we load them first.
-// @import 'breakpoint';
-// @import 'chroma/functions';
+@import 'breakpoint';
+@import 'chroma/functions';
 
-// @import 'init/colors';
-// @import 'init/variables';
+@import 'init/colors';
+@import 'init/variables';
 
 
 // 3rd party libraries
@@ -38,14 +38,14 @@
 // Style guide: sass.modules
 
 // Add Chroma to manage colors.
-// @import 'chroma';
-// @import 'chroma/kss';
+@import 'chroma';
+@import 'chroma/kss';
 // Add support-for to manage normalize-scss' browser support.
-// @import 'support-for';
+@import 'support-for';
 // Add typey to manage font sizes and margins.
-// @import 'typey';
+@import 'typey';
 // Add the Zen Grids responsive layout mixins.
-// @import 'zen-grids';
+@import 'zen-grids';
 
 
 // Mixins
@@ -55,9 +55,9 @@
 // Weight: 1
 //
 // Style guide: sass.mixins
-//@import 'init/clearfix/clearfix';
-//@import 'init/rtl/rtl';
-//@import 'init/visually-hidden/visually-hidden';
+@import 'init/clearfix/clearfix';
+@import 'init/rtl/rtl';
+@import 'init/visually-hidden/visually-hidden';
 
 // Functions
 //
@@ -66,4 +66,4 @@
 // Weight: 1
 //
 // Style guide: sass.functions
-//@import 'init/image-url/image-url';
+@import 'init/image-url/image-url';
