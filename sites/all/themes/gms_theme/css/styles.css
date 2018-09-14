@@ -3353,6 +3353,8 @@ span.field-label {
   font-size: small;
   line-height: 1rem;
   text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .layout-6col .view-id-texts .view-content .views-field-field-icon {
@@ -4297,10 +4299,16 @@ h2.views-field.views-field-title {
 
 /*home page cards*/
 .grid-item .views-field-field-short-title {
-  border: 1px solid #bdbdbd;
+  background-color: #f7f2e9;
   margin-top: -0.5rem;
-  padding-bottom: 2rem;
-  padding-top: 0.5rem;
+  padding-bottom: 2.3rem;
+  padding-top: 0.8rem;
+}
+
+.grid-item .views-field-field-short-title a{
+  font-weight: bolder;
+  font-size: 1rem;
+  font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
 }
 
 .grid-item .views-field-field-original-language-title {
