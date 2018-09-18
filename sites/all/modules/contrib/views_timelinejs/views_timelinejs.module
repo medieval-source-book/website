@@ -1,0 +1,270 @@
+<?php
+/**
+ * @file
+ * Views TimelineJS API, theming, libraries, etc.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function views_timelinejs_views_api() {
+  return array(
+    'api' => '3',
+    'path' => drupal_get_path('module', 'views_timelinejs'),
+  );
+}
+
+/**
+ * Implements hook_library().
+ *
+ * The views_timelinejs_css_library_group variable provides backward
+ * compatibility for sites that originally installed version 7.x-3.0 which gave
+ * the TimelineJS CSS libraries a weight of 200.
+ *
+ * @todo Remove this variable in the next major version of the module.
+ *
+ * @see https://www.drupal.org/node/2856403
+ */
+function views_timelinejs_library() {
+  global $base_url;
+  $libraries = array();
+
+  $libraries['timelinejs.cdn'] = array(
+    'title' => 'TimelineJS CDN',
+    'website' => 'https://timeline.knightlab.com',
+    'version' => '3.3.15',
+    'js' => array(
+      'timeline.js' => array(
+        'data' => 'https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js',
+        'type' => 'external',
+        'group' => JS_LIBRARY,
+      ),
+    ),
+    'css' => array(
+      'timeline.css' => array(
+        'data' => 'https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css',
+        'type' => 'external',
+        'group' => variable_get('views_timelinejs_css_library_group', CSS_DEFAULT),
+      ),
+    ),
+  );
+  $libraries['timelinejs.local'] = array(
+    'title' => 'TimelineJS',
+    'website' => 'https://timeline.knightlab.com',
+    'version' => '3.3.15',
+    'js' => array(
+      'timeline.js' => array(
+        'data' => $base_url . '/sites/all/libraries/TimelineJS3/compiled/js/timeline.js',
+        'type' => 'external',
+        'group' => JS_LIBRARY,
+      ),
+    ),
+    'css' => array(
+      'timeline.css' => array(
+        'data' => $base_url . '/sites/all/libraries/TimelineJS3/compiled/css/timeline.css',
+        'type' => 'external',
+        'group' => variable_get('views_timelinejs_css_library_group', CSS_DEFAULT),
+      ),
+    ),
+  );
+
+  // Create a library for each TimelineJS3 alternate font set.
+  foreach (array_keys(_views_timelinejs_list_font_sets()) as $set) {
+    $libraries['timelinejs.' . $set . '.cdn'] = array(
+      'title' => 'TimelineJS CDN ' . $set,
+      'website' => 'https://timeline.knightlab.com',
+      'version' => '3.3.15',
+      'css' => array(
+        'font.' . $set . '.css' => array(
+          'data' => 'https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.' . $set . '.css',
+          'type' => 'external',
+          'group' => variable_get('views_timelinejs_css_library_group', CSS_DEFAULT),
+        ),
+      ),
+    );
+    $libraries['timelinejs.' . $set . '.local'] = array(
+      'title' => 'TimelineJS ' . $set,
+      'website' => 'https://timeline.knightlab.com',
+      'version' => '3.3.15',
+      'css' => array(
+        'font.' . $set . '.css' => array(
+          'data' => $base_url . '/sites/all/libraries/TimelineJS3/compiled/css/fonts/font.' . $set . '.css',
+          'type' => 'external',
+          'group' => variable_get('views_timelinejs_css_library_group', CSS_DEFAULT),
+        ),
+      ),
+    );
+  }
+
+  return $libraries;
+}
+
+/**
+ * Returns an array of font set options that are supported by TimelineJS3.
+ *
+ * @return array
+ *   An array of font set names, keyed by the name section of the set's CSS
+ *   filename, i.e. 'font.set-name.css'.
+ */
+function _views_timelinejs_list_font_sets() {
+  return array(
+    'abril-droidsans' => 'Abril Fatface & Droid Sans',
+    'amatic-andika' => 'Amatic & Andika',
+    'bevan-pontanosans' => 'Bevan & Pontano Sans',
+    'bitter-raleway' => 'Bitter & Raleway',
+    'clicker-garamond' => 'Clicker & Garamond',
+    'dancing-ledger' => 'Dancing & Ledger',
+    'default' => 'Default',
+    'fjalla-average' => 'Fjalla & Average',
+    'georgia-helvetica' => 'Georgia & Helvetica',
+    'knightlab' => 'Knight Lab',
+    'lustria-lato' => 'Lustria Lato',
+    'medula-lato' => 'Medula One & Lato',
+    'oldstandard' => 'Old Standard',
+    'opensans-gentiumbook' => 'Open Sans & Gentium Book Basic',
+    'playfair-faunaone' => 'Playfair & Fauna One',
+    'playfair' => 'Playfair SC & Playfair',
+    'pt' => 'PT Sans / PT Serif / PT Sans Narrow',
+    'roboto-megrim' => 'Roboto Slab & Megrim',
+    'rufina-sintony' => 'Rufina & Sintony',
+    'ubuntu' => 'Ubuntu',
+    'unicaone-vollkorn' => 'Unica One & Vollkorn',
+  );
+}
+
+/**
+ * Returns an array of language options that are supported by TimelineJS3.
+ *
+ * @return array
+ *   An array of language names, keyed by language code.
+ */
+function _views_timelinejs_list_languages() {
+  return array(
+    'af' => t('Afrikaans'),
+    'ar' => t('Arabic'),
+    'hy' => t('Armenian'),
+    'eu' => t('Basque'),
+    'be' => t('Belarusian'),
+    'bg' => t('Bulgarian'),
+    'ca' => t('Catalan'),
+    'zh-cn' => t('Chinese'),
+    'hr' => t('Croatian / Hrvatski'),
+    'cz' => t('Czech'),
+    'da' => t('Danish'),
+    'nl' => t('Dutch'),
+    'en' => t('English'),
+    'en-24hr' => t('English (24-hour time)'),
+    'en-week' => t('English (display weeks)'),
+    'eo' => t('Esperanto'),
+    'et' => t('Estonian'),
+    'fo' => t('Faroese'),
+    'fa' => t('Farsi'),
+    'fi' => t('Finnish'),
+    'fr' => t('French'),
+    'fy' => t('Frisian'),
+    'gl' => t('Galician'),
+    'ka' => t('Georgian'),
+    'de' => t('German / Deutsch'),
+    'el' => t('Greek'),
+    'he' => t('Hebrew'),
+    'hi' => t('Hindi'),
+    'hu' => t('Hungarian'),
+    'is' => t('Icelandic'),
+    'id' => t('Indonesian'),
+    'ga' => t('Irish'),
+    'it' => t('Italian'),
+    'ja' => t('Japanese'),
+    'ko' => t('Korean'),
+    'lv' => t('Latvian'),
+    'lt' => t('Lithuanian'),
+    'lb' => t('Luxembourgish'),
+    'ms' => t('Malay'),
+    'ne' => t('Nepali'),
+    'no' => t('Norwegian'),
+    'pl' => t('Polish'),
+    'pt' => t('Portuguese'),
+    'pt-br' => t('Portuguese (Brazilian)'),
+    'ro' => t('Romanian'),
+    'rm' => t('Romansh'),
+    'ru' => t('Russian'),
+    'sr-cy' => t('Serbian - Cyrillic'),
+    'sr' => t('Serbian - Latin'),
+    'si' => t('Sinhalese'),
+    'sk' => t('Slovak'),
+    'sl' => t('Slovenian'),
+    'es' => t('Spanish'),
+    'sv' => t('Swedish'),
+    'tl' => t('Tagalog'),
+    'ta' => t('Tamil'),
+    'zh-tw' => t('Taiwanese'),
+    'te' => t('Telugu'),
+    'th' => t('Thai'),
+    'tr' => t('Turkish'),
+    'uk' => t('Ukrainian'),
+    'ur' => t('Urdu'),
+  );
+}
+
+/**
+ * Returns an array of Drupal language codes mapped to TimelineJS codes.
+ *
+ * @return array
+ *   An array of language codes supported by TimelineJS, keyed by the equivalent
+ *   Drupal language code.
+ */
+function _views_timelinejs_language_map() {
+  return array(
+    'cs' => 'cz',
+    'nb' => 'no',
+    'nn' => 'no',
+    'pt-pt' => 'pt',
+    'zh-hans' => 'zh-cn',
+    'zh-hant' => 'zh-cn',
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function views_timelinejs_menu() {
+  $items['admin/config/development/views_timelinejs'] = array(
+    'title' => 'Views TimelineJS',
+    'description' => 'Configure settings related to the TimelineJS library.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_timelinejs_settings_form'),
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
+
+/**
+ * Admin settings menu callback.
+ *
+ * @see views_timelinejs_menu()
+ */
+function views_timelinejs_settings_form() {
+  $form['views_timelinejs_library'] = array(
+    '#type' => 'radios',
+    '#title' => t('TimelineJS library location'),
+    '#description' => t('If serving the files from a local path, the library MUST be located in sites/all/libraries/TimelineJS3.  See the module README file for more information.'),
+    '#options' => array(
+      'cdn' => t('NU Knight Lab CDN'),
+      'local' => t('Local path (sites/all/libraries)'),
+    ),
+    '#default_value' => variable_get('views_timelinejs_library', 'cdn'),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_help().
+ */
+function views_timelinejs_help($path, $arg) {
+  switch ($path) {
+    // Help for the settings form.
+    case 'admin/config/development/views_timelinejs':
+      return '<p>' . t('Configure how the Views TimelineJS plugin behaves on the site. Select whether to use a CDN or serve the library locally.') . '</p>';
+  }
+}

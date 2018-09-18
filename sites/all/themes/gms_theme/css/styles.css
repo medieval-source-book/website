@@ -4382,3 +4382,18 @@ footer{
   color: lightgray;
   text-decoration: none;
 }
+
+/*timeline*/
+.tl-text-content {
+  width: 135%;
+  max-height: 20rem;
+  overflow: scroll;
+}
+
+.tl-media-content-container {
+  width: 80%;
+}
+
+#timelinejs-timelinejs-view-block {
+  margin: auto;
+}

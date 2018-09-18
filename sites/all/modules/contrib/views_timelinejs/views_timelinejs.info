@@ -1,0 +1,32 @@
+name = Views TimelineJS
+description = Provides a View style that displays rows in a Timeline.
+dependencies[] = views
+package = Views
+php = 5.3.0
+core = 7.x
+configure = admin/config/development/views_timelinejs
+
+files[] = views_timelinejs_plugin_style_timelinejs.inc
+files[] = src/Timeline.php
+files[] = src/TimelineBackground.php
+files[] = src/TimelineBackgroundInterface.php
+files[] = src/TimelineDate.php
+files[] = src/TimelineDateInterface.php
+files[] = src/TimelineEra.php
+files[] = src/TimelineEraInterface.php
+files[] = src/TimelineInterface.php
+files[] = src/TimelineMedia.php
+files[] = src/TimelineMediaInterface.php
+files[] = src/TimelineObjectInterface.php
+files[] = src/TimelineSlide.php
+files[] = src/TimelineSlideInterface.php
+files[] = src/TimelineText.php
+files[] = src/TimelineTextInterface.php
+files[] = src/TimelineTitleSlide.php
+
+; Information added by Drupal.org packaging script on 2017-10-10
+version = "7.x-3.1"
+core = "7.x"
+project = "views_timelinejs"
+datestamp = "1507646948"
+
