@@ -3353,6 +3353,8 @@ span.field-label {
   font-size: small;
   line-height: 1rem;
   text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .layout-6col .view-id-texts .view-content .views-field-field-icon {
@@ -4229,17 +4231,21 @@ tr.drag-previous {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 370px;
+  min-height: 370px;
+  min-height: 20rem;
   box-shadow: 1px 1px 4px #bdbdbd;
 }
 
 .flex-active-slide .slide-content {
   width: 55%;
   float: left;
-  max-height: 200px;
   overflow: scroll;
   font-size: 105%;
   font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
+}
+
+.views-field-body.slide-content {
+  padding-bottom: 2rem;
 }
 
 .views-field-field-collection-type {
@@ -4263,23 +4269,24 @@ tr.drag-previous {
   overflow: visible;
 }
 
+.flex-control-nav {
+  bottom: 10px;
+}
+
 .flexslider .slides img {
   width: 40%;
+  height: 40%;
   float: right;
-  margin-top: 5%;
+  margin: 1em 0px 1em 40px;
 }
 
 .slides, .slides > li, .flex-control-nav, .flex-direction-nav {
-  padding: 0px 50px 50px 50px;
-  /*margin-left: 20px;
-  margin-right: 20px;*/
+  padding: 0px 3rem;
 }
 
 h2.views-field.views-field-title {
-  /*margin-top: 4.5rem;
-  max-width: 35rem;*/
-  margin-bottom: 0rem;
   margin-top: 6rem;
+  margin-bottom: 0;
   max-width: 35rem;
 }
 
@@ -4295,16 +4302,39 @@ h2.views-field.views-field-title {
   box-shadow: 1px 1px 4px #bdbdbd;
 }
 
+@media (max-width: 1000px) {
+  .flexslider .slides img {
+    display: none;
+  }
+
+  .flex-active-slide .slide-content {
+    width: 100%;
+  }
+}
+
 /*home page cards*/
 .grid-item .views-field-field-short-title {
-  border: 1px solid #bdbdbd;
+  background-color: #f7f2e9;
   margin-top: -0.5rem;
-  padding-bottom: 2rem;
-  padding-top: 0.5rem;
+  padding-bottom: 2.3rem;
+  padding-top: 0.8rem;
+}
+
+.grid-item .views-field-field-short-title a{
+  font-weight: bolder;
+  font-size: 1rem;
+  font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
 }
 
 .grid-item .views-field-field-original-language-title {
   margin-top: -1.7rem;
+}
+
+.grid-item .views-field-field-short-title, 
+.grid-item .views-field-field-original-language-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* footer */
