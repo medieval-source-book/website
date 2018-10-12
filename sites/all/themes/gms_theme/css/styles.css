@@ -1,7 +1,7 @@
 /*! typey | GPLv2 License | https://github.com/jptaranto/typey */
-@import url("https://fonts.googleapis.com/css?family=Alegreya");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
-@import url("https://fonts.googleapis.com/css?family=PT+Serif");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+
 * {
   box-sizing: border-box;
 }
@@ -9,7 +9,7 @@
 html {
   font-size: 100%;
   line-height: 1.5em;
-  font-family: "Roboto", Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
@@ -114,7 +114,7 @@ h1,
   line-height: 3rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+    font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 h1.node-title {
@@ -132,7 +132,7 @@ h2 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 h2.text-section-title {
@@ -150,7 +150,7 @@ h3 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 #node_text_full_group_metadata h3 {
@@ -162,7 +162,7 @@ h4 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 h5 {
@@ -170,7 +170,7 @@ h5 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 h6 {
@@ -178,7 +178,7 @@ h6 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 abbr[title] {
@@ -1872,7 +1872,7 @@ button,
   border-style: solid;
   border-width: 1px;
   border-color: #d4d4d4;
-  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   box-sizing: border-box;
@@ -2372,7 +2372,7 @@ html [type='button'],
 [type='submit'] {
   -moz-appearance: button;
   -webkit-appearance: button;
-  font-family: "Roboto", Verdana, Tahoma, "DejaVu Sans", sans-serif;
+ font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 .button,
@@ -3037,7 +3037,7 @@ footer #block-system-user-menu ul li {
 
 .header__name-and-slogan {
   float: left;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
   color: black;
   padding-top: 0;
 }
@@ -3526,7 +3526,7 @@ span.field-label {
   padding: 0 0 0 40px;
   text-align: left;
   background: #666666;
-  font-family: "PT Serif", "Alegreya", "DejaVu Serif", serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
   z-index: 10;
 }
 
@@ -4241,7 +4241,7 @@ tr.drag-previous {
   float: left;
   overflow: scroll;
   font-size: 105%;
-  font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 .views-field-body.slide-content {
@@ -4323,7 +4323,7 @@ h2.views-field.views-field-title {
 .grid-item .views-field-field-short-title a{
   font-weight: bolder;
   font-size: 1rem;
-  font-family: "PT Serif","Alegreya","DejaVu Serif",serif;
+  font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 .grid-item .views-field-field-original-language-title {
