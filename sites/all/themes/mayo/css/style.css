@@ -305,7 +305,7 @@ fieldset {
 }
 
 #site-name, #site-slogan {
-  font-family: "PT Serif", serif;
+  font-family: "Roboto", sans serif;
 }
 
 /*------- end of default section --------*/
@@ -1864,13 +1864,13 @@ body.page-node div#about-us-paragraph {
   min-height: 300px;
 }
 body.page-node div#about-us-paragraph div#about-us-title {
-  font-family: PT serif;
+  font-family: "Roboto", sans serif;
   font-size: 4em;
   display: block;
   margin-bottom: 0.5em;
 }
 body.page-node div#about-us-paragraph p {
-  font-family: "PT Serif", serif;
+  font-family: "Roboto", sans serif;
   font-size: 16px;
 }
 body.page-node div#about-us-links {
