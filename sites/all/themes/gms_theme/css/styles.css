@@ -4342,6 +4342,7 @@ footer{
   background: #666666;
   color: #fff;
   margin: 0;
+  margin-top:20px;
   padding: 0;
 }
 
@@ -4427,3 +4428,4 @@ footer{
 #timelinejs-timelinejs-view-block {
   margin: auto;
 }
+
