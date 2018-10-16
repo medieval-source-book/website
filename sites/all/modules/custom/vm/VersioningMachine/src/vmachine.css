@@ -858,3 +858,12 @@ div.stanzabreak {
         color: black !important;
     }
 }
+
+footer {
+	background: #666666;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	right: 0;}
