@@ -4236,7 +4236,7 @@ tr.drag-previous {
   box-shadow: 1px 1px 4px #bdbdbd;
 }
 
-.flex-active-slide .slide-content {
+.flex-active-slide .field-content {
   width: 55%;
   float: left;
   overflow: scroll;
@@ -4244,7 +4244,7 @@ tr.drag-previous {
   font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
-.views-field-body.slide-content {
+.views-field-body .field-content {
   padding-bottom: 2rem;
 }
 
