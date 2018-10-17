@@ -41,9 +41,17 @@ Drupal.FieldGroup.Effects.processAccordion = {
     $('div.field-group-accordion-wrapper', context).once('fieldgroup-effects', function () {
       var wrapper = $(this);
 
+      // Get the index to set active.
+      var active_index = false;
+      wrapper.find('.accordion-item').each(function(i) {
+        if ($(this).hasClass('field-group-accordion-active')) {
+          active_index = i;
+        }
+      });
+
       wrapper.accordion({
-        autoHeight: false,
-        active: '.field-group-accordion-active',
+        heightStyle: "content",
+        active: active_index,
         collapsible: true,
         changestart: function(event, ui) {
           if ($(this).hasClass('effect-none')) {
@@ -56,17 +64,29 @@ Drupal.FieldGroup.Effects.processAccordion = {
       });
 
       if (type == 'form') {
+
+        var $firstErrorItem = false;
+
         // Add required fields mark to any element containing required fields
-        wrapper.find('div.accordion-item').each(function(i){
+        wrapper.find('div.field-group-accordion-item').each(function(i) {
+
           if ($(this).is('.required-fields') && $(this).find('.form-required').length > 0) {
-            $('h3.ui-accordion-header').eq(i).append(' ').append($('.form-required').eq(0).clone());
+            $('h3.ui-accordion-header a').eq(i).append(' ').append($('.form-required').eq(0).clone());
           }
           if ($('.error', $(this)).length) {
+            // Save first error item, for focussing it.
+            if (!$firstErrorItem) {
+              $firstErrorItem = $(this).parent().accordion("activate" , i);
+            }
             $('h3.ui-accordion-header').eq(i).addClass('error');
-            var activeOne = $(this).parent().accordion("activate" , i);
-            $('.ui-accordion-content-active', activeOne).css({height: 'auto', width: 'auto', display: 'block'});
           }
         });
+
+        // Save first error item, for focussing it.
+        if (!$firstErrorItem) {
+          $('.ui-accordion-content-active', $firstErrorItem).css({height: 'auto', width: 'auto', display: 'block'});
+        }
+
       }
     });
   }
@@ -99,6 +119,9 @@ Drupal.FieldGroup.Effects.processHtabs = {
 Drupal.FieldGroup.Effects.processTabs = {
   execute: function (context, settings, type) {
     if (type == 'form') {
+
+      var errorFocussed = false;
+
       // Add required fields mark to any fieldsets containing required fields
       $('fieldset.vertical-tabs-pane', context).once('fieldgroup-effects', function(i) {
         if ($(this).is('.required-fields') && $(this).find('.form-required').length > 0) {
@@ -106,8 +129,12 @@ Drupal.FieldGroup.Effects.processTabs = {
         }
         if ($('.error', $(this)).length) {
           $(this).data('verticalTab').link.parent().addClass('error');
-          Drupal.FieldGroup.setGroupWithfocus($(this));
-          $(this).data('verticalTab').focus();
+          // Focus the first tab with error.
+          if (!errorFocussed) {
+            Drupal.FieldGroup.setGroupWithfocus($(this));
+            $(this).data('verticalTab').focus();
+            errorFocussed = true;
+          }
         }
       });
     }
@@ -171,6 +198,7 @@ Drupal.FieldGroup.Effects.processDiv = {
  */
 Drupal.behaviors.fieldGroup = {
   attach: function (context, settings) {
+    settings.field_group = settings.field_group || Drupal.settings.field_group;
     if (settings.field_group == undefined) {
       return;
     }
@@ -188,6 +216,23 @@ Drupal.behaviors.fieldGroup = {
     // Fixes css for fieldgroups under vertical tabs.
     $('.fieldset-wrapper .fieldset > legend').css({display: 'block'});
     $('.vertical-tabs fieldset.fieldset').addClass('default-fallback');
+
+    // Add a new ID to each fieldset.
+    $('.group-wrapper .horizontal-tabs-panes > fieldset', context).once('group-wrapper-panes-processed', function() {
+      // Tats bad, but we have to keep the actual id to prevent layouts to break.
+      var fieldgroupID = 'field_group-' + $(this).attr('id');
+      $(this).attr('id', fieldgroupID);
+    });
+    // Set the hash in url to remember last userselection.
+    $('.group-wrapper ul li').once('group-wrapper-ul-processed', function() {
+      var fieldGroupNavigationListIndex = $(this).index();
+      $(this).children('a').click(function() {
+        var fieldset = $('.group-wrapper fieldset').get(fieldGroupNavigationListIndex);
+        // Grab the first id, holding the wanted hashurl.
+        var hashUrl = $(fieldset).attr('id').replace(/^field_group-/, '').split(' ')[0];
+        window.location.hash = hashUrl;
+      });
+    });
 
   }
 };

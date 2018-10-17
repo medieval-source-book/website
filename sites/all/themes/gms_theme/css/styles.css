@@ -4353,6 +4353,15 @@ footer{
 }
 
 .section-1{
+  background: #666666;
+  overflow: hidden;
+  float: left;
+  display: inline;
+  width: 100%;
+}
+
+.section-1{
+  background: #666666;
   overflow: hidden;
   float: left;
   display: inline;

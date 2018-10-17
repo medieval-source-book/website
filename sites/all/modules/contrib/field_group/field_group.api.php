@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Hooks provided by the Field group module.
+ * Hooks provided by the Field Group module.
  *
  * Fieldgroup is a module that will wrap fields and other fieldgroups. Nothing more, nothing less.
  * For this there are formatters we can create on forms and view modes.
@@ -87,7 +87,7 @@ function hook_field_group_formatter_info() {
     'form' => array(
       'fieldset' => array(
         'label' => t('Fieldset'),
-        'description' => t('This fieldgroup renders the inner content in a fieldset with the titel as legend.'),
+        'description' => t('This fieldgroup renders the inner content in a fieldset with the title as legend.'),
         'format_types' => array('open', 'collapsible', 'collapsed'),
         'instance_settings' => array('classes' => ''),
         'default_formatter' => 'collapsible',
@@ -96,7 +96,7 @@ function hook_field_group_formatter_info() {
     'display' => array(
       'div' => array(
         'label' => t('Div'),
-        'description' => t('This fieldgroup renders the inner content in a simple div with the titel as legend.'),
+        'description' => t('This fieldgroup renders the inner content in a simple div with the title as legend.'),
         'format_types' => array('open', 'collapsible', 'collapsed'),
         'instance_settings' => array('effect' => 'none', 'speed' => 'fast', 'classes' => ''),
         'default_formatter' => 'collapsible',
@@ -220,7 +220,7 @@ function hook_field_group_format_settings($group) {
  * @param Array $elements by address.
  * @param Object $group The Field group info.
  */
-function hook_field_group_pre_render(& $element, $group, & $form) {
+function hook_field_group_pre_render(&$element, $group, &$form) {
 
   // You can prepare some variables to use in the logic.
   $view_mode = isset($form['#view_mode']) ? $form['#view_mode'] : 'form';
@@ -268,7 +268,7 @@ function hook_field_group_pre_render(& $element, $group, & $form) {
  *
  * Function that fungates as last resort to alter the pre_render build.
  */
-function hook_field_group_pre_render_alter(&$element, $group, & $form) {
+function hook_field_group_pre_render_alter(&$element, $group, &$form) {
 
   if ($group->format_type == 'htab') {
     $element['#theme_wrappers'] = array('my_horizontal_tab');
@@ -285,7 +285,7 @@ function hook_field_group_pre_render_alter(&$element, $group, & $form) {
  *
  * @param Array $elements by address.
  */
-function hook_field_group_build_pre_render_alter(& $element) {
+function hook_field_group_build_pre_render_alter(&$element) {
 
   // Prepare variables.
   $display = isset($element['#view_mode']);
@@ -343,6 +343,18 @@ function hook_ctools_plugin_api($module, $api) {
  */
 function hook_field_group_info() {
 
+}
+
+/**
+ * Alter the field group definitions provided by other modules.
+ *
+ * @param array $groups
+ *   Reference to an array of field group definition objects.
+ */
+function hook_field_group_info_alter(&$groups) {
+  if (!empty($groups['group_issue_metadata|node|project_issue|form'])) {
+    $groups['group_issue_metadata|node|project_issue|form']->data['children'][] = 'taxonomy_vocabulary_9';
+  }
 }
 
 /**
@@ -421,12 +433,25 @@ function field_group_info_groups($entity_type = NULL, $bundle = NULL, $view_mode
  *
  * @param Array $params
  *   The Entity type where field groups are requested.
+ * @param $enabled
+ *   Return enabled or disabled groups.*
  *
  * @see field_group_info_groups()
  * @see ctools_export_load_object()
  */
-function field_group_read_groups($params = array()) {
+function field_group_read_groups($conditions = array(), $enabled = TRUE) {
   // This function loads the requested groups through ctools export api.
+}
+
+/**
+ * Hides field groups including children in a render array.
+ *
+ * @param array $element
+ *   A render array. Can be a form, node, user, ...
+ * @param array $group_names
+ *   An array of field group names that should be hidden.
+ */
+function field_group_hide_field_groups(&$element, $group_names) {
 }
 
 /**
