@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@import url('https://fonts.googleapis.com/css?family=PT+Serif|Roboto');
 
 /**
     * @license vmachine.css for VM 5.0
@@ -8,25 +7,29 @@
     **/
 
 @font-face {
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-reg.ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-bd.ttf');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-it.ttf');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Palemonas MUFI';
+    src: url('../includes/PalemMUFI-bi.ttf');
     font-weight: 900;
     font-style: italic;
 }
@@ -38,7 +41,7 @@ body{
     margin:0;
     padding:0;
     font-size: 12pt;
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Palemonas MUFI', 'Roboto', sans-serif;
     min-width:770px;
     background-color:#fff;
     line-height: 1.5em;
@@ -50,7 +53,7 @@ h5,
 h6{
     /*color:;*/
     line-height:115%;
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'PT Serif', serif;
 }
 h2{
     font-size:17px;
@@ -122,7 +125,7 @@ div#headline{
 }
 
 div#headline h1{
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'Alegreya', 'Baskerville', serif;
     color: #3a536c;
     font-size: x-large;
 }
@@ -137,7 +140,7 @@ div#mainBanner div#headline span.versionCount{
 }
 
 #site-name, #site-slogan {
-    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-family: 'PT Serif', serif;
     text-size-adjust: 100%;
 }
 
@@ -708,9 +711,7 @@ ul#versionList li.highlight {
     cursor:pointer;
 }
 
-/* Turning off print button for now */
 #print-button {
-    display:none;
     position: absolute;
     top: 5px;
     right: 0;
