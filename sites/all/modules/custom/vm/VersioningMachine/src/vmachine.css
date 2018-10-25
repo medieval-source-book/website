@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Serif|Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 
 /**
     * @license vmachine.css for VM 5.0
@@ -7,29 +8,25 @@
     **/
 
 @font-face {
-    font-family: 'Palemonas MUFI';
-    src: url('../includes/PalemMUFI-reg.ttf');
+    font-family: "Roboto", "Noto Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Palemonas MUFI';
-    src: url('../includes/PalemMUFI-bd.ttf');
+    font-family: "Roboto", "Noto Sans", sans-serif;
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Palemonas MUFI';
-    src: url('../includes/PalemMUFI-it.ttf');
+    font-family: "Roboto", "Noto Sans", sans-serif;
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Palemonas MUFI';
-    src: url('../includes/PalemMUFI-bi.ttf');
+    font-family: "Roboto", "Noto Sans", sans-serif;
     font-weight: 900;
     font-style: italic;
 }
@@ -41,7 +38,7 @@ body{
     margin:0;
     padding:0;
     font-size: 12pt;
-    font-family: 'Palemonas MUFI', 'Roboto', sans-serif;
+    font-family: "Roboto", "Noto Sans", sans-serif;
     min-width:770px;
     background-color:#fff;
     line-height: 1.5em;
@@ -53,7 +50,7 @@ h5,
 h6{
     /*color:;*/
     line-height:115%;
-    font-family: 'PT Serif', serif;
+    font-family: "Roboto", "Noto Sans", sans-serif;
 }
 h2{
     font-size:17px;
@@ -125,7 +122,7 @@ div#headline{
 }
 
 div#headline h1{
-    font-family: 'Alegreya', 'Baskerville', serif;
+    font-family: "Roboto", "Noto Sans", sans-serif;
     color: #3a536c;
     font-size: x-large;
 }
@@ -140,7 +137,7 @@ div#mainBanner div#headline span.versionCount{
 }
 
 #site-name, #site-slogan {
-    font-family: 'PT Serif', serif;
+    font-family: "Roboto", "Noto Sans", sans-serif;
     text-size-adjust: 100%;
 }
 
@@ -606,7 +603,7 @@ span.viewerHandleLt{
     background-image: none;
     border: none;
     font-weight: 300;
-    font-family: 'PT Serif';
+    font-family: "Roboto", "Noto Sans", sans-serif;
     text-transform: uppercase;
     padding: 2px 6px;
     display: block;
@@ -711,7 +708,9 @@ ul#versionList li.highlight {
     cursor:pointer;
 }
 
+/* hiding print icon*/
 #print-button {
+    display: none;
     position: absolute;
     top: 5px;
     right: 0;

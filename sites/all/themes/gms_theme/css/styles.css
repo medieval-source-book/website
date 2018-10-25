@@ -1,0 +1,4432 @@
+/*! typey | GPLv2 License | https://github.com/jptaranto/typey */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.5em;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100%;
+}
+
+@media print {
+  html {
+    font-size: 12pt;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  background-color: #fff;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+template,
+[hidden] {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: #b52e1c;
+  -webkit-text-decoration-skip: objects;
+}
+
+:visited {
+  color: #9f2819;
+}
+
+a:active {
+  color: #b52e1c;
+}
+
+a:active:not(.button):not(
+button):not(
+[type='button']):not(
+[type='reset']):not(
+[type='submit']) {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+@media print {
+  :link,
+  :visited {
+    text-decoration: none;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  a[href^='javascript:']:after,
+  a[href^='#']:after {
+    content: '';
+  }
+}
+
+h1,
+.header__site-name {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+    font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+h1.node-title {
+  text-align: center;
+}
+
+@media (min-width: 999px) {
+  h1.node-title {
+    text-align: left;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+h2.text-section-title {
+  background-color: #444;
+  color: white;
+  padding: 3px 0px 3px 10px;
+  font-weight:normal;
+}
+
+h2.text-section-title:first-of-type {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+#node_text_full_group_metadata h3 {
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+h5 {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+h6 {
+  font-size: 0.625rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+abbr[title] {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+@media print {
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+}
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+strong,
+b {
+  font-weight: bolder;
+}
+
+pre,
+code,
+kbd,
+samp,
+var {
+  font-family: Menlo, "DejaVu Sans Mono", "Ubuntu Mono", Courier, "Courier New", monospace, sans-serif;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #fd0;
+  color: #000;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+sub,
+sup {
+  font-size: 0.625rem;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+div.label-inline {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
+body.page-node span.text-credit {
+  display: block;
+}
+
+.divider,
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #cccccc;
+}
+
+.divider > :first-child, hr > :first-child {
+  margin-top: 1.5rem;
+}
+
+blockquote {
+  margin: 1.5rem 2rem;
+}
+
+dl,
+menu,
+ol,
+ul {
+  margin: 1.5rem 0;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+
+dd {
+  margin: 0 0 0 32px;
+}
+
+[dir="rtl"] dd {
+  margin: 0 32px 0 0;
+}
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 32px;
+}
+
+[dir="rtl"] menu, [dir="rtl"]
+ol, [dir="rtl"]
+ul {
+  padding: 0 32px 0 0;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+p,
+pre {
+  margin: 1.5rem 0;
+}
+
+div.field-name-field-icon-source div.field-item {
+  font-style: italic;
+  font-size: .6em;
+  line-height: 1.3em;
+}
+
+div.field-name-field-icon-source div.field-item::before {
+  content: 'Photo source: ';
+}
+
+img {
+  border-style: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+input {
+  overflow: visible;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type='search']::-webkit-search-cancel-button, [type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/*! @license
+*
+* Buttons
+* Copyright 2012-2014 Alex Wolfe and Rob Levin
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+/*
+* Compass (optional)
+*
+* We recommend the use of autoprefixer instead of Compass
+* when using buttons. However, buttons does support Compass.
+* simply change $ubtn-use-compass to true and uncomment the
+* @import 'compass' code below to use Compass.
+*/
+/*
+* Required Files
+*
+* These files include the variables and options
+* and base css styles that are required to generate buttons.
+*/
+/*
+* $ubtn prefix (reserved)
+*
+* This prefix stands for Unicorn Button - ubtn
+* We provide a prefix to the Sass Variables to
+* prevent namespace collisions that could occur if
+* you import buttons as part of your Sass build process.
+* We kindly ask you not to use the prefix $ubtn in your project
+* in order to avoid possilbe name conflicts. Thanks!
+*/
+/*
+* Button Namespace (ex .button or .btn)
+*
+*/
+/*
+* Button Defaults
+*
+* Some default settings that are used throughout the button library.
+* Changes to these settings will be picked up by all of the other modules.
+* The colors used here are the default colors for the base button (gray).
+* The font size and height are used to set the base size for the buttons.
+* The size values will be used to calculate the larger and smaller button sizes.
+*/
+/*
+* Button Colors
+*
+* $ubtn-colors is used to generate the different button colors.
+* Edit or add colors to the list below and recompile.
+* Each block contains the (name, background, color)
+* The class is generated using the name: (ex .button-primary)
+*/
+/*
+* Button Shapes
+*
+* $ubtn-shapes is used to generate the different button shapes.
+* Edit or add shapes to the list below and recompile.
+* Each block contains the (name, border-radius).
+* The class is generated using the name: (ex .button-square).
+*/
+/*
+* Button Sizes
+*
+* $ubtn-sizes is used to generate the different button sizes.
+* Edit or add colors to the list below and recompile.
+* Each block contains the (name, size multiplier).
+* The class is generated using the name: (ex .button-giant).
+*/
+/*
+* Color Mixin
+*
+* Iterates through the list of colors and creates
+*
+*/
+/*
+* No Animation
+*
+* Sets animation property to none
+*/
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+/*
+* Base Button Style
+*
+* The default values for the .button class
+*/
+.button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  color: #666666;
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 40px;
+  margin: 0;
+  display: inline-block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  transition-property: all;
+  transition-duration: .3s;
+  /*
+  * Disabled State
+  *
+  * The disabled state uses the class .disabled, is-disabled,
+  * and the form attribute disabled="disabled".
+  * The use of !important is only added because this is a state
+  * that must be applied to all buttons when in a disabled state.
+  */
+}
+
+.button:visited,
+button:visited,
+[type='button']:visited,
+[type='reset']:visited,
+[type='submit']:visited {
+  color: #666666;
+}
+
+.button:hover,
+button:hover,
+[type='button']:hover,
+[type='reset']:hover,
+[type='submit']:hover, .button:focus,
+button:focus,
+[type='button']:focus,
+[type='reset']:focus,
+[type='submit']:focus {
+  background-color: #f6f6f6;
+  text-decoration: none;
+  outline: none;
+}
+
+.button:active,
+button:active,
+[type='button']:active,
+[type='reset']:active,
+[type='submit']:active, .active.button,
+button.active,
+.active[type='button'],
+.active[type='reset'],
+.active[type='submit'], .is-active.button,
+button.is-active,
+.is-active[type='button'],
+.is-active[type='reset'],
+.is-active[type='submit'] {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  background-color: #eeeeee;
+  border-color: #cfcfcf;
+  color: #d4d4d4;
+  transition-duration: 0s;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.disabled.button,
+button.disabled,
+.disabled[type='button'],
+.disabled[type='reset'],
+.disabled[type='submit'], .is-disabled.button,
+button.is-disabled,
+.is-disabled[type='button'],
+.is-disabled[type='reset'],
+.is-disabled[type='submit'], .button:disabled,
+button:disabled,
+[type='button']:disabled,
+[type='reset']:disabled,
+[type='submit']:disabled {
+  top: 0 !important;
+  background: #EEE !important;
+  border: 1px solid #DDD !important;
+  text-shadow: 0 1px 1px white !important;
+  color: #CCC !important;
+  cursor: default !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+}
+
+.disabled.button else,
+button.disabled else,
+.disabled[type='button'] else,
+.disabled[type='reset'] else,
+.disabled[type='submit'] else, .is-disabled.button else,
+button.is-disabled else,
+.is-disabled[type='button'] else,
+.is-disabled[type='reset'] else,
+.is-disabled[type='submit'] else, .button:disabled else,
+button:disabled else,
+[type='button']:disabled else,
+[type='reset']:disabled else,
+[type='submit']:disabled else {
+  box-shadow: none !important;
+  opacity: .8 !important;
+}
+
+/*
+* Base Button Tyography
+*
+*/
+.button-uppercase {
+  text-transform: uppercase;
+}
+
+.button-lowercase {
+  text-transform: lowercase;
+}
+
+.button-capitalize {
+  text-transform: capitalize;
+}
+
+.button-small-caps {
+  font-variant: small-caps;
+}
+
+.button-icon-txt-large {
+  font-size: 36px !important;
+}
+
+/*
+* Base padding
+*
+*/
+.button-width-small {
+  padding: 0 10px !important;
+}
+
+/*
+* Base Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-primary,
+.button-primary-flat {
+  background-color: #1b9af7;
+  border-color: #1b9af7;
+  color: white;
+}
+
+.button-primary:visited,
+.button-primary-flat:visited {
+  color: white;
+}
+
+.button-primary:hover, .button-primary:focus,
+.button-primary-flat:hover,
+.button-primary-flat:focus {
+  background-color: #4cb0f9;
+  border-color: #4cb0f9;
+  color: white;
+}
+
+.button-primary:active, .button-primary.active, .button-primary.is-active,
+.button-primary-flat:active,
+.button-primary-flat.active,
+.button-primary-flat.is-active {
+  background-color: #2798eb;
+  border-color: #2798eb;
+  color: #0880d7;
+}
+
+.button-plain,
+.button-plain-flat {
+  background-color: white;
+  border-color: white;
+  color: #1b9af7;
+}
+
+.button-plain:visited,
+.button-plain-flat:visited {
+  color: #1b9af7;
+}
+
+.button-plain:hover, .button-plain:focus,
+.button-plain-flat:hover,
+.button-plain-flat:focus {
+  background-color: white;
+  border-color: white;
+  color: #1b9af7;
+}
+
+.button-plain:active, .button-plain.active, .button-plain.is-active,
+.button-plain-flat:active,
+.button-plain-flat.active,
+.button-plain-flat.is-active {
+  background-color: white;
+  border-color: white;
+  color: #e6e6e6;
+}
+
+.button-inverse,
+.button-inverse-flat {
+  background-color: #222222;
+  border-color: #222222;
+  color: #eeeeee;
+}
+
+.button-inverse:visited,
+.button-inverse-flat:visited {
+  color: #eeeeee;
+}
+
+.button-inverse:hover, .button-inverse:focus,
+.button-inverse-flat:hover,
+.button-inverse-flat:focus {
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
+  color: #eeeeee;
+}
+
+.button-inverse:active, .button-inverse.active, .button-inverse.is-active,
+.button-inverse-flat:active,
+.button-inverse-flat.active,
+.button-inverse-flat.is-active {
+  background-color: #222222;
+  border-color: #222222;
+  color: #090909;
+}
+
+.button-action,
+.button-action-flat {
+  background-color: #a5de37;
+  border-color: #a5de37;
+  color: white;
+}
+
+.button-action:visited,
+.button-action-flat:visited {
+  color: white;
+}
+
+.button-action:hover, .button-action:focus,
+.button-action-flat:hover,
+.button-action-flat:focus {
+  background-color: #b9e563;
+  border-color: #b9e563;
+  color: white;
+}
+
+.button-action:active, .button-action.active, .button-action.is-active,
+.button-action-flat:active,
+.button-action-flat.active,
+.button-action-flat.is-active {
+  background-color: #a1d243;
+  border-color: #a1d243;
+  color: #8bc220;
+}
+
+.button-highlight,
+.button-highlight-flat {
+  background-color: #feae1b;
+  border-color: #feae1b;
+  color: white;
+}
+
+.button-highlight:visited,
+.button-highlight-flat:visited {
+  color: white;
+}
+
+.button-highlight:hover, .button-highlight:focus,
+.button-highlight-flat:hover,
+.button-highlight-flat:focus {
+  background-color: #fec04e;
+  border-color: #fec04e;
+  color: white;
+}
+
+.button-highlight:active, .button-highlight.active, .button-highlight.is-active,
+.button-highlight-flat:active,
+.button-highlight-flat.active,
+.button-highlight-flat.is-active {
+  background-color: #f3ab26;
+  border-color: #f3ab26;
+  color: #e59501;
+}
+
+.button-caution,
+.button-caution-flat {
+  background-color: #ff4351;
+  border-color: #ff4351;
+  color: white;
+}
+
+.button-caution:visited,
+.button-caution-flat:visited {
+  color: white;
+}
+
+.button-caution:hover, .button-caution:focus,
+.button-caution-flat:hover,
+.button-caution-flat:focus {
+  background-color: #ff7680;
+  border-color: #ff7680;
+  color: white;
+}
+
+.button-caution:active, .button-caution.active, .button-caution.is-active,
+.button-caution-flat:active,
+.button-caution-flat.active,
+.button-caution-flat.is-active {
+  background-color: #f64c59;
+  border-color: #f64c59;
+  color: #ff1022;
+}
+
+.button-royal,
+.button-royal-flat {
+  background-color: #7b72e9;
+  border-color: #7b72e9;
+  color: white;
+}
+
+.button-royal:visited,
+.button-royal-flat:visited {
+  color: white;
+}
+
+.button-royal:hover, .button-royal:focus,
+.button-royal-flat:hover,
+.button-royal-flat:focus {
+  background-color: #a49ef0;
+  border-color: #a49ef0;
+  color: white;
+}
+
+.button-royal:active, .button-royal.active, .button-royal.is-active,
+.button-royal-flat:active,
+.button-royal-flat.active,
+.button-royal-flat.is-active {
+  background-color: #827ae1;
+  border-color: #827ae1;
+  color: #5246e2;
+}
+
+/*
+* Base Layout Styles
+*
+* Very Miminal Layout Styles
+*/
+.button-block,
+.button-stacked {
+  display: block;
+}
+
+/*
+* Button Types (optional)
+*
+* All of the files below represent the various button
+* types (including shapes & sizes). None of these files
+* are required. Simple remove the uneeded type below and
+* the button type will be excluded from the final build
+*/
+/*
+* Button Shapes
+*
+* This file creates the various button shapes
+* (ex. Circle, Rounded, Pill)
+*/
+.button-square {
+  border-radius: 0;
+}
+
+.button-box {
+  border-radius: 10px;
+}
+
+.button-rounded, .button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  border-radius: 4px;
+}
+
+.button-pill {
+  border-radius: 200px;
+}
+
+.button-circle {
+  border-radius: 100%;
+}
+
+/*
+* Size Adjustment for equal height & widht buttons
+*
+* Remove padding and set a fixed width.
+*/
+.button-circle,
+.button-box,
+.button-square {
+  padding: 0 !important;
+  width: 40px;
+}
+
+.button-circle.button-giant,
+.button-box.button-giant,
+.button-square.button-giant {
+  width: 70px;
+}
+
+.button-circle.button-jumbo,
+.button-box.button-jumbo,
+.button-square.button-jumbo {
+  width: 60px;
+}
+
+.button-circle.button-large,
+.button-box.button-large,
+.button-square.button-large {
+  width: 50px;
+}
+
+.button-circle.button-normal,
+.button-box.button-normal,
+.button-square.button-normal {
+  width: 40px;
+}
+
+.button-circle.button-small,
+.button-box.button-small,
+.button-square.button-small {
+  width: 30px;
+}
+
+.button-circle.button-tiny,
+.button-box.button-tiny,
+.button-square.button-tiny {
+  width: 24px;
+}
+
+/*
+* Border Buttons
+*
+* These buttons have no fill they only have a
+* border to define their hit target.
+*/
+.button-border, .button-border-thin, .button-border-thick {
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  line-height: 36px;
+}
+
+.button-border:hover, .button-border-thin:hover, .button-border-thick:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border:active, .button-border-thin:active, .button-border-thick:active, .button-border.active, .active.button-border-thin, .active.button-border-thick, .button-border.is-active, .is-active.button-border-thin, .is-active.button-border-thick {
+  box-shadow: none;
+  text-shadow: none;
+  transition-property: all;
+  transition-duration: .3s;
+}
+
+/*
+* Border Optional Sizes
+*
+* A slight variation in border thickness
+*/
+.button-border-thin {
+  border-width: 1px;
+}
+
+.button-border-thick {
+  border-width: 3px;
+}
+
+/*
+* Border Button Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-border, .button-border-thin, .button-border-thick,
+.button-border-thin,
+.button-border-thick {
+  /*
+  * Border Button Size Adjustment
+  *
+  * The line-height must be adjusted to compinsate for
+  * the width of the border.
+  */
+}
+
+.button-border.button-primary, .button-primary.button-border-thin, .button-primary.button-border-thick,
+.button-border-thin.button-primary,
+.button-border-thick.button-primary {
+  color: #1b9af7;
+}
+
+.button-border.button-primary:hover, .button-primary.button-border-thin:hover, .button-primary.button-border-thick:hover, .button-border.button-primary:focus, .button-primary.button-border-thin:focus, .button-primary.button-border-thick:focus,
+.button-border-thin.button-primary:hover,
+.button-border-thin.button-primary:focus,
+.button-border-thick.button-primary:hover,
+.button-border-thick.button-primary:focus {
+  background-color: rgba(76, 176, 249, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border.button-primary:active, .button-primary.button-border-thin:active, .button-primary.button-border-thick:active, .button-border.button-primary.active, .button-primary.active.button-border-thin, .button-primary.active.button-border-thick, .button-border.button-primary.is-active, .button-primary.is-active.button-border-thin, .button-primary.is-active.button-border-thick,
+.button-border-thin.button-primary:active,
+.button-border-thin.button-primary.active,
+.button-border-thin.button-primary.is-active,
+.button-border-thick.button-primary:active,
+.button-border-thick.button-primary.active,
+.button-border-thick.button-primary.is-active {
+  background-color: rgba(39, 152, 235, 0.7);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-plain, .button-plain.button-border-thin, .button-plain.button-border-thick,
+.button-border-thin.button-plain,
+.button-border-thick.button-plain {
+  color: white;
+}
+
+.button-border.button-plain:hover, .button-plain.button-border-thin:hover, .button-plain.button-border-thick:hover, .button-border.button-plain:focus, .button-plain.button-border-thin:focus, .button-plain.button-border-thick:focus,
+.button-border-thin.button-plain:hover,
+.button-border-thin.button-plain:focus,
+.button-border-thick.button-plain:hover,
+.button-border-thick.button-plain:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(27, 154, 247, 0.9);
+}
+
+.button-border.button-plain:active, .button-plain.button-border-thin:active, .button-plain.button-border-thick:active, .button-border.button-plain.active, .button-plain.active.button-border-thin, .button-plain.active.button-border-thick, .button-border.button-plain.is-active, .button-plain.is-active.button-border-thin, .button-plain.is-active.button-border-thick,
+.button-border-thin.button-plain:active,
+.button-border-thin.button-plain.active,
+.button-border-thin.button-plain.is-active,
+.button-border-thick.button-plain:active,
+.button-border-thick.button-plain.active,
+.button-border-thick.button-plain.is-active {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(27, 154, 247, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-inverse, .button-inverse.button-border-thin, .button-inverse.button-border-thick,
+.button-border-thin.button-inverse,
+.button-border-thick.button-inverse {
+  color: #222222;
+}
+
+.button-border.button-inverse:hover, .button-inverse.button-border-thin:hover, .button-inverse.button-border-thick:hover, .button-border.button-inverse:focus, .button-inverse.button-border-thin:focus, .button-inverse.button-border-thick:focus,
+.button-border-thin.button-inverse:hover,
+.button-border-thin.button-inverse:focus,
+.button-border-thick.button-inverse:hover,
+.button-border-thick.button-inverse:focus {
+  background-color: rgba(60, 60, 60, 0.9);
+  color: rgba(238, 238, 238, 0.9);
+}
+
+.button-border.button-inverse:active, .button-inverse.button-border-thin:active, .button-inverse.button-border-thick:active, .button-border.button-inverse.active, .button-inverse.active.button-border-thin, .button-inverse.active.button-border-thick, .button-border.button-inverse.is-active, .button-inverse.is-active.button-border-thin, .button-inverse.is-active.button-border-thick,
+.button-border-thin.button-inverse:active,
+.button-border-thin.button-inverse.active,
+.button-border-thin.button-inverse.is-active,
+.button-border-thick.button-inverse:active,
+.button-border-thick.button-inverse.active,
+.button-border-thick.button-inverse.is-active {
+  background-color: rgba(34, 34, 34, 0.7);
+  color: rgba(238, 238, 238, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-action, .button-action.button-border-thin, .button-action.button-border-thick,
+.button-border-thin.button-action,
+.button-border-thick.button-action {
+  color: #a5de37;
+}
+
+.button-border.button-action:hover, .button-action.button-border-thin:hover, .button-action.button-border-thick:hover, .button-border.button-action:focus, .button-action.button-border-thin:focus, .button-action.button-border-thick:focus,
+.button-border-thin.button-action:hover,
+.button-border-thin.button-action:focus,
+.button-border-thick.button-action:hover,
+.button-border-thick.button-action:focus {
+  background-color: rgba(185, 229, 99, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border.button-action:active, .button-action.button-border-thin:active, .button-action.button-border-thick:active, .button-border.button-action.active, .button-action.active.button-border-thin, .button-action.active.button-border-thick, .button-border.button-action.is-active, .button-action.is-active.button-border-thin, .button-action.is-active.button-border-thick,
+.button-border-thin.button-action:active,
+.button-border-thin.button-action.active,
+.button-border-thin.button-action.is-active,
+.button-border-thick.button-action:active,
+.button-border-thick.button-action.active,
+.button-border-thick.button-action.is-active {
+  background-color: rgba(161, 210, 67, 0.7);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-highlight, .button-highlight.button-border-thin, .button-highlight.button-border-thick,
+.button-border-thin.button-highlight,
+.button-border-thick.button-highlight {
+  color: #feae1b;
+}
+
+.button-border.button-highlight:hover, .button-highlight.button-border-thin:hover, .button-highlight.button-border-thick:hover, .button-border.button-highlight:focus, .button-highlight.button-border-thin:focus, .button-highlight.button-border-thick:focus,
+.button-border-thin.button-highlight:hover,
+.button-border-thin.button-highlight:focus,
+.button-border-thick.button-highlight:hover,
+.button-border-thick.button-highlight:focus {
+  background-color: rgba(254, 192, 78, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border.button-highlight:active, .button-highlight.button-border-thin:active, .button-highlight.button-border-thick:active, .button-border.button-highlight.active, .button-highlight.active.button-border-thin, .button-highlight.active.button-border-thick, .button-border.button-highlight.is-active, .button-highlight.is-active.button-border-thin, .button-highlight.is-active.button-border-thick,
+.button-border-thin.button-highlight:active,
+.button-border-thin.button-highlight.active,
+.button-border-thin.button-highlight.is-active,
+.button-border-thick.button-highlight:active,
+.button-border-thick.button-highlight.active,
+.button-border-thick.button-highlight.is-active {
+  background-color: rgba(243, 171, 38, 0.7);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-caution, .button-caution.button-border-thin, .button-caution.button-border-thick,
+.button-border-thin.button-caution,
+.button-border-thick.button-caution {
+  color: #ff4351;
+}
+
+.button-border.button-caution:hover, .button-caution.button-border-thin:hover, .button-caution.button-border-thick:hover, .button-border.button-caution:focus, .button-caution.button-border-thin:focus, .button-caution.button-border-thick:focus,
+.button-border-thin.button-caution:hover,
+.button-border-thin.button-caution:focus,
+.button-border-thick.button-caution:hover,
+.button-border-thick.button-caution:focus {
+  background-color: rgba(255, 118, 128, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border.button-caution:active, .button-caution.button-border-thin:active, .button-caution.button-border-thick:active, .button-border.button-caution.active, .button-caution.active.button-border-thin, .button-caution.active.button-border-thick, .button-border.button-caution.is-active, .button-caution.is-active.button-border-thin, .button-caution.is-active.button-border-thick,
+.button-border-thin.button-caution:active,
+.button-border-thin.button-caution.active,
+.button-border-thin.button-caution.is-active,
+.button-border-thick.button-caution:active,
+.button-border-thick.button-caution.active,
+.button-border-thick.button-caution.is-active {
+  background-color: rgba(246, 76, 89, 0.7);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-royal, .button-royal.button-border-thin, .button-royal.button-border-thick,
+.button-border-thin.button-royal,
+.button-border-thick.button-royal {
+  color: #7b72e9;
+}
+
+.button-border.button-royal:hover, .button-royal.button-border-thin:hover, .button-royal.button-border-thick:hover, .button-border.button-royal:focus, .button-royal.button-border-thin:focus, .button-royal.button-border-thick:focus,
+.button-border-thin.button-royal:hover,
+.button-border-thin.button-royal:focus,
+.button-border-thick.button-royal:hover,
+.button-border-thick.button-royal:focus {
+  background-color: rgba(164, 158, 240, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button-border.button-royal:active, .button-royal.button-border-thin:active, .button-royal.button-border-thick:active, .button-border.button-royal.active, .button-royal.active.button-border-thin, .button-royal.active.button-border-thick, .button-border.button-royal.is-active, .button-royal.is-active.button-border-thin, .button-royal.is-active.button-border-thick,
+.button-border-thin.button-royal:active,
+.button-border-thin.button-royal.active,
+.button-border-thin.button-royal.is-active,
+.button-border-thick.button-royal:active,
+.button-border-thick.button-royal.active,
+.button-border-thick.button-royal.is-active {
+  background-color: rgba(130, 122, 225, 0.7);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: .3;
+}
+
+.button-border.button-giant, .button-giant.button-border-thin, .button-giant.button-border-thick,
+.button-border-thin.button-giant,
+.button-border-thick.button-giant {
+  line-height: 66px;
+}
+
+.button-border.button-jumbo, .button-jumbo.button-border-thin, .button-jumbo.button-border-thick,
+.button-border-thin.button-jumbo,
+.button-border-thick.button-jumbo {
+  line-height: 56px;
+}
+
+.button-border.button-large, .button-large.button-border-thin, .button-large.button-border-thick,
+.button-border-thin.button-large,
+.button-border-thick.button-large {
+  line-height: 46px;
+}
+
+.button-border.button-normal, .button-normal.button-border-thin, .button-normal.button-border-thick,
+.button-border-thin.button-normal,
+.button-border-thick.button-normal {
+  line-height: 36px;
+}
+
+.button-border.button-small, .button-small.button-border-thin, .button-small.button-border-thick,
+.button-border-thin.button-small,
+.button-border-thick.button-small {
+  line-height: 26px;
+}
+
+.button-border.button-tiny, .button-tiny.button-border-thin, .button-tiny.button-border-thick,
+.button-border-thin.button-tiny,
+.button-border-thick.button-tiny {
+  line-height: 20px;
+}
+
+/*
+* Border Buttons
+*
+* These buttons have no fill they only have a
+* border to define their hit target.
+*/
+.button-borderless {
+  background: none;
+  border: none;
+  padding: 0 8px !important;
+  color: #eeeeee;
+  font-size: 20.8px;
+  font-weight: 200;
+  /*
+  * Borderless Button Colors
+  *
+  * Create colors for buttons
+  * (.button-primary, .button-secondary, etc.)
+  */
+  /*
+  * Borderles Size Adjustment
+  *
+  * The font-size must be large to compinsate for
+  * the lack of a hit target.
+  */
+}
+
+.button-borderless:hover, .button-borderless:focus {
+  background: none;
+}
+
+.button-borderless:active, .button-borderless.active, .button-borderless.is-active {
+  box-shadow: none;
+  text-shadow: none;
+  transition-property: all;
+  transition-duration: .3s;
+  opacity: .3;
+}
+
+.button-borderless.button-primary {
+  color: #1b9af7;
+}
+
+.button-borderless.button-plain {
+  color: white;
+}
+
+.button-borderless.button-inverse {
+  color: #222222;
+}
+
+.button-borderless.button-action {
+  color: #a5de37;
+}
+
+.button-borderless.button-highlight {
+  color: #feae1b;
+}
+
+.button-borderless.button-caution {
+  color: #ff4351;
+}
+
+.button-borderless.button-royal {
+  color: #7b72e9;
+}
+
+.button-borderless.button-giant {
+  font-size: 36.4px;
+  height: 52.4px;
+  line-height: 52.4px;
+}
+
+.button-borderless.button-jumbo {
+  font-size: 31.2px;
+  height: 47.2px;
+  line-height: 47.2px;
+}
+
+.button-borderless.button-large {
+  font-size: 26px;
+  height: 42px;
+  line-height: 42px;
+}
+
+.button-borderless.button-normal {
+  font-size: 20.8px;
+  height: 36.8px;
+  line-height: 36.8px;
+}
+
+.button-borderless.button-small {
+  font-size: 15.6px;
+  height: 31.6px;
+  line-height: 31.6px;
+}
+
+.button-borderless.button-tiny {
+  font-size: 12.48px;
+  height: 28.48px;
+  line-height: 28.48px;
+}
+
+/*
+* Raised Buttons
+*
+* A classic looking button that offers
+* great depth and affordance.
+*/
+.button-raised {
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: 1px;
+  line-height: 38px;
+  background: linear-gradient(#f6f6f6, #e1e1e1);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.button-raised:hover, .button-raised:focus {
+  background: linear-gradient(top, white, gainsboro);
+}
+
+.button-raised:active, .button-raised.active, .button-raised.is-active {
+  background: #eeeeee;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px white;
+}
+
+/*
+* Raised Button Colors
+*
+* Create colors for raised buttons
+*/
+.button-raised.button-primary {
+  border-color: #088ef0;
+  background: linear-gradient(#34a5f8, #088ef0);
+}
+
+.button-raised.button-primary:hover, .button-raised.button-primary:focus {
+  background: linear-gradient(top, #42abf8, #0888e6);
+}
+
+.button-raised.button-primary:active, .button-raised.button-primary.active, .button-raised.button-primary.is-active {
+  border-color: #0880d7;
+  background: #2798eb;
+}
+
+.button-raised.button-plain {
+  border-color: #f2f2f2;
+  background: linear-gradient(white, #f2f2f2);
+}
+
+.button-raised.button-plain:hover, .button-raised.button-plain:focus {
+  background: linear-gradient(top, white, #ededed);
+}
+
+.button-raised.button-plain:active, .button-raised.button-plain.active, .button-raised.button-plain.is-active {
+  border-color: #e6e6e6;
+  background: white;
+}
+
+.button-raised.button-inverse {
+  border-color: #151515;
+  background: linear-gradient(#2f2f2f, #151515);
+}
+
+.button-raised.button-inverse:hover, .button-raised.button-inverse:focus {
+  background: linear-gradient(top, #363636, #101010);
+}
+
+.button-raised.button-inverse:active, .button-raised.button-inverse.active, .button-raised.button-inverse.is-active {
+  border-color: #090909;
+  background: #222222;
+}
+
+.button-raised.button-action {
+  border-color: #9ad824;
+  background: linear-gradient(#afe24d, #9ad824);
+}
+
+.button-raised.button-action:hover, .button-raised.button-action:focus {
+  background: linear-gradient(top, #b5e45a, #94cf22);
+}
+
+.button-raised.button-action:active, .button-raised.button-action.active, .button-raised.button-action.is-active {
+  border-color: #8bc220;
+  background: #a1d243;
+}
+
+.button-raised.button-highlight {
+  border-color: #fea502;
+  background: linear-gradient(#feb734, #fea502);
+}
+
+.button-raised.button-highlight:hover, .button-raised.button-highlight:focus {
+  background: linear-gradient(top, #febc44, #f49f01);
+}
+
+.button-raised.button-highlight:active, .button-raised.button-highlight.active, .button-raised.button-highlight.is-active {
+  border-color: #e59501;
+  background: #f3ab26;
+}
+
+.button-raised.button-caution {
+  border-color: #ff2939;
+  background: linear-gradient(#ff5c69, #ff2939);
+}
+
+.button-raised.button-caution:hover, .button-raised.button-caution:focus {
+  background: linear-gradient(top, #ff6c77, #ff1f30);
+}
+
+.button-raised.button-caution:active, .button-raised.button-caution.active, .button-raised.button-caution.is-active {
+  border-color: #ff1022;
+  background: #f64c59;
+}
+
+.button-raised.button-royal {
+  border-color: #665ce6;
+  background: linear-gradient(#9088ec, #665ce6);
+}
+
+.button-raised.button-royal:hover, .button-raised.button-royal:focus {
+  background: linear-gradient(top, #9c95ef, #5e53e4);
+}
+
+.button-raised.button-royal:active, .button-raised.button-royal.active, .button-raised.button-royal.is-active {
+  border-color: #5246e2;
+  background: #827ae1;
+}
+
+/*
+* 3D Buttons
+*
+* These buttons have a heavy three dimensional
+* style that mimics the visual appearance of a
+* real life button.
+*/
+.button-3d {
+  position: relative;
+  top: 0;
+  box-shadow: 0 7px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d:hover, .button-3d:focus {
+  box-shadow: 0 7px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d:active, .button-3d.active, .button-3d.is-active {
+  top: 5px;
+  transition-property: all;
+  transition-duration: .15s;
+  box-shadow: 0 2px 0 #bbbbbb, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*
+* 3D Button Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-3d.button-primary {
+  box-shadow: 0 7px 0 #0880d7, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-primary:hover, .button-3d.button-primary:focus {
+  box-shadow: 0 7px 0 #077ace, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-primary:active, .button-3d.button-primary.active, .button-3d.button-primary.is-active {
+  box-shadow: 0 2px 0 #0662a6, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-plain {
+  box-shadow: 0 7px 0 #e6e6e6, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-plain:hover, .button-3d.button-plain:focus {
+  box-shadow: 0 7px 0 #e0e0e0, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-plain:active, .button-3d.button-plain.active, .button-3d.button-plain.is-active {
+  box-shadow: 0 2px 0 #cccccc, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-inverse {
+  box-shadow: 0 7px 0 #090909, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-inverse:hover, .button-3d.button-inverse:focus {
+  box-shadow: 0 7px 0 #030303, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-inverse:active, .button-3d.button-inverse.active, .button-3d.button-inverse.is-active {
+  box-shadow: 0 2px 0 black, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-action {
+  box-shadow: 0 7px 0 #8bc220, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-action:hover, .button-3d.button-action:focus {
+  box-shadow: 0 7px 0 #84b91f, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-action:active, .button-3d.button-action.active, .button-3d.button-action.is-active {
+  box-shadow: 0 2px 0 #6b9619, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-highlight {
+  box-shadow: 0 7px 0 #e59501, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-highlight:hover, .button-3d.button-highlight:focus {
+  box-shadow: 0 7px 0 #db8e01, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-highlight:active, .button-3d.button-highlight.active, .button-3d.button-highlight.is-active {
+  box-shadow: 0 2px 0 #b27401, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-caution {
+  box-shadow: 0 7px 0 #ff1022, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-caution:hover, .button-3d.button-caution:focus {
+  box-shadow: 0 7px 0 #ff0618, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-caution:active, .button-3d.button-caution.active, .button-3d.button-caution.is-active {
+  box-shadow: 0 2px 0 #dc0010, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d.button-royal {
+  box-shadow: 0 7px 0 #5246e2, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-royal:hover, .button-3d.button-royal:focus {
+  box-shadow: 0 7px 0 #493de1, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button-3d.button-royal:active, .button-3d.button-royal.active, .button-3d.button-royal.is-active {
+  box-shadow: 0 2px 0 #2f21d4, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*
+* Glowing Buttons
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
+/*
+* Glow animation mixin for Compass users
+*
+*/
+/*
+* Glowing Keyframes
+*
+*/
+@-webkit-keyframes glowing {
+  from {
+    box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(44, 154, 219, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
+  }
+}
+
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(44, 154, 219, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
+  }
+}
+
+/*
+* Glowing Keyframes for various colors
+*
+*/
+@-webkit-keyframes glowing-primary {
+  from {
+    box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(27, 154, 247, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
+  }
+}
+
+@keyframes glowing-primary {
+  from {
+    box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(27, 154, 247, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-plain {
+  from {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes glowing-plain {
+  from {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-inverse {
+  from {
+    box-shadow: 0 0 0 rgba(34, 34, 34, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 34, 34, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(34, 34, 34, 0.3);
+  }
+}
+
+@keyframes glowing-inverse {
+  from {
+    box-shadow: 0 0 0 rgba(34, 34, 34, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 34, 34, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(34, 34, 34, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-action {
+  from {
+    box-shadow: 0 0 0 rgba(165, 222, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(165, 222, 55, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(165, 222, 55, 0.3);
+  }
+}
+
+@keyframes glowing-action {
+  from {
+    box-shadow: 0 0 0 rgba(165, 222, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(165, 222, 55, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(165, 222, 55, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-highlight {
+  from {
+    box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(254, 174, 27, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+  }
+}
+
+@keyframes glowing-highlight {
+  from {
+    box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(254, 174, 27, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-caution {
+  from {
+    box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
+  }
+}
+
+@keyframes glowing-caution {
+  from {
+    box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
+  }
+}
+
+@-webkit-keyframes glowing-royal {
+  from {
+    box-shadow: 0 0 0 rgba(123, 114, 233, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(123, 114, 233, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(123, 114, 233, 0.3);
+  }
+}
+
+@keyframes glowing-royal {
+  from {
+    box-shadow: 0 0 0 rgba(123, 114, 233, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(123, 114, 233, 0.8);
+  }
+  to {
+    box-shadow: 0 0 0 rgba(123, 114, 233, 0.3);
+  }
+}
+
+/*
+* Glowing Buttons Base Styes
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
+.button-glow {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: glowing;
+  animation-name: glowing;
+}
+
+.button-glow:active, .button-glow.active, .button-glow.is-active {
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+
+/*
+* Glowing Button Colors
+*
+* Create colors for glowing buttons
+*/
+.button-glow.button-primary {
+  -webkit-animation-name: glowing-primary;
+  animation-name: glowing-primary;
+}
+
+.button-glow.button-plain {
+  -webkit-animation-name: glowing-plain;
+  animation-name: glowing-plain;
+}
+
+.button-glow.button-inverse {
+  -webkit-animation-name: glowing-inverse;
+  animation-name: glowing-inverse;
+}
+
+.button-glow.button-action {
+  -webkit-animation-name: glowing-action;
+  animation-name: glowing-action;
+}
+
+.button-glow.button-highlight {
+  -webkit-animation-name: glowing-highlight;
+  animation-name: glowing-highlight;
+}
+
+.button-glow.button-caution {
+  -webkit-animation-name: glowing-caution;
+  animation-name: glowing-caution;
+}
+
+.button-glow.button-royal {
+  -webkit-animation-name: glowing-royal;
+  animation-name: glowing-royal;
+}
+
+/*
+* Dropdown menu buttons
+*
+* A dropdown menu appears
+* when a button is pressed
+*/
+/*
+* Dropdown Container
+*
+*/
+.button-dropdown {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+}
+
+/*
+* Dropdown List Style
+*
+*/
+.button-dropdown-list {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  min-width: 100%;
+  list-style-type: none;
+  background: rgba(255, 255, 255, 0.95);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d4d4d4;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  box-sizing: border-box;
+  /*
+  * Dropdown Below
+  *
+  */
+  /*
+  * Dropdown Above
+  *
+  */
+}
+
+.button-dropdown-list.is-below {
+  top: 100%;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+}
+
+.button-dropdown-list.is-above {
+  bottom: 100%;
+  top: auto;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 -2px 7px rgba(0, 0, 0, 0.2);
+}
+
+/*
+* Dropdown Buttons
+*
+*/
+.button-dropdown-list > li {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.button-dropdown-list > li > a {
+  display: block;
+  line-height: 40px;
+  font-size: 12.8px;
+  padding: 5px 10px;
+  float: none;
+  color: #666666;
+  text-decoration: none;
+}
+
+.button-dropdown-list > li > a:hover {
+  color: #5e5e5e;
+  background: #f6f6f6;
+  text-decoration: none;
+}
+
+.button-dropdown-divider {
+  border-top: 1px solid #e6e6e6;
+}
+
+/*
+* Dropdown Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-dropdown.button-dropdown-primary .button-dropdown-list {
+  background: rgba(27, 154, 247, 0.95);
+  border-color: #0880d7;
+}
+
+.button-dropdown.button-dropdown-primary .button-dropdown-list .button-dropdown-divider {
+  border-color: #0888e6;
+}
+
+.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a {
+  color: white;
+}
+
+.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a:hover {
+  color: #f2f2f2;
+  background: #088ef0;
+}
+
+.button-dropdown.button-dropdown-plain .button-dropdown-list {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #e6e6e6;
+}
+
+.button-dropdown.button-dropdown-plain .button-dropdown-list .button-dropdown-divider {
+  border-color: #ededed;
+}
+
+.button-dropdown.button-dropdown-plain .button-dropdown-list > li > a {
+  color: #1b9af7;
+}
+
+.button-dropdown.button-dropdown-plain .button-dropdown-list > li > a:hover {
+  color: #088ef0;
+  background: #f2f2f2;
+}
+
+.button-dropdown.button-dropdown-inverse .button-dropdown-list {
+  background: rgba(34, 34, 34, 0.95);
+  border-color: #090909;
+}
+
+.button-dropdown.button-dropdown-inverse .button-dropdown-list .button-dropdown-divider {
+  border-color: #101010;
+}
+
+.button-dropdown.button-dropdown-inverse .button-dropdown-list > li > a {
+  color: #eeeeee;
+}
+
+.button-dropdown.button-dropdown-inverse .button-dropdown-list > li > a:hover {
+  color: #e1e1e1;
+  background: #151515;
+}
+
+.button-dropdown.button-dropdown-action .button-dropdown-list {
+  background: rgba(165, 222, 55, 0.95);
+  border-color: #8bc220;
+}
+
+.button-dropdown.button-dropdown-action .button-dropdown-list .button-dropdown-divider {
+  border-color: #94cf22;
+}
+
+.button-dropdown.button-dropdown-action .button-dropdown-list > li > a {
+  color: white;
+}
+
+.button-dropdown.button-dropdown-action .button-dropdown-list > li > a:hover {
+  color: #f2f2f2;
+  background: #9ad824;
+}
+
+.button-dropdown.button-dropdown-highlight .button-dropdown-list {
+  background: rgba(254, 174, 27, 0.95);
+  border-color: #e59501;
+}
+
+.button-dropdown.button-dropdown-highlight .button-dropdown-list .button-dropdown-divider {
+  border-color: #f49f01;
+}
+
+.button-dropdown.button-dropdown-highlight .button-dropdown-list > li > a {
+  color: white;
+}
+
+.button-dropdown.button-dropdown-highlight .button-dropdown-list > li > a:hover {
+  color: #f2f2f2;
+  background: #fea502;
+}
+
+.button-dropdown.button-dropdown-caution .button-dropdown-list {
+  background: rgba(255, 67, 81, 0.95);
+  border-color: #ff1022;
+}
+
+.button-dropdown.button-dropdown-caution .button-dropdown-list .button-dropdown-divider {
+  border-color: #ff1f30;
+}
+
+.button-dropdown.button-dropdown-caution .button-dropdown-list > li > a {
+  color: white;
+}
+
+.button-dropdown.button-dropdown-caution .button-dropdown-list > li > a:hover {
+  color: #f2f2f2;
+  background: #ff2939;
+}
+
+.button-dropdown.button-dropdown-royal .button-dropdown-list {
+  background: rgba(123, 114, 233, 0.95);
+  border-color: #5246e2;
+}
+
+.button-dropdown.button-dropdown-royal .button-dropdown-list .button-dropdown-divider {
+  border-color: #5e53e4;
+}
+
+.button-dropdown.button-dropdown-royal .button-dropdown-list > li > a {
+  color: white;
+}
+
+.button-dropdown.button-dropdown-royal .button-dropdown-list > li > a:hover {
+  color: #f2f2f2;
+  background: #665ce6;
+}
+
+/*
+* Buton Groups
+*
+* A group of related buttons
+* displayed edge to edge
+*/
+.button-group {
+  *zoom: 1;
+  position: relative;
+  display: inline-block;
+}
+
+.button-group:after, .button-group:before {
+  content: '.';
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.button-group .button, .button-group
+button, .button-group
+[type='button'], .button-group
+[type='reset'], .button-group
+[type='submit'],
+.button-group .button-dropdown {
+  float: left;
+}
+
+.button-group .button:not(:first-child):not(:last-child), .button-group
+button:not(:first-child):not(:last-child), .button-group
+[type='button']:not(:first-child):not(:last-child), .button-group
+[type='reset']:not(:first-child):not(:last-child), .button-group
+[type='submit']:not(:first-child):not(:last-child),
+.button-group .button-dropdown:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  border-right: none;
+}
+
+.button-group .button:first-child, .button-group
+button:first-child, .button-group
+[type='button']:first-child, .button-group
+[type='reset']:first-child, .button-group
+[type='submit']:first-child,
+.button-group .button-dropdown:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.button-group .button:last-child, .button-group
+button:last-child, .button-group
+[type='button']:last-child, .button-group
+[type='reset']:last-child, .button-group
+[type='submit']:last-child,
+.button-group .button-dropdown:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*
+* Button Wrapper
+*
+* A wrap around effect to highlight
+* the shape of the button and offer
+* a subtle visual effect.
+*/
+.button-wrap {
+  border: 1px solid #e3e3e3;
+  display: inline-block;
+  padding: 9px;
+  background: linear-gradient(#f2f2f2, white);
+  border-radius: 200px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/*
+* Long Shadow Buttons
+*
+* A visual effect adding a flat shadow to the text of a button
+*/
+/*
+* Long Shadow Function
+*
+* Loops $length times building a long shadow. Defaults downward right
+*/
+/*
+* LONG SHADOW MIXIN
+*
+*/
+/*
+* Shadow Right
+*
+*/
+.button-longshadow,
+.button-longshadow-right {
+  overflow: hidden;
+}
+
+.button-longshadow.button-primary,
+.button-longshadow-right.button-primary {
+  text-shadow: 0px 0px #0880d7, 1px 1px #0880d7, 2px 2px #0880d7, 3px 3px #0880d7, 4px 4px #0880d7, 5px 5px #0880d7, 6px 6px #0880d7, 7px 7px #0880d7, 8px 8px #0880d7, 9px 9px #0880d7, 10px 10px #0880d7, 11px 11px #0880d7, 12px 12px #0880d7, 13px 13px #0880d7, 14px 14px #0880d7, 15px 15px #0880d7, 16px 16px #0880d7, 17px 17px #0880d7, 18px 18px #0880d7, 19px 19px #0880d7, 20px 20px #0880d7, 21px 21px #0880d7, 22px 22px #0880d7, 23px 23px #0880d7, 24px 24px #0880d7, 25px 25px #0880d7, 26px 26px #0880d7, 27px 27px #0880d7, 28px 28px #0880d7, 29px 29px #0880d7, 30px 30px #0880d7, 31px 31px #0880d7, 32px 32px #0880d7, 33px 33px #0880d7, 34px 34px #0880d7, 35px 35px #0880d7, 36px 36px #0880d7, 37px 37px #0880d7, 38px 38px #0880d7, 39px 39px #0880d7, 40px 40px #0880d7, 41px 41px #0880d7, 42px 42px #0880d7, 43px 43px #0880d7, 44px 44px #0880d7, 45px 45px #0880d7, 46px 46px #0880d7, 47px 47px #0880d7, 48px 48px #0880d7, 49px 49px #0880d7, 50px 50px #0880d7, 51px 51px #0880d7, 52px 52px #0880d7, 53px 53px #0880d7, 54px 54px #0880d7, 55px 55px #0880d7, 56px 56px #0880d7, 57px 57px #0880d7, 58px 58px #0880d7, 59px 59px #0880d7, 60px 60px #0880d7, 61px 61px #0880d7, 62px 62px #0880d7, 63px 63px #0880d7, 64px 64px #0880d7, 65px 65px #0880d7, 66px 66px #0880d7, 67px 67px #0880d7, 68px 68px #0880d7, 69px 69px #0880d7, 70px 70px #0880d7, 71px 71px #0880d7, 72px 72px #0880d7, 73px 73px #0880d7, 74px 74px #0880d7, 75px 75px #0880d7, 76px 76px #0880d7, 77px 77px #0880d7, 78px 78px #0880d7, 79px 79px #0880d7, 80px 80px #0880d7, 81px 81px #0880d7, 82px 82px #0880d7, 83px 83px #0880d7, 84px 84px #0880d7, 85px 85px #0880d7;
+}
+
+.button-longshadow.button-primary:active, .button-longshadow.button-primary.active, .button-longshadow.button-primary.is-active,
+.button-longshadow-right.button-primary:active,
+.button-longshadow-right.button-primary.active,
+.button-longshadow-right.button-primary.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-plain,
+.button-longshadow-right.button-plain {
+  text-shadow: 0px 0px #e6e6e6, 1px 1px #e6e6e6, 2px 2px #e6e6e6, 3px 3px #e6e6e6, 4px 4px #e6e6e6, 5px 5px #e6e6e6, 6px 6px #e6e6e6, 7px 7px #e6e6e6, 8px 8px #e6e6e6, 9px 9px #e6e6e6, 10px 10px #e6e6e6, 11px 11px #e6e6e6, 12px 12px #e6e6e6, 13px 13px #e6e6e6, 14px 14px #e6e6e6, 15px 15px #e6e6e6, 16px 16px #e6e6e6, 17px 17px #e6e6e6, 18px 18px #e6e6e6, 19px 19px #e6e6e6, 20px 20px #e6e6e6, 21px 21px #e6e6e6, 22px 22px #e6e6e6, 23px 23px #e6e6e6, 24px 24px #e6e6e6, 25px 25px #e6e6e6, 26px 26px #e6e6e6, 27px 27px #e6e6e6, 28px 28px #e6e6e6, 29px 29px #e6e6e6, 30px 30px #e6e6e6, 31px 31px #e6e6e6, 32px 32px #e6e6e6, 33px 33px #e6e6e6, 34px 34px #e6e6e6, 35px 35px #e6e6e6, 36px 36px #e6e6e6, 37px 37px #e6e6e6, 38px 38px #e6e6e6, 39px 39px #e6e6e6, 40px 40px #e6e6e6, 41px 41px #e6e6e6, 42px 42px #e6e6e6, 43px 43px #e6e6e6, 44px 44px #e6e6e6, 45px 45px #e6e6e6, 46px 46px #e6e6e6, 47px 47px #e6e6e6, 48px 48px #e6e6e6, 49px 49px #e6e6e6, 50px 50px #e6e6e6, 51px 51px #e6e6e6, 52px 52px #e6e6e6, 53px 53px #e6e6e6, 54px 54px #e6e6e6, 55px 55px #e6e6e6, 56px 56px #e6e6e6, 57px 57px #e6e6e6, 58px 58px #e6e6e6, 59px 59px #e6e6e6, 60px 60px #e6e6e6, 61px 61px #e6e6e6, 62px 62px #e6e6e6, 63px 63px #e6e6e6, 64px 64px #e6e6e6, 65px 65px #e6e6e6, 66px 66px #e6e6e6, 67px 67px #e6e6e6, 68px 68px #e6e6e6, 69px 69px #e6e6e6, 70px 70px #e6e6e6, 71px 71px #e6e6e6, 72px 72px #e6e6e6, 73px 73px #e6e6e6, 74px 74px #e6e6e6, 75px 75px #e6e6e6, 76px 76px #e6e6e6, 77px 77px #e6e6e6, 78px 78px #e6e6e6, 79px 79px #e6e6e6, 80px 80px #e6e6e6, 81px 81px #e6e6e6, 82px 82px #e6e6e6, 83px 83px #e6e6e6, 84px 84px #e6e6e6, 85px 85px #e6e6e6;
+}
+
+.button-longshadow.button-plain:active, .button-longshadow.button-plain.active, .button-longshadow.button-plain.is-active,
+.button-longshadow-right.button-plain:active,
+.button-longshadow-right.button-plain.active,
+.button-longshadow-right.button-plain.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-inverse,
+.button-longshadow-right.button-inverse {
+  text-shadow: 0px 0px #090909, 1px 1px #090909, 2px 2px #090909, 3px 3px #090909, 4px 4px #090909, 5px 5px #090909, 6px 6px #090909, 7px 7px #090909, 8px 8px #090909, 9px 9px #090909, 10px 10px #090909, 11px 11px #090909, 12px 12px #090909, 13px 13px #090909, 14px 14px #090909, 15px 15px #090909, 16px 16px #090909, 17px 17px #090909, 18px 18px #090909, 19px 19px #090909, 20px 20px #090909, 21px 21px #090909, 22px 22px #090909, 23px 23px #090909, 24px 24px #090909, 25px 25px #090909, 26px 26px #090909, 27px 27px #090909, 28px 28px #090909, 29px 29px #090909, 30px 30px #090909, 31px 31px #090909, 32px 32px #090909, 33px 33px #090909, 34px 34px #090909, 35px 35px #090909, 36px 36px #090909, 37px 37px #090909, 38px 38px #090909, 39px 39px #090909, 40px 40px #090909, 41px 41px #090909, 42px 42px #090909, 43px 43px #090909, 44px 44px #090909, 45px 45px #090909, 46px 46px #090909, 47px 47px #090909, 48px 48px #090909, 49px 49px #090909, 50px 50px #090909, 51px 51px #090909, 52px 52px #090909, 53px 53px #090909, 54px 54px #090909, 55px 55px #090909, 56px 56px #090909, 57px 57px #090909, 58px 58px #090909, 59px 59px #090909, 60px 60px #090909, 61px 61px #090909, 62px 62px #090909, 63px 63px #090909, 64px 64px #090909, 65px 65px #090909, 66px 66px #090909, 67px 67px #090909, 68px 68px #090909, 69px 69px #090909, 70px 70px #090909, 71px 71px #090909, 72px 72px #090909, 73px 73px #090909, 74px 74px #090909, 75px 75px #090909, 76px 76px #090909, 77px 77px #090909, 78px 78px #090909, 79px 79px #090909, 80px 80px #090909, 81px 81px #090909, 82px 82px #090909, 83px 83px #090909, 84px 84px #090909, 85px 85px #090909;
+}
+
+.button-longshadow.button-inverse:active, .button-longshadow.button-inverse.active, .button-longshadow.button-inverse.is-active,
+.button-longshadow-right.button-inverse:active,
+.button-longshadow-right.button-inverse.active,
+.button-longshadow-right.button-inverse.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-action,
+.button-longshadow-right.button-action {
+  text-shadow: 0px 0px #8bc220, 1px 1px #8bc220, 2px 2px #8bc220, 3px 3px #8bc220, 4px 4px #8bc220, 5px 5px #8bc220, 6px 6px #8bc220, 7px 7px #8bc220, 8px 8px #8bc220, 9px 9px #8bc220, 10px 10px #8bc220, 11px 11px #8bc220, 12px 12px #8bc220, 13px 13px #8bc220, 14px 14px #8bc220, 15px 15px #8bc220, 16px 16px #8bc220, 17px 17px #8bc220, 18px 18px #8bc220, 19px 19px #8bc220, 20px 20px #8bc220, 21px 21px #8bc220, 22px 22px #8bc220, 23px 23px #8bc220, 24px 24px #8bc220, 25px 25px #8bc220, 26px 26px #8bc220, 27px 27px #8bc220, 28px 28px #8bc220, 29px 29px #8bc220, 30px 30px #8bc220, 31px 31px #8bc220, 32px 32px #8bc220, 33px 33px #8bc220, 34px 34px #8bc220, 35px 35px #8bc220, 36px 36px #8bc220, 37px 37px #8bc220, 38px 38px #8bc220, 39px 39px #8bc220, 40px 40px #8bc220, 41px 41px #8bc220, 42px 42px #8bc220, 43px 43px #8bc220, 44px 44px #8bc220, 45px 45px #8bc220, 46px 46px #8bc220, 47px 47px #8bc220, 48px 48px #8bc220, 49px 49px #8bc220, 50px 50px #8bc220, 51px 51px #8bc220, 52px 52px #8bc220, 53px 53px #8bc220, 54px 54px #8bc220, 55px 55px #8bc220, 56px 56px #8bc220, 57px 57px #8bc220, 58px 58px #8bc220, 59px 59px #8bc220, 60px 60px #8bc220, 61px 61px #8bc220, 62px 62px #8bc220, 63px 63px #8bc220, 64px 64px #8bc220, 65px 65px #8bc220, 66px 66px #8bc220, 67px 67px #8bc220, 68px 68px #8bc220, 69px 69px #8bc220, 70px 70px #8bc220, 71px 71px #8bc220, 72px 72px #8bc220, 73px 73px #8bc220, 74px 74px #8bc220, 75px 75px #8bc220, 76px 76px #8bc220, 77px 77px #8bc220, 78px 78px #8bc220, 79px 79px #8bc220, 80px 80px #8bc220, 81px 81px #8bc220, 82px 82px #8bc220, 83px 83px #8bc220, 84px 84px #8bc220, 85px 85px #8bc220;
+}
+
+.button-longshadow.button-action:active, .button-longshadow.button-action.active, .button-longshadow.button-action.is-active,
+.button-longshadow-right.button-action:active,
+.button-longshadow-right.button-action.active,
+.button-longshadow-right.button-action.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-highlight,
+.button-longshadow-right.button-highlight {
+  text-shadow: 0px 0px #e59501, 1px 1px #e59501, 2px 2px #e59501, 3px 3px #e59501, 4px 4px #e59501, 5px 5px #e59501, 6px 6px #e59501, 7px 7px #e59501, 8px 8px #e59501, 9px 9px #e59501, 10px 10px #e59501, 11px 11px #e59501, 12px 12px #e59501, 13px 13px #e59501, 14px 14px #e59501, 15px 15px #e59501, 16px 16px #e59501, 17px 17px #e59501, 18px 18px #e59501, 19px 19px #e59501, 20px 20px #e59501, 21px 21px #e59501, 22px 22px #e59501, 23px 23px #e59501, 24px 24px #e59501, 25px 25px #e59501, 26px 26px #e59501, 27px 27px #e59501, 28px 28px #e59501, 29px 29px #e59501, 30px 30px #e59501, 31px 31px #e59501, 32px 32px #e59501, 33px 33px #e59501, 34px 34px #e59501, 35px 35px #e59501, 36px 36px #e59501, 37px 37px #e59501, 38px 38px #e59501, 39px 39px #e59501, 40px 40px #e59501, 41px 41px #e59501, 42px 42px #e59501, 43px 43px #e59501, 44px 44px #e59501, 45px 45px #e59501, 46px 46px #e59501, 47px 47px #e59501, 48px 48px #e59501, 49px 49px #e59501, 50px 50px #e59501, 51px 51px #e59501, 52px 52px #e59501, 53px 53px #e59501, 54px 54px #e59501, 55px 55px #e59501, 56px 56px #e59501, 57px 57px #e59501, 58px 58px #e59501, 59px 59px #e59501, 60px 60px #e59501, 61px 61px #e59501, 62px 62px #e59501, 63px 63px #e59501, 64px 64px #e59501, 65px 65px #e59501, 66px 66px #e59501, 67px 67px #e59501, 68px 68px #e59501, 69px 69px #e59501, 70px 70px #e59501, 71px 71px #e59501, 72px 72px #e59501, 73px 73px #e59501, 74px 74px #e59501, 75px 75px #e59501, 76px 76px #e59501, 77px 77px #e59501, 78px 78px #e59501, 79px 79px #e59501, 80px 80px #e59501, 81px 81px #e59501, 82px 82px #e59501, 83px 83px #e59501, 84px 84px #e59501, 85px 85px #e59501;
+}
+
+.button-longshadow.button-highlight:active, .button-longshadow.button-highlight.active, .button-longshadow.button-highlight.is-active,
+.button-longshadow-right.button-highlight:active,
+.button-longshadow-right.button-highlight.active,
+.button-longshadow-right.button-highlight.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-caution,
+.button-longshadow-right.button-caution {
+  text-shadow: 0px 0px #ff1022, 1px 1px #ff1022, 2px 2px #ff1022, 3px 3px #ff1022, 4px 4px #ff1022, 5px 5px #ff1022, 6px 6px #ff1022, 7px 7px #ff1022, 8px 8px #ff1022, 9px 9px #ff1022, 10px 10px #ff1022, 11px 11px #ff1022, 12px 12px #ff1022, 13px 13px #ff1022, 14px 14px #ff1022, 15px 15px #ff1022, 16px 16px #ff1022, 17px 17px #ff1022, 18px 18px #ff1022, 19px 19px #ff1022, 20px 20px #ff1022, 21px 21px #ff1022, 22px 22px #ff1022, 23px 23px #ff1022, 24px 24px #ff1022, 25px 25px #ff1022, 26px 26px #ff1022, 27px 27px #ff1022, 28px 28px #ff1022, 29px 29px #ff1022, 30px 30px #ff1022, 31px 31px #ff1022, 32px 32px #ff1022, 33px 33px #ff1022, 34px 34px #ff1022, 35px 35px #ff1022, 36px 36px #ff1022, 37px 37px #ff1022, 38px 38px #ff1022, 39px 39px #ff1022, 40px 40px #ff1022, 41px 41px #ff1022, 42px 42px #ff1022, 43px 43px #ff1022, 44px 44px #ff1022, 45px 45px #ff1022, 46px 46px #ff1022, 47px 47px #ff1022, 48px 48px #ff1022, 49px 49px #ff1022, 50px 50px #ff1022, 51px 51px #ff1022, 52px 52px #ff1022, 53px 53px #ff1022, 54px 54px #ff1022, 55px 55px #ff1022, 56px 56px #ff1022, 57px 57px #ff1022, 58px 58px #ff1022, 59px 59px #ff1022, 60px 60px #ff1022, 61px 61px #ff1022, 62px 62px #ff1022, 63px 63px #ff1022, 64px 64px #ff1022, 65px 65px #ff1022, 66px 66px #ff1022, 67px 67px #ff1022, 68px 68px #ff1022, 69px 69px #ff1022, 70px 70px #ff1022, 71px 71px #ff1022, 72px 72px #ff1022, 73px 73px #ff1022, 74px 74px #ff1022, 75px 75px #ff1022, 76px 76px #ff1022, 77px 77px #ff1022, 78px 78px #ff1022, 79px 79px #ff1022, 80px 80px #ff1022, 81px 81px #ff1022, 82px 82px #ff1022, 83px 83px #ff1022, 84px 84px #ff1022, 85px 85px #ff1022;
+}
+
+.button-longshadow.button-caution:active, .button-longshadow.button-caution.active, .button-longshadow.button-caution.is-active,
+.button-longshadow-right.button-caution:active,
+.button-longshadow-right.button-caution.active,
+.button-longshadow-right.button-caution.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow.button-royal,
+.button-longshadow-right.button-royal {
+  text-shadow: 0px 0px #5246e2, 1px 1px #5246e2, 2px 2px #5246e2, 3px 3px #5246e2, 4px 4px #5246e2, 5px 5px #5246e2, 6px 6px #5246e2, 7px 7px #5246e2, 8px 8px #5246e2, 9px 9px #5246e2, 10px 10px #5246e2, 11px 11px #5246e2, 12px 12px #5246e2, 13px 13px #5246e2, 14px 14px #5246e2, 15px 15px #5246e2, 16px 16px #5246e2, 17px 17px #5246e2, 18px 18px #5246e2, 19px 19px #5246e2, 20px 20px #5246e2, 21px 21px #5246e2, 22px 22px #5246e2, 23px 23px #5246e2, 24px 24px #5246e2, 25px 25px #5246e2, 26px 26px #5246e2, 27px 27px #5246e2, 28px 28px #5246e2, 29px 29px #5246e2, 30px 30px #5246e2, 31px 31px #5246e2, 32px 32px #5246e2, 33px 33px #5246e2, 34px 34px #5246e2, 35px 35px #5246e2, 36px 36px #5246e2, 37px 37px #5246e2, 38px 38px #5246e2, 39px 39px #5246e2, 40px 40px #5246e2, 41px 41px #5246e2, 42px 42px #5246e2, 43px 43px #5246e2, 44px 44px #5246e2, 45px 45px #5246e2, 46px 46px #5246e2, 47px 47px #5246e2, 48px 48px #5246e2, 49px 49px #5246e2, 50px 50px #5246e2, 51px 51px #5246e2, 52px 52px #5246e2, 53px 53px #5246e2, 54px 54px #5246e2, 55px 55px #5246e2, 56px 56px #5246e2, 57px 57px #5246e2, 58px 58px #5246e2, 59px 59px #5246e2, 60px 60px #5246e2, 61px 61px #5246e2, 62px 62px #5246e2, 63px 63px #5246e2, 64px 64px #5246e2, 65px 65px #5246e2, 66px 66px #5246e2, 67px 67px #5246e2, 68px 68px #5246e2, 69px 69px #5246e2, 70px 70px #5246e2, 71px 71px #5246e2, 72px 72px #5246e2, 73px 73px #5246e2, 74px 74px #5246e2, 75px 75px #5246e2, 76px 76px #5246e2, 77px 77px #5246e2, 78px 78px #5246e2, 79px 79px #5246e2, 80px 80px #5246e2, 81px 81px #5246e2, 82px 82px #5246e2, 83px 83px #5246e2, 84px 84px #5246e2, 85px 85px #5246e2;
+}
+
+.button-longshadow.button-royal:active, .button-longshadow.button-royal.active, .button-longshadow.button-royal.is-active,
+.button-longshadow-right.button-royal:active,
+.button-longshadow-right.button-royal.active,
+.button-longshadow-right.button-royal.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/*
+* Shadow Left
+*
+*/
+.button-longshadow-left {
+  overflow: hidden;
+}
+
+.button-longshadow-left.button-primary {
+  text-shadow: 0px 0px #0880d7, -1px 1px #0880d7, -2px 2px #0880d7, -3px 3px #0880d7, -4px 4px #0880d7, -5px 5px #0880d7, -6px 6px #0880d7, -7px 7px #0880d7, -8px 8px #0880d7, -9px 9px #0880d7, -10px 10px #0880d7, -11px 11px #0880d7, -12px 12px #0880d7, -13px 13px #0880d7, -14px 14px #0880d7, -15px 15px #0880d7, -16px 16px #0880d7, -17px 17px #0880d7, -18px 18px #0880d7, -19px 19px #0880d7, -20px 20px #0880d7, -21px 21px #0880d7, -22px 22px #0880d7, -23px 23px #0880d7, -24px 24px #0880d7, -25px 25px #0880d7, -26px 26px #0880d7, -27px 27px #0880d7, -28px 28px #0880d7, -29px 29px #0880d7, -30px 30px #0880d7, -31px 31px #0880d7, -32px 32px #0880d7, -33px 33px #0880d7, -34px 34px #0880d7, -35px 35px #0880d7, -36px 36px #0880d7, -37px 37px #0880d7, -38px 38px #0880d7, -39px 39px #0880d7, -40px 40px #0880d7, -41px 41px #0880d7, -42px 42px #0880d7, -43px 43px #0880d7, -44px 44px #0880d7, -45px 45px #0880d7, -46px 46px #0880d7, -47px 47px #0880d7, -48px 48px #0880d7, -49px 49px #0880d7, -50px 50px #0880d7, -51px 51px #0880d7, -52px 52px #0880d7, -53px 53px #0880d7, -54px 54px #0880d7, -55px 55px #0880d7, -56px 56px #0880d7, -57px 57px #0880d7, -58px 58px #0880d7, -59px 59px #0880d7, -60px 60px #0880d7, -61px 61px #0880d7, -62px 62px #0880d7, -63px 63px #0880d7, -64px 64px #0880d7, -65px 65px #0880d7, -66px 66px #0880d7, -67px 67px #0880d7, -68px 68px #0880d7, -69px 69px #0880d7, -70px 70px #0880d7, -71px 71px #0880d7, -72px 72px #0880d7, -73px 73px #0880d7, -74px 74px #0880d7, -75px 75px #0880d7, -76px 76px #0880d7, -77px 77px #0880d7, -78px 78px #0880d7, -79px 79px #0880d7, -80px 80px #0880d7, -81px 81px #0880d7, -82px 82px #0880d7, -83px 83px #0880d7, -84px 84px #0880d7, -85px 85px #0880d7;
+}
+
+.button-longshadow-left.button-primary:active, .button-longshadow-left.button-primary.active, .button-longshadow-left.button-primary.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-plain {
+  text-shadow: 0px 0px #e6e6e6, -1px 1px #e6e6e6, -2px 2px #e6e6e6, -3px 3px #e6e6e6, -4px 4px #e6e6e6, -5px 5px #e6e6e6, -6px 6px #e6e6e6, -7px 7px #e6e6e6, -8px 8px #e6e6e6, -9px 9px #e6e6e6, -10px 10px #e6e6e6, -11px 11px #e6e6e6, -12px 12px #e6e6e6, -13px 13px #e6e6e6, -14px 14px #e6e6e6, -15px 15px #e6e6e6, -16px 16px #e6e6e6, -17px 17px #e6e6e6, -18px 18px #e6e6e6, -19px 19px #e6e6e6, -20px 20px #e6e6e6, -21px 21px #e6e6e6, -22px 22px #e6e6e6, -23px 23px #e6e6e6, -24px 24px #e6e6e6, -25px 25px #e6e6e6, -26px 26px #e6e6e6, -27px 27px #e6e6e6, -28px 28px #e6e6e6, -29px 29px #e6e6e6, -30px 30px #e6e6e6, -31px 31px #e6e6e6, -32px 32px #e6e6e6, -33px 33px #e6e6e6, -34px 34px #e6e6e6, -35px 35px #e6e6e6, -36px 36px #e6e6e6, -37px 37px #e6e6e6, -38px 38px #e6e6e6, -39px 39px #e6e6e6, -40px 40px #e6e6e6, -41px 41px #e6e6e6, -42px 42px #e6e6e6, -43px 43px #e6e6e6, -44px 44px #e6e6e6, -45px 45px #e6e6e6, -46px 46px #e6e6e6, -47px 47px #e6e6e6, -48px 48px #e6e6e6, -49px 49px #e6e6e6, -50px 50px #e6e6e6, -51px 51px #e6e6e6, -52px 52px #e6e6e6, -53px 53px #e6e6e6, -54px 54px #e6e6e6, -55px 55px #e6e6e6, -56px 56px #e6e6e6, -57px 57px #e6e6e6, -58px 58px #e6e6e6, -59px 59px #e6e6e6, -60px 60px #e6e6e6, -61px 61px #e6e6e6, -62px 62px #e6e6e6, -63px 63px #e6e6e6, -64px 64px #e6e6e6, -65px 65px #e6e6e6, -66px 66px #e6e6e6, -67px 67px #e6e6e6, -68px 68px #e6e6e6, -69px 69px #e6e6e6, -70px 70px #e6e6e6, -71px 71px #e6e6e6, -72px 72px #e6e6e6, -73px 73px #e6e6e6, -74px 74px #e6e6e6, -75px 75px #e6e6e6, -76px 76px #e6e6e6, -77px 77px #e6e6e6, -78px 78px #e6e6e6, -79px 79px #e6e6e6, -80px 80px #e6e6e6, -81px 81px #e6e6e6, -82px 82px #e6e6e6, -83px 83px #e6e6e6, -84px 84px #e6e6e6, -85px 85px #e6e6e6;
+}
+
+.button-longshadow-left.button-plain:active, .button-longshadow-left.button-plain.active, .button-longshadow-left.button-plain.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-inverse {
+  text-shadow: 0px 0px #090909, -1px 1px #090909, -2px 2px #090909, -3px 3px #090909, -4px 4px #090909, -5px 5px #090909, -6px 6px #090909, -7px 7px #090909, -8px 8px #090909, -9px 9px #090909, -10px 10px #090909, -11px 11px #090909, -12px 12px #090909, -13px 13px #090909, -14px 14px #090909, -15px 15px #090909, -16px 16px #090909, -17px 17px #090909, -18px 18px #090909, -19px 19px #090909, -20px 20px #090909, -21px 21px #090909, -22px 22px #090909, -23px 23px #090909, -24px 24px #090909, -25px 25px #090909, -26px 26px #090909, -27px 27px #090909, -28px 28px #090909, -29px 29px #090909, -30px 30px #090909, -31px 31px #090909, -32px 32px #090909, -33px 33px #090909, -34px 34px #090909, -35px 35px #090909, -36px 36px #090909, -37px 37px #090909, -38px 38px #090909, -39px 39px #090909, -40px 40px #090909, -41px 41px #090909, -42px 42px #090909, -43px 43px #090909, -44px 44px #090909, -45px 45px #090909, -46px 46px #090909, -47px 47px #090909, -48px 48px #090909, -49px 49px #090909, -50px 50px #090909, -51px 51px #090909, -52px 52px #090909, -53px 53px #090909, -54px 54px #090909, -55px 55px #090909, -56px 56px #090909, -57px 57px #090909, -58px 58px #090909, -59px 59px #090909, -60px 60px #090909, -61px 61px #090909, -62px 62px #090909, -63px 63px #090909, -64px 64px #090909, -65px 65px #090909, -66px 66px #090909, -67px 67px #090909, -68px 68px #090909, -69px 69px #090909, -70px 70px #090909, -71px 71px #090909, -72px 72px #090909, -73px 73px #090909, -74px 74px #090909, -75px 75px #090909, -76px 76px #090909, -77px 77px #090909, -78px 78px #090909, -79px 79px #090909, -80px 80px #090909, -81px 81px #090909, -82px 82px #090909, -83px 83px #090909, -84px 84px #090909, -85px 85px #090909;
+}
+
+.button-longshadow-left.button-inverse:active, .button-longshadow-left.button-inverse.active, .button-longshadow-left.button-inverse.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-action {
+  text-shadow: 0px 0px #8bc220, -1px 1px #8bc220, -2px 2px #8bc220, -3px 3px #8bc220, -4px 4px #8bc220, -5px 5px #8bc220, -6px 6px #8bc220, -7px 7px #8bc220, -8px 8px #8bc220, -9px 9px #8bc220, -10px 10px #8bc220, -11px 11px #8bc220, -12px 12px #8bc220, -13px 13px #8bc220, -14px 14px #8bc220, -15px 15px #8bc220, -16px 16px #8bc220, -17px 17px #8bc220, -18px 18px #8bc220, -19px 19px #8bc220, -20px 20px #8bc220, -21px 21px #8bc220, -22px 22px #8bc220, -23px 23px #8bc220, -24px 24px #8bc220, -25px 25px #8bc220, -26px 26px #8bc220, -27px 27px #8bc220, -28px 28px #8bc220, -29px 29px #8bc220, -30px 30px #8bc220, -31px 31px #8bc220, -32px 32px #8bc220, -33px 33px #8bc220, -34px 34px #8bc220, -35px 35px #8bc220, -36px 36px #8bc220, -37px 37px #8bc220, -38px 38px #8bc220, -39px 39px #8bc220, -40px 40px #8bc220, -41px 41px #8bc220, -42px 42px #8bc220, -43px 43px #8bc220, -44px 44px #8bc220, -45px 45px #8bc220, -46px 46px #8bc220, -47px 47px #8bc220, -48px 48px #8bc220, -49px 49px #8bc220, -50px 50px #8bc220, -51px 51px #8bc220, -52px 52px #8bc220, -53px 53px #8bc220, -54px 54px #8bc220, -55px 55px #8bc220, -56px 56px #8bc220, -57px 57px #8bc220, -58px 58px #8bc220, -59px 59px #8bc220, -60px 60px #8bc220, -61px 61px #8bc220, -62px 62px #8bc220, -63px 63px #8bc220, -64px 64px #8bc220, -65px 65px #8bc220, -66px 66px #8bc220, -67px 67px #8bc220, -68px 68px #8bc220, -69px 69px #8bc220, -70px 70px #8bc220, -71px 71px #8bc220, -72px 72px #8bc220, -73px 73px #8bc220, -74px 74px #8bc220, -75px 75px #8bc220, -76px 76px #8bc220, -77px 77px #8bc220, -78px 78px #8bc220, -79px 79px #8bc220, -80px 80px #8bc220, -81px 81px #8bc220, -82px 82px #8bc220, -83px 83px #8bc220, -84px 84px #8bc220, -85px 85px #8bc220;
+}
+
+.button-longshadow-left.button-action:active, .button-longshadow-left.button-action.active, .button-longshadow-left.button-action.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-highlight {
+  text-shadow: 0px 0px #e59501, -1px 1px #e59501, -2px 2px #e59501, -3px 3px #e59501, -4px 4px #e59501, -5px 5px #e59501, -6px 6px #e59501, -7px 7px #e59501, -8px 8px #e59501, -9px 9px #e59501, -10px 10px #e59501, -11px 11px #e59501, -12px 12px #e59501, -13px 13px #e59501, -14px 14px #e59501, -15px 15px #e59501, -16px 16px #e59501, -17px 17px #e59501, -18px 18px #e59501, -19px 19px #e59501, -20px 20px #e59501, -21px 21px #e59501, -22px 22px #e59501, -23px 23px #e59501, -24px 24px #e59501, -25px 25px #e59501, -26px 26px #e59501, -27px 27px #e59501, -28px 28px #e59501, -29px 29px #e59501, -30px 30px #e59501, -31px 31px #e59501, -32px 32px #e59501, -33px 33px #e59501, -34px 34px #e59501, -35px 35px #e59501, -36px 36px #e59501, -37px 37px #e59501, -38px 38px #e59501, -39px 39px #e59501, -40px 40px #e59501, -41px 41px #e59501, -42px 42px #e59501, -43px 43px #e59501, -44px 44px #e59501, -45px 45px #e59501, -46px 46px #e59501, -47px 47px #e59501, -48px 48px #e59501, -49px 49px #e59501, -50px 50px #e59501, -51px 51px #e59501, -52px 52px #e59501, -53px 53px #e59501, -54px 54px #e59501, -55px 55px #e59501, -56px 56px #e59501, -57px 57px #e59501, -58px 58px #e59501, -59px 59px #e59501, -60px 60px #e59501, -61px 61px #e59501, -62px 62px #e59501, -63px 63px #e59501, -64px 64px #e59501, -65px 65px #e59501, -66px 66px #e59501, -67px 67px #e59501, -68px 68px #e59501, -69px 69px #e59501, -70px 70px #e59501, -71px 71px #e59501, -72px 72px #e59501, -73px 73px #e59501, -74px 74px #e59501, -75px 75px #e59501, -76px 76px #e59501, -77px 77px #e59501, -78px 78px #e59501, -79px 79px #e59501, -80px 80px #e59501, -81px 81px #e59501, -82px 82px #e59501, -83px 83px #e59501, -84px 84px #e59501, -85px 85px #e59501;
+}
+
+.button-longshadow-left.button-highlight:active, .button-longshadow-left.button-highlight.active, .button-longshadow-left.button-highlight.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-caution {
+  text-shadow: 0px 0px #ff1022, -1px 1px #ff1022, -2px 2px #ff1022, -3px 3px #ff1022, -4px 4px #ff1022, -5px 5px #ff1022, -6px 6px #ff1022, -7px 7px #ff1022, -8px 8px #ff1022, -9px 9px #ff1022, -10px 10px #ff1022, -11px 11px #ff1022, -12px 12px #ff1022, -13px 13px #ff1022, -14px 14px #ff1022, -15px 15px #ff1022, -16px 16px #ff1022, -17px 17px #ff1022, -18px 18px #ff1022, -19px 19px #ff1022, -20px 20px #ff1022, -21px 21px #ff1022, -22px 22px #ff1022, -23px 23px #ff1022, -24px 24px #ff1022, -25px 25px #ff1022, -26px 26px #ff1022, -27px 27px #ff1022, -28px 28px #ff1022, -29px 29px #ff1022, -30px 30px #ff1022, -31px 31px #ff1022, -32px 32px #ff1022, -33px 33px #ff1022, -34px 34px #ff1022, -35px 35px #ff1022, -36px 36px #ff1022, -37px 37px #ff1022, -38px 38px #ff1022, -39px 39px #ff1022, -40px 40px #ff1022, -41px 41px #ff1022, -42px 42px #ff1022, -43px 43px #ff1022, -44px 44px #ff1022, -45px 45px #ff1022, -46px 46px #ff1022, -47px 47px #ff1022, -48px 48px #ff1022, -49px 49px #ff1022, -50px 50px #ff1022, -51px 51px #ff1022, -52px 52px #ff1022, -53px 53px #ff1022, -54px 54px #ff1022, -55px 55px #ff1022, -56px 56px #ff1022, -57px 57px #ff1022, -58px 58px #ff1022, -59px 59px #ff1022, -60px 60px #ff1022, -61px 61px #ff1022, -62px 62px #ff1022, -63px 63px #ff1022, -64px 64px #ff1022, -65px 65px #ff1022, -66px 66px #ff1022, -67px 67px #ff1022, -68px 68px #ff1022, -69px 69px #ff1022, -70px 70px #ff1022, -71px 71px #ff1022, -72px 72px #ff1022, -73px 73px #ff1022, -74px 74px #ff1022, -75px 75px #ff1022, -76px 76px #ff1022, -77px 77px #ff1022, -78px 78px #ff1022, -79px 79px #ff1022, -80px 80px #ff1022, -81px 81px #ff1022, -82px 82px #ff1022, -83px 83px #ff1022, -84px 84px #ff1022, -85px 85px #ff1022;
+}
+
+.button-longshadow-left.button-caution:active, .button-longshadow-left.button-caution.active, .button-longshadow-left.button-caution.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.button-longshadow-left.button-royal {
+  text-shadow: 0px 0px #5246e2, -1px 1px #5246e2, -2px 2px #5246e2, -3px 3px #5246e2, -4px 4px #5246e2, -5px 5px #5246e2, -6px 6px #5246e2, -7px 7px #5246e2, -8px 8px #5246e2, -9px 9px #5246e2, -10px 10px #5246e2, -11px 11px #5246e2, -12px 12px #5246e2, -13px 13px #5246e2, -14px 14px #5246e2, -15px 15px #5246e2, -16px 16px #5246e2, -17px 17px #5246e2, -18px 18px #5246e2, -19px 19px #5246e2, -20px 20px #5246e2, -21px 21px #5246e2, -22px 22px #5246e2, -23px 23px #5246e2, -24px 24px #5246e2, -25px 25px #5246e2, -26px 26px #5246e2, -27px 27px #5246e2, -28px 28px #5246e2, -29px 29px #5246e2, -30px 30px #5246e2, -31px 31px #5246e2, -32px 32px #5246e2, -33px 33px #5246e2, -34px 34px #5246e2, -35px 35px #5246e2, -36px 36px #5246e2, -37px 37px #5246e2, -38px 38px #5246e2, -39px 39px #5246e2, -40px 40px #5246e2, -41px 41px #5246e2, -42px 42px #5246e2, -43px 43px #5246e2, -44px 44px #5246e2, -45px 45px #5246e2, -46px 46px #5246e2, -47px 47px #5246e2, -48px 48px #5246e2, -49px 49px #5246e2, -50px 50px #5246e2, -51px 51px #5246e2, -52px 52px #5246e2, -53px 53px #5246e2, -54px 54px #5246e2, -55px 55px #5246e2, -56px 56px #5246e2, -57px 57px #5246e2, -58px 58px #5246e2, -59px 59px #5246e2, -60px 60px #5246e2, -61px 61px #5246e2, -62px 62px #5246e2, -63px 63px #5246e2, -64px 64px #5246e2, -65px 65px #5246e2, -66px 66px #5246e2, -67px 67px #5246e2, -68px 68px #5246e2, -69px 69px #5246e2, -70px 70px #5246e2, -71px 71px #5246e2, -72px 72px #5246e2, -73px 73px #5246e2, -74px 74px #5246e2, -75px 75px #5246e2, -76px 76px #5246e2, -77px 77px #5246e2, -78px 78px #5246e2, -79px 79px #5246e2, -80px 80px #5246e2, -81px 81px #5246e2, -82px 82px #5246e2, -83px 83px #5246e2, -84px 84px #5246e2, -85px 85px #5246e2;
+}
+
+.button-longshadow-left.button-royal:active, .button-longshadow-left.button-royal.active, .button-longshadow-left.button-royal.is-active {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/*
+* Button Sizes
+*
+* This file creates the various button sizes
+* (ex. .button-large, .button-small, etc.)
+*/
+.button-giant {
+  font-size: 28px;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 70px;
+}
+
+.button-jumbo {
+  font-size: 24px;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 60px;
+}
+
+.button-large {
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 50px;
+}
+
+.button-normal {
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+}
+
+.button-small {
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 30px;
+}
+
+.button-tiny {
+  font-size: 9.6px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 24px;
+}
+
+.button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'],
+button,
+html [type='button'],
+[type='reset'],
+[type='submit'] {
+  -moz-appearance: button;
+  -webkit-appearance: button;
+ font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+.button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'],
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 6px;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.button::-moz-focus-inner,
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner,
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.button:-moz-focusring,
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring,
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.button:hover,
+button:hover,
+[type='button']:hover,
+[type='reset']:hover,
+[type='submit']:hover, .button:focus,
+button:focus,
+[type='button']:focus,
+[type='reset']:focus,
+[type='submit']:focus, .button:active,
+button:active,
+[type='button']:active,
+[type='reset']:active,
+[type='submit']:active,
+button:hover,
+button:focus,
+button:active,
+[type='button']:hover,
+[type='button']:focus,
+[type='button']:active,
+[type='reset']:hover,
+[type='reset']:focus,
+[type='reset']:active,
+[type='submit']:hover,
+[type='submit']:focus,
+[type='submit']:active {
+  text-decoration: none;
+  color: #000;
+}
+
+[disabled].button,
+button[disabled],
+[disabled][type='button'],
+[disabled][type='reset'],
+[disabled][type='submit'] {
+  cursor: default;
+  color: #999999;
+}
+
+[disabled].button:hover,
+button[disabled]:hover,
+[disabled][type='button']:hover,
+[disabled][type='reset']:hover,
+[disabled][type='submit']:hover, [disabled].button:focus,
+button[disabled]:focus,
+[disabled][type='button']:focus,
+[disabled][type='reset']:focus,
+[disabled][type='submit']:focus, [disabled].button:active,
+button[disabled]:active,
+[disabled][type='button']:active,
+[disabled][type='reset']:active,
+[disabled][type='submit']:active {
+  color: #999999;
+}
+
+div.field-name-field-vm-link {
+  color: white;
+  background-color: #2c577f;
+  font-size: x-large;
+  border: 1px solid #3a536c;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.field-name-field-vm-link a {
+  text-decoration: none;
+  color: white;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+fieldset {
+  padding: 0.525rem 0.9375rem 0.975rem;
+  border: 1px solid #cccccc;
+  margin: 0 2px;
+}
+
+legend {
+  box-sizing: border-box;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+  color: inherit;
+  margin-left: -5px;
+  padding: 0 5px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+textarea {
+  overflow: auto;
+}
+
+table {
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+  font-weight: normal;
+}
+
+tr {
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+
+tr.odd {
+  background-color: #eeeeee;
+}
+
+tr td {
+  white-space: nowrap;
+  max-width: 100%;
+  padding-right: 15px;
+}
+
+td.views-field-field-keywords {
+  white-space: normal;
+}
+
+tr td:last-of-type {
+  padding-left: 0;
+}
+
+td.active {
+  background-color: inherit !important;
+}
+
+.layout-3col {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.layout-3col:before {
+  content: "";
+  display: table;
+}
+
+.layout-3col:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.layout-3col__full, .layout-3col__left-content, .layout-3col__right-content, .layout-3col__left-sidebar, .layout-3col__right-sidebar, .layout-3col__first-left-sidebar, .layout-3col__second-left-sidebar, .layout-3col__col-1, .layout-3col__col-2, .layout-3col__col-3, .layout-3col__col-4, .layout-3col__col-x {
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+}
+
+[dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar, [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__second-left-sidebar, [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-4, [dir="rtl"] .layout-3col__col-x {
+  float: right;
+  margin-right: 0%;
+  margin-left: -100%;
+}
+
+.layout-3col__full {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+@media (min-width: 777px) {
+  .layout-3col {
+    margin-left: -12px;
+    margin-right: -13px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .layout-3col:before {
+    content: "";
+    display: table;
+  }
+  .layout-3col:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  [dir="rtl"] .layout-3col {
+    margin-left: -13px;
+    margin-right: -12px;
+  }
+  .layout-3col__full, .layout-3col__left-content, .layout-3col__right-content, .layout-3col__left-sidebar, .layout-3col__right-sidebar {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    clear: both;
+    padding-left: 12px;
+    padding-right: 13px;
+  }
+  [dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar {
+    float: right;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  [dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar {
+    padding-left: 13px;
+    padding-right: 12px;
+  }
+  .layout-3col__full {
+    padding-left: 50px;
+    padding-right: 25px;
+  }
+  .layout-3col__first-left-sidebar, .layout-3col__col-1, .layout-3col__col-3, .layout-3col__col-x:nth-child(2n + 1) {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 12px;
+    padding-right: 13px;
+  }
+  [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-x:nth-child(2n + 1) {
+    float: right;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-x:nth-child(2n + 1) {
+    padding-left: 13px;
+    padding-right: 12px;
+  }
+  .layout-3col__second-left-sidebar, .layout-3col__col-2, .layout-3col__col-4, .layout-3col__col-x:nth-child(2n) {
+    clear: none;
+    float: left;
+    width: 50%;
+    margin-left: 50%;
+    margin-right: -100%;
+    padding-left: 12px;
+    padding-right: 13px;
+  }
+  [dir="rtl"] .layout-3col__second-left-sidebar, [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-4, [dir="rtl"] .layout-3col__col-x:nth-child(2n) {
+    float: right;
+    margin-right: 50%;
+    margin-left: -100%;
+  }
+  [dir="rtl"] .layout-3col__second-left-sidebar, [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-4, [dir="rtl"] .layout-3col__col-x:nth-child(2n) {
+    padding-left: 13px;
+    padding-right: 12px;
+  }
+}
+
+@media (min-width: 999px) {
+  .layout-3col__full {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 50px;
+    padding-right: 25px;
+  }
+  [dir="rtl"] .layout-3col__full {
+    float: right;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  .layout-3col__left-content {
+    float: left;
+    width: 66.66667%;
+    margin-left: 0%;
+    margin-right: -100%;
+  }
+  [dir="rtl"] .layout-3col__left-content {
+    float: right;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  .layout-3col__right-content {
+    float: left;
+    width: 66.66667%;
+    margin-left: 33.33333%;
+    margin-right: -100%;
+    clear: none;
+  }
+  [dir="rtl"] .layout-3col__right-content {
+    float: right;
+    margin-right: 33.33333%;
+    margin-left: -100%;
+  }
+  .layout-3col__left-sidebar, .layout-3col__first-left-sidebar, .layout-3col__second-left-sidebar {
+    clear: right;
+    float: right;
+    width: 33.33333%;
+    margin-right: 66.66667%;
+    margin-left: -100%;
+  }
+  [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__second-left-sidebar {
+    clear: left;
+  }
+  [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__second-left-sidebar {
+    float: left;
+    margin-left: 66.66667%;
+    margin-right: -100%;
+  }
+  .layout-3col__right-sidebar {
+    clear: right;
+    float: right;
+    width: 33.33333%;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  [dir="rtl"] .layout-3col__right-sidebar {
+    clear: left;
+  }
+  [dir="rtl"] .layout-3col__right-sidebar {
+    float: left;
+    margin-left: 0%;
+    margin-right: -100%;
+  }
+  .layout-3col__col-1, .layout-3col__col-x:nth-child(3n+1) {
+    clear: both;
+    float: left;
+    width: 33.33333%;
+    margin-left: 0%;
+    margin-right: -100%;
+  }
+  [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-x:nth-child(3n+1) {
+    float: right;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+  .layout-3col__col-2, .layout-3col__col-x:nth-child(3n+2) {
+    clear: none;
+    float: left;
+    width: 33.33333%;
+    margin-left: 33.33333%;
+    margin-right: -100%;
+  }
+  [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-x:nth-child(3n+2) {
+    float: right;
+    margin-right: 33.33333%;
+    margin-left: -100%;
+  }
+  .layout-3col__col-3, .layout-3col__col-x:nth-child(3n) {
+    clear: none;
+    float: left;
+    width: 33.33333%;
+    margin-left: 66.66667%;
+    margin-right: -100%;
+  }
+  [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-x:nth-child(3n) {
+    float: right;
+    margin-right: 66.66667%;
+    margin-left: -100%;
+  }
+  .layout-3col__col-4 {
+    display: none;
+  }
+}
+
+.layout-3col__grid-item-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.layout-3col__grid-item-container:before {
+  content: "";
+  display: table;
+}
+
+.layout-3col__grid-item-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.layout-6col {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.layout-6col:before {
+  content: "";
+  display: table;
+}
+
+.layout-6col:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.layout-6col__right-content {
+  float: left;
+  width: 83.33333%;
+  margin-left: 16.66667%;
+  margin-right: -100%;
+}
+
+[dir="rtl"] .layout-6col__right-content {
+  float: right;
+  margin-right: 16.66667%;
+  margin-left: -100%;
+}
+
+.layout-6col__left-sidebar {
+  float: left;
+  width: 16.66667%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 3%;
+}
+
+[dir="rtl"] .layout-6col__left-sidebar {
+  float: right;
+  margin-right: 0%;
+  margin-left: -100%;
+}
+
+.layout-6col__grid-item-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.layout-6col__grid-item-container:before {
+  content: "";
+  display: table;
+}
+
+.layout-6col__grid-item-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.layout-center {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 1825px;
+}
+
+@media (min-width: 777px) {
+  .layout-center {
+    padding-left: 12px;
+    padding-right: 13px;
+  }
+  [dir="rtl"] .layout-center {
+    padding-left: 13px;
+    padding-right: 12px;
+  }
+}
+
+.layout-center--shared-grid,
+.layout-center.layout-3col,
+.layout-center.layout-6col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.layout-swap {
+  position: relative;
+}
+
+.front .layout-swap {
+  background-color: #F6F6F6;
+}
+
+@media (min-width: 555px) {
+  .layout-swap {
+    padding-top: 48px;
+  }
+}
+
+@media (min-width: 555px) {
+  .layout-swap__top {
+    position: absolute;
+    top: 0;
+    height: 48px;
+    width: 100%;
+  }
+}
+
+.box {
+  margin-bottom: 1.5rem;
+  border: 5px solid #cccccc;
+  padding: 1em;
+}
+
+.box__title {
+  margin: 0;
+}
+
+.box:focus, .box:hover, .box.is-focus, .box--is-focus {
+  border-color: #000;
+}
+
+.box--highlight {
+  border-color: #b52e1c;
+}
+
+.clearfix:before,
+.header:before,
+.tabs:before {
+  content: '';
+  display: table;
+}
+
+.clearfix:after,
+.header:after,
+.tabs:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.comment__section,
+.comments {
+  margin: 1.5rem 0;
+}
+
+.comment__title {
+  margin: 0;
+}
+
+.comment__permalink {
+  text-transform: uppercase;
+  font-size: 75%;
+}
+
+.comment--preview,
+.comment-preview {
+  background-color: #fffadb;
+}
+
+.comment--nested,
+.indented {
+  margin-left: 32px;
+}
+
+[dir="rtl"] .comment--nested,
+[dir="rtl"] .indented {
+  margin-left: 0;
+  margin-right: 32px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+footer div#global-footer,
+footer p.copyright {
+  text-align: center;
+}
+
+footer #block-system-user-menu ul {
+  background: #666666;
+}
+
+footer #block-system-user-menu ul li {
+  list-style: none !important;
+  float: left;
+  padding-left: 10px;
+  font-variant: all-small-caps;
+}
+
+.header {
+  margin-left: 25px;
+  padding-top: 24px;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 860px) {
+  .header {
+    margin-top: 0;
+  }
+}
+
+.header__logo {
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+[dir="rtl"] .header__logo {
+  float: right;
+  margin: 0 0 0 10px;
+}
+
+.header__logo-image {
+  max-height: 100px;
+  vertical-align: bottom;
+}
+
+.header__name-and-slogan {
+  float: left;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+  color: black;
+  padding-top: 0;
+}
+
+@media (min-width: 860px) {
+  .header__name-and-slogan {
+    padding-top: 24px;
+  }
+}
+
+.header__site-name {
+  font-size: 36pt;
+  margin: 0;
+}
+
+.header__site-link {
+  color: black;
+}
+
+.header__site-link:link, .header__site-link:visited {
+  text-decoration: none;
+}
+
+.header__site-link:hover, .header__site-link:focus {
+  text-decoration: underline;
+}
+
+.header__site-slogan {
+  margin: 5px 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.header__secondary-menu {
+  float: right;
+}
+
+[dir="rtl"] .header__secondary-menu {
+  float: left;
+}
+
+.header__region {
+  clear: both;
+}
+
+.hidden,
+html.js .js-hidden,
+html.js .element-hidden,
+html.js .js-hide {
+  display: none;
+}
+
+.highlight-mark,
+.new,
+.update {
+  color: #c00;
+  background-color: transparent;
+}
+
+.inline-links,
+.inline.links {
+  padding: 0;
+}
+
+.inline-links__item,
+.inline.links li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0;
+}
+
+[dir="rtl"] .inline-links__item,
+[dir="rtl"] .inline.links li,
+.inline.links [dir="rtl"] li {
+  display: inline-block;
+  padding: 0 0 0 1em;
+}
+
+.inline-sibling,
+.field-label-inline .field-label,
+span.field-label {
+  display: inline;
+  margin-right: 10px;
+}
+
+[dir="rtl"] .inline-sibling,
+[dir="rtl"] .field-label-inline .field-label,
+.field-label-inline [dir="rtl"] .field-label,
+[dir="rtl"] span.field-label {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.inline-sibling__child,
+.inline-sibling *, .field-label-inline .field-label *, span.field-label * {
+  display: inline;
+}
+
+.inline-sibling__adjacent,
+.inline-sibling + *,
+.inline-sibling + * > :first-child,
+.inline-sibling + * > :first-child > :first-child, .field-label-inline .field-label + *, span.field-label + *, .field-label-inline .field-label + * > :first-child, span.field-label + * > :first-child, .field-label-inline .field-label + * > :first-child > :first-child, span.field-label + * > :first-child > :first-child {
+  display: inline;
+}
+
+.field-label-inline .field-label,
+.field-label-inline .field-items {
+  float: none;
+}
+
+.messages,
+.messages--status {
+  margin: 1.5rem 0;
+  position: relative;
+  padding: 10px 10px 10px 44px;
+  border: 1px solid #0072b9;
+}
+
+[dir="rtl"] .messages,
+[dir="rtl"] .messages--status {
+  padding: 10px 44px 10px 10px;
+  background-position: 99% 8px;
+}
+
+.messages__icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  height: 24px;
+  width: 24px;
+  margin-top: -12px;
+  line-height: 1;
+}
+
+[dir="rtl"] .messages__icon {
+  left: auto;
+  right: 0;
+}
+
+.messages__icon path {
+  fill: #0072b9;
+}
+
+.messages__highlight,
+.messages--error .error,
+.messages.error .error {
+  color: #000;
+}
+
+.messages__list {
+  margin: 0;
+}
+
+.messages__item {
+  list-style-image: none;
+}
+
+.messages--ok-color,
+.messages,
+.messages--status,
+.ok,
+.revision-current {
+  background-color: #f6fcff;
+  color: #0072b9;
+}
+
+.messages--warning-color,
+.messages--warning,
+.messages.warning,
+.warning {
+  background-color: #fffce6;
+  color: #000;
+}
+
+.messages--error-color,
+.messages--error,
+.messages.error,
+.error {
+  background-color: #fff0f0;
+  color: #c00;
+}
+
+.messages--warning,
+.messages.warning {
+  border-color: #fd0;
+}
+
+.messages--warning path, .messages.warning path {
+  fill: #fd0;
+}
+
+.messages--error,
+.messages.error {
+  border-color: #c00;
+}
+
+.messages--error path, .messages.error path {
+  fill: #c00;
+}
+
+@media print {
+  .print-none,
+  .toolbar,
+  .action-links,
+  .links,
+  .book-navigation,
+  .forum-topic-navigation,
+  .feed-icons {
+    display: none;
+  }
+}
+
+.responsive-video,
+.media-youtube-video,
+.media-vimeo-preview-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.responsive-video__embed,
+.responsive-video iframe,
+.media-youtube-video iframe,
+.media-vimeo-preview-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.responsive-video--4-3 {
+  padding-bottom: 75%;
+}
+
+.visually-hidden,
+.element-invisible,
+.element-focusable,
+.breadcrumb__title,
+.main-navigation .block-menu .block__title,
+.main-navigation .block-menu-block .block__title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal;
+}
+
+.visually-hidden--off,
+.visually-hidden--focusable:active,
+.visually-hidden--focusable:focus,
+.element-focusable:active,
+.element-focusable:focus {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: visible;
+}
+
+.watermark {
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  height: 0;
+  overflow: visible;
+  background-color: transparent;
+  color: #eeeeee;
+  font-size: 75px;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content {
+  padding-top: 2rem;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content:before {
+  content: "";
+  display: table;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .grid-item {
+  padding-top: 1em;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .promoted-true {
+  background-color: rgba(200, 200, 200, 0.25);
+  border-radius: 15px;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 200px;
+  object-fit: cover;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-field-field-short-title,
+/*.layout-6col*/ .view-id-texts .view-content .views-field-field-original-language-title {
+  font-size: small;
+  line-height: 1rem;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-field-field-icon {
+  padding-bottom: .5em;
+  padding-top: .5em;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  clear: both;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-column {
+  -webkit-box-align: center;
+          align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 5%;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-column-1 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 0%;
+  margin-right: -100%;
+}
+
+[dir="rtl"] /*.layout-6col*/ .view-id-texts .view-content .views-column-1 {
+  float: right;
+  margin-right: 0%;
+  margin-left: -100%;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-column-2 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 33.33333%;
+  margin-right: -100%;
+}
+
+[dir="rtl"] /*.layout-6col*/ .view-id-texts .view-content .views-column-2 {
+  float: right;
+  margin-right: 33.33333%;
+  margin-left: -100%;
+}
+
+/*.layout-6col*/ .view-id-texts .view-content .views-column-3 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 66.66667%;
+  margin-right: -100%;
+}
+
+[dir="rtl"] /*.layout-6col*/ .view-id-texts .view-content .views-column-3 {
+  float: right;
+  margin-right: 66.66667%;
+  margin-left: -100%;
+}
+
+/*.layout-6col*/ .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 1em !important;
+}
+
+#views-exposed-form-texts-page input#edit-reset {
+  margin-left: 0;
+}
+
+#views-exposed-form-texts-table-page input#edit-reset {
+  margin-top: 1em;
+}
+
+.view-id-texts .promoted-true::after {
+  content: '';
+  display: block;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  top: -150px;
+  left: 10px;
+  background-image: url("/sites/all/themes/gms_theme/images-source/star_icon.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 25px;
+  z-index: 100;
+}
+
+@media print {
+  .breadcrumb {
+    display: none;
+  }
+}
+
+.breadcrumb__list {
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb__item {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.more-link,
+.more-help-link {
+  text-align: right;
+}
+
+[dir="rtl"] .more-link,
+[dir="rtl"] .more-help-link {
+  text-align: left;
+}
+
+.more-link__help-icon,
+.more-help-link a {
+  padding: 1px 0 1px 20px;
+  background-image: url(../sass/navigation/more-link/more-link__help-icon.svg);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+}
+
+[dir="rtl"] .more-link__help-icon,
+[dir="rtl"] .more-help-link a,
+.more-help-link [dir="rtl"] a {
+  padding: 1px 20px 1px 0;
+  background-position: 100% 50%;
+}
+
+.nav-menu__item,
+.menu__item {
+  list-style-image: url(../sass/navigation/nav-menu/leaf.svg);
+  list-style-type: square;
+}
+
+.nav-menu__item.is-expanded, .nav-menu__item--is-expanded,
+.is-expanded.menu__item,
+.menu__item.is-expanded {
+  list-style-image: url(../sass/navigation/nav-menu/expanded.svg);
+  list-style-type: circle;
+}
+
+.nav-menu__item.is-collapsed, .nav-menu__item--is-collapsed,
+.is-collapsed.menu__item,
+.menu__item.is-collapsed {
+  list-style-image: url(../sass/navigation/nav-menu/collapsed.svg);
+  list-style-type: disc;
+}
+
+[dir="rtl"] .nav-menu__item.is-collapsed, [dir="rtl"] .nav-menu__item--is-collapsed,
+[dir="rtl"] .is-collapsed.menu__item,
+[dir="rtl"] .menu__item.is-collapsed {
+  list-style-image: url(../sass/navigation/nav-menu/collapsed-rtl.svg);
+}
+
+.nav-menu__link.is-active, .nav-menu__link--is-active,
+.menu a.active {
+  color: #000;
+}
+
+.navbar,
+.main-navigation .links,
+.main-navigation .menu {
+  margin-top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 0 0 0 40px;
+  text-align: left;
+  background: #666666;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+  z-index: 10;
+}
+
+[dir="rtl"] .navbar,
+[dir="rtl"] .main-navigation .links,
+.main-navigation [dir="rtl"] .links,
+[dir="rtl"]
+.main-navigation .menu,
+.main-navigation [dir="rtl"] .menu {
+  text-align: right;
+}
+
+.navbar__item,
+.navbar li, .main-navigation .links li,
+.main-navigation .menu li {
+  color: white;
+  float: left;
+  list-style-type: none;
+  list-style-image: none;
+  margin-right: 0;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.navbar__item:hover,
+.navbar li:hover, .main-navigation .links li:hover,
+.main-navigation .menu li:hover {
+  background-color: #0072b9;
+}
+
+.navbar__item.active,
+.navbar li.active, .main-navigation .links li.active,
+.main-navigation .menu li.active {
+  background-color: black;
+}
+
+.navbar__item a,
+.navbar li a, .main-navigation .links li a,
+.main-navigation .menu li a {
+  padding: 2px 6px;
+  font-weight: normal;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+
+[dir="rtl"] .navbar__item, [dir="rtl"]
+.navbar li, [dir="rtl"] .main-navigation .links li, .main-navigation [dir="rtl"] .links li, [dir="rtl"]
+.main-navigation .menu li,
+.main-navigation [dir="rtl"] .menu li {
+  float: right;
+  padding: 0 0 0 10px;
+}
+
+.pager {
+  clear: both;
+  padding: 0;
+  text-align: center;
+}
+
+@media print {
+  .pager {
+    display: none;
+  }
+}
+
+.pager__item,
+.pager__current-item,
+.pager-current,
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last,
+.pager-ellipsis {
+  display: inline;
+  padding: 0 .5em;
+  list-style-type: none;
+  background-image: none;
+}
+
+.pager__current-item,
+.pager-current {
+  font-weight: bold;
+}
+
+.skip-link {
+  display: block;
+  padding: 2px 0 3px;
+  text-align: center;
+}
+
+.skip-link:link, .skip-link:visited {
+  background-color: #666666;
+  color: #fff;
+}
+
+.skip-link__wrapper {
+  margin: 0;
+}
+
+@media print {
+  .skip-link__wrapper {
+    display: none;
+  }
+}
+
+.tabs {
+  margin: 1.125rem 0 0;
+  line-height: 1.875rem;
+  border-bottom: 1px solid #cccccc \0/ie;
+  background-image: linear-gradient(to top, #cccccc 1px, transparent 1px);
+  padding: 0 2px;
+  list-style: none;
+  white-space: nowrap;
+}
+
+@media print {
+  .tabs {
+    display: none;
+  }
+}
+
+.tabs__tab {
+  float: left;
+  margin: 0 3px;
+  border: 1px solid #cccccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-color: transparent;
+  border-bottom: 0 \0/ie;
+  overflow: hidden;
+  background: #dddddd;
+}
+
+[dir="rtl"] .tabs__tab {
+  float: right;
+}
+
+.tabs__tab.is-active {
+  border-bottom-color: #fff;
+}
+
+.tabs__tab-link {
+  padding: 0 1.5rem;
+  display: block;
+  text-decoration: none;
+  transition: color .3s, background .3s, border .3s;
+  text-shadow: #fff 0 1px 0;
+  color: #000;
+  background: #dddddd;
+  letter-spacing: 1px;
+}
+
+.tabs__tab-link:focus, .tabs__tab-link:hover {
+  background: #eaeaea;
+}
+
+.tabs__tab-link:active, .tabs__tab-link.is-active, .tabs__tab-link--is-active {
+  background: #fff;
+  text-shadow: none;
+}
+
+.tabs--off,
+.views-displays .secondary {
+  margin: 0;
+  border-bottom: 0;
+  padding: 0;
+  background-image: none;
+}
+
+.tabs--secondary {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  background-image: none;
+}
+
+.tabs + .tabs--secondary {
+  margin-top: 0;
+  background-image: linear-gradient(to top, #cccccc 1px, transparent 1px);
+}
+
+.tabs--secondary .tabs__tab {
+  margin: 0.5625rem 0.1875rem;
+  border: 0;
+  background: transparent;
+}
+
+[dir="rtl"] .tabs--secondary .tabs__tab {
+  float: right;
+}
+
+.tabs--secondary .tabs__tab.is-active {
+  border-bottom-color: transparent;
+}
+
+.tabs--secondary .tabs__tab-link {
+  border: 1px solid #cccccc;
+  border-radius: 24px;
+  color: #666666;
+  background: #f1f1f1;
+  letter-spacing: normal;
+}
+
+.tabs--secondary .tabs__tab-link:focus, .tabs--secondary .tabs__tab-link:hover {
+  color: #333333;
+  background: #dddddd;
+  border-color: #999999;
+}
+
+.tabs--secondary .tabs__tab-link:active, .tabs--secondary .tabs__tab-link.is-active, .tabs--secondary .tabs__tab-link--is-active {
+  color: white;
+  text-shadow: #333333 0 1px 0;
+  background: #666666;
+  border-color: black;
+}
+
+.autocomplete,
+.form-autocomplete {
+  background-image: url(../sass/forms/autocomplete/throbber-inactive.png);
+  background-position: 100% center;
+  background-repeat: no-repeat;
+}
+
+[dir="rtl"] .autocomplete,
+[dir="rtl"] .form-autocomplete {
+  background-position: 0% center;
+}
+
+.autocomplete__list-wrapper,
+#autocomplete {
+  border: 1px solid;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+
+.autocomplete__list,
+#autocomplete ul {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+.autocomplete__list-item,
+#autocomplete li {
+  background: #fff;
+  color: #000;
+  cursor: default;
+  white-space: pre;
+}
+
+.autocomplete__list-item.is-selected, .autocomplete__list-item--is-selected,
+#autocomplete li.is-selected,
+#autocomplete .selected {
+  background: #0072b9;
+  color: #fff;
+}
+
+.autocomplete.is-throbbing, .autocomplete--is-throbbing,
+.is-throbbing.form-autocomplete,
+.form-autocomplete.throbbing {
+  background-image: url(../sass/forms/autocomplete/throbber-active.gif);
+}
+
+.collapsible-fieldset,
+.collapsible {
+  position: relative;
+}
+
+.collapsible-fieldset__legend,
+.collapsible .fieldset-legend {
+  display: block;
+  padding-left: 15px;
+  background-image: url(../sass/forms/collapsible-fieldset/expanded.svg);
+  background-position: 4px 50%;
+  background-repeat: no-repeat;
+}
+
+[dir="rtl"] .collapsible-fieldset__legend,
+[dir="rtl"] .collapsible .fieldset-legend,
+.collapsible [dir="rtl"] .fieldset-legend {
+  padding-left: 0;
+  padding-right: 15px;
+  background-position: right 4px top 50%;
+}
+
+.collapsible-fieldset__summary,
+.collapsible .fieldset-legend .summary {
+  color: #999999;
+  font-size: .9em;
+  margin-left: .5em;
+}
+
+.collapsible-fieldset.is-collapsed, .collapsible-fieldset--is-collapsed,
+.is-collapsed.collapsible,
+.collapsible.collapsed {
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  height: 1em;
+}
+
+.collapsible-fieldset.is-collapsed .collapsible-fieldset__wrapper, .collapsible-fieldset--is-collapsed__wrapper, .is-collapsed.collapsible .collapsible-fieldset__wrapper,
+.collapsible.collapsed .fieldset-wrapper {
+  display: none;
+}
+
+.collapsible-fieldset.is-collapsed .collapsible-fieldset__legend, .collapsible-fieldset--is-collapsed__legend, .is-collapsed.collapsible .collapsible-fieldset__legend,
+.collapsible.collapsed .fieldset-legend,
+.collapsible-fieldset.is-collapsed .collapsible .fieldset-legend,
+.collapsible .collapsible-fieldset.is-collapsed .fieldset-legend,
+.is-collapsed.collapsible .fieldset-legend {
+  background-image: url(../sass/forms/collapsible-fieldset/collapsed.svg);
+  background-position: 4px 50%;
+}
+
+[dir="rtl"] .collapsible-fieldset.is-collapsed .collapsible-fieldset__legend, [dir="rtl"] .collapsible-fieldset--is-collapsed__legend, [dir="rtl"] .is-collapsed.collapsible .collapsible-fieldset__legend,
+[dir="rtl"] .collapsible.collapsed .fieldset-legend,
+.collapsible.collapsed [dir="rtl"] .fieldset-legend,
+[dir="rtl"] .collapsible-fieldset.is-collapsed .collapsible .fieldset-legend,
+.collapsible [dir="rtl"] .collapsible-fieldset.is-collapsed .fieldset-legend,
+[dir="rtl"] .is-collapsed.collapsible .fieldset-legend {
+  background-image: url(../sass/forms/collapsible-fieldset/collapsed-rtl.svg);
+  background-position: right 4px top 50%;
+}
+
+.form-item {
+  margin: 1.5rem 0;
+}
+
+.form-item__required,
+.form-required {
+  color: #c00;
+}
+
+.form-item__description,
+.form-item .description {
+  font-size: 0.875rem;
+}
+
+.form-item--inline div,
+.form-item--inline label, .container-inline .form-item div, .container-inline .form-item label {
+  display: inline;
+}
+
+.form-item--inline__exception,
+.container-inline .fieldset-wrapper {
+  display: block;
+}
+
+.form-item--tight,
+.form-item--radio,
+.form-type-radio,
+.form-type-checkbox,
+.password-parent,
+.confirm-parent,
+table .form-item {
+  margin: 0;
+}
+
+.form-item--radio .form-item__label, .form-item--radio__label, .form-type-radio .form-item__label,
+.form-type-checkbox .form-item__label,
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+.form-item--radio .form-item__description, .form-item--radio__description, .form-type-radio .form-item__description,
+.form-type-checkbox .form-item__description,
+.form-type-radio .description,
+.form-type-checkbox .description,
+.form-item--radio .form-item .description,
+.form-item .form-item--radio .description,
+.form-type-radio .form-item .description,
+.form-item .form-type-radio .description,
+.form-type-checkbox .form-item .description,
+.form-item
+.form-type-checkbox .description {
+  margin-left: 1.4em;
+}
+
+.form-item.is-error .form-item__widget, .form-item--is-error__widget,
+.form-item.is-error input,
+.form-item.is-error textarea,
+.form-item.is-error select,
+.form-item--is-error input,
+.form-item--is-error textarea,
+.form-item--is-error select,
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #c00;
+}
+
+div#block-views-exp-texts-page .views-exposed-form div.chosen-container {
+  max-width: 150px;
+}
+
+.form-table__sticky-header,
+.sticky-header {
+  position: fixed;
+  visibility: hidden;
+  margin-top: 0;
+  background-color: #fff;
+}
+
+.form-table__sticky-header.is-sticky, .form-table__sticky-header--is-sticky,
+.is-sticky.sticky-header {
+  visibility: visible;
+}
+
+.form-table__header,
+.form-table th,
+form table th {
+  border-bottom: 3px solid #cccccc;
+  padding-right: 1em;
+  text-align: left;
+}
+
+[dir="rtl"] .form-table__header,
+[dir="rtl"] .form-table th,
+.form-table [dir="rtl"] th,
+[dir="rtl"] form table th,
+form table [dir="rtl"] th {
+  text-align: right;
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.form-table__body,
+.form-table tbody,
+form table tbody {
+  border-top: 1px solid #cccccc;
+}
+
+.form-table__row,
+.form-table tbody tr,
+form table tbody tr {
+  padding: .1em .6em;
+  border-bottom: 1px solid #cccccc;
+  background-color: #eeeeee;
+}
+
+.form-table__row:nth-child(even),
+.form-table tbody tr:nth-child(even),
+form table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.form-table__row.is-active, .form-table__row--is-active,
+.form-table tbody tr.is-active,
+form table tbody tr.is-active,
+td.active {
+  background-color: #dddddd;
+}
+
+.form-table__row.is-disabled, .form-table__row--is-disabled,
+.form-table tbody tr.is-disabled,
+form table tbody tr.is-disabled,
+td.menu-disabled {
+  background: #cccccc;
+}
+
+.form-table__row.is-selected, .form-table__row--is-selected,
+.form-table tbody tr.is-selected,
+form table tbody tr.is-selected,
+tr.selected td {
+  background: #fffdf0;
+}
+
+.form-table__list,
+.form-table ul,
+form table ul {
+  margin: 0;
+}
+
+.form-table__narrow-column,
+.form-table th.form-table__narrow-column,
+form table th.form-table__narrow-column,
+td .checkbox,
+th .checkbox {
+  width: -moz-min-content;
+  width: -webkit-min-content;
+  text-align: center;
+}
+
+.progress-bar,
+.progress {
+  font-weight: bold;
+}
+
+.progress-bar__bar,
+.progress .bar {
+  border-radius: 3px;
+  margin: 0 .2em;
+  border: 1px solid #666666;
+  background-color: #cccccc;
+}
+
+.progress-bar__fill,
+.progress .filled {
+  height: 1.5em;
+  width: 5px;
+  background: #0072b9 url(../sass/forms/progress-bar/progress-bar.gif) repeat 0 0;
+}
+
+.progress-bar__percentage,
+.progress .percentage {
+  float: right;
+}
+
+[dir="rtl"] .progress-bar__percentage,
+[dir="rtl"] .progress .percentage,
+.progress [dir="rtl"] .percentage {
+  float: left;
+}
+
+.progress-bar--inline,
+.ajax-progress-bar {
+  width: 16em;
+  display: inline-block;
+}
+
+[dir="rtl"] .progress-bar--inline,
+[dir="rtl"] .ajax-progress-bar {
+  float: right;
+}
+
+.progress-throbber,
+.ajax-progress {
+  display: inline-block;
+}
+
+[dir="rtl"] .progress-throbber,
+[dir="rtl"] .ajax-progress {
+  float: right;
+}
+
+.progress-throbber__widget,
+.ajax-progress .throbber {
+  background: url(../sass/forms/progress-throbber/progress-throbber.gif) no-repeat 0 -18px transparent;
+  float: left;
+  height: 15px;
+  margin: 2px;
+  width: 15px;
+}
+
+[dir="rtl"] .progress-throbber__widget,
+[dir="rtl"] .ajax-progress .throbber,
+.ajax-progress [dir="rtl"] .throbber {
+  float: right;
+}
+
+.progress-throbber__widget-in-tr,
+tr .ajax-progress .throbber {
+  margin: 0 2px;
+}
+
+.progress-throbber__message,
+.ajax-progress .message {
+  padding-left: 20px;
+}
+
+.resizable-textarea,
+.resizable-textarea textarea {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.resizable-textarea__grippie,
+.resizable-textarea .grippie {
+  background: url(../sass/forms/resizable-textarea/grippie.png) no-repeat center 2px #eeeeee;
+  border: 1px solid #cccccc;
+  border-top-width: 0;
+  cursor: s-resize;
+  height: 9px;
+  overflow: hidden;
+}
+
+.table-drag__wrapper,
+body.drag {
+  cursor: move;
+}
+
+.table-drag__item,
+tr.drag {
+  background-color: #fffadb;
+}
+
+.table-drag__item-previous,
+tr.drag-previous {
+  background-color: #fff7c2;
+}
+
+.table-drag__handle,
+.tabledrag-handle {
+  cursor: move;
+  float: left;
+  height: 1.7em;
+  margin-left: -1em;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+[dir="rtl"] .table-drag__handle,
+[dir="rtl"] .tabledrag-handle {
+  float: right;
+  margin-right: -1em;
+  margin-left: 0;
+}
+
+.table-drag__handle:focus, .table-drag__handle:hover,
+.tabledrag-handle:focus,
+.tabledrag-handle:hover {
+  text-decoration: none;
+}
+
+.table-drag__handle-icon,
+.tabledrag-handle .handle {
+  box-sizing: content-box;
+  background: url(../sass/forms/table-drag/handle-icon.png) no-repeat 6px 9px;
+  height: 13px;
+  margin: -.4em .5em;
+  padding: .42em .5em;
+  width: 13px;
+}
+
+.table-drag__handle.is-hover .table-drag__handle-icon, .table-drag__handle-icon--is-hover, .is-hover.tabledrag-handle .table-drag__handle-icon,
+.tabledrag-handle-hover .handle,
+.table-drag__handle.is-hover .tabledrag-handle .handle,
+.tabledrag-handle .table-drag__handle.is-hover .handle,
+.is-hover.tabledrag-handle .handle {
+  background-position: 6px -11px;
+}
+
+.table-drag__toggle-weight-wrapper,
+.tabledrag-toggle-weight-wrapper {
+  text-align: right;
+}
+
+[dir="rtl"] .table-drag__toggle-weight-wrapper,
+[dir="rtl"] .tabledrag-toggle-weight-wrapper {
+  text-align: left;
+}
+
+.table-drag__toggle-weight,
+.tabledrag-toggle-weight {
+  font-size: .9em;
+}
+
+.table-drag__indentation,
+.indentation {
+  float: left;
+  height: 1.7em;
+  margin: -.4em .2em -.4em -.4em;
+  padding: .42em 0 .42em .6em;
+  width: 20px;
+}
+
+[dir="rtl"] .table-drag__indentation,
+[dir="rtl"] .indentation {
+  float: right;
+  margin: -.4em -.4em -.4em .2em;
+  padding: .42em .6em .42em 0;
+}
+
+.table-drag__tree-child,
+.table-drag__tree-child-last,
+.tree-child-last,
+.table-drag__tree-child-horizontal,
+.tree-child-horizontal,
+.tree-child {
+  background: url(../sass/forms/table-drag/tree-child.png) no-repeat 11px center;
+}
+
+[dir="rtl"] .table-drag__tree-child,
+[dir="rtl"] .table-drag__tree-child-last,
+[dir="rtl"] .tree-child-last,
+[dir="rtl"] .table-drag__tree-child-horizontal,
+[dir="rtl"] .tree-child-horizontal,
+[dir="rtl"] .tree-child {
+  background-position: -65px center;
+}
+
+.table-drag__tree-child-last,
+.tree-child-last {
+  background-image: url(../sass/forms/table-drag/tree-child-last.png);
+}
+
+.table-drag__tree-child-horizontal,
+.tree-child-horizontal {
+  background-position: -11px center;
+}
+
+/*slider*/
+.view-content #flexslider-1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  min-height: 370px;
+  min-height: 20rem;
+  box-shadow: 1px 1px 4px #bdbdbd;
+}
+
+.flex-active-slide .field-content {
+  width: 55%;
+  float: left;
+  overflow: scroll;
+  font-size: 105%;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+.views-field-body .field-content {
+  padding-bottom: 2rem;
+}
+
+.views-field-field-collection-type {
+  font-weight: 700;
+  font-size: 12px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  display: inline-block;
+  white-space: nowrap;
+  
+  float: left;
+  padding: 4px 6px;
+  padding: 0.25rem 0.375rem;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  margin-top: 3rem;
+}
+
+.flex-direction-nav a {
+  overflow: visible;
+}
+
+.flex-control-nav {
+  bottom: 10px;
+}
+
+.flexslider .slides img {
+  width: 40%;
+  height: 40%;
+  float: right;
+  margin: 1em 0px 1em 40px;
+}
+
+.slides, .slides > li, .flex-control-nav, .flex-direction-nav {
+  padding: 0px 3rem;
+}
+
+h2.views-field.views-field-title {
+  margin-top: 6rem;
+  margin-bottom: 0;
+  max-width: 35rem;
+}
+
+.view.view-texts.view-id-texts.view-display-id-page {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1px;
+  background-color: white;
+  box-shadow: 1px 1px 4px #bdbdbd;
+}
+
+@media (max-width: 1000px) {
+  .flexslider .slides img {
+    display: none;
+  }
+
+  .flex-active-slide .slide-content {
+    width: 100%;
+  }
+}
+
+/*home page cards*/
+.grid-item .views-field-field-short-title {
+  background-color: #f7f2e9;
+  margin-top: -0.5rem;
+  padding-bottom: 2.3rem;
+  padding-top: 0.8rem;
+}
+
+.grid-item .views-field-field-short-title a{
+  font-weight: bolder;
+  font-size: 1rem;
+  font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+.grid-item .views-field-field-original-language-title {
+  margin-top: -1.7rem;
+}
+
+.grid-item .views-field-field-short-title, 
+.grid-item .views-field-field-original-language-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* footer */
+footer{
+  background: #666666;
+  color: #fff;
+  margin: 0;
+  margin-top:20px;
+  padding: 0;
+}
+
+.footer-wrap{
+  width: 90%;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+.section-1{
+  overflow: hidden;
+  float: left;
+  display: inline;
+  width: 25%;
+}
+
+.section-2{
+  overflow: hidden;
+  float: left;
+  display: block;
+  width: 75%;
+}
+
+.logos {
+   width: 300px;
+}
+
+.logos::after {
+  clear: both;
+  display: table;
+}
+
+.logo-container {
+   float: left;
+   width: 50%;
+   padding: 5px;
+}
+
+.footer h3 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+.section-2::after {
+  clear: both;
+  display: table;
+}
+
+.permissions-container-1 {
+   float: left;
+   width: 10%;
+   margin-right: 10px;
+}
+
+.permissions-container-2 {
+   float: left;
+   width: 80%;
+}
+
+.section-1 a{
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.section-2 a{
+  color: lightgray;
+  text-decoration: none;
+}
+
+/*timeline*/
+.tl-text-content {
+  width: 135%;
+  max-height: 20rem;
+  overflow: scroll;
+}
+
+.tl-media-content-container {
+  width: 80%;
+}
+
+#timelinejs-timelinejs-view-block {
+  margin: auto;
+}
+
